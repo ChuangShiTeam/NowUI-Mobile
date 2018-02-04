@@ -1,9 +1,7 @@
 import Vue from 'vue';
-
 import weex from 'weex-vue-render';
 
 window.weex.config.parameter = {};
-
 var parameterArray = window.location.search.slice(1).split('&');
 for (var i = 0; i < parameterArray.length; i++) {
     var parameter = parameterArray[i].split("=");

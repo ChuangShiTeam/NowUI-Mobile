@@ -65,26 +65,29 @@
 /******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */,
-/* 1 */,
-/* 2 */,
-/* 3 */,
-/* 4 */
+/******/ ({
+
+/***/ 30:
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c("div")
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+
+/***/ }),
+
+/***/ 4:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
-/* styles */
-__vue_styles__.push(__webpack_require__(5)
-)
-
 /* script */
-__vue_exports__ = __webpack_require__(6)
+__vue_exports__ = __webpack_require__(5)
 
 /* template */
-var __vue_template__ = __webpack_require__(7)
+var __vue_template__ = __webpack_require__(30)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -99,7 +102,6 @@ if (typeof __vue_options__ === "function") {
 __vue_options__.__file = "/Users/zhongyongqiang/Documents/Workspace/NowUI-Mobile/src/index.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-df99ef88"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {
@@ -118,18 +120,8 @@ new Vue(module.exports)
 
 
 /***/ }),
-/* 5 */
-/***/ (function(module, exports) {
 
-module.exports = {
-  "size": {
-    "width": "750",
-    "height": "1080"
-  }
-}
-
-/***/ }),
-/* 6 */
+/***/ 5:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -140,37 +132,14 @@ Object.defineProperty(exports, "__esModule", {
 });
 //
 //
-//
 
 exports.default = {
     data: function data() {
-        return {
-            posters: ['http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/320/h/320', 'http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/320/h/320', 'http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/320/h/320', 'http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/320/h/320', 'http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/320/h/320']
-        };
+        return {};
     },
     created: function created() {}
 };
 
-/***/ }),
-/* 7 */
-/***/ (function(module, exports) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: ["wrapper"]
-  }, [_c('slider', {
-    staticClass: ["size"]
-  }, _vm._l((_vm.posters), function(src) {
-    return _c('div', [_c('image', {
-      staticClass: ["size"],
-      attrs: {
-        "resize": "cover",
-        "src": src
-      }
-    })])
-  }))])
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-
 /***/ })
-/******/ ]);
+
+/******/ });

@@ -17,7 +17,7 @@
   "name": "NowUI-Mobile",
   "description": "A weex project",
   "version": "1.0.0",
-  "author": "NowUI <nowui@163.com>",
+  "author": "NowUI",
   "unit": false,
   "autoInstall": "npm"
 }
