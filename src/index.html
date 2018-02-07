@@ -7,25 +7,32 @@
                  @wxcTabBarCurrentTabSelected="wxcTabBarCurrentTabSelected">
         <!--The first page content-->
         <scroller class="item-container" :style="contentStyle" @scroll="handerScroll">
-            <wxc-minibar background-color="#FFF3CD" class="minibar">
-                <image src="https://img.alicdn.com/tfs/TB1QN8pdlHH8KJjy0FbXXcqlpXa-220-80.png"
+            <div class="header-background" :style="{opacity: opacity}"></div>
+            <wxc-minibar class="header" background-color="#transparent">
+                <image src="http://h5.chuangshi.nowui.com/wawipet/image/index-user.png"
                        slot="left"
-                       style="height: 32px;width: 88px;"></image>
-                <text style="font-size: 40px;" slot="middle">Customize this</text>
-                <image slot="right"
-                       src="https://img.alicdn.com/tfs/TB1j39Uc0fJ8KJjy0FeXXXKEXXa-160-128.png"
-                       style="height: 32px;width: 40px"></image>
+                       style="width: 40px; height: 44px;"></image>
+                <image src="http://h5.chuangshi.nowui.com/wawipet/image/index-logo.png"
+                       slot="middle"
+                       style="width: 268px; height: 62px; margin-top: 6px;"></image>
+                <image src="http://h5.chuangshi.nowui.com/wawipet/image/index-search.png"
+                       slot="right"
+                       style="width: 36px; height: 36px;"></image>
             </wxc-minibar>
-            <slider class="size" auto-play="true" interval="5000">
+            <slider class="slider size">
                 <div v-for="src in posters">
                     <image class="size" resize="cover" :src="src"></image>
                 </div>
+                <indicator class="indicator"></indicator>
             </slider>
-            <scroller class="scroller" scroll-direction="horizontal">
-                <div class="panel" v-for="char in lists" :key="char">
-                    <text class="text">{{char}}</text>
+            <scroller class="category" scroll-direction="horizontal">
+                <div class="category-item" v-for="(char, index) in lists" :key="char">
+                    <image :src="'http://h5.chuangshi.nowui.com/wawipet/image/category-' +index + '.png'"
+                           style="width: 86px; height: 86px;"></image>
+                    <text class="category-item-text">{{char}}</text>
                 </div>
             </scroller>
+            <div class="category-line"></div>
         </scroller>
 
         <!--The second page content-->

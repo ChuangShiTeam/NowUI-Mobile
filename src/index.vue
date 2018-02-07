@@ -94,7 +94,8 @@
                 'http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/320/h/320',
                 'http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/320/h/320'
             ],
-            lists: ['A', 'B', 'C', 'D', 'E', 'F']
+            lists: ['保健卡', '健康知识', '饮食', '品种', '丧事', '美容时尚', '家居', '寄养出行', '领养'],
+            opacity: 0.0
         }),
         created() {
             const tabPageHeight = Utils.env.getPageHeight();
@@ -113,7 +114,7 @@
                 console.log(index);
             },
             handerScroll (e) {
-                console.log(e);
+                this.opacity = -e.contentOffset.y / 300;
             }
         }
     }
