@@ -1,0 +1,46 @@
+<div class="wrapper">
+    <wxc-tab-bar ref="wxc-tab-bar"
+                 :tab-titles="tabTitles"
+                 :tab-styles="tabStyles"
+                 title-type="icon"
+                 :duration="0"
+                 @wxcTabBarCurrentTabSelected="wxcTabBarCurrentTabSelected">
+        <!--The first page content-->
+        <scroller class="item-container" :style="contentStyle" @scroll="handerScroll">
+            <wxc-minibar background-color="#FFF3CD" class="minibar">
+                <image src="https://img.alicdn.com/tfs/TB1QN8pdlHH8KJjy0FbXXcqlpXa-220-80.png"
+                       slot="left"
+                       style="height: 32px;width: 88px;"></image>
+                <text style="font-size: 40px;" slot="middle">Customize this</text>
+                <image slot="right"
+                       src="https://img.alicdn.com/tfs/TB1j39Uc0fJ8KJjy0FeXXXKEXXa-160-128.png"
+                       style="height: 32px;width: 40px"></image>
+            </wxc-minibar>
+            <slider class="size" auto-play="true" interval="5000">
+                <div v-for="src in posters">
+                    <image class="size" resize="cover" :src="src"></image>
+                </div>
+            </slider>
+            <scroller class="scroller" scroll-direction="horizontal">
+                <div class="panel" v-for="char in lists" :key="char">
+                    <text class="text">{{char}}</text>
+                </div>
+            </scroller>
+        </scroller>
+
+        <!--The second page content-->
+        <div class="item-container" :style="contentStyle">
+            <text>社区</text>
+        </div>
+
+        <!-- The third page content-->
+        <div class="item-container" :style="contentStyle">
+            <text>服务</text>
+        </div>
+
+        <!-- The fourth page content-->
+        <div class="item-container" :style="contentStyle">
+            <text>我的</text>
+        </div>
+    </wxc-tab-bar>
+</div>

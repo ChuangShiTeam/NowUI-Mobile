@@ -1,0 +1,41 @@
+.wrapper {
+
+}
+
+.item-container {
+    width: 750px;
+    background-color: #f2f3f4;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.size {
+    width: 750px;
+    height: 1080px;
+}
+
+.scroller {
+    width: 750px;
+    height: 800px;
+    flex-direction: row;
+}
+.panel {
+    width: 400px;
+    height: 700px;
+    margin: 50px;
+    border-width: 4px;
+    border-style: solid;
+    border-color: rgb(162, 217, 192);
+    background-color: rgba(162, 217, 192, 0.4);
+    justify-content: center;
+}
+.text {
+    font-size: 200px;
+    text-align: center;
+    color: #41B883;
+}
+
+.minibar {
+    position: fixed;
+    top: 0px;
+}
