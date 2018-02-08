@@ -3,8 +3,10 @@
 
 <script>
     import {WxcButton} from 'weex-ui';
+    const modal = weex.requireModule('modal')
+    const navigator = weex.requireModule('navigator');
 
-    var navigator = weex.requireModule('navigator');
+    import util from './common/util';
 
     export default {
         components: {
@@ -18,10 +20,12 @@
         },
         methods: {
             wxcButtonClicked(e) {
-                navigator.push({
-                    url: 'http://192.168.2.10:8081/dist/view/index.js',
-                    animated: "true"
-                });
+                // util.push('/view/home/search.html');
+
+                modal.toast({
+                    message: util.push('/view/index.html'),
+                    duration: 10.3
+                })
             }
         }
     }

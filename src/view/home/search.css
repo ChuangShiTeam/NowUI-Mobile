@@ -1,0 +1,15 @@
+.wrapper {
+    width: 750px;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.header {
+    width: 750px;
+    height: 90px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #f0f0f0;
+    align-items: center;
+    justify-content: center;
+}

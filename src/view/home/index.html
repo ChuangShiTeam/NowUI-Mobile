@@ -1,0 +1,117 @@
+<scroller class="wrapper" :style="wrapperStyle" offset-x-accuracy="0.1" @scroll="handerScroll" @loadmore="handleLoad" loadmoreoffset="10">
+    <!--头部-->
+    <div class="header-background" :style="{opacity: headerBackgroundOpacity}"></div>
+    <div class="header">
+        <wxc-minibar background-color="transparent">
+            <image src="http://h5.chuangshi.nowui.com/wawipet/image/index-user.png"
+                   slot="left"
+                   class="header-user"></image>
+            <image src="http://h5.chuangshi.nowui.com/wawipet/image/index-logo.png"
+                   slot="middle"
+                   class="header-logo"></image>
+            <image src="http://h5.chuangshi.nowui.com/wawipet/image/index-search.png"
+                   slot="right"
+                   class="header-search"
+                   @click="handleClickSearch"
+            ></image>
+        </wxc-minibar>
+    </div>
+    <!--广告-->
+    <slider class="banner banner-item">
+        <div v-for="banner in bannerList">
+            <image class="banner-item" resize="cover" :src="banner.image"></image>
+        </div>
+        <indicator class="banner-indicator"></indicator>
+    </slider>
+    <!--分类-->
+    <scroller class="category" scroll-direction="horizontal">
+        <div class="category-item" v-for="(category, index) in categoryList" :key="index">
+            <image :src="category.image"
+                   class="category-item-image"></image>
+            <text class="category-item-text">{{category.name}}</text>
+        </div>
+    </scroller>
+    <!--文章-->
+    <wxc-cell :has-arrow="false"
+              :has-top-border="false"
+              :has-bottom-border="false"
+              :auto-accessible="false"
+              :cell-style="{width: 750}"
+    >
+        <text class="pet-header-title" slot="title">- 热门话题 -</text>
+    </wxc-cell>
+    <div class="article" >
+        <div class="article-top">
+            <image class="article-top-image"
+                   src="http://h5.chuangshi.nowui.com/wawipet/image/1.png"></image>
+            <text class="article-top-title">#盘点十大最适合狗狗吃的零食#</text>
+        </div>
+    </div>
+    <div class="article-list">
+        <wxc-cell :has-arrow="false"
+                  :has-top-border="false"
+                  :has-bottom-border="true"
+                  :auto-accessible="false"
+                  :cell-style="{width: 702}"
+                  v-for="(article, index) in articleList" :key="index">
+            <image class="article-list-image"
+                   slot="label"
+                   src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/68/h/68"></image>
+            <text class="article-list-title"
+                  slot="title">{{article.title}}</text>
+        </wxc-cell>
+    </div>
+    <!--宠物-->
+    <wxc-cell :has-arrow="false"
+              :has-top-border="false"
+              :has-bottom-border="false"
+              :auto-accessible="false"
+              :cell-style="{width: 750}"
+    >
+        <text class="pet-header-title" slot="title">- 新手指南 -</text>
+    </wxc-cell>
+    <scroller class="pet-list" scroll-direction="horizontal">
+        <div class="pet-list-item"
+             v-for="(pet, index) in petList"
+             :key="index"
+        >
+            <image class="pet-list-item-image"
+                   :src="pet.image"></image>
+            <div>
+                <text class="pet-list-item-name">{{pet.name}}</text>
+                <text class="pet-list-item-description">{{pet.description}}</text>
+            </div>
+        </div>
+    </scroller>
+    <!--会员-->
+    <wxc-cell :has-arrow="false"
+              :has-top-border="false"
+              :has-bottom-border="false"
+              :auto-accessible="false"
+              :cell-style="{backgroundColor: 'transparent'}">
+        <text class="member-header-title" slot="title">- 猜你喜欢 -</text>
+    </wxc-cell>
+    <scroller class="member-list" scroll-direction="horizontal">
+        <div class="member-item" v-for="(pet, index) in petList" :key="index">
+            <image class="member-avatar"
+                   src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/104/h/104"></image>
+            <text class="member-name">萌宠秀</text>
+            <text class="member-recommend">编辑推荐</text>
+            <text class="member-follow">去看看</text>
+        </div>
+    </scroller>
+    <!--最新动态-->
+    <wxc-cell :has-arrow="false"
+              :has-top-border="false"
+              :has-bottom-border="false"
+              :auto-accessible="false"
+              :cell-style="{width: 750}"
+    >
+        <text class="topic-header-title" slot="title">- 最新动态 -</text>
+    </wxc-cell>
+    <div class="footer">
+        <text class="footer-copyright">copyright wawipet.com 2017-2019</text>
+        <text class="footer-record">沪ICP备 12345678</text>
+        <text class="footer-email">email:market@wawipet.com</text>
+    </div>
+</scroller>
