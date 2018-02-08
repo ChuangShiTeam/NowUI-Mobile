@@ -92,7 +92,6 @@
 }
 
 .article {
-    width: 750px;
     height: 318px;
     padding-left: 24px;
     padding-right: 24px;
@@ -101,11 +100,19 @@
 }
 
 .article-top {
+    position: relative;
     width: 702px;
     height: 298px;
     background-size: contain;
     align-items: center;
     justify-content: center;
+}
+
+.article-top-image {
+    position: absolute;
+    top: 0px;
+    width: 702px;
+    height: 298px;
 }
 
 .article-top-title {
@@ -121,13 +128,13 @@
     padding-right: 24px;
 }
 
-.article-image {
+.article-list-image {
     width: 68px;
     height: 68px;
     margin-right: 24px;
 }
 
-.article-title {
+.article-list-title {
     font-family: PingFangSC-Regular;
     font-size: 22px;
     color: #000000;
@@ -151,7 +158,8 @@
     background-color: #ffffff;
 }
 
-.pet-item {
+.pet-list-item {
+    position: relative;
     width: 150px;
     height: 150px;
     margin-right: 10px;
@@ -160,14 +168,21 @@
     justify-content: center;
 }
 
-.pet-name {
+.pet-list-item-image {
+    position: absolute;
+    top: 0px;
+    width: 150px;
+    height: 150px;
+}
+
+.pet-list-item-name {
     font-family: PingFangSC-Regular;
     font-size: 22px;
     color: #ffffff;
     text-align: center;
 }
 
-.pet-description {
+.pet-list-item-description {
     font-family: PingFangSC-Regular;
     font-size: 22px;
     color: #FFFFFF;
@@ -192,7 +207,7 @@
 }
 
 .member-item {
-    background: #ffffff;
+    background-color: #ffffff;
     border-style: solid;
     border-width: 1px;
     border-color: #f0f0f0;
@@ -206,7 +221,7 @@
 .member-avatar {
     width: 104px;
     height: 104px;
-    margin-top: 34px;
+    margin-top: 30px;
     border-radius: 100px;
 }
 
@@ -224,16 +239,22 @@
 }
 
 .member-follow {
-    width: 100px;
-    height: 34px;
     font-family: PingFangSC-Regular;
     font-size: 18px;
     color: #000000;
-    background: #defafd;
+    background-color: #defafd;
     border-radius: 31px;
+    margin-top: 10px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 20px;
+    padding-right: 20px;
     align-items: center;
     justify-content: center;
-    margin-top: 14px;
+}
+
+.member-follow-text {
+
 }
 
 .topic-header-title {
@@ -247,7 +268,7 @@
 .footer {
     width: 750px;
     height: 230px;
-    background: #DEFAFD;
+    background-color: #DEFAFD;
     align-items: center;
     justify-content: center;
 }
@@ -270,15 +291,17 @@
     color: #000000;
 }
 
-.topbar{
-    width:100px;
-    height:20px;
-    background-color:red;
+.topbar {
+    width: 100px;
+    height: 20px;
+    background-color: red;
 }
+
 .img {
     width: 714px;
     height: 150px;
 }
+
 .title {
     position: absolute;
     top: 20px;
@@ -288,23 +311,26 @@
     font-weight: bold;
     background-color: #eeeeee;
 }
+
 .slider {
     flex-direction: row;
     margin: 18px;
     width: 714px;
     height: 230px;
 }
+
 .slider-pages {
     flex-direction: row;
     width: 714px;
     height: 230px;
 }
+
 .indicator {
-    width:714px;
-    height:200px;
-    position:absolute;
-    top:1px;
-    left:1px;
+    width: 714px;
+    height: 200px;
+    position: absolute;
+    top: 1px;
+    left: 1px;
     item-color: red;
     item-selectedColor: blue;
     item-size: 20px;

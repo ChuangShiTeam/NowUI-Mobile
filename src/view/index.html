@@ -1,5 +1,6 @@
 <div class="wrapper">
     <wxc-tab-bar ref="wxc-tab-bar"
+                 :is-tab-view="false"
                  :tab-titles="tabList"
                  :tab-styles="tabStyle"
                  title-type="icon"
@@ -9,17 +10,19 @@
         <scroller class="tab-item" :style="contentStyle" offset-x-accuracy="0.1" @scroll="handerTabItemScroll">
             <!--头部-->
             <div class="header-background" :style="{opacity: headerBackgroundOpacity}"></div>
-            <wxc-minibar class="header" background-color="#transparent">
-                <image src="http://h5.chuangshi.nowui.com/wawipet/image/index-user.png"
-                       slot="left"
-                       class="header-user"></image>
-                <image src="http://h5.chuangshi.nowui.com/wawipet/image/index-logo.png"
-                       slot="middle"
-                       class="header-logo"></image>
-                <image src="http://h5.chuangshi.nowui.com/wawipet/image/index-search.png"
-                       slot="right"
-                       class="header-search"></image>
-            </wxc-minibar>
+            <div class="header">
+                <wxc-minibar background-color="transparent">
+                    <image src="http://h5.chuangshi.nowui.com/wawipet/image/index-user.png"
+                           slot="left"
+                           class="header-user"></image>
+                    <image src="http://h5.chuangshi.nowui.com/wawipet/image/index-logo.png"
+                           slot="middle"
+                           class="header-logo"></image>
+                    <image src="http://h5.chuangshi.nowui.com/wawipet/image/index-search.png"
+                           slot="right"
+                           class="header-search"></image>
+                </wxc-minibar>
+            </div>
             <!--广告-->
             <slider class="banner banner-item">
                 <div v-for="banner in bannerList">
@@ -39,13 +42,15 @@
             <wxc-cell :has-arrow="false"
                       :has-top-border="false"
                       :has-bottom-border="false"
-                      :auto-accessible="false">
-                <text class="article-header-title" slot="title">- 热门话题 -</text>
+                      :auto-accessible="false"
+                      :cell-style="{width: 750}"
+            >
+                <text class="pet-header-title" slot="title">- 热门话题 -</text>
             </wxc-cell>
             <div class="article" >
-                <div class="article-top"
-                     :style="{backgroundImage: 'url(http://h5.chuangshi.nowui.com/wawipet/image/1.png)'}"
-                >
+                <div class="article-top">
+                    <image class="article-top-image"
+                           src="http://h5.chuangshi.nowui.com/wawipet/image/1.png"></image>
                     <text class="article-top-title">#盘点十大最适合狗狗吃的零食#</text>
                 </div>
             </div>
@@ -54,11 +59,12 @@
                           :has-top-border="false"
                           :has-bottom-border="true"
                           :auto-accessible="false"
+                          :cell-style="{width: 702}"
                           v-for="(article, index) in articleList" :key="index">
-                    <image class="article-image"
+                    <image class="article-list-image"
                            slot="label"
                            src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/68/h/68"></image>
-                    <text class="article-title"
+                    <text class="article-list-title"
                           slot="title">{{article.title}}</text>
                 </wxc-cell>
             </div>
@@ -66,18 +72,21 @@
             <wxc-cell :has-arrow="false"
                       :has-top-border="false"
                       :has-bottom-border="false"
-                      :auto-accessible="false">
+                      :auto-accessible="false"
+                      :cell-style="{width: 750}"
+            >
                 <text class="pet-header-title" slot="title">- 新手指南 -</text>
             </wxc-cell>
             <scroller class="pet-list" scroll-direction="horizontal">
-                <div class="pet-item"
+                <div class="pet-list-item"
                      v-for="(pet, index) in petList"
                      :key="index"
-                     :style="{backgroundImage: 'url(' + pet.image + ')'}"
                 >
+                    <image class="pet-list-item-image"
+                           :src="pet.image"></image>
                     <div>
-                        <text class="pet-name">{{pet.name}}</text>
-                        <text class="pet-description">{{pet.description}}</text>
+                        <text class="pet-list-item-name">{{pet.name}}</text>
+                        <text class="pet-list-item-description">{{pet.description}}</text>
                     </div>
                 </div>
             </scroller>
@@ -95,14 +104,16 @@
                            src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/104/h/104"></image>
                     <text class="member-name">萌宠秀</text>
                     <text class="member-recommend">编辑推荐</text>
-                    <div><text class="member-follow">去看看</text></div>
+                    <text class="member-follow">去看看</text>
                 </div>
             </scroller>
             <!--最新动态-->
             <wxc-cell :has-arrow="false"
                       :has-top-border="false"
                       :has-bottom-border="false"
-                      :auto-accessible="false">
+                      :auto-accessible="false"
+                      :cell-style="{width: 750}"
+            >
                 <text class="topic-header-title" slot="title">- 最新动态 -</text>
             </wxc-cell>
             <div class="footer">
@@ -112,19 +123,19 @@
             </div>
         </scroller>
 
-        <!--第二页内容-->
-        <div class="tab-item" :style="contentStyle">
-            <text>社区</text>
-        </div>
+        <!--&lt;!&ndash;第二页内容&ndash;&gt;-->
+        <!--<div class="tab-item" :style="contentStyle">-->
+            <!--<text>社区</text>-->
+        <!--</div>-->
 
-        <!--第三页内容-->
-        <div class="tab-item" :style="contentStyle">
-            <text>服务</text>
-        </div>
+        <!--&lt;!&ndash;第三页内容&ndash;&gt;-->
+        <!--<div class="tab-item" :style="contentStyle">-->
+            <!--<text>服务</text>-->
+        <!--</div>-->
 
-        <!--第四页内容-->
-        <div class="tab-item" :style="contentStyle">
-            <text>我的</text>
-        </div>
+        <!--&lt;!&ndash;第四页内容&ndash;&gt;-->
+        <!--<div class="tab-item" :style="contentStyle">-->
+            <!--<text>我的</text>-->
+        <!--</div>-->
     </wxc-tab-bar>
 </div>

@@ -17,14 +17,17 @@
                 activeIcon: 'http://h5.chuangshi.nowui.com/wawipet/image/index-active.png'
             }, {
                 title: '社区',
+                url: '/view/forum/index.html',
                 icon: 'http://h5.chuangshi.nowui.com/wawipet/image/forum.png',
                 activeIcon: 'http://h5.chuangshi.nowui.com/wawipet/image/forum-active.png'
             }, {
                 title: '服务',
+                url: '/view/service/index.html',
                 icon: 'http://h5.chuangshi.nowui.com/wawipet/image/service.png',
                 activeIcon: 'http://h5.chuangshi.nowui.com/wawipet/image/service-active.png'
             }, {
                 title: '我的',
+                url: '/view/my/index.html',
                 icon: 'http://h5.chuangshi.nowui.com/wawipet/image/my.png',
                 activeIcon: 'http://h5.chuangshi.nowui.com/wawipet/image/my-active.png'
             }],
@@ -44,10 +47,6 @@
             },
             headerBackgroundOpacity: 0.0,
             bannerList: [{
-                image: 'http://h5.chuangshi.nowui.com/wawipet/image/0.png'
-            }, {
-                image: 'http://h5.chuangshi.nowui.com/wawipet/image/0.png'
-            }, {
                 image: 'http://h5.chuangshi.nowui.com/wawipet/image/0.png'
             }, {
                 image: 'http://h5.chuangshi.nowui.com/wawipet/image/0.png'
@@ -128,15 +127,16 @@
         }),
         created() {
             const tabPageHeight = Utils.env.getPageHeight();
-            // const tabPageHeight = Utils.env.deviceHeight / Utils.env.deviceWidth * 750;
             this.contentStyle = {
                 height: (tabPageHeight - this.tabStyle.height) + 'px',
                 backgroundColor: '#f6f6f6'
             };
 
+            console.log(weex.config.bundleUrl);
+
         },
         mounted() {
-            //this.$refs['wxc-tab-bar'].setPage(2);
+            this.$refs['wxc-tab-bar'].setPage(0);
         },
         methods: {
             wxcTabBarCurrentTabSelected(e) {
