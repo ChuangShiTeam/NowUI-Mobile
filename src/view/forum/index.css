@@ -81,3 +81,9 @@
     height: 154px;
     border-radius: 10px;
 }
+
+.join-forum-name {
+    font-family: PingFangSC-Regular;
+    font-size: 30px;
+    color: #000000;
+}
