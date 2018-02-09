@@ -1,20 +1,26 @@
-.wrapper {
+.container {
     width: 750px;
     align-items: flex-start;
     justify-content: flex-start;
 }
 
 .header {
-    position: fixed;
+    position: sticky;
     top: 0px;
+    z-index: 99999;
 }
 
 .header-background {
-    position: fixed;
+    position: absolute;
     top: 0px;
     width: 750px;
     height: 88px;
     background-color: #defafd;
+    z-index: 0;
+}
+
+.header-content {
+    z-index: 1;
 }
 
 .header-user {
@@ -35,6 +41,7 @@
 
 .banner {
     position: relative;
+    top: -90px;
 }
 
 .banner-item {
@@ -49,12 +56,13 @@
     bottom: 10px;
     width: 750px;
     height: 60px;
-    itemColor: #DDDDDD;
+    itemColor: #dddddd;
     itemSelectedColor: #ffffff;
     z-index: 9;
 }
 
 .category {
+    top: -90px;
     width: 750px;
     height: 180px;
     margin-bottom: 8px;
@@ -89,6 +97,7 @@
 }
 
 .article {
+    top: -90px;
     height: 318px;
     padding-left: 24px;
     padding-right: 24px;
@@ -119,6 +128,7 @@
 }
 
 .article-list {
+    top: -90px;
     padding-top: 24px;
     padding-bottom: 24px;
     padding-left: 24px;
@@ -147,6 +157,7 @@
 }
 
 .pet-list {
+    top: -90px;
     width: 750px;
     height: 180px;
     padding-left: 24px;
@@ -195,6 +206,7 @@
 }
 
 .member-list {
+    top: -90px;
     width: 750px;
     height: 296px;
     padding-left: 24px;
@@ -263,6 +275,7 @@
 }
 
 .footer {
+    top: -90px;
     width: 750px;
     height: 230px;
     background-color: #DEFAFD;
@@ -286,49 +299,4 @@
     font-family: PingFangSC-Light;
     font-size: 20px;
     color: #000000;
-}
-
-.topbar {
-    width: 100px;
-    height: 20px;
-    background-color: red;
-}
-
-.img {
-    width: 714px;
-    height: 150px;
-}
-
-.title {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    color: #ff0000;
-    font-size: 48px;
-    font-weight: bold;
-    background-color: #eeeeee;
-}
-
-.slider {
-    flex-direction: row;
-    margin: 18px;
-    width: 714px;
-    height: 230px;
-}
-
-.slider-pages {
-    flex-direction: row;
-    width: 714px;
-    height: 230px;
-}
-
-.indicator {
-    width: 714px;
-    height: 200px;
-    position: absolute;
-    top: 1px;
-    left: 1px;
-    item-color: red;
-    item-selectedColor: blue;
-    item-size: 20px;
 }

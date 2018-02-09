@@ -6,13 +6,11 @@
                  title-type="icon"
                  :duration="0"
                  @wxcTabBarCurrentTabSelected="handerTabSelected">
-        <!--第一页内容-->
+        <!--首页-->
         <HomeIndex :tabHeight="tabStyle.height"></HomeIndex>
 
-        <!--&lt;!&ndash;第二页内容&ndash;&gt;-->
-        <!--<div class="tab-item" :style="contentStyle">-->
-            <!--<text>社区</text>-->
-        <!--</div>-->
+        <!--首页-->
+        <ForumIndex :tabHeight="tabStyle.height"></ForumIndex>
 
         <!--&lt;!&ndash;第三页内容&ndash;&gt;-->
         <!--<div class="tab-item" :style="contentStyle">-->

@@ -18,6 +18,9 @@
         created() {
 
         },
+        mounted() {
+            this.$refs['wxc-tab-bar'].setPage(1);
+        },
         methods: {
             wxcButtonClicked(e) {
                 // util.push('/view/home/search.html');

@@ -4,11 +4,13 @@
 <script>
     import {WxcTabBar} from 'weex-ui';
     import HomeIndex from './home/index.vue';
+    import ForumIndex from './forum/index.vue';
 
     export default {
         components: {
             WxcTabBar,
-            HomeIndex
+            HomeIndex,
+            ForumIndex
         },
         data: () => ({
             tabList: [{
@@ -50,7 +52,7 @@
 
         },
         mounted() {
-            this.$refs['wxc-tab-bar'].setPage(0);
+            this.$refs['wxc-tab-bar'].setPage(1);
         },
         methods: {
             handerTabSelected(e) {

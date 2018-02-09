@@ -1,23 +1,26 @@
-<scroller class="wrapper" :style="wrapperStyle" offset-x-accuracy="0.1" @scroll="handerScroll" @loadmore="handleLoad" loadmoreoffset="10">
+<scroller class="container" :style="containerStyle" offset-x-accuracy="0.1" @scroll="handerScroll" @loadmore="handleLoad"
+          loadmoreoffset="10">
     <!--头部-->
-    <div class="header-background" :style="{opacity: headerBackgroundOpacity}"></div>
     <div class="header">
-        <wxc-minibar background-color="transparent">
-            <image src="http://h5.chuangshi.nowui.com/wawipet/image/index-user.png"
-                   slot="left"
-                   class="header-user"></image>
-            <image src="http://h5.chuangshi.nowui.com/wawipet/image/index-logo.png"
-                   slot="middle"
-                   class="header-logo"></image>
-            <image src="http://h5.chuangshi.nowui.com/wawipet/image/index-search.png"
-                   slot="right"
-                   class="header-search"
-                   @click="handleClickSearch"
-            ></image>
-        </wxc-minibar>
+        <div class="header-background" :style="{opacity: headerBackgroundOpacity}"></div>
+        <div class="header-content">
+            <wxc-minibar background-color="transparent">
+                <image src="http://h5.chuangshi.nowui.com/wawipet/image/index-user.png"
+                       slot="left"
+                       class="header-user"></image>
+                <image src="http://h5.chuangshi.nowui.com/wawipet/image/index-logo.png"
+                       slot="middle"
+                       class="header-logo"></image>
+                <image src="http://h5.chuangshi.nowui.com/wawipet/image/index-search.png"
+                       slot="right"
+                       class="header-search"
+                       @click="handleClickSearch"
+                ></image>
+            </wxc-minibar>
+        </div>
     </div>
     <!--广告-->
-    <slider class="banner banner-item">
+    <slider class="banner banner-item" ref="banner">
         <div v-for="banner in bannerList">
             <image class="banner-item" resize="cover" :src="banner.image"></image>
         </div>
@@ -36,11 +39,11 @@
               :has-top-border="false"
               :has-bottom-border="false"
               :auto-accessible="false"
-              :cell-style="{width: 750}"
+              :cell-style="{top: -90, width: 750}"
     >
         <text class="pet-header-title" slot="title">- 热门话题 -</text>
     </wxc-cell>
-    <div class="article" >
+    <div class="article">
         <div class="article-top">
             <image class="article-top-image"
                    src="http://h5.chuangshi.nowui.com/wawipet/image/1.png"></image>
@@ -58,7 +61,8 @@
                    slot="label"
                    src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/68/h/68"></image>
             <text class="article-list-title"
-                  slot="title">{{article.title}}</text>
+                  slot="title">{{article.title}}
+            </text>
         </wxc-cell>
     </div>
     <!--宠物-->
@@ -66,7 +70,7 @@
               :has-top-border="false"
               :has-bottom-border="false"
               :auto-accessible="false"
-              :cell-style="{width: 750}"
+              :cell-style="{top: -90, width: 750}"
     >
         <text class="pet-header-title" slot="title">- 新手指南 -</text>
     </wxc-cell>
@@ -88,7 +92,7 @@
               :has-top-border="false"
               :has-bottom-border="false"
               :auto-accessible="false"
-              :cell-style="{backgroundColor: 'transparent'}">
+              :cell-style="{top: -90, width: 750, backgroundColor: 'transparent'}">
         <text class="member-header-title" slot="title">- 猜你喜欢 -</text>
     </wxc-cell>
     <scroller class="member-list" scroll-direction="horizontal">
@@ -105,10 +109,11 @@
               :has-top-border="false"
               :has-bottom-border="false"
               :auto-accessible="false"
-              :cell-style="{width: 750}"
+              :cell-style="{top: -90, width: 750}"
     >
         <text class="topic-header-title" slot="title">- 最新动态 -</text>
     </wxc-cell>
+    <!--尾部-->
     <div class="footer">
         <text class="footer-copyright">copyright wawipet.com 2017-2019</text>
         <text class="footer-record">沪ICP备 12345678</text>

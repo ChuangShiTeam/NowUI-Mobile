@@ -6,6 +6,8 @@
 
     import util from '../../common/util';
 
+    const dom = weex.requireModule('dom');
+
     export default {
         components: {
             WxcMinibar,
@@ -116,17 +118,22 @@
         }),
         created() {
             const tabPageHeight = Utils.env.getPageHeight();
-            this.wrapperStyle = {
+            this.containerStyle = {
                 height: (tabPageHeight - 80) + 'px',
                 backgroundColor: '#f6f6f6'
             };
+        },
+        mounted() {
+            // dom.scrollToElement(this.$refs.banner, {
+            //     offset: 1
+            // });
         },
         methods: {
             handerScroll(e) {
                 this.headerBackgroundOpacity = -e.contentOffset.y / 300;
             },
             handleLoad() {
-                console.log(1)
+                console.log(1);
             },
             handleClickSearch() {
                 util.push('/view/home/search.html');
