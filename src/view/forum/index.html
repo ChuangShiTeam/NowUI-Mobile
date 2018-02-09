@@ -32,12 +32,23 @@
                   :has-top-border="false"
                   :has-bottom-border="false"
                   :auto-accessible="false"
-                  :cell-style="{width: 750 - 24 - 24, height: 200}">
+                  :cell-style="{width: 750 - 24 - 24, height: 200, marginTop: index > 0 ? 24 : 0}"
+                  v-for="(forum, index) in joinForumList"
+                  :key="index">
             <image class="join-forum-image"
                    slot="label"
                    src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/77/h/77"></image>
             <div slot="title">
-                <text class="join-forum-name">我加入的圈子</text>
+                <text class="join-forum-name">{{forum.name}}</text>
+                <text class="join-forum-description">这里是魔都喵星人的聚集地，是爱猫人士的家园，欢迎加入</text>
+                <div class="join-forum-info">
+                    <image class="join-forum-info-crown"
+                           src="http://h5.chuangshi.nowui.com/wawipet/image/crown.png"></image>
+                    <image class="join-forum-info-avatar"
+                           src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/30/h/30"></image>
+                    <text class="join-forum-info-name">小可爱</text>
+                    <text class="join-forum-info-number">今日最新话题数: 21</text>
+                </div>
             </div>
         </wxc-cell>
     </div>

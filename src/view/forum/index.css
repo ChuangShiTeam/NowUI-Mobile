@@ -68,7 +68,7 @@
 
 .join-forum {
     width: 750px;
-    height: 500px;
+    height: 730px;
     background-color: #f2fdfe;
     padding-top: 24px;
     padding-buttom: 24px;
@@ -80,10 +80,53 @@
     width: 154px;
     height: 154px;
     border-radius: 10px;
+    margin-right: 20px;
 }
 
 .join-forum-name {
     font-family: PingFangSC-Regular;
     font-size: 30px;
+    color: #000000;
+}
+
+.join-forum-description {
+    height: 76px;
+    font-family: PingFangSC-Light;
+    font-size: 24px;
+    color: #000000;
+}
+
+.join-forum-info {
+    margin-top: 10px;
+    flex-direction: row;
+}
+
+.join-forum-info-crown {
+    position: absolute;
+    top: -15px;
+    left: 5px;
+    width: 20px;
+    height: 12px;
+    border-radius: 100%;
+    margin-top: 3px;
+}
+
+.join-forum-info-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+}
+
+.join-forum-info-name {
+    margin-left: 10px;
+    font-family: PingFangSC-Light;
+    font-size: 20px;
+    color: #000000;
+    flex: 1;
+}
+
+.join-forum-info-number {
+    font-family: PingFangSC-Light;
+    font-size: 20px;
     color: #000000;
 }
