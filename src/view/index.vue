@@ -3,14 +3,14 @@
 
 <script>
     import {WxcTabBar} from 'weex-ui';
-    import HomeIndex from './home/index.vue';
-    import ForumIndex from './forum/index.vue';
+    // import HomeIndex from './home/index.vue';
+    import SnsIndex from './sns/index.vue';
 
     export default {
         components: {
             WxcTabBar,
-            HomeIndex,
-            ForumIndex
+            // HomeIndex,
+            SnsIndex
         },
         data: () => ({
             tabList: [{
@@ -39,20 +39,22 @@
                 activeTitleColor: '#b59768',
                 activeBgColor: '#FFFFFF',
                 isActiveTitleBold: false,
-                iconWidth: 32,
+                iconWidth: 36,
                 iconHeight: 36,
                 width: 160,
                 height: 80,
                 fontSize: 18,
                 textPaddingLeft: 10,
                 textPaddingRight: 10
-            }
+            },
+            pageHeight: 0
         }),
         created() {
 
         },
         mounted() {
-            this.$refs['wxc-tab-bar'].setPage(1);
+            // this.$refs['wxc-tab-bar'].setPage(0);
+            // this.pageHeight = weex.config.env.deviceHeight / weex.config.env.deviceWidth * 750 - 80
         },
         methods: {
             handerTabSelected(e) {

@@ -1,4 +1,4 @@
-.wrapper {
+.container {
 
 }
 
@@ -7,4 +7,13 @@
     background-color: #f2f3f4;
     align-items: flex-start;
     justify-content: flex-start;
+}
+
+.line {
+    position: relative;
+    left: 0;
+    width: 750px;
+    border-bottom-width: 1px;
+    /*border-bottom-color: rgb(226, 226, 226);*/
+    border-bottom-color: #000000;
 }

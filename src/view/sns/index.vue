@@ -2,15 +2,13 @@
 <template src="./index.html"></template>
 
 <script>
-    import {WxcMinibar, WxcCell} from 'weex-ui';
-
-    import Topic from '../../component/topic/index.vue';
+    import ForumIndex from '../forum/index.vue';
+    import TopicIndex from '../topic/index.vue';
 
     export default {
         components: {
-            WxcMinibar,
-            WxcCell,
-            Topic
+            ForumIndex,
+            TopicIndex
         },
         data: () => ({
 

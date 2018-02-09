@@ -6,7 +6,7 @@
 
     import util from '../../common/util';
 
-    const dom = weex.requireModule('dom');
+    // const dom = weex.requireModule('dom');
 
     export default {
         components: {
@@ -117,9 +117,9 @@
             ]
         }),
         created() {
-            const tabPageHeight = Utils.env.getPageHeight();
+            const pageHeight = Utils.env.getPageHeight();
             this.containerStyle = {
-                height: (tabPageHeight - 80) + 'px',
+                height: (pageHeight - 80) + 'px',
                 backgroundColor: '#f6f6f6'
             };
         },

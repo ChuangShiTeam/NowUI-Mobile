@@ -1,0 +1,35 @@
+.container {
+
+}
+
+.header {
+    position: sticky;
+    top: 0px;
+    width: 750px;
+    height: 90px;
+    background-color: #ffffff;
+}
+
+.avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 100px;
+}
+
+.name {
+    margin-left: 16px;
+    font-family: PingFangSC-Light;
+    font-size: 24px;
+    color: #000000;
+}
+
+.time {
+    margin-left: 16px;
+    font-family: PingFangSC-Light;
+    font-size: 16px;
+    color: #000000;
+}
+
+.content {
+
+}

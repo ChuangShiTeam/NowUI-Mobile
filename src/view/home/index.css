@@ -23,18 +23,18 @@
     z-index: 1;
 }
 
-.header-user {
-    width: 40px;
-    height: 44px;
+.header-content-user {
+    width: 33px;
+    height: 36px;
 }
 
-.header-logo {
+.header-content-logo {
     width: 268px;
     height: 62px;
     margin-top: 6px;
 }
 
-.header-search {
+.header-content-search {
     width: 36px;
     height: 36px;
 }
@@ -58,7 +58,7 @@
     height: 60px;
     itemColor: #dddddd;
     itemSelectedColor: #ffffff;
-    z-index: 9;
+    z-index: 999;
 }
 
 .category {

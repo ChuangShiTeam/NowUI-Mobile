@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="container">
     <wxc-tab-bar ref="wxc-tab-bar"
                  :is-tab-view="true"
                  :tab-titles="tabList"
@@ -7,19 +7,15 @@
                  :duration="0"
                  @wxcTabBarCurrentTabSelected="handerTabSelected">
         <!--首页-->
-        <HomeIndex :tabHeight="tabStyle.height"></HomeIndex>
+        <!--<HomeIndex :tabHeight="tabStyle.height"></HomeIndex>-->
 
-        <!--首页-->
-        <ForumIndex :tabHeight="tabStyle.height"></ForumIndex>
+        <!--社区-->
+        <SnsIndex :tabHeight="tabStyle.height"></SnsIndex>
 
-        <!--&lt;!&ndash;第三页内容&ndash;&gt;-->
-        <!--<div class="tab-item" :style="contentStyle">-->
-            <!--<text>服务</text>-->
-        <!--</div>-->
+        <!--服务-->
 
-        <!--&lt;!&ndash;第四页内容&ndash;&gt;-->
-        <!--<div class="tab-item" :style="contentStyle">-->
-            <!--<text>我的</text>-->
-        <!--</div>-->
+
+        <!--我的-->
     </wxc-tab-bar>
+    <!--<div class="line" :style="{top: (pageHeight - 80) + 'px'}"></div>-->
 </div>

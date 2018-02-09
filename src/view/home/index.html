@@ -1,4 +1,5 @@
-<scroller class="container" :style="containerStyle" offset-x-accuracy="0.1" @scroll="handerScroll" @loadmore="handleLoad"
+<scroller class="container" :style="containerStyle" offset-x-accuracy="0.1" @scroll="handerScroll"
+          @loadmore="handleLoad"
           loadmoreoffset="10">
     <!--头部-->
     <div class="header">
@@ -7,15 +8,14 @@
             <wxc-minibar background-color="transparent">
                 <image src="http://h5.chuangshi.nowui.com/wawipet/image/index-user.png"
                        slot="left"
-                       class="header-user"></image>
+                       class="header-content-user"></image>
                 <image src="http://h5.chuangshi.nowui.com/wawipet/image/index-logo.png"
                        slot="middle"
-                       class="header-logo"></image>
+                       class="header-content-logo"></image>
                 <image src="http://h5.chuangshi.nowui.com/wawipet/image/index-search.png"
                        slot="right"
-                       class="header-search"
-                       @click="handleClickSearch"
-                ></image>
+                       class="header-content-search"
+                       @click="handleClickSearch"></image>
             </wxc-minibar>
         </div>
     </div>
@@ -39,8 +39,7 @@
               :has-top-border="false"
               :has-bottom-border="false"
               :auto-accessible="false"
-              :cell-style="{top: -90, width: 750}"
-    >
+              :cell-style="{top: -90, width: 750}">
         <text class="pet-header-title" slot="title">- 热门话题 -</text>
     </wxc-cell>
     <div class="article">
@@ -70,15 +69,13 @@
               :has-top-border="false"
               :has-bottom-border="false"
               :auto-accessible="false"
-              :cell-style="{top: -90, width: 750}"
-    >
+              :cell-style="{top: -90, width: 750}">
         <text class="pet-header-title" slot="title">- 新手指南 -</text>
     </wxc-cell>
     <scroller class="pet-list" scroll-direction="horizontal">
         <div class="pet-list-item"
              v-for="(pet, index) in petList"
-             :key="index"
-        >
+             :key="index">
             <image class="pet-list-item-image"
                    :src="pet.image"></image>
             <div>
@@ -109,8 +106,7 @@
               :has-top-border="false"
               :has-bottom-border="false"
               :auto-accessible="false"
-              :cell-style="{top: -90, width: 750}"
-    >
+              :cell-style="{top: -90, width: 750}">
         <text class="topic-header-title" slot="title">- 最新动态 -</text>
     </wxc-cell>
     <!--尾部-->

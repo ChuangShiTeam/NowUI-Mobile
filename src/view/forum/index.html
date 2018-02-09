@@ -1,3 +1,44 @@
 <div class="container">
-
+    <!--头部-->
+    <div class="header">
+        <wxc-minibar background-color="transparent">
+            <image src="http://h5.chuangshi.nowui.com/wawipet/image/forum-add.png"
+                   slot="left"
+                   class="header-add"></image>
+            <div class="header-menu"
+                 slot="middle">
+                <div class="header-menu-item"><text class="header-menu-item-text-active">圈子</text></div>
+                <div class="header-menu-item"><text class="header-menu-item-text">动态</text></div>
+            </div>
+            <image src="http://h5.chuangshi.nowui.com/wawipet/image/forum-search.png"
+                   slot="right"
+                   class="header-search"></image>
+        </wxc-minibar>
+    </div>
+    <wxc-cell :has-arrow="false"
+              :has-top-border="false"
+              :has-bottom-border="false"
+              :auto-accessible="false"
+              :cell-style="{width: 750}">
+        <image class="join-image"
+               slot="label"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/forum-join.png"></image>
+        <div slot="title">
+            <text class="join-title">我加入的圈子</text>
+        </div>
+    </wxc-cell>
+    <div class="join-forum">
+        <wxc-cell :has-arrow="false"
+                  :has-top-border="false"
+                  :has-bottom-border="false"
+                  :auto-accessible="false"
+                  :cell-style="{width: 750 - 24 - 24}">
+            <image class="join-forum-image"
+                   slot="label"
+                   src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/77/h/77"></image>
+            <div slot="title">
+                <text class="join-title">我加入的圈子</text>
+            </div>
+        </wxc-cell>
+    </div>
 </div>

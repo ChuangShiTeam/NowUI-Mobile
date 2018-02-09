@@ -4,16 +4,18 @@
 <script>
     import {WxcMinibar, WxcCell} from 'weex-ui';
 
+    import Topic from '../../component/topic/index.vue';
+
     export default {
         components: {
             WxcMinibar,
-            WxcCell
+            WxcCell,
+            Topic
         },
         data: () => ({
 
         }),
         created() {
-
 
         },
         mounted() {
