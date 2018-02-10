@@ -1,6 +1,9 @@
-<scroller class="container" :style="containerStyle" offset-x-accuracy="0.1" @scroll="handerScroll"
+<scroller class="container"
+          :style="containerStyle"
+          offset-x-accuracy="0.1"
+          @scroll="handerScroll"
           @loadmore="handleLoad"
-          loadmoreoffset="10">
+          loadmoreoffset="100">
     <!--头部-->
     <div class="header">
         <div class="header-background" :style="{opacity: headerBackgroundOpacity}"></div>

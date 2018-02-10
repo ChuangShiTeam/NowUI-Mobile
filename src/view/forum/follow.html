@@ -1,0 +1,39 @@
+<div class="container">
+    <!--头部-->
+    <div class="header">
+        <wxc-minibar background-color="transparent">
+            <text slot="left"></text>
+            <text class="header-title"
+                  slot="middle">我加入的圈子</text>
+        </wxc-minibar>
+    </div>
+    <scroller class="follow-forum"
+              :style="containerStyle"
+              offset-x-accuracy="0.1"
+              @loadmore="handleLoad"
+              loadmoreoffset="100">
+        <wxc-cell :has-arrow="false"
+                  :has-top-border="false"
+                  :has-bottom-border="false"
+                  :auto-accessible="false"
+                  :cell-style="{width: 750 - 24 - 24, height: 200, marginBottom: 24}"
+                  v-for="(forum, index) in followForumList"
+                  :key="index">
+            <image class="follow-forum-image"
+                   slot="label"
+                   src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/77/h/77"></image>
+            <div slot="title">
+                <text class="follow-forum-name">{{forum.name}}</text>
+                <text class="follow-forum-description">这里是魔都喵星人的聚集地，是爱猫人士的家园，欢迎加入</text>
+                <div class="follow-forum-info">
+                    <image class="follow-forum-info-crown"
+                           src="http://h5.chuangshi.nowui.com/wawipet/image/crown.png"></image>
+                    <image class="follow-forum-info-avatar"
+                           src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/30/h/30"></image>
+                    <text class="follow-forum-info-name">小可爱</text>
+                    <text class="follow-forum-info-number">今日最新话题数: 21</text>
+                </div>
+            </div>
+        </wxc-cell>
+    </scroller>
+</div>

@@ -6,6 +6,8 @@
 
     import Topic from '../../component/topic/index.vue';
 
+    import util from '../../common/util';
+
     export default {
         components: {
             WxcMinibar,
@@ -13,7 +15,7 @@
             Topic
         },
         data: () => ({
-            joinForumList: [{
+            followForumList: [{
                 name: '我加入的圈子',
                 description: '这里是魔都喵星人的聚集地，是爱猫人士的家园，欢迎加入',
                 memberName: '小可爱',
@@ -37,7 +39,12 @@
 
         },
         methods: {
-
+            handleLoad() {
+                console.log(1);
+            },
+            handleClickFollowForum(e) {
+                util.push('/view/forum/follow.html');
+            }
         }
     }
 </script>

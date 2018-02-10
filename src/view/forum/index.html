@@ -20,36 +20,41 @@
               :has-bottom-border="false"
               :auto-accessible="false"
               :cell-style="{width: 750}">
-        <image class="join-image"
+        <image class="follow-image"
                slot="label"
-               src="http://h5.chuangshi.nowui.com/wawipet/image/forum-join.png"></image>
+               src="http://h5.chuangshi.nowui.com/wawipet/image/forum-follow.png"></image>
         <div slot="title">
-            <text class="join-title">我加入的圈子</text>
+            <text class="follow-title">我加入的圈子</text>
         </div>
     </wxc-cell>
-    <div class="join-forum">
+    <div class="follow-forum">
         <wxc-cell :has-arrow="false"
                   :has-top-border="false"
                   :has-bottom-border="false"
                   :auto-accessible="false"
                   :cell-style="{width: 750 - 24 - 24, height: 200, marginTop: index > 0 ? 24 : 0}"
-                  v-for="(forum, index) in joinForumList"
+                  v-for="(forum, index) in followForumList"
                   :key="index">
-            <image class="join-forum-image"
+            <image class="follow-forum-image"
                    slot="label"
                    src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/77/h/77"></image>
             <div slot="title">
-                <text class="join-forum-name">{{forum.name}}</text>
-                <text class="join-forum-description">这里是魔都喵星人的聚集地，是爱猫人士的家园，欢迎加入</text>
-                <div class="join-forum-info">
-                    <image class="join-forum-info-crown"
+                <text class="follow-forum-name">{{forum.name}}</text>
+                <text class="follow-forum-description">这里是魔都喵星人的聚集地，是爱猫人士的家园，欢迎加入</text>
+                <div class="follow-forum-info">
+                    <image class="follow-forum-info-crown"
                            src="http://h5.chuangshi.nowui.com/wawipet/image/crown.png"></image>
-                    <image class="join-forum-info-avatar"
+                    <image class="follow-forum-info-avatar"
                            src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/30/h/30"></image>
-                    <text class="join-forum-info-name">小可爱</text>
-                    <text class="join-forum-info-number">今日最新话题数: 21</text>
+                    <text class="follow-forum-info-name">小可爱</text>
+                    <text class="follow-forum-info-number">今日最新话题数: 21</text>
                 </div>
             </div>
         </wxc-cell>
+        <div class="follow-forum-more" @click="handleClickFollowForum">
+            <text class="follow-forum-more-text">查看更多</text>
+            <image class="follow-forum-more-icon"
+                   src="http://h5.chuangshi.nowui.com/wawipet/image/forum-more.png"></image>
+        </div>
     </div>
 </div>
