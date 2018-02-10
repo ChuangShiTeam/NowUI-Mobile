@@ -3,6 +3,7 @@
     <div class="header">
         <wxc-minibar background-color="transparent">
             <image src="http://h5.chuangshi.nowui.com/wawipet/image/form-user.png"
+                   resize="cover"
                    slot="left"
                    class="header-user"></image>
             <div class="header-menu"
@@ -15,6 +16,7 @@
                 </div>
             </div>
             <image src="http://h5.chuangshi.nowui.com/wawipet/image/forum-search.png"
+                   resize="cover"
                    slot="right"
                    class="header-search"></image>
         </wxc-minibar>
@@ -24,6 +26,6 @@
               offset-x-accuracy="0.1"
               @loadmore="handleLoad"
               loadmoreoffset="100">
-        <Topic :topic="{}"></Topic>
+        <Topic :topic="topic" v-for="(topic, index) in topicList" :key="index"></Topic>
     </scroller>
 </div>

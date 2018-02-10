@@ -13,7 +13,19 @@
             Topic
         },
         data: () => ({
-
+            topicList: [{
+                topicId: '0',
+                topicMediaList: [{
+                    filePath: ''
+                }]
+            }, {
+                topicId: '0',
+                topicMediaList: [{
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }]
+            }]
         }),
         created() {
             this.containerStyle = {
