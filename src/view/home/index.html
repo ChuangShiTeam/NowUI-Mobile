@@ -9,15 +9,18 @@
         <div class="header-background" :style="{opacity: headerBackgroundOpacity}"></div>
         <div class="header-content">
             <wxc-minibar background-color="transparent">
-                <image src="http://h5.chuangshi.nowui.com/wawipet/image/index-user.png"
-                       slot="left"
-                       class="header-content-user"></image>
-                <image src="http://h5.chuangshi.nowui.com/wawipet/image/index-logo.png"
-                       slot="middle"
-                       class="header-content-logo"></image>
-                <image src="http://h5.chuangshi.nowui.com/wawipet/image/index-search.png"
+                <image class="header-content-user"
+                       resize="cover"
+                       src="http://h5.chuangshi.nowui.com/wawipet/image/index-user.png"
+                       slot="left"></image>
+                <image class="header-content-logo"
+                       resize="cover"
+                       src="http://h5.chuangshi.nowui.com/wawipet/image/index-logo.png"
+                       slot="middle"></image>
+                <image class="header-content-search"
+                       resize="cover"
+                       src="http://h5.chuangshi.nowui.com/wawipet/image/index-search.png"
                        slot="right"
-                       class="header-content-search"
                        @click="handleClickSearch"></image>
             </wxc-minibar>
         </div>
@@ -25,15 +28,18 @@
     <!--广告-->
     <slider class="banner banner-item" ref="banner">
         <div v-for="banner in bannerList">
-            <image class="banner-item" resize="cover" :src="banner.image"></image>
+            <image class="banner-item"
+                   resize="cover"
+                   :src="banner.image"></image>
         </div>
         <indicator class="banner-indicator"></indicator>
     </slider>
     <!--分类-->
     <scroller class="category" scroll-direction="horizontal">
         <div class="category-item" v-for="(category, index) in categoryList" :key="index">
-            <image :src="category.image"
-                   class="category-item-image"></image>
+            <image class="category-item-image"
+                   resize="cover"
+                   :src="category.image"></image>
             <text class="category-item-text">{{category.name}}</text>
         </div>
     </scroller>
@@ -48,6 +54,7 @@
     <div class="article">
         <div class="article-top">
             <image class="article-top-image"
+                   resize="cover"
                    src="http://h5.chuangshi.nowui.com/wawipet/image/1.png"></image>
             <text class="article-top-title">#盘点十大最适合狗狗吃的零食#</text>
         </div>
@@ -60,6 +67,7 @@
                   :cell-style="{width: 702}"
                   v-for="(article, index) in articleList" :key="index">
             <image class="article-list-image"
+                   resize="cover"
                    slot="label"
                    src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/68/h/68"></image>
             <text class="article-list-title"
@@ -80,6 +88,7 @@
              v-for="(pet, index) in petList"
              :key="index">
             <image class="pet-list-item-image"
+                   resize="cover"
                    :src="pet.image"></image>
             <div>
                 <text class="pet-list-item-name">{{pet.name}}</text>
@@ -98,6 +107,7 @@
     <scroller class="member-list" scroll-direction="horizontal">
         <div class="member-item" v-for="(pet, index) in petList" :key="index">
             <image class="member-avatar"
+                   resize="cover"
                    src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/104/h/104"></image>
             <text class="member-name">萌宠秀</text>
             <text class="member-recommend">编辑推荐</text>

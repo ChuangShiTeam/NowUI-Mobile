@@ -109,7 +109,6 @@
     position: relative;
     width: 702px;
     height: 298px;
-    background-size: contain;
     align-items: center;
     justify-content: center;
 }
@@ -171,7 +170,6 @@
     width: 150px;
     height: 150px;
     margin-right: 10px;
-    background-size: contain;
     align-items: center;
     justify-content: center;
 }
