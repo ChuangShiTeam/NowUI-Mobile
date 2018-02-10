@@ -6,11 +6,7 @@
     export default {
         data () {
             return {
-                list:[
-                    ['A', 'B', 'C'],
-                    ['D', 'E', 'F'],
-                    ['G', 'H', 'I']
-                ]
+                list:[]
             }
         },
         created () {
