@@ -3,7 +3,7 @@
           offset-x-accuracy="0.1"
           @loadmore="handleLoad"
           loadmoreoffset="100"
-          v-show="isShow">
+          v-if="isShow">
     <wxc-cell :has-arrow="false"
               :has-top-border="false"
               :has-bottom-border="false"
