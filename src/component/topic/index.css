@@ -1,12 +1,391 @@
 .container {
-
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
 }
 
-.content {
+.header {
+    position: sticky;
+    top: 0px;
+    width: 750px;
+    height: 90px;
+    background-color: #ffffff;
+}
 
+.avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 100px;
+}
+
+.name {
+    margin-left: 16px;
+    font-family: PingFangSC-Light;
+    font-size: 24px;
+    color: #000000;
+}
+
+.time {
+    margin-left: 16px;
+    font-family: PingFangSC-Light;
+    font-size: 16px;
+    color: #000000;
+}
+
+.media-1 {
+    width: 750px;
+    height: 750px;
 }
 
 .image-1-0 {
     width: 750px;
-    height: 150px;
+    height: 750px;
+}
+
+.media-2 {
+    width: 750px;
+    height: 372px;
+}
+
+.image-2-0 {
+    top: 0px;
+    left: 0px;
+    width: 372px;
+    height: 372px;
+}
+
+.image-2-1 {
+    position: absolute;
+    top: 0px;
+    left: 378px;
+    width: 372px;
+    height: 372px;
+}
+
+.media-3 {
+    width: 750px;
+    height: 502px;
+}
+
+.image-3-0 {
+    top: 0px;
+    left: 0px;
+    width: 496px;
+    height: 502px;
+}
+
+.image-3-1 {
+    position: absolute;
+    top: 0px;
+    left: 502px;
+    width: 248px;
+    height: 248px;
+}
+
+.image-3-2 {
+    position: absolute;
+    top: 254px;
+    left: 502px;
+    right: 0px;
+    width: 248px;
+    height: 248px;
+}
+
+.media-4 {
+    width: 750px;
+    height: 750px;
+}
+
+.image-4-0 {
+    top: 0px;
+    left: 0px;
+    width: 372px;
+    height: 372px;
+}
+
+.image-4-1 {
+    position: absolute;
+    top: 0px;
+    left: 378px;
+    width: 372px;
+    height: 372px;
+}
+
+.image-4-2 {
+    position: absolute;
+    top: 378px;
+    left: 0px;
+    width: 372px;
+    height: 372px;
+}
+
+.image-4-3 {
+    position: absolute;
+    top: 378px;
+    left: 378px;
+    width: 372px;
+    height: 372px;
+}
+
+.media-5 {
+    width: 750px;
+    height: 626px;
+}
+
+.image-5-0 {
+    top: 0px;
+    left: 0px;
+    width: 372px;
+    height: 372px;
+}
+
+.image-5-1 {
+    position: absolute;
+    top: 0px;
+    left: 378px;
+    width: 372px;
+    height: 372px;
+}
+
+.image-5-2 {
+    position: absolute;
+    top: 378px;
+    left: 0px;
+    width: 248px;
+    height: 248px;
+}
+
+.image-5-3 {
+    position: absolute;
+    top: 378px;
+    left: 254px;
+    width: 248px;
+    height: 248px;
+}
+
+.image-5-4 {
+    position: absolute;
+    top: 378px;
+    left: 508px;
+    width: 248px;
+    height: 248px;
+}
+
+.media-6 {
+    width: 750px;
+    height: 753px;
+}
+
+.image-6-0 {
+    top: 0px;
+    left: 0px;
+    width: 496px;
+    height: 502px;
+}
+
+.image-6-1 {
+    position: absolute;
+    top: 0px;
+    left: 502px;
+    width: 248px;
+    height: 248px;
+}
+
+.image-6-2 {
+    position: absolute;
+    top: 254px;
+    left: 502px;
+    width: 248px;
+    height: 248px;
+}
+
+.image-6-3 {
+    position: absolute;
+    top: 508px;
+    left: 0px;
+    width: 248px;
+    height: 248px;
+}
+
+.image-6-3 {
+    position: absolute;
+    top: 508px;
+    left: 0px;
+    width: 245px;
+    height: 245px;
+}
+
+.image-6-4 {
+    position: absolute;
+    top: 508px;
+    left: 251px;
+    width: 245px;
+    height: 245px;
+}
+
+.image-6-5 {
+    position: absolute;
+    top: 508px;
+    left: 508px;
+    width: 245px;
+    height: 245px;
+}
+
+.media-7 {
+    width: 750px;
+    height: 753px;
+}
+
+.image-7-0 {
+    top: 0px;
+    left: 0px;
+    width: 245px;
+    height: 502px;
+}
+
+.image-7-1 {
+    position: absolute;
+    top: 0px;
+    left: 251px;
+    width: 245px;
+    height: 502px;
+}
+
+.image-7-2 {
+    position: absolute;
+    top: 254px;
+    left: 502px;
+    width: 248px;
+    height: 248px;
+}
+
+.image-7-3 {
+    position: absolute;
+    top: 508px;
+    left: 0px;
+    width: 248px;
+    height: 248px;
+}
+
+.image-7-3 {
+    position: absolute;
+    top: 508px;
+    left: 0px;
+    width: 245px;
+    height: 245px;
+}
+
+.image-7-4 {
+    position: absolute;
+    top: 508px;
+    left: 251px;
+    width: 245px;
+    height: 245px;
+}
+
+.image-7-5 {
+    position: absolute;
+    top: 508px;
+    left: 502px;
+    width: 245px;
+    height: 245px;
+}
+
+.content {
+    width: 702px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.content-text {
+    font-family: PingFangSC-Light;
+    font-size: 24px;
+    color: #000000;
+    border-bottom-width: 1px;
+    border-bottom-color: #D8D8D8;
+    background-color: #ffffff;
+    padding-bottom: 20px;
+}
+
+.info {
+    width: 702px;
+    padding-bottom: 20px;
+    flex-direction: row;
+}
+
+.info-topic {
+    flex: 1;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.info-topic-from {
+    font-family: PingFangSC-Light;
+    font-size: 18px;
+    color: #000000;
+    margin-left: 5px;
+    margin-bottom: 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.info-topic-tag {
+    font-family: PingFangSC-Light;
+    font-size: 18px;
+    color: #000000;
+    background-color: #DEFAFD;
+    border-radius: 18px;
+    margin-left: 5px;
+    margin-bottom: 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.info-like-icon {
+    width: 36px;
+    height: 32px;
+    margin-top: 1px;
+    margin-right: 10px;
+}
+
+.info-like-number {
+    font-family: PingFangSC-Regular;
+    font-size: 24px;
+    color: #000000;
+    margin-right: 30px;
+}
+
+.info-bookmark-icon {
+    width: 36px;
+    height: 32px;
+    margin-right: 10px;
+}
+
+.info-bookmark-number {
+    font-family: PingFangSC-Regular;
+    font-size: 24px;
+    color: #000000;
+    margin-right: 30px;
+}
+
+.info-comment-icon {
+    width: 36px;
+    height: 32px;
+    margin-right: 10px;
+}
+
+.info-comment-number {
+    font-family: PingFangSC-Regular;
+    font-size: 24px;
+    color: #000000;
+}
+
+.footer {
+    width: 750px;
+    height: 20px;
+    background-color: #f2f3f4;
 }

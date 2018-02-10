@@ -3,7 +3,7 @@
               :has-top-border="false"
               :has-bottom-border="false"
               :auto-accessible="false"
-              :cell-style="{width: 750}">
+              :cell-style="{width: 750, height: 80}">
         <image class="avatar"
                resize="cover"
                slot="label"
@@ -14,9 +14,124 @@
         </div>
         <div slot="value"></div>
     </wxc-cell>
-    <div class="content" v-if="topic.topicMediaList.length == 1">
+    <div class="media-1" v-if="topic.topicMediaList.length == 1">
         <image class="image-1-0"
                resize="cover"
                src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
     </div>
+    <div class="media-2" v-if="topic.topicMediaList.length == 2">
+        <image class="image-2-0"
+               resize="cover"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+        <image class="image-2-1"
+               resize="cover"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+    </div>
+    <div class="media-3" v-if="topic.topicMediaList.length == 3">
+        <image class="image-3-0"
+               resize="cover"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+        <image class="image-3-1"
+               resize="cover"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+        <image class="image-3-2"
+               resize="cover"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+    </div>
+    <div class="media-4" v-if="topic.topicMediaList.length == 4">
+        <image class="image-4-0"
+               resize="cover"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+        <image class="image-4-1"
+               resize="cover"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+        <image class="image-4-2"
+               resize="cover"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+        <image class="image-4-3"
+               resize="cover"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+    </div>
+    <div class="media-5" v-if="topic.topicMediaList.length == 5">
+        <image class="image-5-0"
+               resize="cover"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+        <image class="image-5-1"
+               resize="cover"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+        <image class="image-5-2"
+               resize="cover"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+        <image class="image-5-3"
+               resize="cover"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+        <image class="image-5-4"
+               resize="cover"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+    </div>
+    <div class="media-6" v-if="topic.topicMediaList.length == 6">
+        <image class="image-6-0"
+               resize="cover"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+        <image class="image-6-1"
+               resize="cover"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+        <image class="image-6-2"
+               resize="cover"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+        <image class="image-6-3"
+               resize="cover"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+        <image class="image-6-4"
+               resize="cover"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+        <image class="image-6-5"
+               resize="cover"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+    </div>
+    <div class="media-7" v-if="topic.topicMediaList.length == 7">
+        <image class="image-7-0"
+               resize="cover"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+        <image class="image-7-1"
+               resize="cover"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+        <image class="image-7-2"
+               resize="cover"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+        <image class="image-7-3"
+               resize="cover"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+        <image class="image-7-4"
+               resize="cover"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+        <image class="image-7-5"
+               resize="cover"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+    </div>
+    <div class="content">
+        <text class="content-text">我们田园猫也是超可爱的呀～～～我们田园猫也是超可爱的呀～～～我们田园猫也是超可爱的呀～～～</text>
+    </div>
+    <div class="info">
+        <div class="info-topic">
+            <text class="info-topic-from">同步到</text>
+            <text class="info-topic-tag">猫狗双全</text>
+            <text class="info-topic-tag">猫狗双全</text>
+            <text class="info-topic-tag">猫狗双全</text>
+            <text class="info-topic-tag">猫狗双全</text>
+        </div>
+        <image class="info-like-icon"
+               resize="cover"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/like.png"></image>
+        <text class="info-like-number">32</text>
+        <image class="info-bookmark-icon"
+               resize="cover"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/bookmark.png"></image>
+        <text class="info-bookmark-number">32</text>
+        <image class="info-comment-icon"
+               resize="cover"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/comment.png"></image>
+        <text class="info-comment-number">32</text>
+    </div>
+    <div class="footer"></div>
 </div>
