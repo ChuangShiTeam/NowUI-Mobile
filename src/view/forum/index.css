@@ -5,8 +5,6 @@
 }
 
 .header {
-    position: sticky;
-    top: 0px;
     width: 750px;
     height: 90px;
     border-bottom-width: 1px;
@@ -53,6 +51,10 @@
     height: 36px;
 }
 
+.content {
+    width: 750px;
+}
+
 .follow-image {
     width: 44px;
     height: 32px;
@@ -68,7 +70,7 @@
 
 .follow-forum {
     width: 750px;
-    height: 750px;
+    height: 760px;
     background-color: #f2fdfe;
     padding-top: 24px;
     padding-buttom: 24px;

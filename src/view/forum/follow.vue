@@ -62,7 +62,7 @@
         }),
         created() {
             this.containerStyle = {
-                height: Utils.env.getPageHeight() - 80
+                height: Utils.env.getPageHeight() - 90
             };
         },
         mounted() {
