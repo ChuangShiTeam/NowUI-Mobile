@@ -14,6 +14,12 @@
             WxcCell,
             Topic
         },
+        props: {
+            isShow: {
+                type: Boolean,
+                required: true
+            }
+        },
         data: () => ({
             followForumList: [{
                 name: '我加入的圈子',

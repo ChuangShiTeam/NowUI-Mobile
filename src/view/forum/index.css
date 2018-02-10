@@ -4,56 +4,6 @@
     justify-content: flex-start;
 }
 
-.header {
-    width: 750px;
-    height: 90px;
-    border-bottom-width: 1px;
-    border-bottom-color: #D8D8D8;
-    background-color: #ffffff;
-}
-
-.header-add {
-    width: 48px;
-    height: 48px;
-}
-
-.header-menu {
-    width: 200px;
-    height: 62px;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
-
-.header-menu-item {
-    width: 100px;
-    align-items: center;
-    justify-content: center;
-}
-
-.header-menu-item-text {
-    font-family: PingFangSC-Regular;
-    font-size: 28px;
-    color: #000000;
-}
-
-.header-menu-item-text-active {
-    align-items: center;
-    justify-content: center;
-    font-family: PingFangSC-Regular;
-    font-size: 32px;
-    color: #C18108;
-}
-
-.header-search {
-    width: 36px;
-    height: 36px;
-}
-
-.content {
-    width: 750px;
-}
-
 .follow-image {
     width: 44px;
     height: 32px;

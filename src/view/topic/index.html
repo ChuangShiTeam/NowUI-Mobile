@@ -1,31 +1,8 @@
-<div class="container">
-    <!--头部-->
-    <div class="header">
-        <wxc-minibar background-color="transparent">
-            <image src="http://h5.chuangshi.nowui.com/wawipet/image/form-user.png"
-                   resize="cover"
-                   slot="left"
-                   class="header-user"></image>
-            <div class="header-menu"
-                 slot="middle">
-                <div class="header-menu-item">
-                    <text class="header-menu-item-text">圈子</text>
-                </div>
-                <div class="header-menu-item">
-                    <text class="header-menu-item-text-active">动态</text>
-                </div>
-            </div>
-            <image src="http://h5.chuangshi.nowui.com/wawipet/image/forum-search.png"
-                   resize="cover"
-                   slot="right"
-                   class="header-search"></image>
-        </wxc-minibar>
-    </div>
-    <scroller class="content"
-              :style="containerStyle"
-              offset-x-accuracy="0.1"
-              @loadmore="handleLoad"
-              loadmoreoffset="100">
-        <Topic :topic="topic" v-for="(topic, index) in topicList" :key="index"></Topic>
-    </scroller>
-</div>
+<scroller class="container"
+          :style="containerStyle"
+          offset-x-accuracy="0.1"
+          @loadmore="handleLoad"
+          loadmoreoffset="100"
+          v-show="isShow">
+    <Topic :topic="topic" v-for="(topic, index) in topicList" :key="index"></Topic>
+</scroller>

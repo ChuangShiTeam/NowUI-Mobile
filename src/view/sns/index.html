@@ -1,4 +1,27 @@
 <div class="container">
-    <!--<ForumIndex/>-->
-    <TopicIndex/>
+    <div class="header">
+        <wxc-minibar background-color="transparent">
+            <image src="http://h5.chuangshi.nowui.com/wawipet/image/form-user.png"
+                   resize="cover"
+                   slot="left"
+                   class="header-user"></image>
+            <div class="header-menu"
+                 slot="middle">
+                <div class="header-menu-item"
+                     @click="handleClickForum">
+                    <text :class="selectIndex == 0 ? 'header-menu-item-text-active' : 'header-menu-item-text'">圈子</text>
+                </div>
+                <div class="header-menu-item"
+                     @click="handleClickTopic">
+                    <text :class="selectIndex == 1 ? 'header-menu-item-text-active' : 'header-menu-item-text'">动态</text>
+                </div>
+            </div>
+            <image src="http://h5.chuangshi.nowui.com/wawipet/image/forum-search.png"
+                   resize="cover"
+                   slot="right"
+                   class="header-search"></image>
+        </wxc-minibar>
+    </div>
+    <ForumIndex :isShow="selectIndex == 0"/>
+    <TopicIndex :isShow="selectIndex == 1"/>
 </div>
