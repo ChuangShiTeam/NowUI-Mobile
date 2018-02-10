@@ -3,13 +3,13 @@
 
 <script>
     import {WxcTabBar} from 'weex-ui';
-    // import HomeIndex from './home/index.vue';
+    import HomeIndex from './home/index.vue';
     import SnsIndex from './sns/index.vue';
 
     export default {
         components: {
             WxcTabBar,
-            // HomeIndex,
+            HomeIndex,
             SnsIndex
         },
         data: () => ({

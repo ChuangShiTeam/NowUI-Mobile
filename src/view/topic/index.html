@@ -7,13 +7,23 @@
                    class="header-user"></image>
             <div class="header-menu"
                  slot="middle">
-                <div class="header-menu-item"><text class="header-menu-item-text-active">圈子</text></div>
-                <div class="header-menu-item"><text class="header-menu-item-text">动态</text></div>
+                <div class="header-menu-item">
+                    <text class="header-menu-item-text">圈子</text>
+                </div>
+                <div class="header-menu-item">
+                    <text class="header-menu-item-text-active">动态</text>
+                </div>
             </div>
             <image src="http://h5.chuangshi.nowui.com/wawipet/image/forum-search.png"
                    slot="right"
                    class="header-search"></image>
         </wxc-minibar>
     </div>
-    <Topic :topic="{}"></Topic>
+    <scroller class="content"
+              :style="containerStyle"
+              offset-x-accuracy="0.1"
+              @loadmore="handleLoad"
+              loadmoreoffset="100">
+        <Topic :topic="{}"></Topic>
+    </scroller>
 </div>

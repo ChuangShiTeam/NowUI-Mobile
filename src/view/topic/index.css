@@ -40,7 +40,6 @@
 }
 
 .header-menu-item-text-active {
-    width: 130px;
     align-items: center;
     justify-content: center;
     font-family: PingFangSC-Regular;
@@ -51,4 +50,8 @@
 .header-search {
     width: 36px;
     height: 36px;
+}
+
+.content {
+    width: 750px;
 }

@@ -4,9 +4,10 @@
 <script>
     import {WxcMinibar, WxcCell, Utils} from 'weex-ui';
 
+    const dom = weex.requireModule('dom');
+
     import util from '../../common/util';
 
-    // const dom = weex.requireModule('dom');
 
     export default {
         components: {
@@ -124,13 +125,18 @@
             };
         },
         mounted() {
-            // dom.scrollToElement(this.$refs.banner, {
-            //     offset: 1
-            // });
+            if (weex.config.env.platform === 'android') {
+                dom.scrollToElement(this.$refs.banner, {
+                    offset: 1
+                });
+            }
         },
         methods: {
             handerScroll(e) {
-                this.headerBackgroundOpacity = -e.contentOffset.y / 300;
+                var headerBackgroundOpacity = -e.contentOffset.y / 300;
+                if (headerBackgroundOpacity < 1) {
+                    this.headerBackgroundOpacity = -e.contentOffset.y / 300;
+                }
             },
             handleLoad() {
                 console.log(1);
