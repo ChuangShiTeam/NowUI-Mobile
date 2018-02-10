@@ -12,14 +12,12 @@
         components: {
             WxcButton
         },
-        data() {
+        data(){
             return {}
         },
-        created() {
-
+        created(){
         },
-        mounted() {
-
+        mounted(){
         },
         methods: {
             wxcButtonClicked(e) {

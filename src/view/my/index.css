@@ -1,3 +1,82 @@
-.container {
-    
+.item {
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+.row {
+    flex-direction: row;
+    height: 80px;
+}
+.header{
+    flex-direction: row;
+    width: 750px;
+    height: 220px;
+    justify-content: center;
+    align-items: flex-end;
+}
+.header-background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 750px;
+    height: 180px;
+}
+.header-icon{
+    width: 140px;
+    height: 140px;
+    border-radius: 76px;
+    background: #D8D8D8;
+}
+.middle-top {
+    flex-direction: row;
+    background: #afddff;
+    height: 160px;
+    width: 750px;
+}
+.middle-top-username {
+    flex-direction: row;
+    font-size: 32px;
+    margin: 0 auto;
+    padding: 0px;
+}
+.middle-top-description {
+    flex-direction: row;
+    font-size: 32px;
+    margin: 0 auto;
+    padding: 0px;
+    color:gray;
+}
+.middle-top-address {
+    flex-direction: row;
+    font-size: 32px;
+    margin: 0 auto;
+    padding: 0px;
+    color:gray;
+}
+.middle-bottom {
+    flex-direction: row;
+    height: 120px;
+    width: 750px;
+}
+.middle-bottom-count{
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+ }
+.middle-bottom-font{
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+.bottom-title {
+    flex-direction: row;
+    background: #D8D8D8;
+    height: 80px;
+    width: 750px;
+}
+.bottom-header {
+    flex-direction: row;
+    background: #C18108;
+    height: 120px;
+    width: 750px;
 }

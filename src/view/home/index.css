@@ -3,13 +3,11 @@
     align-items: flex-start;
     justify-content: flex-start;
 }
-
 .header {
     position: sticky;
     top: 0px;
     z-index: 99999;
 }
-
 .header-background {
     position: absolute;
     top: 0px;
