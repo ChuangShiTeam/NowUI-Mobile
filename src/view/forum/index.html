@@ -2,8 +2,8 @@
           :style="containerStyle"
           offset-x-accuracy="0.1"
           @loadmore="handleLoad"
-          loadmoreoffset="100"
-          v-if="isShow">
+          loadmoreoffset="100">
+    <!--我加入的圈子-->
     <wxc-cell :has-arrow="false"
               :has-top-border="false"
               :has-bottom-border="false"
@@ -28,7 +28,7 @@
             <image class="follow-forum-image"
                    resize="cover"
                    slot="label"
-                   src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/77/h/77"></image>
+                   src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
             <div slot="title">
                 <text class="follow-forum-name">{{forum.name}}</text>
                 <text class="follow-forum-description">这里是魔都喵星人的聚集地，是爱猫人士的家园，欢迎加入</text>
@@ -51,4 +51,65 @@
                    src="http://h5.chuangshi.nowui.com/wawipet/image/forum-more.png"></image>
         </div>
     </div>
+    <!--你可能感兴趣的圈子-->
+    <wxc-cell :has-arrow="false"
+              :has-top-border="false"
+              :has-bottom-border="false"
+              :auto-accessible="false"
+              :cell-style="{width: 750, backgroundColor: '#fbfcfc'}">
+        <image class="interest-image"
+               resize="cover"
+               slot="label"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/interest.png"></image>
+        <div slot="title">
+            <text class="interest-title">你可能感兴趣的圈子</text>
+        </div>
+    </wxc-cell>
+    <wxc-ep-slider :slider-id="2"
+                   :card-length="5"
+                   :container-s="{width: 750, height: 510, overflow: 'hidden', backgroundColor: '#fbfcfc'}"
+                   :card-s="{width: 480, height: 480, spacing: 0, scale: 0.8}"
+                   :auto-play="false"
+                   :select-index="2">
+        <!--自动生成demo-->
+        <wxc-pan-item v-for="(v,index) in [1,2,3,4,5]"
+                      :key="index"
+                      :ext-id="index"
+                      :class="['slider',`slider${index}`]"
+                      :slot="`card${index}_2`"
+                      :accessible="true"
+                      :aria-label="`这里是第${index + 1}个滑块`">
+            <div class="interest-item">
+                <image class="interest-item-avatar"
+                       resize="cover"
+                       src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/80/h/80"></image>
+                <text class="interest-item-name">大爱猫咪控</text>
+                <text class="interest-item-description">猫咪超级萌的，温暖的大宝贝</text>
+                <div class="interest-item-image">
+                    <image class="interest-item-image-item"
+                           resize="cover"
+                           src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+                    <image class="interest-item-image-item"
+                           resize="cover"
+                           src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+                    <image class="interest-item-image-item"
+                           resize="cover"
+                           src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+                </div>
+                <text class="interest-item-join">加入</text>
+            </div>
+        </wxc-pan-item>
+    </wxc-ep-slider>
+    <!--热门动态-->
+    <wxc-cell :has-arrow="false"
+              :has-top-border="false"
+              :has-bottom-border="false"
+              :auto-accessible="false"
+              :cell-style="{width: 750}">
+        <text class="topic-header-title" slot="title">- 热门动态 -</text>
+    </wxc-cell>
+    <Topic :topic="topic"
+           :topicStyle="{marginTop: 20}"
+           v-for="(topic, index) in topicList"
+           :key="index"></Topic>
 </scroller>

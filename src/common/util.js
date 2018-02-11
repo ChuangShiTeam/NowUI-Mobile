@@ -9,6 +9,9 @@ function push(url) {
 
     if (weex.config.env.platform === 'Web') {
         result += a;
+        if (bundleUrl.indexOf('nowui.com') > -1) {
+            result += '/wawipet'
+        }
         result += url;
     } else {
         result += a + '/dist';

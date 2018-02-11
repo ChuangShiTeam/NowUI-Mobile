@@ -13,9 +13,15 @@
         <SnsIndex :tabHeight="tabStyle.height"></SnsIndex>
 
         <!--服务-->
-
+        <ServiceIndex :tabHeight="tabStyle.height"></ServiceIndex>
 
         <!--我的-->
+        <MyIndex :tabHeight="tabStyle.height"></MyIndex>
     </wxc-tab-bar>
     <!--<div class="line" :style="{top: (pageHeight - 80) + 'px'}"></div>-->
+    <wxc-popup :show="isShowLogin"
+               pos="bottom"
+               :height="pageHeight">
+        <LoginIndex></LoginIndex>
+    </wxc-popup>
 </div>

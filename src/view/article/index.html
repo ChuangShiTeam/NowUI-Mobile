@@ -1,0 +1,35 @@
+<div class="container">
+    <!--头部-->
+    <div class="header">
+        <wxc-minibar background-color="transparent">
+            <text slot="left"></text>
+            <text class="header-title"
+                  slot="middle">文章列表</text>
+        </wxc-minibar>
+    </div>
+    <!--内容-->
+    <scroller class="content"
+              :style="containerStyle"
+              offset-x-accuracy="0.1"
+              @loadmore="handleLoad"
+              loadmoreoffset="100">
+        <div class="aaa"
+             v-for="(forum, index) in followForumList"
+             :key="index">
+            <wxc-cell :has-arrow="false"
+                      :has-top-border="false"
+                      :has-bottom-border="false"
+                      :auto-accessible="false"
+                      :cell-style="{width: 690, height: 200}">
+                <image class="follow-forum-image"
+                       resize="cover"
+                       slot="label"
+                       src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+                <div slot="title">
+                    <text class="follow-forum-name">盘点十大最适合狗狗吃的零食</text>
+                    <text class="follow-forum-description">盘点十大最适合狗狗吃的零食，盘点十大最适合狗狗吃的零食</text>
+                </div>
+            </wxc-cell>
+        </div>
+    </scroller>
+</div>

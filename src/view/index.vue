@@ -2,15 +2,26 @@
 <template src="./index.html"></template>
 
 <script>
-    import {WxcTabBar} from 'weex-ui';
+    import {WxcTabBar, WxcPopup, Utils} from 'weex-ui';
     import HomeIndex from './home/index.vue';
     import SnsIndex from './sns/index.vue';
+    import ServiceIndex from './service/index.vue';
+    import MyIndex from './my/index.vue';
+
+    const modal = weex.requireModule('modal');
+    // const loginBroadcastChannel = new BroadcastChannel('loginBroadcastChannel');
+
+    import LoginIndex from './login/index.vue';
 
     export default {
         components: {
             WxcTabBar,
+            WxcPopup,
             HomeIndex,
-            SnsIndex
+            SnsIndex,
+            ServiceIndex,
+            MyIndex,
+            LoginIndex
         },
         data: () => ({
             tabList: [{
@@ -47,14 +58,23 @@
                 textPaddingLeft: 10,
                 textPaddingRight: 10
             },
-            pageHeight: 0
+            pageHeight: 0,
+            isShowLogin: false
         }),
         created() {
-
+            // loginBroadcastChannel.onmessage = function (event) {
+            //     // modal.toast({
+            //     //     message: '123',
+            //     //     duration: 1.3
+            //     // });
+            //
+            //     this.isShowLogin = !this.isShowLogin;
+            // }.bind(this)
         },
         mounted() {
             // this.$refs['wxc-tab-bar'].setPage(0);
-            // this.pageHeight = weex.config.env.deviceHeight / weex.config.env.deviceWidth * 750 - 80
+
+            this.pageHeight = Utils.env.getPageHeight();
         },
         methods: {
             handerTabSelected(e) {

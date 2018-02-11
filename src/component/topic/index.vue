@@ -12,6 +12,9 @@
             topic: {
                 type: Object,
                 required: true
+            },
+            topicStyle: {
+                type: Object
             }
         },
         data() {

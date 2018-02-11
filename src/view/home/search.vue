@@ -16,21 +16,28 @@
         },
         methods: {
             wxcSearchbarInputOnFocus() {
+
             },
             wxcSearchbarInputOnBlur() {
+
             },
             wxcSearchbarInputReturned() {
+
             },
             wxcSearchbarCloseClicked() {
+
             },
             wxcSearchbarInputOnInput(e) {
 
             },
             wxcSearchbarCancelClicked() {
+
             },
             wxcSearchbarInputDisabledClicked() {
+
             },
             wxcSearchbarDepChooseClicked() {
+
             }
         }
     }

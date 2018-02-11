@@ -2,7 +2,6 @@
     width: 750px;
     align-items: flex-start;
     justify-content: flex-start;
-    background-color: #f2fdfe;
 }
 
 .header {
@@ -45,6 +44,7 @@
     font-family: PingFangSC-Light;
     font-size: 24px;
     color: #000000;
+    margin-top: 10px;
 }
 
 .follow-forum-info {
@@ -80,4 +80,17 @@
     font-family: PingFangSC-Light;
     font-size: 20px;
     color: #000000;
+}
+
+.aaa {
+    width: 700px;
+    height: 210px;
+    border-color: #EDEDED;
+    border-width: 1px;
+    border-style: solid;
+    box-shadow: 0 2px 2px 0 rgba(209,209,209,0.50);
+    border-radius: 8px;
+    padding-top: 2px;
+    padding-left: 2px;
+    margin-bottom: 24px;
 }

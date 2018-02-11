@@ -2,6 +2,7 @@
     width: 750px;
     align-items: flex-start;
     justify-content: flex-start;
+    background-color: #f2fdfe;
 }
 
 .follow-image {
@@ -85,7 +86,8 @@
 }
 
 .follow-forum-more {
-    margin-top: 20px;
+    width: 750px;
+    height: 80px;
     flex-direction: row;
     align-items: center;
     justify-content: center;
@@ -101,4 +103,78 @@
     margin-left: 10px;
     width: 24px;
     height: 24px;
+}
+
+.interest-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+.interest-title {
+    margin-left: 16px;
+    font-family: PingFangSC-Light;
+    font-size: 30px;
+    color: #000000;
+}
+
+.interest-list {
+    width: 750px;
+    height: 500px;
+    backgroundColor: #fbfcfc;
+}
+
+.interest-item {
+    width: 480px;
+    height: 480px;
+    background-color: #FFFFFF;
+    box-shadow: 0 -2px 4px 0 rgba(220,220,220,0.50);
+    border-radius: 2px;
+    align-items: center;
+}
+
+.interest-item-avatar {
+    width: 88px;
+    height: 88px;
+    border-radius: 100px;
+    margin-top: 34px;
+}
+
+.interest-item-name {
+    font-family: PingFangSC-Regular;
+    font-size: 24px;
+    color: #000000;
+    margin-top: 20px;
+}
+
+.interest-item-description {
+    font-family: PingFangSC-Regular;
+    font-size: 20px;
+    color: #000000;
+}
+
+.interest-item-image {
+    width: 480px;
+    height: 157px;
+    margin-top: 20px;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.interest-item-image-item {
+    width: 157px;
+    height: 157px;
+}
+
+.interest-item-join {
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    background-color: #defafd;
+    border-radius: 30px;
+    font-family: PingFangSC-Regular;
+    font-size: 24px;
+    color: #000000;
 }

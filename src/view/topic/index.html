@@ -2,7 +2,9 @@
           :style="containerStyle"
           offset-x-accuracy="0.1"
           @loadmore="handleLoad"
-          loadmoreoffset="100"
-          v-if="isShow">
-    <Topic :topic="topic" v-for="(topic, index) in topicList" :key="index"></Topic>
+          loadmoreoffset="100">
+    <Topic :topic="topic"
+           :topicStyle="{marginTop: 20}"
+           v-for="(topic, index) in topicList"
+           :key="index"></Topic>
 </scroller>

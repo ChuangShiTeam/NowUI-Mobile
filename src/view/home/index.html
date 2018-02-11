@@ -6,9 +6,12 @@
           loadmoreoffset="100">
     <!--头部-->
     <div class="header">
-        <div class="header-background" :style="{opacity: headerBackgroundOpacity}"></div>
+        <div class="header-background"
+             :style="{opacity: headerBackgroundOpacity}"></div>
         <div class="header-content">
-            <wxc-minibar background-color="transparent">
+            <wxc-minibar background-color="transparent"
+                         :use-default-return="false"
+                         @wxcMinibarLeftButtonClicked="handleHomepage">
                 <image class="header-content-user"
                        resize="cover"
                        src="http://h5.chuangshi.nowui.com/wawipet/image/index-user.png"
@@ -17,11 +20,13 @@
                        resize="cover"
                        src="http://h5.chuangshi.nowui.com/wawipet/image/index-logo.png"
                        slot="middle"></image>
-                <image class="header-content-search"
-                       resize="cover"
-                       src="http://h5.chuangshi.nowui.com/wawipet/image/index-search.png"
-                       slot="right"
-                       @click="handleClickSearch"></image>
+                <div class="header-content-search"
+                     slot="right"
+                     @click="handleSearch">
+                    <image class="header-content-search-icon"
+                           resize="cover"
+                           src="http://h5.chuangshi.nowui.com/wawipet/image/index-search.png"></image>
+                </div>
             </wxc-minibar>
         </div>
     </div>
@@ -36,7 +41,7 @@
     </slider>
     <!--分类-->
     <scroller class="category" scroll-direction="horizontal">
-        <div class="category-item" v-for="(category, index) in categoryList" :key="index">
+        <div class="category-item" v-for="(category, index) in categoryList" :key="index" @click="handleCategory">
             <image class="category-item-image"
                    resize="cover"
                    :src="category.image"></image>
@@ -51,7 +56,7 @@
               :cell-style="{top: -90, width: 750}">
         <text class="pet-header-title" slot="title">- 热门话题 -</text>
     </wxc-cell>
-    <div class="article">
+    <div class="article" @click="handleCategory">
         <div class="article-top">
             <image class="article-top-image"
                    resize="cover"
@@ -59,22 +64,24 @@
             <text class="article-top-title">#盘点十大最适合狗狗吃的零食#</text>
         </div>
     </div>
-    <div class="article-list">
+    <scroller class="content"
+              :style="{top: -90, width: 750, height: 300, alignItems: 'center', marginTop: 24, marginBottom: 24}">
         <wxc-cell :has-arrow="false"
                   :has-top-border="false"
                   :has-bottom-border="true"
                   :auto-accessible="false"
                   :cell-style="{width: 702}"
-                  v-for="(article, index) in articleList" :key="index">
+                  v-for="(article, index) in articleList" :key="index"
+                  @wxcCellClicked="handleCategory">
             <image class="article-list-image"
                    resize="cover"
                    slot="label"
-                   src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/68/h/68"></image>
+                   src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
             <text class="article-list-title"
                   slot="title">{{article.title}}
             </text>
         </wxc-cell>
-    </div>
+    </scroller>
     <!--宠物-->
     <wxc-cell :has-arrow="false"
               :has-top-border="false"
@@ -86,7 +93,8 @@
     <scroller class="pet-list" scroll-direction="horizontal">
         <div class="pet-list-item"
              v-for="(pet, index) in petList"
-             :key="index">
+             :key="index"
+             @click="handleCategory">
             <image class="pet-list-item-image"
                    resize="cover"
                    :src="pet.image"></image>
@@ -122,6 +130,7 @@
               :cell-style="{top: -90, width: 750}">
         <text class="topic-header-title" slot="title">- 最新动态 -</text>
     </wxc-cell>
+    <Topic :topic="topic" :topicStyle="{top: -90}" v-for="(topic, index) in topicList" :key="index"></Topic>
     <!--尾部-->
     <div class="footer">
         <text class="footer-copyright">copyright wawipet.com 2017-2019</text>

@@ -1,39 +1,81 @@
 <div class="container">
+    <!--头部-->
     <div class="header">
-        <image  class="header-background"
-                        resize="cover"
-                        src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/750/h/220"></image>
-        <image class="header-icon"
+        <image class="header-background"
                resize="cover"
-               src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/140/h/140"></image>
+               src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+        <image class="header-avatar"
+               resize="cover"
+               src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/110/h/110"></image>
+        <text class="header-name">Ronaldo</text>
+        <text class="header-homepage">个人主页</text>
     </div>
-    <div>
-        <text class="middle-top-username">大木木__Lin</text>
-    </div>
-    <div>
-        <text class="middle-top-description">Capturing every moment of my life</text>
-    </div>
-    <div>
-        <text class="middle-top-address">来自上海浦东新区</text>
-    </div>
-
-    <div class="middle-bottom">
-
-        <div class="middle-bottom-count">
-            <text>动态</text>
+    <div class="info">
+        <div class="info-message">
+            <image class="info-message-icon"
+                   resize="cover"
+                   src="http://h5.chuangshi.nowui.com/wawipet/image/my-news.png"></image>
+            <text class="info-message-text">消息</text>
         </div>
-        <div class="middle-bottom-count">
-            <text>关注</text>
-        </div>
-        <div class="middle-bottom-count">
-            <text>粉丝</text>
+        <div class="info-line"></div>
+        <div class="info-collect">
+            <image class="info-collect-icon"
+                   resize="cover"
+                   src="http://h5.chuangshi.nowui.com/wawipet/image/my-collect.png"></image>
+            <text class="info-collect-text">收藏</text>
         </div>
     </div>
 
-    <div class="bottom-title">
-        <text>我的宠物</text>
-    </div>
-    <div class="bottom-header">
-        <text>我的头像</text>
-    </div>
+    <wxc-cell :has-arrow="true"
+              :has-top-border="false"
+              :has-bottom-border="false"
+              :auto-accessible="false"
+              :cell-style="{width: 750, marginTop: 12}">
+        <image class="cell-icon"
+               resize="cover"
+               slot="label"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/my-user.png"></image>
+        <div slot="title">
+            <text class="cell-text">个人资料</text>
+        </div>
+    </wxc-cell>
+    <wxc-cell :has-arrow="true"
+              :has-top-border="true"
+              :has-bottom-border="false"
+              :auto-accessible="false"
+              :cell-style="{width: 750}">
+        <image class="cell-icon"
+               resize="cover"
+               slot="label"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/my-pet.png"></image>
+        <div slot="title">
+            <text class="cell-text">我的爱宠</text>
+        </div>
+    </wxc-cell>
+    <wxc-cell :has-arrow="true"
+              :has-top-border="true"
+              :has-bottom-border="false"
+              :auto-accessible="false"
+              :cell-style="{width: 750}">
+        <image class="cell-icon"
+               resize="cover"
+               slot="label"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/my-follow.png"></image>
+        <div slot="title">
+            <text class="cell-text">我的关注</text>
+        </div>
+    </wxc-cell>
+    <wxc-cell :has-arrow="true"
+              :has-top-border="true"
+              :has-bottom-border="true"
+              :auto-accessible="false"
+              :cell-style="{width: 750}">
+        <image class="cell-icon"
+               resize="cover"
+               slot="label"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/my-qrcode.png"></image>
+        <div slot="title">
+            <text class="cell-text">我的二维码</text>
+        </div>
+    </wxc-cell>
 </div>

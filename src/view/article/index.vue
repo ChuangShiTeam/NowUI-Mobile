@@ -1,5 +1,5 @@
-<style src="./follow.css" scoped></style>
-<template src="./follow.html"></template>
+<style src="./index.css" scoped></style>
+<template src="./index.html"></template>
 
 <script>
     import {WxcMinibar, WxcCell, Utils} from 'weex-ui';

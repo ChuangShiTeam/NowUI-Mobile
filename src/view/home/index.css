@@ -2,11 +2,12 @@
     width: 750px;
     align-items: flex-start;
     justify-content: flex-start;
+    background-color: #f2fdfe;
 }
 .header {
     position: sticky;
     top: 0px;
-    z-index: 99999;
+    z-index: 1;
 }
 .header-background {
     position: absolute;
@@ -34,6 +35,13 @@
 
 .header-content-search {
     width: 36px;
+    height: 88px;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-content-search-icon {
+    width: 36px;
     height: 36px;
 }
 
@@ -54,9 +62,9 @@
     bottom: 10px;
     width: 750px;
     height: 60px;
-    itemColor: #dddddd;
-    itemSelectedColor: #ffffff;
-    z-index: 999;
+    item-color: #dddddd;
+    item-selectedColor: #ffffff;
+    z-index: 1;
 }
 
 .category {

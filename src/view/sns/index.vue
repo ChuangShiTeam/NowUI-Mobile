@@ -14,7 +14,7 @@
             TopicIndex
         },
         data: () => ({
-            selectIndex: 0
+            activeIndex: 0
         }),
         created() {
 
@@ -24,13 +24,13 @@
         },
         methods: {
             handleClickForum() {
-                if (this.selectIndex != 0) {
-                    this.selectIndex = 0;
+                if (this.activeIndex != 0) {
+                    this.activeIndex = 0;
                 }
             },
             handleClickTopic() {
-                if (this.selectIndex != 1) {
-                    this.selectIndex = 1;
+                if (this.activeIndex != 1) {
+                    this.activeIndex = 1;
                 }
             }
         }

@@ -2,6 +2,7 @@
     width: 750px;
     align-items: flex-start;
     justify-content: flex-start;
+    overflow: hidden;
 }
 
 .header {
@@ -20,15 +21,16 @@
 }
 
 .header-menu {
-    width: 200px;
-    height: 62px;
+    width: 230px;
+    height: 90px;
     flex-direction: row;
     align-items: center;
     justify-content: center;
 }
 
 .header-menu-item {
-    width: 100px;
+    width: 115px;
+    height: 90px;
     align-items: center;
     justify-content: center;
 }
@@ -50,4 +52,12 @@
 .header-search {
     width: 36px;
     height: 36px;
+}
+
+.tab-item {
+    position: relative;
+    width: 1500px;
+    flex: 1;
+    flex-direction: row;
+    align-items: stretch;
 }

@@ -2,7 +2,7 @@
 <template src="./index.html"></template>
 
 <script>
-    import {WxcMinibar, WxcCell, Utils} from 'weex-ui';
+    import {WxcMinibar, WxcCell, WxcEpSlider, WxcPanItem, Utils} from 'weex-ui';
 
     import Topic from '../../component/topic/index.vue';
 
@@ -12,13 +12,9 @@
         components: {
             WxcMinibar,
             WxcCell,
+            WxcEpSlider,
+            WxcPanItem,
             Topic
-        },
-        props: {
-            isShow: {
-                type: Boolean,
-                required: true
-            }
         },
         data: () => ({
             followForumList: [{
@@ -36,6 +32,124 @@
                 description: '这里是魔都喵星人的聚集地，是爱猫人士的家园，欢迎加入',
                 memberName: '小可爱',
                 number: 21
+            }],
+            topicList: [{
+                topicId: '0',
+                topicMediaList: [{
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }]
+            }, {
+                topicId: '0',
+                topicMediaList: [{
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }]
+            }, {
+                topicId: '0',
+                topicMediaList: [{
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }]
+            }, {
+                topicId: '0',
+                topicMediaList: [{
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }]
+            }, {
+                topicId: '0',
+                topicMediaList: [{
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }]
+            }, {
+                topicId: '0',
+                topicMediaList: [{
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }]
+            }, {
+                topicId: '0',
+                topicMediaList: [{
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }]
+            }, {
+                topicId: '0',
+                topicMediaList: [{
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }]
+            }, {
+                topicId: '0',
+                topicMediaList: [{
+                    filePath: ''
+                }]
             }]
         }),
         created() {

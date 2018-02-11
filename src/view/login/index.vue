@@ -2,14 +2,13 @@
 <template src="./index.html"></template>
 
 <script>
-    import {WxcMinibar, WxcCell, Utils} from 'weex-ui';
+    import {WxcMinibar, Utils} from 'weex-ui';
 
     // const loginBroadcastChannel = new BroadcastChannel('loginBroadcastChannel');
 
     export default {
         components: {
-            WxcMinibar,
-            WxcCell
+            WxcMinibar
         },
         data() {
             return {}

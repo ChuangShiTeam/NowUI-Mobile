@@ -12,12 +12,6 @@
             WxcCell,
             Topic
         },
-        props: {
-            isShow: {
-                type: Boolean,
-                required: true
-            }
-        },
         data: () => ({
             topicList: [{
                 topicId: '0',
