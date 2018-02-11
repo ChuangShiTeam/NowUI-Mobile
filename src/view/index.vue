@@ -74,7 +74,7 @@
         mounted() {
             // this.$refs['wxc-tab-bar'].setPage(0);
 
-            this.pageHeight = Utils.env.getPageHeight();
+            this.pageHeight = weex.config.env.deviceHeight / weex.config.env.deviceWidth * 750;
         },
         methods: {
             handerTabSelected(e) {

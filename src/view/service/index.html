@@ -1,3 +1,47 @@
-<div class="container">
+<scroller class="container"
+          :style="containerStyle">
+    <!--广告-->
+    <slider class="banner banner-item" ref="banner">
+        <div v-for="banner in bannerList">
+            <image class="banner-item"
+                   resize="cover"
+                   :src="banner.image"></image>
+        </div>
+        <indicator class="banner-indicator"></indicator>
+    </slider>
+    <!--分类-->
+    <scroller class="category" scroll-direction="horizontal">
+        <div class="category-item" v-for="(category, index) in categoryList" :key="index">
+            <image class="category-item-image"
+                   resize="cover"
+                   :src="category.image"></image>
+            <text class="category-item-text">{{category.name}}</text>
+        </div>
+    </scroller>
+    <!--明星商户-->
+    <wxc-cell :has-arrow="false"
+              :has-top-border="false"
+              :has-bottom-border="false"
+              :auto-accessible="false"
+              :cell-style="{width: 750}">
+        <text class="shop-header-title" slot="title">明星商户</text>
+    </wxc-cell>
+    <scroller class="shop-list" scroll-direction="horizontal">
+        <div class="shop-list-item"
+             :style="{backgroundColor: shop.color}"
+             v-for="(shop, index) in shopList"
+             :key="index">
 
-</div>
+            <div>
+            </div>
+        </div>
+    </scroller>
+    <!--文章-->
+    <div class="article">
+        <image class="article-item-image"
+               resize="cover"
+               :src="article.image"
+               v-for="(article, index) in articleList"
+               :key="index"></image>
+    </div>
+</scroller>

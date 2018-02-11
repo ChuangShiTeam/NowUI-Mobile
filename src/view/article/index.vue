@@ -2,7 +2,7 @@
 <template src="./index.html"></template>
 
 <script>
-    import {WxcMinibar, WxcCell, Utils} from 'weex-ui';
+    import {WxcMinibar, WxcCell} from 'weex-ui';
 
     import Topic from '../../component/topic/index.vue';
 
@@ -102,7 +102,7 @@
         }),
         created() {
             this.containerStyle = {
-                height: Utils.env.getPageHeight() - 90
+                height: weex.config.env.deviceHeight / weex.config.env.deviceWidth * 750 - 90
             };
         },
         mounted() {

@@ -228,7 +228,7 @@
             }]
         }),
         created() {
-            const pageHeight = Utils.env.getPageHeight();
+            const pageHeight = weex.config.env.deviceHeight / weex.config.env.deviceWidth * 750;
             this.containerStyle = {
                 height: (pageHeight - 80) + 'px',
                 backgroundColor: '#f6f6f6'

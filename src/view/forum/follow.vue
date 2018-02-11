@@ -102,7 +102,7 @@
         }),
         created() {
             this.containerStyle = {
-                height: Utils.env.getPageHeight() - 90
+                height: weex.config.env.deviceHeight / weex.config.env.deviceWidth * 750 - 90
             };
         },
         mounted() {
