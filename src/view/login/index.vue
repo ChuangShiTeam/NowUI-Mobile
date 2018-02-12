@@ -4,6 +4,8 @@
 <script>
     import {WxcMinibar, Utils} from 'weex-ui';
 
+    import util from '../../common/util';
+
     // const loginBroadcastChannel = new BroadcastChannel('loginBroadcastChannel');
 
     export default {
@@ -15,7 +17,7 @@
         },
         created() {
             this.containerStyle = {
-                height: weex.config.env.deviceHeight / weex.config.env.deviceWidth * 750 - 90
+                height: util.getPageHeight() - 90
             };
         },
         mounted() {

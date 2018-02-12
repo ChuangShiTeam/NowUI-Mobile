@@ -2,7 +2,9 @@
 <template src="./index.html"></template>
 
 <script>
-    import {WxcMinibar, WxcCell, Utils} from 'weex-ui';
+    import {WxcMinibar, WxcCell} from 'weex-ui';
+
+    import util from '../../common/util';
 
     // const loginBroadcastChannel = new BroadcastChannel('loginBroadcastChannel');
 
@@ -16,7 +18,7 @@
         }),
         created() {
             this.containerStyle = {
-                height: weex.config.env.deviceHeight / weex.config.env.deviceWidth * 750 - 90
+                height: util.getPageHeight() - 90
             };
         },
         mounted() {

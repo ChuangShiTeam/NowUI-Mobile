@@ -109,7 +109,7 @@
               :has-top-border="false"
               :has-bottom-border="false"
               :auto-accessible="false"
-              :cell-style="{top: -90, width: 750, backgroundColor: 'rgb(246, 246, 246)'}">
+              :cell-style="{top: -90, width: 750, backgroundColor: '#f6f6f6'}">
         <text class="member-header-title" slot="title">- 猜你喜欢 -</text>
     </wxc-cell>
     <scroller class="member-list" scroll-direction="horizontal">
@@ -130,7 +130,10 @@
               :cell-style="{top: -90, width: 750}">
         <text class="topic-header-title" slot="title">- 最新动态 -</text>
     </wxc-cell>
-    <Topic :topic="topic" :topicStyle="{top: -90}" v-for="(topic, index) in topicList" :key="index"></Topic>
+    <Topic :topic="topic"
+           :topicStyle="{top: -90, marginBottom: 24}"
+           v-for="(topic, index) in topicList"
+           :key="index"></Topic>
     <!--尾部-->
     <div class="footer">
         <text class="footer-copyright">copyright wawipet.com 2017-2019</text>

@@ -2,7 +2,7 @@
     width: 750px;
     align-items: flex-start;
     justify-content: flex-start;
-    background-color: #f2fdfe;
+    background-color: #defafd;
 }
 
 .follow-image {
@@ -21,7 +21,6 @@
 .follow-forum {
     width: 750px;
     height: 760px;
-    background-color: #f2fdfe;
     padding-top: 24px;
     padding-buttom: 24px;
     padding-left: 24px;

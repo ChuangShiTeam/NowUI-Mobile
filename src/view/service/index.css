@@ -2,7 +2,7 @@
     width: 750px;
     align-items: flex-start;
     justify-content: flex-start;
-    background-color: #f2fdfe;
+    background-color: #defafd;
 }
 
 .banner {
@@ -29,7 +29,7 @@
 .category {
     width: 750px;
     height: 180px;
-    margin-bottom: 8px;
+    margin-bottom: 24px;
     flex-direction: row;
     background-color: #ffffff;
 }
@@ -82,6 +82,7 @@
     width: 750px;
     align-items: center;
     padding-top: 24px;
+    background-color: #f6f6f6;
 }
 
 .article-item-image {

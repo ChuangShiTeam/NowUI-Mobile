@@ -1,10 +1,9 @@
 .container {
-
+    background-color: #defafd;
 }
 
 .tab-item {
     width: 750px;
-    background-color: #f2f3f4;
     align-items: flex-start;
     justify-content: flex-start;
 }

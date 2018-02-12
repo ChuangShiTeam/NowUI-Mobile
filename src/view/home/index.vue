@@ -10,7 +10,6 @@
 
     import util from '../../common/util';
 
-
     export default {
         components: {
             WxcMinibar,
@@ -228,10 +227,8 @@
             }]
         }),
         created() {
-            const pageHeight = weex.config.env.deviceHeight / weex.config.env.deviceWidth * 750;
             this.containerStyle = {
-                height: (pageHeight - 80) + 'px',
-                backgroundColor: '#f6f6f6'
+                height: (util.getPageHeight() - 80) + 'px'
             };
         },
         mounted() {

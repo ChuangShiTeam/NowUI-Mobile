@@ -2,7 +2,7 @@
     width: 750px;
     align-items: flex-start;
     justify-content: flex-start;
-    background-color: #f2fdfe;
+    background-color: #defafd;
 }
 
 .header {
@@ -53,7 +53,7 @@
 }
 
 .info {
-    width: 750px;
+    width: 702px;
     height: 100px;
     flex-direction: row;
     align-items: center;

@@ -10,24 +10,30 @@
         <text class="header-name">Ronaldo</text>
         <text class="header-homepage">个人主页</text>
     </div>
-    <div class="info">
-        <div class="info-message">
-            <image class="info-message-icon"
-                   resize="cover"
-                   src="http://h5.chuangshi.nowui.com/wawipet/image/my-news.png"></image>
-            <text class="info-message-text">消息</text>
+    <wxc-cell :has-arrow="false"
+              :has-top-border="false"
+              :has-bottom-border="true"
+              :auto-accessible="false"
+              :cell-style="{width: 750, height: 104}">
+        <div class="info">
+            <div class="info-message">
+                <image class="info-message-icon"
+                       resize="cover"
+                       src="http://h5.chuangshi.nowui.com/wawipet/image/my-news.png"></image>
+                <text class="info-message-text">消息</text>
+            </div>
+            <div class="info-line"></div>
+            <div class="info-collect">
+                <image class="info-collect-icon"
+                       resize="cover"
+                       src="http://h5.chuangshi.nowui.com/wawipet/image/my-collect.png"></image>
+                <text class="info-collect-text">收藏</text>
+            </div>
         </div>
-        <div class="info-line"></div>
-        <div class="info-collect">
-            <image class="info-collect-icon"
-                   resize="cover"
-                   src="http://h5.chuangshi.nowui.com/wawipet/image/my-collect.png"></image>
-            <text class="info-collect-text">收藏</text>
-        </div>
-    </div>
+    </wxc-cell>
 
     <wxc-cell :has-arrow="true"
-              :has-top-border="false"
+              :has-top-border="true"
               :has-bottom-border="false"
               :auto-accessible="false"
               :cell-style="{width: 750, marginTop: 12}">

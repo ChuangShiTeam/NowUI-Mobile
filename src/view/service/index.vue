@@ -2,7 +2,9 @@
 <template src="./index.html"></template>
 
 <script>
-    import {WxcMinibar, WxcCell, Utils} from 'weex-ui';
+    import {WxcMinibar, WxcCell} from 'weex-ui';
+
+    import util from '../../common/util';
 
     export default {
         components: {
@@ -57,7 +59,7 @@
             shopList: [{
                 color: '#FFE7E8'
             }, {
-                color: '#DEFAFD'
+                color: '#defafd'
             }, {
                 color: '#FFEEC8'
             }, {
@@ -65,7 +67,7 @@
             }, {
                 color: '#FFE7E8'
             }, {
-                color: '#DEFAFD'
+                color: '#defafd'
             }, {
                 color: '#FFEEC8'
             }, {
@@ -73,7 +75,7 @@
             }, {
                 color: '#FFE7E8'
             }, {
-                color: '#DEFAFD'
+                color: '#defafd'
             }, {
                 color: '#FFEEC8'
             }, {
@@ -81,7 +83,7 @@
             }, {
                 color: '#FFE7E8'
             }, {
-                color: '#DEFAFD'
+                color: '#defafd'
             }, {
                 color: '#FFEEC8'
             }, {
@@ -126,10 +128,8 @@
             }]
         }),
         created() {
-            const pageHeight = weex.config.env.deviceHeight / weex.config.env.deviceWidth * 750;
             this.containerStyle = {
-                height: (pageHeight - 80) + 'px',
-                backgroundColor: '#f6f6f6'
+                height: (util.getPageHeight() - 80) + 'px'
             };
         },
         mounted() {

@@ -2,7 +2,7 @@
     width: 750px;
     align-items: flex-start;
     justify-content: flex-start;
-    background-color: #f2fdfe;
+    background-color: #defafd;
 }
 .header {
     position: sticky;
@@ -71,7 +71,7 @@
     top: -90px;
     width: 750px;
     height: 180px;
-    margin-bottom: 8px;
+    margin-bottom: 24px;
     flex-direction: row;
     background-color: #ffffff;
 }
@@ -212,11 +212,11 @@
 .member-list {
     top: -90px;
     width: 750px;
-    height: 296px;
+    height: 320px;
     padding-left: 24px;
     padding-right: 24px;
-    margin-bottom: 24px;
     flex-direction: row;
+    background-color: #f6f6f6;
 }
 
 .member-item {
@@ -282,7 +282,7 @@
     top: -90px;
     width: 750px;
     height: 230px;
-    background-color: #DEFAFD;
+    background-color: #defafd;
     align-items: center;
     justify-content: center;
 }

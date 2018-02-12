@@ -14,7 +14,11 @@ function push(url) {
         }
         result += url;
     } else {
-        result += a + '/dist';
+        result += a;
+        if (bundleUrl.indexOf('nowui.com') > -1) {
+            result += '/wawipet'
+        }
+        result += '/dist';
         result += url.replace('.html', '.js');
     }
 
@@ -24,6 +28,17 @@ function push(url) {
     });
 }
 
+function getPageHeight() {
+    if (weex.config.env.platform === 'Web') {
+        return weex.config.env.deviceHeight / weex.config.env.deviceWidth * 750;
+    } else if (weex.config.env.platform === 'iOS') {
+        return weex.config.env.deviceHeight / weex.config.env.deviceWidth * 750 - 118;
+    } else {
+        return weex.config.env.deviceHeight / weex.config.env.deviceWidth * 750;
+    }
+}
+
 export default {
-    push: push
+    push: push,
+    getPageHeight: getPageHeight
 };
