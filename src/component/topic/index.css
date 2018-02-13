@@ -452,9 +452,14 @@
 }
 
 .info {
-    width: 702px;
+    width: 750px;
+    padding-left: 24px;
+    padding-right: 24px;
     padding-bottom: 20px;
     flex-direction: row;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: rgb(226, 226, 226);
 }
 
 .info-topic {

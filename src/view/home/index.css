@@ -2,7 +2,7 @@
     width: 750px;
     align-items: flex-start;
     justify-content: flex-start;
-    background-color: #defafd;
+    background-color: #f6f6f6;
 }
 .header {
     position: sticky;
@@ -74,6 +74,9 @@
     margin-bottom: 24px;
     flex-direction: row;
     background-color: #ffffff;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: rgb(226, 226, 226);
 }
 
 .category-item {
