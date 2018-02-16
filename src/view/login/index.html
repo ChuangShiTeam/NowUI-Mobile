@@ -1,6 +1,9 @@
 <div class="container">
-    <!--内容-->
-    <scroller class="content"
-              :style="containerStyle">
-    </scroller>
+    <div class="tab-item" :style="{left: activeIndex * -750 + 'px'}">
+        <!--快捷登录-->
+        <Fast></Fast>
+    </div>
+    <div class="close">
+        <wxc-icon name="close"></wxc-icon>
+    </div>
 </div>

@@ -5,6 +5,7 @@
     import {WxcTabBar, WxcPopup} from 'weex-ui';
 
     import mixins from '../mixins/index';
+    import event from "../common/event";
 
     import HomeIndex from './home/index.vue';
     import SnsIndex from './sns/index.vue';
@@ -31,16 +32,13 @@
 
         },
         mounted() {
-            // this.$refs['wxc-tab-bar'].setPage(0);
+            event.$on('show-login', (data) => {
+                this.isShowLogin = true;
+            });
         },
         methods: {
             handleBar(index) {
                 this.activeIndex = index;
-
-                // this.toast(this.store.state.home.aaa)
-                this.commit('home', {
-                    aaa: '222'
-                })
             }
         }
     }

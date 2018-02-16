@@ -2,7 +2,10 @@
 <template src="./index.html"></template>
 
 <script>
-    import {WxcMinibar, WxcCell, Utils} from 'weex-ui';
+    import {WxcMinibar, WxcCell} from 'weex-ui';
+
+    import mixins from '../../mixins/index';
+    import event from "../../common/event";
 
     import Topic from '../../component/topic/index.vue';
 
@@ -22,6 +25,7 @@
                 required: true
             }
         },
+        mixins: [mixins],
         data: () => ({
             headerBackgroundOpacity: 0.0,
             bannerList: [{
@@ -248,23 +252,19 @@
                 console.log(1);
             },
             handleHomepage() {
-                if (false) {
-                    util.push('/view/home/search.html');
-                } else {
-                    const loginBroadcastChannel = new BroadcastChannel('loginBroadcastChannel');
-                    loginBroadcastChannel.postMessage({
-                        callbackName: ''
-                    });
-                }
-            },
-            handleSearch() {
-                // util.push('/view/home/search.html');
-                this.$emit('child-tell-me-something', {
-                    message: '123456'
+                event.$emit('show-login', {
+
                 });
             },
+            handleSearch() {
+                // weex.config.bus.$emit('child-tell-me-something', {
+                //     message: '123456'
+                // });
+
+
+            },
             handleCategory() {
-                util.push('/view/article/index.html');
+                this.push('/view/article/index.html');
             }
         }
     }

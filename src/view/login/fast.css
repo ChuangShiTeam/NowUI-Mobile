@@ -1,0 +1,46 @@
+.container {
+    width: 750px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.logo {
+    width: 300px;
+    height: 74px;
+    margin-top: 80px;
+}
+
+.mobile {
+    width: 504px;
+    flex-direction: row;
+    margin-top: 86px;
+}
+
+.mobile-icon {
+    width: 26px;
+    height: 40px;
+}
+
+.captcha {
+    width: 504px;
+    flex-direction: row;
+    margin-top: 60px;
+}
+
+.captcha-icon {
+    width: 36px;
+    height: 32px;
+}
+
+.submit {
+    width: 504px;
+    height: 80px;
+    background-color: #9DD7E3;
+    border-radius: 4px;
+    align-items: center;
+    justify-content: center;
+    font-family: PingFangSC-Light;
+    font-size: 28px;
+    color: #000000;
+    margin-top: 60px;
+}

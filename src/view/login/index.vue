@@ -2,36 +2,28 @@
 <template src="./index.html"></template>
 
 <script>
-    import {WxcMinibar, Utils} from 'weex-ui';
+    import {WxcIcon} from 'weex-ui';
 
-    import util from '../../common/util';
-
-    // const loginBroadcastChannel = new BroadcastChannel('loginBroadcastChannel');
+    import Fast from './fast.vue';
 
     export default {
         components: {
-            WxcMinibar
+            WxcIcon,
+            Fast
         },
         data() {
-            return {}
+            return {
+                activeIndex: 0
+            }
         },
         created() {
-            this.containerStyle = {
-                height: util.getPageHeight() - 90
-            };
+
         },
         mounted() {
 
         },
         methods: {
-            handleLoad() {
-                console.log(1);
-            },
-            hadleClickHeaderLeft() {
-                // loginBroadcastChannel.postMessage({
-                //     callbackName: ''
-                // });
-            }
+
         }
     }
 </script>

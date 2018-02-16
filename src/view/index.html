@@ -38,4 +38,11 @@
             <text :class="[activeIndex == 3 ? 'bar-item-text-active' : 'bar-item-text']">我的</text>
         </div>
     </div>
+    <wxc-popup popup-color="rgb(92, 184, 92)"
+               :show="isShowLogin"
+               pos="bottom"
+               height="400">
+        <div class="demo-content">
+        </div>
+    </wxc-popup>
 </div>

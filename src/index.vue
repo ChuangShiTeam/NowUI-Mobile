@@ -15,9 +15,10 @@
             return {}
         },
         created() {
+
         },
         mounted() {
-            this.toast('123');
+
         },
         methods: {
             wxcButtonClicked(e) {
@@ -28,9 +29,7 @@
                 //     duration: 10.3
                 // })
 
-                this.toast(this.$store);
-
-                // this.push('/view/index.html');
+                this.push('/view/index.html');
             }
         }
     }
