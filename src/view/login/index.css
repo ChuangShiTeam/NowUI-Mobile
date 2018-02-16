@@ -2,19 +2,5 @@
     width: 750px;
     align-items: flex-start;
     justify-content: flex-start;
-}
-
-.header {
-    width: 750px;
-    height: 90px;
-    border-bottom-width: 1px;
-    border-bottom-color: #D8D8D8;
-    background-color: #ffffff;
-}
-
-.header-title {
-    margin-left: 16px;
-    font-family: PingFangSC-Light;
-    font-size: 30px;
-    color: #000000;
+    background-color: #E9FBFF;
 }

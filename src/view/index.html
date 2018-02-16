@@ -1,27 +1,41 @@
 <div class="container">
-    <wxc-tab-bar ref="wxc-tab-bar"
-                 :is-tab-view="true"
-                 :tab-titles="tabList"
-                 :tab-styles="tabStyle"
-                 title-type="icon"
-                 :duration="0"
-                 @wxcTabBarCurrentTabSelected="handerTabSelected">
+    <div class="tab-item" :style="{left: activeIndex * -750 + 'px'}">
         <!--首页-->
-        <HomeIndex :tabHeight="tabStyle.height"></HomeIndex>
+        <HomeIndex :tabHeight="pageHeight - 80"></HomeIndex>
 
         <!--社区-->
-        <SnsIndex :tabHeight="tabStyle.height"></SnsIndex>
+        <SnsIndex :tabHeight="pageHeight - 80"></SnsIndex>
 
         <!--服务-->
-        <ServiceIndex :tabHeight="tabStyle.height"></ServiceIndex>
+        <ServiceIndex :tabHeight="pageHeight - 80"></ServiceIndex>
 
         <!--我的-->
-        <MyIndex :tabHeight="tabStyle.height"></MyIndex>
-    </wxc-tab-bar>
-    <!--<div class="line" :style="{top: (pageHeight - 80) + 'px'}"></div>-->
-    <wxc-popup :show="isShowLogin"
-               pos="bottom"
-               :height="pageHeight">
-        <LoginIndex></LoginIndex>
-    </wxc-popup>
+        <MyIndex :tabHeight="pageHeight - 80"></MyIndex>
+    </div>
+    <div class="bar">
+        <div class="bar-item" @click="handleBar(0)">
+            <image :src="activeIndex == 0 ? 'http://h5.chuangshi.nowui.com/wawipet/image/index-active.png' : 'http://h5.chuangshi.nowui.com/wawipet/image/index.png'"
+                   resize="cover"
+                   class="bar-item-icon"></image>
+            <text :class="[activeIndex == 0 ? 'bar-item-text-active' : 'bar-item-text']">首页</text>
+        </div>
+        <div class="bar-item" @click="handleBar(1)">
+            <image :src="activeIndex == 1 ? 'http://h5.chuangshi.nowui.com/wawipet/image/forum-active.png' : 'http://h5.chuangshi.nowui.com/wawipet/image/forum.png'"
+                   resize="cover"
+                   class="bar-item-icon"></image>
+            <text :class="[activeIndex == 1 ? 'bar-item-text-active' : 'bar-item-text']">社区</text>
+        </div>
+        <div class="bar-item" @click="handleBar(2)">
+            <image :src="activeIndex == 2 ? 'http://h5.chuangshi.nowui.com/wawipet/image/service-active.png' : 'http://h5.chuangshi.nowui.com/wawipet/image/service.png'"
+                   resize="cover"
+                   class="bar-item-icon"></image>
+            <text :class="[activeIndex == 2 ? 'bar-item-text-active' : 'bar-item-text']">服务</text>
+        </div>
+        <div class="bar-item" @click="handleBar(3)">
+            <image :src="activeIndex == 3 ? 'http://h5.chuangshi.nowui.com/wawipet/image/my-active.png' : 'http://h5.chuangshi.nowui.com/wawipet/image/my.png'"
+                   resize="cover"
+                   class="bar-item-icon"></image>
+            <text :class="[activeIndex == 3 ? 'bar-item-text-active' : 'bar-item-text']">我的</text>
+        </div>
+    </div>
 </div>

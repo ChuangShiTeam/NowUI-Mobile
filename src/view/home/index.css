@@ -284,13 +284,13 @@
 .footer {
     top: -90px;
     width: 750px;
-    height: 230px;
+    height: 140px;
     background-color: #defafd;
     align-items: center;
-    justify-content: center;
 }
 
 .footer-copyright {
+    margin-top: 50px;
     font-family: PingFangSC-Light;
     font-size: 20px;
     color: #000000;
@@ -306,4 +306,11 @@
     font-family: PingFangSC-Light;
     font-size: 20px;
     color: #000000;
+}
+
+.footer-background {
+    bottom: 0px;
+    width: 750px;
+    height: 100px;
+    background-color: #defafd;
 }

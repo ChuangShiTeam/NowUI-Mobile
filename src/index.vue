@@ -3,30 +3,34 @@
 
 <script>
     import {WxcButton} from 'weex-ui';
-    const modal = weex.requireModule('modal')
-    const navigator = weex.requireModule('navigator');
 
-    import util from './common/util';
+    import mixins from './mixins/index';
 
     export default {
         components: {
             WxcButton
         },
-        data(){
+        mixins: [mixins],
+        data() {
             return {}
         },
-        created(){
+        created() {
         },
-        mounted(){
+        mounted() {
+            this.toast('123');
         },
         methods: {
             wxcButtonClicked(e) {
                 // util.push('/view/home/search.html');
 
-                modal.toast({
-                    message: util.push('/view/index.html'),
-                    duration: 10.3
-                })
+                // modal.toast({
+                //     message: util.push('/view/index.html'),
+                //     duration: 10.3
+                // })
+
+                this.toast(this.$store);
+
+                // this.push('/view/index.html');
             }
         }
     }

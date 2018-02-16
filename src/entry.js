@@ -1,5 +1,8 @@
 import Vue from 'vue';
 import weex from 'weex-vue-render';
+import Vuex from 'vuex';
+
+Vue.use(Vuex);
 
 //接收参数
 window.weex.config.parameter = {};

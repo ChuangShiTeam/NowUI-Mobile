@@ -65,7 +65,7 @@
         </div>
     </div>
     <scroller class="content"
-              :style="{top: -90, width: 750, height: 300, alignItems: 'center', marginTop: 24, marginBottom: 24}">
+              :style="{top: -90, width: 750, height: 300, alignItems: 'center', marginTop: 24, marginBottom: 20}">
         <wxc-cell :has-arrow="false"
                   :has-top-border="false"
                   :has-bottom-border="true"
@@ -84,7 +84,7 @@
     </scroller>
     <!--宠物-->
     <wxc-cell :has-arrow="false"
-              :has-top-border="false"
+              :has-top-border="true"
               :has-bottom-border="false"
               :auto-accessible="false"
               :cell-style="{top: -90, width: 750}">
@@ -106,7 +106,7 @@
     </scroller>
     <!--会员-->
     <wxc-cell :has-arrow="false"
-              :has-top-border="false"
+              :has-top-border="true"
               :has-bottom-border="false"
               :auto-accessible="false"
               :cell-style="{top: -90, width: 750, backgroundColor: '#f6f6f6'}">
@@ -124,14 +124,14 @@
     </scroller>
     <!--最新动态-->
     <wxc-cell :has-arrow="false"
-              :has-top-border="false"
+              :has-top-border="true"
               :has-bottom-border="false"
               :auto-accessible="false"
               :cell-style="{top: -90, width: 750}">
         <text class="topic-header-title" slot="title">- 最新动态 -</text>
     </wxc-cell>
     <Topic :topic="topic"
-           :topicStyle="{top: -90, marginBottom: 24}"
+           :topicStyle="{top: -90, marginBottom: index + 1 == topicList.length ? 0 : 20}"
            v-for="(topic, index) in topicList"
            :key="index"></Topic>
     <!--尾部-->
@@ -139,5 +139,6 @@
         <text class="footer-copyright">copyright wawipet.com 2017-2019</text>
         <text class="footer-record">沪ICP备 12345678</text>
         <text class="footer-email">email:market@wawipet.com</text>
+        <div class="footer-background"></div>
     </div>
 </scroller>

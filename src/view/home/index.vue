@@ -258,7 +258,10 @@
                 }
             },
             handleSearch() {
-                util.push('/view/home/search.html');
+                // util.push('/view/home/search.html');
+                this.$emit('child-tell-me-something', {
+                    message: '123456'
+                });
             },
             handleCategory() {
                 util.push('/view/article/index.html');
