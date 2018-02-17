@@ -166,6 +166,9 @@
             },
             handleClickFollowForum(e) {
                 util.push('/view/forum/follow.html');
+            },
+            handleSearch() {
+                this.push('/view/forum/search.html');
             }
         }
     }

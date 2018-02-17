@@ -257,11 +257,7 @@
                 });
             },
             handleSearch() {
-                // weex.config.bus.$emit('child-tell-me-something', {
-                //     message: '123456'
-                // });
-
-
+                this.push('/view/home/search.html');
             },
             handleCategory() {
                 this.push('/view/article/index.html');

@@ -39,6 +39,7 @@
         </div>
     </div>
     <wxc-popup ref="login"
+               v-if="isLoginShow"
                :show="isLoginShow"
                :height="pageHeight"
                @wxcPopupOverlayClicked="handleLogin"
