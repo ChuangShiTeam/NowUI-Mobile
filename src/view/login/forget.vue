@@ -1,10 +1,8 @@
-<style src="./fast.css" scoped></style>
-<template src="./fast.html"></template>
+<style src="./forget.css" scoped></style>
+<template src="./forget.html"></template>
 
 <script>
     import mixins from '../../mixins/index';
-
-    import event from "../../common/event";
 
     export default {
         components: {
@@ -24,14 +22,7 @@
         },
         methods: {
             handlePassword() {
-                event.$emit('login-push', {
-                    name: 'password'
-                });
-            },
-            handleRegister() {
-                event.$emit('login-push', {
-                    name: 'register'
-                });
+                //this.push('/view/login/password.html');
             },
             handleMobileChange(event) {
                 this.mobile = event.value;

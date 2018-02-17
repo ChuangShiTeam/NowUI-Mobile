@@ -252,7 +252,7 @@
                 console.log(1);
             },
             handleHomepage() {
-                event.$emit('show-login', {
+                event.$emit('login-show', {
 
                 });
             },

@@ -26,19 +26,26 @@
         mixins: [mixins],
         data: () => ({
             activeIndex: 0,
-            isShowLogin: false
+            isLoginShow: false
         }),
         created() {
 
         },
         mounted() {
-            event.$on('show-login', (data) => {
-                this.isShowLogin = true;
+            event.$on('login-show', (data) => {
+                this.isLoginShow = true;
+            });
+
+            event.$on('login-close', (data) => {
+                this.$refs.login.hide();
             });
         },
         methods: {
             handleBar(index) {
                 this.activeIndex = index;
+            },
+            handleLogin() {
+                this.isLoginShow = false;
             }
         }
     }

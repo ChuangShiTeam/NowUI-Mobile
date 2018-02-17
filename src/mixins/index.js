@@ -13,7 +13,7 @@ export default {
         if (weex.config.env.platform.toLowerCase() === 'web') {
             this.pageHeight = weex.config.env.deviceHeight / weex.config.env.deviceWidth * 750;
         } else if (weex.config.env.platform.toLowerCase() === 'ios') {
-            this.pageHeight = weex.config.env.deviceHeight / weex.config.env.deviceWidth * 750 - 118;
+            this.pageHeight = weex.config.env.deviceHeight / weex.config.env.deviceWidth * 750 - 116;
         } else {
             this.pageHeight = weex.config.env.deviceHeight / weex.config.env.deviceWidth * 750;
         }

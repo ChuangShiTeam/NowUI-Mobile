@@ -1,9 +1,13 @@
-<div class="container">
+<div class="container" :style="{height: pageHeight}">
     <div class="tab-item" :style="{left: activeIndex * -750 + 'px'}">
         <!--快捷登录-->
         <Fast></Fast>
+        <Forget></Forget>
+        <Password></Password>
+        <Register></Register>
     </div>
     <div class="close">
-        <wxc-icon name="close"></wxc-icon>
+        <wxc-icon name="close"
+                  @wxcIconClicked="handleClose"></wxc-icon>
     </div>
 </div>

@@ -1,9 +1,8 @@
-<style src="./fast.css" scoped></style>
-<template src="./fast.html"></template>
+<style src="./password.css" scoped></style>
+<template src="./password.html"></template>
 
 <script>
     import mixins from '../../mixins/index';
-
     import event from "../../common/event";
 
     export default {
@@ -23,9 +22,14 @@
 
         },
         methods: {
-            handlePassword() {
+            handleForget() {
                 event.$emit('login-push', {
-                    name: 'password'
+                    name: 'forget'
+                });
+            },
+            handleFast() {
+                event.$emit('login-push', {
+                    name: 'fast'
                 });
             },
             handleRegister() {
