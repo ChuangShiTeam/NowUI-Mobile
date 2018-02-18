@@ -2,10 +2,13 @@
     <div class="header">
         <wxc-minibar background-color="transparent"
                      :use-default-return="false">
-            <image src="http://h5.chuangshi.nowui.com/wawipet/image/form-user.png"
-                   resize="cover"
-                   slot="left"
-                   class="header-user"></image>
+            <div class="header-add"
+                 slot="left"
+                 @click="handleAdd">
+                <image class="header-add-icon"
+                       resize="cover"
+                       src="http://h5.chuangshi.nowui.com/wawipet/image/forum-add.png"></image>
+            </div>
             <div class="header-menu"
                  slot="middle">
                 <div class="header-menu-item">
@@ -16,10 +19,13 @@
                     <text class="header-menu-item-text">动态</text>
                 </div>
             </div>
-            <image src="http://h5.chuangshi.nowui.com/wawipet/image/forum-search.png"
-                   resize="cover"
-                   slot="right"
-                   class="header-search"></image>
+            <div class="header-search"
+                 slot="right"
+                 @click="handleSearch">
+                <image class="header-search-icon"
+                       resize="cover"
+                       src="http://h5.chuangshi.nowui.com/wawipet/image/forum-search.png"></image>
+            </div>
         </wxc-minibar>
     </div>
     <scroller :style="{width: 750, height: pageHeight}"
@@ -68,7 +74,7 @@
                     </div>
                 </div>
             </wxc-cell>
-            <div class="follow-forum-more" @click="handleClickFollowForum">
+            <div class="follow-forum-more" @click="handleFollow">
                 <text class="follow-forum-more-text">查看更多</text>
                 <image class="follow-forum-more-icon"
                        resize="cover"

@@ -15,9 +15,16 @@
     background-color: #ffffff;
 }
 
-.header-user {
-    width: 33px;
-    height: 36px;
+.header-add {
+    width: 40px;
+    height: 90px;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-add-icon {
+    width: 40px;
+    height: 40px;
 }
 
 .header-menu {
@@ -50,6 +57,13 @@
 }
 
 .header-search {
+    width: 36px;
+    height: 90px;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-search-icon {
     width: 36px;
     height: 36px;
 }

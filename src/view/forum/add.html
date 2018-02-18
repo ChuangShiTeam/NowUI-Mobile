@@ -1,0 +1,55 @@
+<div class="container">
+    <!--头部-->
+    <div class="header">
+        <wxc-minibar background-color="transparent">
+            <text slot="left"></text>
+            <text class="header-title"
+                  slot="middle">创建圈子</text>
+        </wxc-minibar>
+    </div>
+    <!--内容-->
+    <scroller class="content"
+              :style="{height: pageHeight}">
+        <wxc-cell :has-arrow="false"
+                  :has-top-border="false"
+                  :has-bottom-border="true"
+                  :auto-accessible="false"
+                  :cell-style="{width: 750, height: 140}">
+            <text class="cell-text" slot="title">上传圈子照片</text>
+            <image class="upload"
+                   resize="cover"
+                   slot="value"
+                   src="http://h5.chuangshi.nowui.com/wawipet/image/upload.png"></image>
+        </wxc-cell>
+        <wxc-cell :has-arrow="false"
+                  :has-top-border="true"
+                  :has-bottom-border="true"
+                  :auto-accessible="false"
+                  :cell-style="{width: 750, height: 180, marginTop: 20, alignItems: 'flex-start'}">
+            <div slot="title">
+                <text class="cell-text" :style="{marginBottom: 10}">圈子名称</text>
+                <div class="line"></div>
+                <input type="text"
+                       placeholder="输入不超过25个字符的圈子名称"
+                       class="cell-input"/>
+            </div>
+        </wxc-cell>
+        <wxc-cell :has-arrow="false"
+                  :has-top-border="true"
+                  :has-bottom-border="true"
+                  :auto-accessible="false"
+                  :cell-style="{width: 750, height: 250, marginTop: 20, alignItems: 'flex-start'}">
+            <div slot="title">
+                <text class="cell-text" :style="{marginBottom: 10}">圈子简介</text>
+                <div class="line"></div>
+                <textarea placeholder="请输入超过255个字符的圈子简介"
+                          class="cell-input"/>
+            </div>
+        </wxc-cell>
+        <div class="button" :style="{height: pageHeight - 730}">
+            <div class="submit">
+                <text class="submit-text">提交审核</text>
+            </div>
+        </div>
+    </scroller>
+</div>

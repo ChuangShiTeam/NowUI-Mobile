@@ -172,8 +172,11 @@
             handleHomepage() {
                 this.push('/view/forum/homepage.html');
             },
-            handleClickFollowForum(e) {
+            handleFollow(e) {
                 this.push('/view/forum/follow.html');
+            },
+            handleAdd() {
+                this.push('/view/forum/search.html');
             },
             handleSearch() {
                 this.push('/view/forum/search.html');
