@@ -23,17 +23,17 @@
         },
         methods: {
             handleForget() {
-                event.$emit('login-push', {
+                event.$emit('login-click', {
                     name: 'forget'
                 });
             },
             handleFast() {
-                event.$emit('login-push', {
+                event.$emit('login-click', {
                     name: 'fast'
                 });
             },
             handleRegister() {
-                event.$emit('login-push', {
+                event.$emit('login-click', {
                     name: 'register'
                 });
             },

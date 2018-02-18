@@ -2,11 +2,11 @@
 <template src="./follow.html"></template>
 
 <script>
-    import {WxcMinibar, WxcCell, Utils} from 'weex-ui';
+    import {WxcMinibar, WxcCell} from 'weex-ui';
+
+    import mixins from '../../mixins/index';
 
     import Topic from '../../component/topic/index.vue';
-
-    import util from '../../common/util';
 
     export default {
         components: {
@@ -14,6 +14,7 @@
             WxcCell,
             Topic
         },
+        mixins: [mixins],
         data: () => ({
             followForumList: [{
                 name: '我加入的圈子',
@@ -103,9 +104,7 @@
             }]
         }),
         created() {
-            this.containerStyle = {
-                height: util.getPageHeight() - 90
-            };
+
         },
         mounted() {
 

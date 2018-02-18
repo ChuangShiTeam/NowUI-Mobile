@@ -9,10 +9,6 @@
 
     import Topic from '../../component/topic/index.vue';
 
-    const dom = weex.requireModule('dom');
-
-    import util from '../../common/util';
-
     export default {
         components: {
             WxcMinibar,
@@ -231,13 +227,11 @@
             }]
         }),
         created() {
-            this.containerStyle = {
-                height: (util.getPageHeight() - 80) + 'px'
-            };
+
         },
         mounted() {
             if (weex.config.env.platform === 'android') {
-                dom.scrollToElement(this.$refs.banner, {
+                this.dom.scrollToElement(this.$refs.banner, {
                     offset: 1
                 });
             }

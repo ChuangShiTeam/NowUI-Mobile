@@ -2,11 +2,12 @@
 <template src="./index.html"></template>
 
 <script>
-    import {WxcMinibar, WxcCell, WxcEpSlider, WxcPanItem, Utils} from 'weex-ui';
+    import {WxcMinibar, WxcCell, WxcEpSlider, WxcPanItem} from 'weex-ui';
+
+    import mixins from '../../mixins/index';
+    import event from "../../common/event";
 
     import Topic from '../../component/topic/index.vue';
-
-    import util from '../../common/util';
 
     export default {
         components: {
@@ -16,6 +17,7 @@
             WxcPanItem,
             Topic
         },
+        mixins: [mixins],
         data: () => ({
             followForumList: [{
                 name: '我加入的圈子',
@@ -153,9 +155,7 @@
             }]
         }),
         created() {
-            this.containerStyle = {
-                height: util.getPageHeight() - 90 - 80
-            };
+
         },
         mounted() {
 
@@ -163,6 +163,11 @@
         methods: {
             handleLoad() {
                 console.log(1);
+            },
+            handleTopic() {
+                event.$emit('sns-click', {
+                    name: 'topic'
+                });
             },
             handleClickFollowForum(e) {
                 util.push('/view/forum/follow.html');

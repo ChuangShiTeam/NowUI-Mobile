@@ -2,17 +2,18 @@
 <template src="./index.html"></template>
 
 <script>
-    import {WxcMinibar} from 'weex-ui';
+    import mixins from '../../mixins/index';
+    import event from "../../common/event";
 
     import ForumIndex from '../forum/index.vue';
     import TopicIndex from '../topic/index.vue';
 
     export default {
         components: {
-            WxcMinibar,
             ForumIndex,
             TopicIndex
         },
+        mixins: [mixins],
         data: () => ({
             activeIndex: 0
         }),
@@ -20,19 +21,19 @@
 
         },
         mounted() {
-
+            event.$on('sns-click', (data) => {
+                switch (data.name) {
+                    case 'forum':
+                        this.activeIndex = 0;
+                        break;
+                    case 'topic':
+                        this.activeIndex = 1;
+                        break;
+                }
+            });
         },
         methods: {
-            handleClickForum() {
-                if (this.activeIndex != 0) {
-                    this.activeIndex = 0;
-                }
-            },
-            handleClickTopic() {
-                if (this.activeIndex != 1) {
-                    this.activeIndex = 1;
-                }
-            }
+
         }
     }
 </script>

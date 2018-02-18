@@ -1,28 +1,4 @@
 <div class="container">
-    <div class="header">
-        <wxc-minibar background-color="transparent"
-                     :use-default-return="false">
-            <image src="http://h5.chuangshi.nowui.com/wawipet/image/form-user.png"
-                   resize="cover"
-                   slot="left"
-                   class="header-user"></image>
-            <div class="header-menu"
-                 slot="middle">
-                <div class="header-menu-item"
-                     @click="handleClickForum">
-                    <text :class="[activeIndex == 0 ? 'header-menu-item-text-active' : 'header-menu-item-text']">圈子</text>
-                </div>
-                <div class="header-menu-item"
-                     @click="handleClickTopic">
-                    <text :class="[activeIndex == 1 ? 'header-menu-item-text-active' : 'header-menu-item-text']">动态</text>
-                </div>
-            </div>
-            <image src="http://h5.chuangshi.nowui.com/wawipet/image/forum-search.png"
-                   resize="cover"
-                   slot="right"
-                   class="header-search"></image>
-        </wxc-minibar>
-    </div>
     <div class="tab-item" :style="{left: activeIndex * -750 + 'px'}">
         <ForumIndex/>
         <TopicIndex/>

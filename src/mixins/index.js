@@ -1,3 +1,4 @@
+const dom = weex.requireModule('dom');
 const modal = weex.requireModule('modal');
 const navigator = weex.requireModule('navigator');
 
@@ -19,6 +20,8 @@ export default {
         }
 
         this.store = store;
+
+        this.dom = dom;
     },
     mounted() {
 

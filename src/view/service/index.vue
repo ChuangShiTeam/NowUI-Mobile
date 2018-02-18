@@ -4,13 +4,14 @@
 <script>
     import {WxcMinibar, WxcCell} from 'weex-ui';
 
-    import util from '../../common/util';
+    import mixins from '../../mixins/index';
 
     export default {
         components: {
             WxcMinibar,
             WxcCell
         },
+        mixins: [mixins],
         data: () => ({
             bannerList: [{
                 image: 'http://h5.chuangshi.nowui.com/wawipet/image/11.png'
@@ -128,9 +129,7 @@
             }]
         }),
         created() {
-            this.containerStyle = {
-                height: (util.getPageHeight() - 80) + 'px'
-            };
+
         },
         mounted() {
 

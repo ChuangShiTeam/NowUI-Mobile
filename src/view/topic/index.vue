@@ -4,9 +4,10 @@
 <script>
     import {WxcMinibar, WxcCell} from 'weex-ui';
 
-    import Topic from '../../component/topic/index.vue';
+    import mixins from '../../mixins/index';
+    import event from "../../common/event";
 
-    import util from '../../common/util';
+    import Topic from '../../component/topic/index.vue';
 
     export default {
         components: {
@@ -14,6 +15,7 @@
             WxcCell,
             Topic
         },
+        mixins: [mixins],
         data: () => ({
             topicList: [{
                 topicId: '0',
@@ -135,9 +137,7 @@
             }]
         }),
         created() {
-            this.containerStyle = {
-                height: util.getPageHeight() - 90 - 80
-            };
+
         },
         mounted() {
 
@@ -145,6 +145,11 @@
         methods: {
             handleLoad() {
                 console.log(1);
+            },
+            handleForum() {
+                event.$emit('sns-click', {
+                    name: 'forum'
+                });
             }
         }
     }

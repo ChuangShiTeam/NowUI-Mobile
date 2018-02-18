@@ -30,8 +30,7 @@
 
         },
         mounted() {
-            event.$on('login-push', (data) => {
-                console.log(data.name)
+            event.$on('login-click', (data) => {
                 switch (data.name) {
                     case 'fast':
                         this.activeIndex = 0;

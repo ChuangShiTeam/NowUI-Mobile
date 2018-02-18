@@ -5,6 +5,55 @@
     background-color: #f6f6f6;
 }
 
+.header {
+    position: sticky;
+    top: 0px;
+    width: 750px;
+    height: 90px;
+    border-bottom-width: 1px;
+    border-bottom-color: #D8D8D8;
+    background-color: #ffffff;
+}
+
+.header-user {
+    width: 33px;
+    height: 36px;
+}
+
+.header-menu {
+    width: 230px;
+    height: 90px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-menu-item {
+    width: 115px;
+    height: 90px;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-menu-item-text {
+    font-family: PingFangSC-Regular;
+    font-size: 28px;
+    color: #000000;
+}
+
+.header-menu-item-text-active {
+    align-items: center;
+    justify-content: center;
+    font-family: PingFangSC-Regular;
+    font-size: 32px;
+    color: #b59768;
+}
+
+.header-search {
+    width: 36px;
+    height: 36px;
+}
+
 .follow-image {
     width: 44px;
     height: 32px;

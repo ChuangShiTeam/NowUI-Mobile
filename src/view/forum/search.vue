@@ -4,10 +4,13 @@
 <script>
     import {WxcSearchbar} from 'weex-ui'
 
+    import mixins from '../../mixins/index';
+
     export default {
         components: {
             WxcSearchbar
         },
+        mixins: [mixins],
         data() {
             return {}
         },

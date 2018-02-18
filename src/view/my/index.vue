@@ -4,22 +4,19 @@
 <script>
     import {WxcMinibar, WxcCell} from 'weex-ui';
 
-    import util from '../../common/util';
-
-    // const loginBroadcastChannel = new BroadcastChannel('loginBroadcastChannel');
+    import mixins from '../../mixins/index';
 
     export default {
         components: {
             WxcMinibar,
             WxcCell
         },
+        mixins: [mixins],
         data: () => ({
 
         }),
         created() {
-            this.containerStyle = {
-                height: util.getPageHeight() - 90
-            };
+
         },
         mounted() {
 

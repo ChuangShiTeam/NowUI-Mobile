@@ -2,7 +2,13 @@
 <template src="./index.html"></template>
 
 <script>
+    import mixins from '../../mixins/index';
+
     export default {
+        components: {
+
+        },
+        mixins: [mixins],
         data() {
             return {}
         },

@@ -3,7 +3,6 @@
 
 <script>
     import mixins from '../../mixins/index';
-
     import event from "../../common/event";
 
     export default {
@@ -24,12 +23,12 @@
         },
         methods: {
             handlePassword() {
-                event.$emit('login-push', {
+                event.$emit('login-click', {
                     name: 'password'
                 });
             },
             handleRegister() {
-                event.$emit('login-push', {
+                event.$emit('login-click', {
                     name: 'register'
                 });
             },
