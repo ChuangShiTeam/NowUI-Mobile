@@ -2,10 +2,13 @@
     <div class="header">
         <wxc-minibar background-color="transparent"
                      :use-default-return="false">
-            <image src="http://h5.chuangshi.nowui.com/wawipet/image/form-user.png"
-                   resize="cover"
-                   slot="left"
-                   class="header-user"></image>
+            <div class="user"
+                 slot="left"
+                 @click="handleHomepage">
+                <image class="header-user-icon"
+                       resize="cover"
+                       src="http://h5.chuangshi.nowui.com/wawipet/image/forum-user.png"></image>
+            </div>
             <div class="header-menu"
                  slot="middle">
                 <div class="header-menu-item"
@@ -16,10 +19,13 @@
                     <text class="header-menu-item-text-active">动态</text>
                 </div>
             </div>
-            <image src="http://h5.chuangshi.nowui.com/wawipet/image/forum-search.png"
-                   resize="cover"
-                   slot="right"
-                   class="header-search"></image>
+            <div class="header-search"
+                 slot="right"
+                 @click="handleSearch">
+                <image class="header-search-icon"
+                       resize="cover"
+                       src="http://h5.chuangshi.nowui.com/wawipet/image/forum-search.png"></image>
+            </div>
         </wxc-minibar>
     </div>
     <scroller :style="{width: 750, height: pageHeight}"
@@ -31,4 +37,8 @@
                v-for="(topic, index) in topicList"
                :key="index"></Topic>
     </scroller>
+    <image class="add"
+           :style="{top: pageHeight - 200}"
+           resize="cover"
+           src="http://h5.chuangshi.nowui.com/wawipet/image/topic-add.png"></image>
 </div>

@@ -150,6 +150,12 @@
                 event.$emit('sns-click', {
                     name: 'forum'
                 });
+            },
+            handleHomepage() {
+                this.push('/view/member/homepage.html');
+            },
+            handleSearch() {
+                this.push('/view/topic/search.html');
             }
         }
     }

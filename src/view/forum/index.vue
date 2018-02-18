@@ -176,7 +176,7 @@
                 this.push('/view/forum/follow.html');
             },
             handleAdd() {
-                this.push('/view/forum/search.html');
+                this.push('/view/forum/add.html');
             },
             handleSearch() {
                 this.push('/view/forum/search.html');
