@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="header">
+        <image class="header-background"
+               resize="cover"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+        <image class="header-avatar"
+               resize="cover"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+    </div>
+    <div class="info">
+        <text class="info-name">世界萌宠大搜罗</text>
+        <text class="info-description">本圈为你搜罗全世界的有趣动物资讯</text>
+        <div class="join">
+            <text class="join-text">加入圈子</text>
+        </div>
+        <div class="line"></div>
+        <wxc-cell @wxcCellClicked="handleMember"
+                  :has-arrow="false"
+                  :has-top-border="false"
+                  :has-bottom-border="true"
+                  :auto-accessible="false"
+                  :cell-style="{width: 750}">
+            <image class="member-avatar"
+                   resize="cover"
+                   slot="label"
+                   src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/68/h/68"></image>
+            <div slot="title">
+                <text class="member-name">Ronaldo</text>
+                <text class="member-description">资深遛狗师一枚，对宠物行为有很深的造诣。</text>
+            </div>
+            <div slot="value"></div>
+        </wxc-cell>
+    </div>
+    <Topic :topic="topic"
+           :topicStyle="{marginBottom: 20}"
+           v-for="(topic, index) in topicList"
+           :key="index"></Topic>
+</div>

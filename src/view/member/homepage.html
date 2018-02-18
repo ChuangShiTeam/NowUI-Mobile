@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="header">
+        <image class="header-background"
+               resize="cover"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+        <image class="header-avatar"
+               resize="cover"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+    </div>
+    <div class="info">
+        <div class="info-header">
+            <text class="info-header-name">我是詹姆斯</text>
+            <text class="info-header-from">来自 上海 徐汇区</text>
+        </div>
+        <text class="info-description">Capturing every moment of my life.</text>
+        <div class="info-footer">
+            <div class="info-footer-left">
+                <div class="info-footer-left-item">
+                    <text class="info-footer-left-item-number">20</text>
+                    <text class="info-footer-left-item-text">动态</text>
+                </div>
+                <div class="info-footer-left-item">
+                    <text class="info-footer-left-item-number">10</text>
+                    <text class="info-footer-left-item-text">关注</text>
+                </div>
+                <div class="info-footer-left-item">
+                    <text class="info-footer-left-item-number">28</text>
+                    <text class="info-footer-left-item-text">粉丝</text>
+                </div>
+            </div>
+            <div class="info-footer-right">
+                <div class="info-footer-right-message">
+                    <text class="info-footer-right-message-text">私信</text>
+                </div>
+                <div class="info-footer-right-follow">
+                    <text class="info-footer-right-follow-text">关注 TA</text>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pet">
+        <text class="pet-text">TA的宠物</text>
+        <text class="pet-name">牛头梗</text>
+    </div>
+    <Topic :topic="topic"
+           :topicStyle="{marginBottom: 20}"
+           v-for="(topic, index) in topicList"
+           :key="index"></Topic>
+</div>

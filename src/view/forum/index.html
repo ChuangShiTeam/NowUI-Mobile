@@ -22,7 +22,7 @@
                    class="header-search"></image>
         </wxc-minibar>
     </div>
-    <scroller :style="{height: pageHeight}"
+    <scroller :style="{width: 750, height: pageHeight}"
               offset-x-accuracy="0.1"
               @loadmore="handleLoad"
               loadmoreoffset="100">
@@ -41,7 +41,8 @@
             </div>
         </wxc-cell>
         <div class="follow-forum">
-            <wxc-cell :has-arrow="false"
+            <wxc-cell @wxcCellClicked="handleHomepage"
+                      :has-arrow="false"
                       :has-top-border="false"
                       :has-bottom-border="false"
                       :auto-accessible="false"
