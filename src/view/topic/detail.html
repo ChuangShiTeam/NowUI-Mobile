@@ -18,6 +18,7 @@
     </wxc-cell>
     <div class="content">
         <image class="content-image"
+               @click="handleOpenImage"
                resize="cover"
                src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
         <text class="content-text">我就说嘛，加菲超级可爱的！</text>
@@ -109,4 +110,11 @@
             </div>
         </div>
     </div>
+    <wxc-lightbox
+            ref="wxc-lightbox"
+            height="750"
+            :show="isShow"
+            :image-list="imageList"
+            @wxcLightboxOverlayClicked="handleCloseImage">
+    </wxc-lightbox>
 </scroller>
