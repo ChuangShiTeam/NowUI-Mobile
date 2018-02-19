@@ -156,6 +156,9 @@
             },
             handleSearch() {
                 this.push('/view/topic/search.html');
+            },
+            handleAdd() {
+                this.push('/view/topic/add.html');
             }
         }
     }

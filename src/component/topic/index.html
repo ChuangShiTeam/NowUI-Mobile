@@ -3,23 +3,24 @@
               :has-top-border="true"
               :has-bottom-border="false"
               :auto-accessible="false"
-              :cell-style="{width: 750, height: 80}">
+              :cell-style="{width: 750, height: 90}">
         <image class="avatar"
+               @click="handleHomepage"
                resize="cover"
                slot="label"
                src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/68/h/68"></image>
         <div slot="title">
-            <text class="name">Ronaldo</text>
-            <text class="time">10分钟前</text>
+            <text class="name" @click="handleHomepage">Ronaldo</text>
+            <text class="time" @click="handleHomepage">10分钟前</text>
         </div>
         <div slot="value"></div>
     </wxc-cell>
-    <div class="media-1" v-if="topic.topicMediaList.length == 1">
+    <div class="media-1" v-if="topic.topicMediaList.length == 1" @click="handleTopic">
         <image class="media-image-1-0"
                resize="cover"
                src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
     </div>
-    <div class="media-2" v-if="topic.topicMediaList.length == 2">
+    <div class="media-2" v-if="topic.topicMediaList.length == 2" @click="handleTopic">
         <image class="media-image-2-0"
                resize="cover"
                src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
@@ -27,7 +28,7 @@
                resize="cover"
                src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
     </div>
-    <div class="media-3" v-if="topic.topicMediaList.length == 3">
+    <div class="media-3" v-if="topic.topicMediaList.length == 3" @click="handleTopic">
         <image class="media-image-3-0"
                resize="cover"
                src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
@@ -38,7 +39,7 @@
                resize="cover"
                src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
     </div>
-    <div class="media-4" v-if="topic.topicMediaList.length == 4">
+    <div class="media-4" v-if="topic.topicMediaList.length == 4" @click="handleTopic">
         <image class="media-image-4-0"
                resize="cover"
                src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
@@ -52,7 +53,7 @@
                resize="cover"
                src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
     </div>
-    <div class="media-5" v-if="topic.topicMediaList.length == 5">
+    <div class="media-5" v-if="topic.topicMediaList.length == 5" @click="handleTopic">
         <image class="media-image-5-0"
                resize="cover"
                src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
@@ -69,7 +70,7 @@
                resize="cover"
                src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
     </div>
-    <div class="media-6" v-if="topic.topicMediaList.length == 6">
+    <div class="media-6" v-if="topic.topicMediaList.length == 6" @click="handleTopic">
         <image class="media-image-6-0"
                resize="cover"
                src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
@@ -89,7 +90,7 @@
                resize="cover"
                src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
     </div>
-    <div class="media-7" v-if="topic.topicMediaList.length == 7">
+    <div class="media-7" v-if="topic.topicMediaList.length == 7" @click="handleTopic">
         <image class="media-image-7-0"
                resize="cover"
                src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
@@ -112,7 +113,7 @@
                resize="cover"
                src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
     </div>
-    <div class="media-8" v-if="topic.topicMediaList.length == 8">
+    <div class="media-8" v-if="topic.topicMediaList.length == 8" @click="handleTopic">
         <image class="media-image-8-0"
                resize="cover"
                src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
@@ -138,7 +139,7 @@
                resize="cover"
                src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
     </div>
-    <div class="media-9" v-if="topic.topicMediaList.length == 9">
+    <div class="media-9" v-if="topic.topicMediaList.length == 9" @click="handleTopic">
         <image class="media-image-9-0"
                resize="cover"
                src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
@@ -167,7 +168,7 @@
                resize="cover"
                src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
     </div>
-    <div class="content">
+    <div class="content" @click="handleTopic">
         <text class="content-text">我们田园猫也是超可爱的呀～～～我们田园猫也是超可爱的呀～～～我们田园猫也是超可爱的呀～～～</text>
     </div>
     <div class="info">

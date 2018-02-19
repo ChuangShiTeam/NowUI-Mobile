@@ -11,7 +11,7 @@
         <div class="header-content">
             <wxc-minibar background-color="transparent"
                          :use-default-return="false"
-                         @wxcMinibarLeftButtonClicked="handleHomepage">
+                         @wxcMinibarLeftButtonClicked="handleMyHomepage">
                 <image class="header-content-user"
                        resize="cover"
                        src="http://h5.chuangshi.nowui.com/wawipet/image/index-user.png"
@@ -113,7 +113,7 @@
         <text class="member-header-title" slot="title">- 猜你喜欢 -</text>
     </wxc-cell>
     <scroller class="member-list" scroll-direction="horizontal">
-        <div class="member-item" v-for="(pet, index) in petList" :key="index">
+        <div class="member-item" v-for="(pet, index) in petList" :key="index" @click="handleMemberHomepage">
             <image class="member-avatar"
                    resize="cover"
                    src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/104/h/104"></image>

@@ -1,4 +1,5 @@
-<div class="container">
+<scroller class="container"
+          :style="{height: pageHeight}">
     <div class="header">
         <image class="header-background"
                resize="cover"
@@ -46,4 +47,4 @@
            :topicStyle="{marginBottom: 20}"
            v-for="(topic, index) in topicList"
            :key="index"></Topic>
-</div>
+</scroller>

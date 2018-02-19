@@ -245,7 +245,7 @@
             handleLoad() {
                 console.log(1);
             },
-            handleHomepage() {
+            handleMyHomepage() {
                 event.$emit('login-show', {
 
                 });
@@ -255,6 +255,9 @@
             },
             handleCategory() {
                 this.push('/view/article/index.html');
+            },
+            handleMemberHomepage() {
+                this.push('/view/member/homepage.html');
             }
         }
     }

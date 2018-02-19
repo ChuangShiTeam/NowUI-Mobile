@@ -2,23 +2,43 @@
 <template src="./detail.html"></template>
 
 <script>
-    import {WxcSearchbar} from 'weex-ui'
+    import {WxcCell} from 'weex-ui'
 
     import mixins from '../../mixins/index';
 
     export default {
         components: {
-            WxcSearchbar
+            WxcCell
         },
         mixins: [mixins],
         data() {
-            return {}
+            return {
+                feedbackList: [{
+
+                }, {
+
+
+                }, {
+
+
+                }, {
+
+
+                }, {
+
+
+                }, {
+
+                }]
+            }
         },
         created() {
 
         },
         methods: {
-
+            handleHomepage() {
+                this.push('/view/member/homepage.html');
+            }
         }
     }
 </script>

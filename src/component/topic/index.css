@@ -1,14 +1,7 @@
 .container {
-    align-items: center;
-    justify-content: center;
-    background-color: #ffffff;
-}
-
-.header {
-    position: sticky;
-    top: 0px;
     width: 750px;
-    height: 90px;
+    align-items: flex-start;
+    justify-content: flex-start;
     background-color: #ffffff;
 }
 
@@ -436,9 +429,11 @@
 }
 
 .content {
-    width: 702px;
+    width: 750px;
     padding-top: 20px;
     padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .content-text {
