@@ -10,7 +10,7 @@
         <ServiceIndex :tabHeight="pageHeight - 80"></ServiceIndex>
 
         <!--我的-->
-        <MyIndex :tabHeight="pageHeight - 80"></MyIndex>
+        <MemberIndex :tabHeight="pageHeight - 80"></MemberIndex>
     </div>
     <div class="bar">
         <div class="bar-item" @click="handleBar(0)">
@@ -32,7 +32,7 @@
             <text :class="[activeIndex == 2 ? 'bar-item-text-active' : 'bar-item-text']">服务</text>
         </div>
         <div class="bar-item" @click="handleBar(3)">
-            <image :src="activeIndex == 3 ? 'http://h5.chuangshi.nowui.com/wawipet/image/my-active.png' : 'http://h5.chuangshi.nowui.com/wawipet/image/my.png'"
+            <image :src="activeIndex == 3 ? 'http://h5.chuangshi.nowui.com/wawipet/image/member-active.png' : 'http://h5.chuangshi.nowui.com/wawipet/image/member.png'"
                    resize="cover"
                    class="bar-item-icon"></image>
             <text :class="[activeIndex == 3 ? 'bar-item-text-active' : 'bar-item-text']">我的</text>

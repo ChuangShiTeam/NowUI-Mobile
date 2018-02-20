@@ -10,7 +10,7 @@
     import HomeIndex from './home/index.vue';
     import SnsIndex from './sns/index.vue';
     import ServiceIndex from './service/index.vue';
-    import MyIndex from './my/index.vue';
+    import MemberIndex from './member/index.vue';
     import LoginIndex from './login/index.vue';
 
     export default {
@@ -20,7 +20,7 @@
             HomeIndex,
             SnsIndex,
             ServiceIndex,
-            MyIndex,
+            MemberIndex,
             LoginIndex
         },
         mixins: [mixins],

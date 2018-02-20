@@ -1,4 +1,5 @@
-<div class="container">
+<scroller class="container"
+          :style="{height: pageHeight}">
     <!--头部-->
     <div class="header">
         <image class="header-background"
@@ -8,7 +9,7 @@
                resize="cover"
                src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/110/h/110"></image>
         <text class="header-name">Ronaldo</text>
-        <text class="header-homepage">个人主页</text>
+        <text class="header-homepage" @click="handleHomepage">个人主页</text>
     </div>
     <wxc-cell :has-arrow="false"
               :has-top-border="false"
@@ -16,14 +17,14 @@
               :auto-accessible="false"
               :cell-style="{width: 750, height: 104}">
         <div class="info">
-            <div class="info-message">
+            <div class="info-message" @click="handleMessage">
                 <image class="info-message-icon"
                        resize="cover"
                        src="http://h5.chuangshi.nowui.com/wawipet/image/my-news.png"></image>
                 <text class="info-message-text">消息</text>
             </div>
             <div class="info-line"></div>
-            <div class="info-collect">
+            <div class="info-collect" @click="handleBookmark">
                 <image class="info-collect-icon"
                        resize="cover"
                        src="http://h5.chuangshi.nowui.com/wawipet/image/my-collect.png"></image>
@@ -33,6 +34,7 @@
     </wxc-cell>
 
     <wxc-cell :has-arrow="true"
+              @wxcCellClicked="handleProfile"
               :has-top-border="true"
               :has-bottom-border="false"
               :auto-accessible="false"
@@ -46,6 +48,7 @@
         </div>
     </wxc-cell>
     <wxc-cell :has-arrow="true"
+              @wxcCellClicked="handlePet"
               :has-top-border="true"
               :has-bottom-border="false"
               :auto-accessible="false"
@@ -59,6 +62,7 @@
         </div>
     </wxc-cell>
     <wxc-cell :has-arrow="true"
+              @wxcCellClicked="handleFollow"
               :has-top-border="true"
               :has-bottom-border="false"
               :auto-accessible="false"
@@ -72,6 +76,7 @@
         </div>
     </wxc-cell>
     <wxc-cell :has-arrow="true"
+              @wxcCellClicked="handleQrcode"
               :has-top-border="true"
               :has-bottom-border="true"
               :auto-accessible="false"
@@ -84,4 +89,7 @@
             <text class="cell-text">我的二维码</text>
         </div>
     </wxc-cell>
-</div>
+    <div class="logout">
+        <text class="logout-text">退出登录</text>
+    </div>
+</scroller>

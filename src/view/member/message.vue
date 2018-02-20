@@ -1,5 +1,5 @@
-<style src="./index.css" scoped></style>
-<template src="./index.html"></template>
+<style src="./message.css" scoped></style>
+<template src="./message.html"></template>
 
 <script>
     import {WxcMinibar, WxcCell} from 'weex-ui';
@@ -24,11 +24,6 @@
         methods: {
             handleLoad() {
                 console.log(1);
-            },
-            hadleClickHeaderLeft() {
-                // loginBroadcastChannel.postMessage({
-                //     callbackName: ''
-                // });
             }
         }
     }

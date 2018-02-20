@@ -4,9 +4,9 @@
 <script>
     import {WxcMinibar, WxcCell} from 'weex-ui';
 
-    import Topic from '../../component/topic/index.vue';
+    import mixins from '../../mixins/index';
 
-    import util from '../../common/util';
+    import Topic from '../../component/topic/index.vue';
 
     export default {
         components: {
@@ -14,6 +14,7 @@
             WxcCell,
             Topic
         },
+        mixins: [mixins],
         data: () => ({
             followForumList: [{
                 name: '我加入的圈子',
@@ -103,9 +104,7 @@
             }]
         }),
         created() {
-            this.containerStyle = {
-                height: util.getPageHeight() - 90
-            };
+
         },
         mounted() {
 

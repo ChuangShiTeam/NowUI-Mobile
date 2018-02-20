@@ -121,3 +121,21 @@
     font-size: 26px;
     color: #000000;
 }
+
+.logout {
+    width: 702px;
+    height: 84px;
+    background-color: #DEFAFD;
+    box-shadow: 0 2px 4px 0 rgba(216,216,216,0.50);
+    border-radius: 10px;
+    margin-top: 100px;
+    margin-left: 24px;
+    align-items: center;
+    justify-content: center;
+}
+
+.logout-text {
+    font-family: PingFangSC-Light;
+    font-size: 32px;
+    color: #000000;
+}

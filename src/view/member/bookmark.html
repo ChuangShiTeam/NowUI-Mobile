@@ -1,0 +1,18 @@
+<div class="container">
+    <!--头部-->
+    <div class="header">
+        <wxc-minibar background-color="transparent">
+            <text slot="left"></text>
+            <text class="header-title"
+                  slot="middle">我的收藏</text>
+        </wxc-minibar>
+    </div>
+    <!--内容-->
+    <scroller class="content"
+              :style="{height: pageHeight}"
+              offset-x-accuracy="0.1"
+              @loadmore="handleLoad"
+              loadmoreoffset="100">
+
+    </scroller>
+</div>
