@@ -71,7 +71,8 @@
                   :has-bottom-border="true"
                   :auto-accessible="false"
                   :cell-style="{width: 702}"
-                  v-for="(article, index) in articleList" :key="index"
+                  v-for="(article, index) in articleList"
+                  :key="index"
                   @wxcCellClicked="handleCategory">
             <image class="article-list-image"
                    resize="cover"
@@ -131,7 +132,7 @@
         <text class="topic-header-title" slot="title">- 最新动态 -</text>
     </wxc-cell>
     <Topic :topic="topic"
-           :topicStyle="{top: -90, marginBottom: index + 1 == topicList.length ? 0 : 20}"
+           :containerStyle="{top: -90, marginBottom: index + 1 == topicList.length ? 0 : 20}"
            v-for="(topic, index) in topicList"
            :key="index"></Topic>
     <!--尾部-->

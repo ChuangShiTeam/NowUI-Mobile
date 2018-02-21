@@ -1,0 +1,39 @@
+.container {
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.item {
+    width: 134px;
+    height: 134px;
+}
+
+.item-image {
+    width: 114px;
+    height: 114px;
+}
+
+.item-close {
+    position: absolute;
+    top: -20px;
+    left: 90px;
+    z-index: 999;
+    width: 40px;
+    height: 40px;
+    background-color: #ffffff;
+    border-radius: 40px;
+    align-items: center;
+    justify-content: center;
+}
+
+.upload {
+    width: 134px;
+    height: 134px;
+}
+
+.upload-image {
+    width: 114px;
+    height: 114px;
+}

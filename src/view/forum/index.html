@@ -138,7 +138,7 @@
             <text class="topic-header-title" slot="title">- 热门动态 -</text>
         </wxc-cell>
         <Topic :topic="topic"
-               :topicStyle="{marginBottom: 20}"
+               :containerStyle="{marginBottom: 20}"
                v-for="(topic, index) in topicList"
                :key="index"></Topic>
     </scroller>

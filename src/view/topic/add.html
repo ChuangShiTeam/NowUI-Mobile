@@ -10,16 +10,9 @@
     <!--内容-->
     <scroller class="content"
               :style="{height: pageHeight}">
-        <wxc-cell :has-arrow="false"
-                  :has-top-border="false"
-                  :has-bottom-border="true"
-                  :auto-accessible="false"
-                  :cell-style="{width: 750, height: 180}">
-            <image class="upload"
-                   resize="cover"
-                   slot="title"
-                   src="http://h5.chuangshi.nowui.com/wawipet/image/upload.png"></image>
-        </wxc-cell>
+        <div class="upload-cell">
+            <Upload :containerStyle="{width: 750}"></Upload>
+        </div>
         <wxc-cell :has-arrow="false"
                   :has-top-border="true"
                   :has-bottom-border="true"

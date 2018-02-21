@@ -24,6 +24,18 @@
     width: 750px;
 }
 
+.upload-cell {
+    width: 750px;
+    border-top-width: 1px;
+    border-top-color: #D8D8D8;
+    border-bottom-width: 1px;
+    border-bottom-color: #D8D8D8;
+    background-color: #ffffff;
+    padding-top: 24px;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
 .cell-icon {
     width: 32px;
     height: 32px;
@@ -46,9 +58,4 @@
     font-family: PingFangSC-Light;
     font-size: 24px;
     color: #000000;
-}
-
-.upload {
-    width: 114px;
-    height: 114px;
 }

@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="item"
+         v-for="(image, index) in imageList"
+         :key="index">
+        <image class="item-image"
+               resize="cover"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+        <div class="item-close">
+            <wxc-icon name="close"
+                      :icon-style="{fontSize: 30}"
+                      @wxcIconClicked="handleClose(index)"></wxc-icon>
+        </div>
+    </div>
+    <div class="upload">
+
+    </div>
+</div>

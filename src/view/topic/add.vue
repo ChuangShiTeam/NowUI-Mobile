@@ -7,12 +7,14 @@
     import mixins from '../../mixins/index';
 
     import Topic from '../../component/topic/index.vue';
+    import Upload from '../../component/upload/index.vue';
 
     export default {
         components: {
             WxcMinibar,
             WxcCell,
-            Topic
+            Topic,
+            Upload
         },
         mixins: [mixins],
         data: () => ({

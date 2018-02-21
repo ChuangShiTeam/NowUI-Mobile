@@ -5,6 +5,21 @@
     background-color: #f6f6f6;
 }
 
+.header {
+    width: 750px;
+    height: 92px;
+    flex-direction: row;
+    background-color: #000000;
+}
+
+.header-location {
+    width: 100px;
+}
+
+.header-search {
+    flex: 1;
+}
+
 .banner {
     position: relative;
 }

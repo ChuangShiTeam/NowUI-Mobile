@@ -1,5 +1,12 @@
 {
-  "ios": [],
+  "ios": [
+    {
+      "//": "安装类型为pod",
+      "type": "pod",
+      "name": "WeexImagePicker",
+      "version": "0.0.4"
+    }
+  ],
   "web": [],
   "android": []
 }

@@ -36,11 +36,22 @@
                 this.mobile = event.value;
             },
             handleSubmit() {
-                if (this.mobile == '') {
-                    this.toast('手机号码不能为空');
+                // if (this.mobile == '') {
+                //     this.toast('手机号码不能为空');
+                //
+                //     return;
+                // }
 
-                    return;
-                }
+                this.request({
+                    url: '/member/mobile/v1/sms/captcha/login',
+                    data: {
+                        userAccount: '123',
+                        smsCaptchaCode: ''
+                    },
+                    success: (data) => {
+                        console.log(data);
+                    }
+                });
             }
         }
     }

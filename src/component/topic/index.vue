@@ -15,7 +15,7 @@
                 type: Object,
                 required: true
             },
-            topicStyle: {
+            containerStyle: {
                 type: Object
             }
         },

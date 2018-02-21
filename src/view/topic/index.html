@@ -33,7 +33,7 @@
               @loadmore="handleLoad"
               loadmoreoffset="100">
         <Topic :topic="topic"
-               :topicStyle="{marginBottom: 20, marginTop: index == 0 ? 20 : 0}"
+               :containerStyle="{marginBottom: 20, marginTop: index == 0 ? 20 : 0}"
                v-for="(topic, index) in topicList"
                :key="index"></Topic>
     </scroller>
