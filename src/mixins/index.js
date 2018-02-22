@@ -1,4 +1,6 @@
-const host = 'http://localhost:8080';
+const host = 'http://118.31.229.16:8080';
+const appId = 'df2078d6c9eb46babb0df957127273ab';
+const version = '1.0.0';
 
 const dom = weex.requireModule('dom');
 const modal = weex.requireModule('modal');
@@ -34,7 +36,7 @@ export default {
         toast(text) {
             modal.toast({
                 message: text,
-                duration: 0.3
+                duration: 1.0
             })
         },
         commit(name, data) {
@@ -69,6 +71,12 @@ export default {
             });
         },
         request(config) {
+            config.data.appId = appId;
+            config.data.token = 'vjYUoyEmyZo2r7FW+iZ3sbtNCkYrKKLSzQJU7JLG2hH97BeP2+Gk72Hdd9e+qRgA4hePuuGPiTsn9q435nWD5D8+7e0Yosk/FE/M3r+W6GA=';
+            config.data.platform = this.platform;
+            config.data.version = version;
+            config.data.timestamp = Math.round(new Date().getTime() / 1000);
+
             stream.fetch({
                 method: 'POST',
                 url: host + config.url,

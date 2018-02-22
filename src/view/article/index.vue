@@ -107,7 +107,16 @@
 
         },
         mounted() {
-
+            this.request({
+                url: '/article/admin/v1/list',
+                data: {
+                    userAccount: '123',
+                    smsCaptchaCode: ''
+                },
+                success: (data) => {
+                    console.log(data);
+                }
+            });
         },
         methods: {
             handleLoad() {
