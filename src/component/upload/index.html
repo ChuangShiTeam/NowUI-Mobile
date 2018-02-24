@@ -4,7 +4,7 @@
          :key="index">
         <image class="item-image"
                resize="cover"
-               src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+               :src="image.filePath"></image>
         <div class="item-close">
             <wxc-icon name="close"
                       :icon-style="{fontSize: 30}"
@@ -12,6 +12,14 @@
         </div>
     </div>
     <div class="upload">
-
+        <file-upload ref="upload"
+                     :post-action="url"
+                     :data="{appId:'df2078d6c9eb46babb0df957127273ab', platform:'web', version: '1.0.0', token: 'vjYUoyEmyZo2r7FW+iZ3sbtNCkYrKKLSzQJU7JLG2hH97BeP2+Gk72Hdd9e+qRgA4hePuuGPiTsn9q435nWD5D8+7e0Yosk/FE/M3r+W6GA='}"
+                     @input-file="handleInputFile"
+                     @input-filter="handleInputFilter">
+            <image class="upload-image"
+                   resize="cover"
+                   src="http://h5.chuangshi.nowui.com/wawipet/image/upload.png"></image>
+        </file-upload>
     </div>
 </div>

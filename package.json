@@ -27,6 +27,7 @@
   "license": "MIT",
   "dependencies": {
     "vue": "^2.5.11",
+    "vue-upload-component": "^2.8.3",
     "vuex": "^3.0.1",
     "weex-html5": "^0.4.1",
     "weex-ui": "^0.4.0",

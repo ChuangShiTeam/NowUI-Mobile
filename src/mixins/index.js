@@ -1,7 +1,3 @@
-const host = 'http://118.31.229.16:8080';
-const appId = 'df2078d6c9eb46babb0df957127273ab';
-const version = '1.0.0';
-
 const dom = weex.requireModule('dom');
 const modal = weex.requireModule('modal');
 const stream = weex.requireModule('stream');
@@ -13,6 +9,10 @@ export default {
     data() {
         return {
             pageHeight: 0,
+            host: 'http://118.31.229.16:8080',
+            imageHost: 'http://118.31.229.16:8080',
+            appId: 'df2078d6c9eb46babb0df957127273ab',
+            version: '1.0.0',
             platform: weex.config.env.platform.toLowerCase()
         }
     },
