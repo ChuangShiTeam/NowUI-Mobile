@@ -12,7 +12,7 @@
               :style="{height: pageHeight}">
         <div class="upload-cell">
             <text class="cell-text upload-cell-title">上传圈子照片</text>
-            <Upload :limit="1" :containerStyle="{width: 114}"></Upload>
+            <Upload :limit="1" eventName="forum-add-upload" :containerStyle="{width: 114}"></Upload>
         </div>
         <wxc-cell :has-arrow="false"
                   :has-top-border="true"
@@ -20,9 +20,11 @@
                   :auto-accessible="false"
                   :cell-style="{width: 750, height: 180, marginTop: 20, alignItems: 'flex-start'}">
             <div slot="title">
-                <text class="cell-text" :style="{marginBottom: 10}">圈子名称</text>
+                <text class="cell-text"
+                      :style="{marginBottom: 10}">圈子名称</text>
                 <div class="line"></div>
                 <input type="text"
+                       @change="handleForumNameChange"
                        placeholder="输入不超过25个字符的圈子名称"
                        class="cell-input"/>
             </div>
@@ -35,8 +37,9 @@
             <div slot="title">
                 <text class="cell-text" :style="{marginBottom: 10}">圈子简介</text>
                 <div class="line"></div>
-                <textarea placeholder="请输入超过255个字符的圈子简介"
-                          class="cell-input"/>
+                <textarea class="cell-input"
+                          @change="handleForumDescriptionChange"
+                          placeholder="请输入超过255个字符的圈子简介"/>
             </div>
         </wxc-cell>
         <div class="button" :style="{height: 500}">

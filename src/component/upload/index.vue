@@ -6,6 +6,7 @@
     import VueUploadComponent from 'vue-upload-component';
 
     import mixins from '../../mixins/index';
+    import event from "../../common/event";
 
     export default {
         components: {
@@ -16,6 +17,9 @@
         props: {
             limit: {
                 type: Number
+            },
+            eventName: {
+                type: String
             },
             containerStyle: {
                 type: Object
@@ -50,6 +54,10 @@
                                 image.filePath = this.imageHost + image.filePath;
 
                                 this.imageList.push(image);
+
+                                event.$emit(this.eventName, {
+                                    imageList: this.imageList
+                                });
                             }
                         } else {
                             this.toast('上传图失败');

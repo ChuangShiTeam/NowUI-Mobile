@@ -39,9 +39,11 @@ export default {
                 duration: 1.0
             });
 
-            setTimeout(() => {
-                callback();
-            }, 1000);
+            if (callback) {
+                setTimeout(() => {
+                    callback();
+                }, 1000);
+            }
         },
         commit(name, data) {
             this.store.commit(name, data);
@@ -80,15 +82,15 @@ export default {
             })
         },
         request(config) {
-            config.data.appId = appId;
+            config.data.appId = this.appId;
             config.data.token = 'vjYUoyEmyZo2r7FW+iZ3sbtNCkYrKKLSzQJU7JLG2hH97BeP2+Gk72Hdd9e+qRgA4hePuuGPiTsn9q435nWD5D8+7e0Yosk/FE/M3r+W6GA=';
             config.data.platform = this.platform;
-            config.data.version = version;
+            config.data.version = this.version;
             config.data.timestamp = Math.round(new Date().getTime() / 1000);
 
             stream.fetch({
                 method: 'POST',
-                url: host + config.url,
+                url: this.host + config.url,
                 type: 'json',
                 headers: {
                     'Accept': 'application/json',
