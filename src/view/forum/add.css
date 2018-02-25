@@ -24,6 +24,24 @@
     width: 750px;
 }
 
+.upload-cell {
+    width: 750px;
+    border-top-width: 1px;
+    border-top-color: #D8D8D8;
+    border-bottom-width: 1px;
+    border-bottom-color: #D8D8D8;
+    background-color: #ffffff;
+    padding-top: 24px;
+    padding-left: 24px;
+    padding-right: 24px;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.upload-cell-title {
+    margin-top: 40px;
+}
+
 .cell-text {
     font-family: PingFangSC-Regular;
     font-size: 28px;
@@ -52,6 +70,11 @@
 
 .button {
     width: 750px;
+    border-top-width: 1px;
+    border-top-color: #D8D8D8;
+    border-bottom-width: 1px;
+    border-bottom-color: #D8D8D8;
+    background-color: #ffffff;
     background-color: #ffffff;
     align-items: center;
     justify-content: center;

@@ -33,11 +33,15 @@ export default {
 
     },
     methods: {
-        toast(text) {
+        toast(text, callback) {
             modal.toast({
                 message: text,
                 duration: 1.0
-            })
+            });
+
+            setTimeout(() => {
+                callback();
+            }, 1000);
         },
         commit(name, data) {
             this.store.commit(name, data);
@@ -69,6 +73,11 @@ export default {
                 url: result,
                 animated: "true"
             });
+        },
+        pop() {
+            navigator.pop({
+                animated: 'true'
+            })
         },
         request(config) {
             config.data.appId = appId;

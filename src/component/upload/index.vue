@@ -14,6 +14,9 @@
             'file-upload': VueUploadComponent
         },
         props: {
+            limit: {
+                type: Number
+            },
             containerStyle: {
                 type: Object
             }

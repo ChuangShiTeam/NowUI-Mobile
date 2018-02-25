@@ -59,3 +59,93 @@
     font-size: 24px;
     color: #000000;
 }
+
+.public {
+    width: 750px;
+    border-top-width: 1px;
+    border-top-color: #D8D8D8;
+    border-bottom-width: 1px;
+    border-bottom-color: #D8D8D8;
+    background-color: #ffffff;
+    padding-top: 24px;
+    padding-left: 24px;
+    padding-right: 24px;
+    margin-top: 20px;
+}
+
+.topic {
+    width: 702px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.topic-tag {
+    font-family: PingFangSC-Light;
+    font-size: 18px;
+    color: #000000;
+    background-color: #ffffff;
+    border-radius: 18px;
+    margin-left: 5px;
+    margin-bottom: 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-width: 1px;
+    border-color: #C18108;
+}
+
+.topic-tag-active {
+    font-family: PingFangSC-Light;
+    font-size: 18px;
+    color: #000000;
+    background-color: #defafd;
+    border-radius: 18px;
+    margin-left: 5px;
+    margin-bottom: 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-width: 1px;
+    border-color: #C18108;
+}
+
+.button {
+    width: 702px;
+    margin-top: 100px;
+    align-items: flex-end;
+}
+
+.button-submit {
+    width: 150px;
+    height: 70px;
+    background: #DEFAFD;
+    box-shadow: 0 1px 3px 0 rgba(194,194,194,0.50);
+    border-radius: 42px;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-submit-text {
+    font-family: PingFangSC-Regular;
+    font-size: 28px;
+    color: #000000;
+}
+
+.select {
+    width: 702px;
+    margin-top: 30px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.select-item {
+    width: 100px;
+    height: 50px;
+    font-family: PingFangSC-Regular;
+    font-size: 24px;
+    color: #727272;
+}

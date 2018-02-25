@@ -10,17 +10,10 @@
     <!--内容-->
     <scroller class="content"
               :style="{height: pageHeight}">
-        <wxc-cell :has-arrow="false"
-                  :has-top-border="false"
-                  :has-bottom-border="true"
-                  :auto-accessible="false"
-                  :cell-style="{width: 750, height: 140}">
-            <text class="cell-text" slot="title">上传圈子照片</text>
-            <image class="upload"
-                   resize="cover"
-                   slot="value"
-                   src="http://h5.chuangshi.nowui.com/wawipet/image/upload.png"></image>
-        </wxc-cell>
+        <div class="upload-cell">
+            <text class="cell-text upload-cell-title">上传圈子照片</text>
+            <Upload :limit="1" :containerStyle="{width: 114}"></Upload>
+        </div>
         <wxc-cell :has-arrow="false"
                   :has-top-border="true"
                   :has-bottom-border="true"
@@ -46,10 +39,12 @@
                           class="cell-input"/>
             </div>
         </wxc-cell>
-        <div class="button" :style="{height: pageHeight - 730}">
-            <div class="submit">
+        <div class="button" :style="{height: 500}">
+            <div class="submit"
+                 @click="handleSubmit">
                 <text class="submit-text">提交审核</text>
             </div>
         </div>
+        <wxc-loading :show="isLoad"></wxc-loading>
     </scroller>
 </div>
