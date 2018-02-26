@@ -35,10 +35,10 @@
             });
         },
         methods: {
-            handleForumNameChange(event) {
+            handleForumNameInput(event) {
                 this.forumName = event.value;
             },
-            handleForumDescriptionChange(event) {
+            handleForumDescriptionInput(event) {
                 this.forumDescription = event.value;
             },
             handleSubmit() {

@@ -32,7 +32,7 @@
                     name: 'register'
                 });
             },
-            handleMobileChange(event) {
+            handleMobileInput(event) {
                 this.mobile = event.value;
             },
             handleSubmit() {

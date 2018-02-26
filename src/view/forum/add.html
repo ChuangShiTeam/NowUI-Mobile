@@ -24,7 +24,7 @@
                       :style="{marginBottom: 10}">圈子名称</text>
                 <div class="line"></div>
                 <input type="text"
-                       @change="handleForumNameChange"
+                       @input="handleForumNameInput"
                        placeholder="输入不超过25个字符的圈子名称"
                        class="cell-input"/>
             </div>
@@ -38,7 +38,7 @@
                 <text class="cell-text" :style="{marginBottom: 10}">圈子简介</text>
                 <div class="line"></div>
                 <textarea class="cell-input"
-                          @change="handleForumDescriptionChange"
+                          @input="handleForumDescriptionInput"
                           placeholder="请输入超过255个字符的圈子简介"/>
             </div>
         </wxc-cell>
