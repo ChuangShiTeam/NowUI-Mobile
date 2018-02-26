@@ -24,6 +24,11 @@
             followForumTotal : 0,
             followForumList: [],
 
+            hotTopicPageIndex: 1,
+            hotTopicPageSize: 3,
+            hotTopicTotal: 0,
+            hotTopicList: [],
+
 
             // followForumList: [{
             //     name: '我加入的圈子',
@@ -161,15 +166,16 @@
             }]
         }),
         created() {
-            this.handleJoinForumLoad();
+            this.handleLoadJoinForumList();
+            this.handleLoadHotTopicList();
 
         },
         mounted() {
 
         },
         methods: {
-            handleJoinForumLoad() {
-                console.log('开始载入加入的论坛');
+            handleLoadJoinForumList() {
+                console.log('开始载入加入的论坛列表');
                 this.request({
                     url: '/forum/user/follow/mobile/v1/list',
                     data: {
@@ -188,13 +194,33 @@
                     }
                 });
             },
+            handleLoadHotTopicList() {
+                console.log('开始载入热门动态列表');
+                this.request({
+                    url: '/topic/mobile/v1/home/list',
+                    data: {
+                        pageIndex: this.hotTopicPageIndex,
+                        pageSize: this.hotTopicPageSize,
+                        systemCreateTime: moment().format('YYYY-MM-DD HH:mm:ss'),
+                        excludeTopicIdList: []
+                    },
+                    success: (data) => {
+                        if (data.total > 0) {
+                            this.hotTopicTotal = data.total,
+                                this.hotTopicList = data.list
+                        }
+                    },
+                    error: () => {
+                    }
+                });
+            },
+            handleHomepage(forumId) {
+                this.push('/view/forum/homepage.html?forumId=' + forumId);
+            },
             handleTopic() {
                 event.$emit('sns-click', {
                     name: 'topic'
                 });
-            },
-            handleHomepage(forumId) {
-                this.push('/view/forum/homepage.html?forumId=' + '5cb8f48bf4df41078a7c7892cb97bbe3');
             },
             handleFollow(e) {
                 this.push('/view/forum/follow.html');
