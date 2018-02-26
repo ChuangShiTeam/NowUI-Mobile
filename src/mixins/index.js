@@ -71,6 +71,7 @@ export default {
                 result += '/dist';
                 result += url.replace('.html', '.js');
             }
+            // result += b;
 
             navigator.push({
                 url: result,
@@ -100,7 +101,6 @@ export default {
                 body: JSON.stringify(config.data),
             }, (response) => {
                 if (response.ok) {
-                    console.log(response.data.code);
                     if (response.data.code == 200) {
                         config.success(response.data.data);
                     } else {

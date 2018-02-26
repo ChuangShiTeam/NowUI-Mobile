@@ -254,7 +254,7 @@
                 this.push('/view/home/search.html');
             },
             handleCategory() {
-                this.push('/view/article/index.html');
+                this.push('/view/article/index.html?test=123');
             },
             handleMemberHomepage() {
                 this.push('/view/member/homepage.html');
