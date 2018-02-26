@@ -45,8 +45,7 @@
             </div>
         </wxc-cell>
         <div class="follow-forum">
-            <wxc-cell @wxcCellClicked="handleHomepage"
-                      :has-arrow="false"
+            <wxc-cell :has-arrow="false"
                       :has-top-border="false"
                       :has-bottom-border="false"
                       :auto-accessible="false"
@@ -54,22 +53,24 @@
                       v-for="(forum, index) in followForumList"
                       :key="index">
 
-                <image class="follow-forum-image"
+            <image @click="handleHomepage(forum.forumId)"
+                class="follow-forum-image"
                 resize="cover"
                 slot="label"
                 :src="imageHost + forum.forumMedia"></image>
                 <div slot="title">
-                <text class="follow-forum-name">{{forum.forumName}}</text>
-                <text class="follow-forum-description">{{forum.forumDescription}}</text>
+                <text @click="handleHomepage(forum.forumId)" class="follow-forum-name">{{forum.forumName}}</text>
+                <text @click="handleHomepage(forum.forumId)" class="follow-forum-description">{{forum.forumDescription}}</text>
                 <div class="follow-forum-info">
                 <image class="follow-forum-info-crown"
                 resize="cover"
                 src="http://h5.chuangshi.nowui.com/wawipet/image/crown.png"></image>
                 <image class="follow-forum-info-avatar"
                 resize="cover"
-                src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/30/h/30"></image>
-                <text class="follow-forum-info-name">{{forum.forumModeratorInfo.userNickName}}</text>
-                <text class="follow-forum-info-number">今日最新话题数: {{forum.forumTodayTopicCount}}</text>
+                      :src="imageHost + forum.userAvatar"></image>
+
+                <text class="follow-forum-info-name">{{forum.userNickName}}</text>
+                <text @click="handleHomepage(forum.forumId)" class="follow-forum-info-number">今日最新话题数: {{forum.forumTodayTopicCount}}</text>
                 </div>
                 </div>
 

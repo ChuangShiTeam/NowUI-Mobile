@@ -8,11 +8,8 @@
         </wxc-minibar>
     </div>
     <!--内容-->
-    <scroller class="content"
-              :style="{height: pageHeight}"
-              offset-x-accuracy="0.1"
-              @loadmore="handleLoad"
-              loadmoreoffset="100">
+    <scroller class="content" :style="{height: pageHeight}" loadmoreoffset="100" offset-x-accuracy="0.1" @loadmore="handleLoad">
+
         <wxc-cell :has-arrow="false"
                   :has-top-border="false"
                   :has-bottom-border="false"
@@ -20,22 +17,31 @@
                   :cell-style="{width: 750 - 24 - 24, height: 200, marginBottom: 20}"
                   v-for="(forum, index) in followForumList"
                   :key="index">
+
             <image class="follow-forum-image"
                    resize="cover"
                    slot="label"
-                   src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+                   :src="imageHost + forum.forumMedia"></image>
             <div slot="title">
-                <text class="follow-forum-name">{{forum.name}}</text>
-                <text class="follow-forum-description">这里是魔都喵星人的聚集地，是爱猫人士的家园，欢迎加入</text>
+                <text class="follow-forum-name">{{forum.forumName}}</text>
+                <text class="follow-forum-description">{{forum.forumDescription}}</text>
                 <div class="follow-forum-info">
                     <image class="follow-forum-info-crown"
                            resize="cover"
                            src="http://h5.chuangshi.nowui.com/wawipet/image/crown.png"></image>
+
                     <image class="follow-forum-info-avatar"
                            resize="cover"
-                           src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/30/h/30"></image>
-                    <text class="follow-forum-info-name">小可爱</text>
-                    <text class="follow-forum-info-number">今日最新话题数: 21</text>
+                           :src="imageHost + forum.userAvatar"></image>
+                    <!--<image class="follow-forum-info-avatar"-->
+                           <!--resize="cover"-->
+                           <!--v-else="forum.forumModeratorInfo"-->
+                           <!--src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/30/h/30"></image>-->
+
+                    <text class="follow-forum-info-name" >{{forum.userNickName}}</text>
+                    <!--<text class="follow-forum-info-name" v-else="forum.forumModeratorInfo">哎呀,名字没了</text>-->
+
+                    <text class="follow-forum-info-number">今日最新话题数: {{forum.forumTodayTopicCount}}</text>
                 </div>
             </div>
         </wxc-cell>
