@@ -1,5 +1,5 @@
-<style src="./tag.css" scoped></style>
-<template src="./tag.html"></template>
+<style src="./location.css" scoped></style>
+<template src="./location.html"></template>
 
 <script>
     import {WxcSearchbar} from 'weex-ui';

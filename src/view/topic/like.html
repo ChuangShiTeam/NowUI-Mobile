@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="header">
+        <wxc-minibar background-color="transparent">
+            <text slot="left"></text>
+            <text class="header-title"
+                  slot="middle">赞过的人</text>
+        </wxc-minibar>
+    </div>
+    <scroller class="content"
+              :style="{height: pageHeight}">
+        <wxc-cell :has-arrow="false"
+                  :has-top-border="false"
+                  :has-bottom-border="true"
+                  :auto-accessible="false"
+                  :cell-style="{width: 750}">
+            <image class="cell-icon"
+                   resize="cover"
+                   slot="label"
+                   src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+            <div slot="title">
+                <text class="cell-text">是大雄啊</text>
+            </div>
+            <div class="cell-bottom"
+                  solt="value">
+                <text class="cell-bottom-text">+ 关注</text>
+            </div>
+        </wxc-cell>
+        <wxc-cell :has-arrow="false"
+                  :has-top-border="false"
+                  :has-bottom-border="true"
+                  :auto-accessible="false"
+                  :cell-style="{width: 750}">
+            <image class="cell-icon"
+                   resize="cover"
+                   slot="label"
+                   src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+            <div slot="title">
+                <text class="cell-text">是大雄啊</text>
+            </div>
+            <div class="cell-bottom-active"
+                 solt="value">
+                <text class="cell-bottom-text">已关注</text>
+            </div>
+        </wxc-cell>
+    </scroller>
+</div>

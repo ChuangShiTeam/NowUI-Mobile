@@ -11,7 +11,7 @@
     <scroller class="content"
               :style="{height: pageHeight}">
         <div class="upload-cell">
-            <Upload :limit="1" :containerStyle="{width: 750}"></Upload>
+            <Upload :limit="1" eventName="topic-add-upload" :containerStyle="{width: 750}"></Upload>
         </div>
         <wxc-cell :has-arrow="false"
                   :has-top-border="true"
@@ -24,6 +24,7 @@
             </div>
         </wxc-cell>
         <wxc-cell :has-arrow="true"
+                  @wxcCellClicked="handleLocation"
                   :has-top-border="true"
                   :has-bottom-border="false"
                   :auto-accessible="false"
@@ -37,6 +38,7 @@
             </div>
         </wxc-cell>
         <wxc-cell :has-arrow="true"
+                  @wxcCellClicked="handleRemind"
                   :has-top-border="true"
                   :has-bottom-border="false"
                   :auto-accessible="false"
@@ -50,6 +52,7 @@
             </div>
         </wxc-cell>
         <wxc-cell :has-arrow="true"
+                  @wxcCellClicked="handleTag"
                   :has-top-border="true"
                   :has-bottom-border="true"
                   :auto-accessible="false"

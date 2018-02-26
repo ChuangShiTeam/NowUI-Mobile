@@ -2,7 +2,7 @@
 <template src="./detail.html"></template>
 
 <script>
-    import {WxcCell, WxcLightbox} from 'weex-ui'
+    import {WxcCell, WxcLightbox} from 'weex-ui';
 
     import mixins from '../../mixins/index';
 
