@@ -2,7 +2,7 @@
 <template src="./remind.html"></template>
 
 <script>
-    import {WxcSearchbar} from 'weex-ui'
+    import {WxcSearchbar} from 'weex-ui';
 
     import mixins from '../../mixins/index';
 

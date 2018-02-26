@@ -12,3 +12,43 @@
     align-items: center;
     justify-content: center;
 }
+
+.content {
+    width: 750px;
+}
+
+.hot {
+    width: 7020px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.hot-title {
+    font-family: PingFangSC-Light;
+    font-size: 26px;
+    color: #4A4A4A;
+}
+
+.keyword {
+    width: 702px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.keyword-item {
+    border-radius: 25px;
+    border-width: 1px;
+    border-color: #A9E4EA;
+    font-family: PingFangSC-Light;
+    font-size: 26px;
+    color: #9B9B9B;
+    padding-left: 22px;
+    padding-right: 22px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
