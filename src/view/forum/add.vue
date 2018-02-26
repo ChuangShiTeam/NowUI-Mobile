@@ -24,7 +24,7 @@
             imageList: [],
             forumName: '',
             forumMedia: '',
-            forumDescription: ''
+            forumDescription: '',
         }),
         created() {
 
@@ -54,7 +54,7 @@
                     return;
                 }
 
-                console.log(this.imageList[0]);
+
 
                 this.isLoad = true;
 
@@ -63,15 +63,22 @@
                     data: {
                         forumName: this.forumName,
                         forumMediaType: 'IMAGE',
-                        forumMedia: this.imageList[0].fileId,
-                        forumDescription: this.forumDescription
+                        forumMedia: this.imageList[0].filePath,
+                        forumDescription: this.forumDescription,
+                        forumModeratorInfo : {
+                            userNickName: '谁用了我的头像(新)',
+                            userAvatar: '/upload/df2078d6c9eb46babb0df957127273ab/3bdfcbb00f90415989fb53e6677c25df/ae74752bc95c4ed6a9ebbd020d3b4105.jpg',
+                            memberSignature: '喵咪太可爱了!(新签名)'
+                        }
                     },
                     success: (data) => {
                         this.isLoad = false;
-
                         this.toast('创建成功', () => {
                             this.pop();
                         });
+                    },
+                    error: () => {
+                        this.isLoad = false;
                     }
                 });
             }

@@ -19,22 +19,28 @@
         },
         mixins: [mixins],
         data: () => ({
-            followForumList: [{
-                name: '我加入的圈子',
-                description: '这里是魔都喵星人的聚集地，是爱猫人士的家园，欢迎加入',
-                memberName: '小可爱',
-                number: 21
-            }, {
-                name: '我加入的圈子',
-                description: '这里是魔都喵星人的聚集地，是爱猫人士的家园，欢迎加入',
-                memberName: '小可爱',
-                number: 21
-            }, {
-                name: '我加入的圈子',
-                description: '这里是魔都喵星人的聚集地，是爱猫人士的家园，欢迎加入',
-                memberName: '小可爱',
-                number: 21
-            }],
+            forumJoinPageIndex : 1,
+            forumJoinPageSize : 3,
+            followForumTotal : 0,
+            followForumList: [],
+
+
+            // followForumList: [{
+            //     name: '我加入的圈子',
+            //     description: '这里是魔都喵星人的聚集地，是爱猫人士的家园，欢迎加入',
+            //     memberName: '小可爱',
+            //     number: 21
+            // }, {
+            //     name: '我加入的圈子',
+            //     description: '这里是魔都喵星人的聚集地，是爱猫人士的家园，欢迎加入',
+            //     memberName: '小可爱',
+            //     number: 21
+            // }, {
+            //     name: '我加入的圈子',
+            //     description: '这里是魔都喵星人的聚集地，是爱猫人士的家园，欢迎加入',
+            //     memberName: '小可爱',
+            //     number: 21
+            // }],
             topicList: [{
                 topicId: '0',
                 topicMediaList: [{
@@ -155,14 +161,32 @@
             }]
         }),
         created() {
+            this.handleJoinForumLoad();
 
         },
         mounted() {
 
         },
         methods: {
-            handleLoad() {
-                console.log(1);
+            handleJoinForumLoad() {
+                console.log('开始载入加入的论坛');
+                this.request({
+                    url: '/forum/user/follow/mobile/v1/list',
+                    data: {
+                        pageIndex: this.forumJoinPageIndex,
+                        pageSize: this.forumJoinPageSize
+                    },
+                    success: (data) => {
+                        if (data.total > 0) {
+                            this.followForumTotal = data.total,
+                            this.followForumList = data.list
+                        }
+                        console.log(this.followForumTotal)
+                        console.log(this.followForumList)
+                    },
+                    error: () => {
+                    }
+                });
             },
             handleTopic() {
                 event.$emit('sns-click', {

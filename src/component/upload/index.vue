@@ -51,14 +51,13 @@
                         if (response.code == 200) {
                             for (var i = 0; i < response.data.length; i++) {
                                 var image = response.data[0];
-                                image.filePath = this.imageHost + image.filePath;
 
                                 this.imageList.push(image);
-
-                                event.$emit(this.eventName, {
-                                    imageList: this.imageList
-                                });
                             }
+
+                            event.$emit(this.eventName, {
+                                imageList: this.imageList
+                            });
                         } else {
                             this.toast('上传图失败');
                         }

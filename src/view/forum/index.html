@@ -29,8 +29,6 @@
         </wxc-minibar>
     </div>
     <scroller :style="{width: 750, height: pageHeight}"
-              offset-x-accuracy="0.1"
-              @loadmore="handleLoad"
               loadmoreoffset="100">
         <!--我加入的圈子-->
         <wxc-cell :has-arrow="false"
@@ -55,24 +53,48 @@
                       :cell-style="{width: 750 - 24 - 24, height: 200, marginTop: index > 0 ? 24 : 0}"
                       v-for="(forum, index) in followForumList"
                       :key="index">
+
                 <image class="follow-forum-image"
-                       resize="cover"
-                       slot="label"
-                       src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+                resize="cover"
+                slot="label"
+                :src="imageHost + forum.forumMedia"></image>
                 <div slot="title">
-                    <text class="follow-forum-name">{{forum.name}}</text>
-                    <text class="follow-forum-description">这里是魔都喵星人的聚集地，是爱猫人士的家园，欢迎加入</text>
-                    <div class="follow-forum-info">
-                        <image class="follow-forum-info-crown"
-                               resize="cover"
-                               src="http://h5.chuangshi.nowui.com/wawipet/image/crown.png"></image>
-                        <image class="follow-forum-info-avatar"
-                               resize="cover"
-                               src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/30/h/30"></image>
-                        <text class="follow-forum-info-name">小可爱</text>
-                        <text class="follow-forum-info-number">今日最新话题数: 21</text>
-                    </div>
+                <text class="follow-forum-name">{{forum.forumName}}</text>
+                <text class="follow-forum-description">{{forum.forumDescription}}</text>
+                <div class="follow-forum-info">
+                <image class="follow-forum-info-crown"
+                resize="cover"
+                src="http://h5.chuangshi.nowui.com/wawipet/image/crown.png"></image>
+                <image class="follow-forum-info-avatar"
+                resize="cover"
+                src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/30/h/30"></image>
+                <text class="follow-forum-info-name">{{forum.forumModeratorInfo.userNickName}}</text>
+                <text class="follow-forum-info-number">今日最新话题数: {{forum.forumTodayTopicCount}}</text>
                 </div>
+                </div>
+
+
+                <!--<image class="follow-forum-image"-->
+                       <!--resize="cover"-->
+                       <!--slot="label"-->
+                       <!--src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>-->
+                <!--<div slot="title">-->
+                    <!--<text class="follow-forum-name">{{forum.name}}</text>-->
+                    <!--<text class="follow-forum-description">这里是魔都喵星人的聚集地，是爱猫人士的家园，欢迎加入</text>-->
+                    <!--<div class="follow-forum-info">-->
+                        <!--<image class="follow-forum-info-crown"-->
+                               <!--resize="cover"-->
+                               <!--src="http://h5.chuangshi.nowui.com/wawipet/image/crown.png"></image>-->
+                        <!--<image class="follow-forum-info-avatar"-->
+                               <!--resize="cover"-->
+                               <!--src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/30/h/30"></image>-->
+                        <!--<text class="follow-forum-info-name">小可爱</text>-->
+                        <!--<text class="follow-forum-info-number">今日最新话题数: 21</text>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+
+
             </wxc-cell>
             <div class="follow-forum-more" @click="handleFollow">
                 <text class="follow-forum-more-text">查看更多</text>
