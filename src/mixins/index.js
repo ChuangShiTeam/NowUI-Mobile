@@ -65,7 +65,7 @@ export default {
             } else {
                 result += a;
                 if (bundleUrl.indexOf('nowui.com') > -1) {
-                    result += '/wawipet'
+                    result += '/wawipet';
                 }
                 result += '/dist';
                 result += url.replace('.html', '.js');
