@@ -193,8 +193,8 @@
                     name: 'topic'
                 });
             },
-            handleHomepage() {
-                this.push('/view/forum/homepage.html');
+            handleHomepage(forumId) {
+                this.push('/view/forum/homepage.html?forumId=' + '5cb8f48bf4df41078a7c7892cb97bbe3');
             },
             handleFollow(e) {
                 this.push('/view/forum/follow.html');
