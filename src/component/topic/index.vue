@@ -6,6 +6,9 @@
 
     import mixins from '../../mixins/index';
 
+    var moment = require('moment');
+    moment.locale('zh-cn');
+
     export default {
         components: {
             WxcCell
@@ -15,6 +18,7 @@
                 type: Object,
                 required: true
             },
+            index: 0,
             containerStyle: {
                 type: Object
             }
@@ -24,7 +28,8 @@
             return {}
         },
         created() {
-
+            console.log(this.index + ' : ' + this.topic.topicId)
+            console.log(this.topic.topicMediaList[0].topicMedia)
         },
         mounted() {
 
@@ -38,6 +43,11 @@
             },
             handleTopic() {
                 this.push('/view/topic/detail.html');
+            }
+        },
+        filters: {
+            formNow: function(value) {
+                return moment(value).fromNow();
             }
         }
     }

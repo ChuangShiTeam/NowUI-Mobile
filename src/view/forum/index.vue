@@ -9,6 +9,8 @@
 
     import Topic from '../../component/topic/index.vue';
 
+    var moment = require('moment');
+
     export default {
         components: {
             WxcMinibar,
@@ -207,8 +209,9 @@
                     success: (data) => {
                         if (data.total > 0) {
                             this.hotTopicTotal = data.total,
-                                this.hotTopicList = data.list
+                            this.hotTopicList = data.list
                         }
+                        console.log( 'systemTime : ' + moment().format('YYYY-MM-DD HH:mm:ss'))
                     },
                     error: () => {
                     }

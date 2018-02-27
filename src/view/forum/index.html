@@ -28,7 +28,7 @@
             </div>
         </wxc-minibar>
     </div>
-    <scroller :style="{width: 750, height: pageHeight}"
+    <scroller :style="{width: 750, height: pageHeight, marginBottom: 60}"
               loadmoreoffset="100">
         <!--我加入的圈子-->
         <wxc-cell :has-arrow="false"
@@ -161,8 +161,10 @@
             <text class="topic-header-title" slot="title">- 热门动态 -</text>
         </wxc-cell>
         <Topic :topic="topic"
+               :index="index"
+               :key="index"
                :containerStyle="{marginBottom: 20}"
-               v-for="(topic, index) in topicList"
-               :key="index"></Topic>
+               v-for="(topic , index) in hotTopicList"
+               ></Topic>
     </scroller>
 </div>
