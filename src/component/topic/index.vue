@@ -41,8 +41,8 @@
             handleHomepage() {
                 this.push('/view/member/homepage.html');
             },
-            handleTopic() {
-                this.push('/view/topic/detail.html');
+            handleTopic(topicId) {
+                this.push('/view/topic/detail.html?topicId=' + topicId);
             }
         },
         filters: {

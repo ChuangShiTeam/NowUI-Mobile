@@ -6,6 +6,9 @@
 
     import mixins from '../../mixins/index';
 
+    var moment = require('moment');
+    moment.locale('zh-cn');
+
     export default {
         components: {
             WxcCell,
@@ -14,6 +17,8 @@
         mixins: [mixins],
         data() {
             return {
+                topicId: '',
+                topic: {},
                 isShow: false,
                 imageList: [
                     {src: 'https://gd2.alicdn.com/bao/uploaded/i2/T14H1LFwBcXXXXXXXX_!!0-item_pic.jpg'},
@@ -24,9 +29,28 @@
             }
         },
         created() {
+            console.log('开始加载话题 : ' + weex.config.parameter.topicId + ' 的数据');
+            this.topicId = weex.config.parameter.topicId;
 
+            this.handleLoadTopic();
         },
         methods: {
+            handleLoadTopic(){
+                if (this.topicId) {
+                    this.request({
+                        url: '/topic/mobile/v1/find',
+                        data: {
+                            topicId: this.topicId
+                        },
+                        success: (data) => {
+                            this.topic = data;
+                            console.log(this.topic)
+                        },
+                        error: () => {
+                        }
+                    });
+                }
+            },
             handleHomepage() {
                 this.push('/view/member/homepage.html');
             },
@@ -35,6 +59,11 @@
             },
             handleCloseImage() {
                 this.isShow = false;
+            }
+        },
+        filters: {
+            formNow: function(value) {
+                return moment(value).fromNow();
             }
         }
     }
