@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs-extra');
 const webpack = require('webpack');
-const webEntry = {};
+let webEntry = {};
 const weexEntry = {};
 const config = require('./config');
 const helper = require('./helper');
@@ -9,6 +9,8 @@ const vueLoaderConfig = require('./vue-loader.conf');
 const vueWebTemp = helper.rootNode(config.templateDir);
 const hasPluginInstalled = fs.existsSync(helper.rootNode(config.pluginFilePath));
 const isWin = /^win/.test(process.platform);
+
+let constant = require('../src/common/constant');
 
 // Wraping the entry file for web.
 const getEntryFileContent = (entryPath, vueFilePath) => {
@@ -40,7 +42,6 @@ const getEntryFileContent = (entryPath, vueFilePath) => {
 const getEntryFile = (dir) => {
     dir = dir || '.';
     const directory = helper.root(dir);
-    let i = 0;
     fs.readdirSync(directory).forEach((file) => {
         const fullpath = path.join(directory, file);
         const stat = fs.statSync(fullpath);
@@ -50,14 +51,9 @@ const getEntryFile = (dir) => {
             if (extname === '.vue') {
                 const entryFile = path.join(vueWebTemp, dir, path.basename(file, extname) + '.js');
                 fs.outputFileSync(path.join(entryFile), getEntryFileContent(entryFile, fullpath));
-                if (i < 1) {
-                    webEntry[name] = path.join(entryFile) + '?entry=true';
-                }
+                webEntry[name] = path.join(entryFile) + '?entry=true';
             }
-            if (i < 1) {
-                i++;
-                weexEntry[name] = fullpath + '?entry=true';
-            }
+            weexEntry[name] = fullpath + '?entry=true';
         }
         else if (stat.isDirectory() && file !== 'build' && file !== 'include') {
             const subdir = path.join(dir, file);
@@ -68,6 +64,11 @@ const getEntryFile = (dir) => {
 
 // Generate an entry file array before writing a webpack configuration
 getEntryFile();
+if (constant.active == 'dev') {
+    webEntry = constant.webEntry
+}
+console.log(webEntry);
+console.log(weexEntry);
 /**
  * Plugins for webpack configuration.
  */
