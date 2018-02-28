@@ -11,7 +11,7 @@
     <scroller class="content"
               :style="{height: pageHeight}">
         <div class="upload-cell">
-            <Upload :limit="1" eventName="topic-add-upload" :containerStyle="{width: 750}"></Upload>
+            <Upload :limit="9" eventName="topic-add-upload" :containerStyle="{width: 750}"></Upload>
         </div>
         <wxc-cell :has-arrow="false"
                   :has-top-border="true"
@@ -20,6 +20,7 @@
                   :cell-style="{width: 750, height: 250, marginTop: 20, alignItems: 'flex-start'}">
             <div slot="title">
                 <textarea placeholder="（选填）说点什么…"
+                          @input="handleTopicSummaryInput"
                           class="cell-input"/>
             </div>
         </wxc-cell>
@@ -105,9 +106,9 @@
                 <text class="topic-tag-active">猫狗双全</text>
                 <text class="topic-tag-active">猫狗双全</text>
             </div>
-            <div class="button">
-                <div class="button-submit">
-                    <text class="button-submit-text">发送</text>
+            <div class="button" >
+                <div class="button-submit" @click="handleAddTopic">
+                    <text class="button-submit-text" >发送</text>
                 </div>
             </div>
             <div class="select">

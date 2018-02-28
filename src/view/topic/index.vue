@@ -9,6 +9,8 @@
 
     import Topic from '../../component/topic/index.vue';
 
+    var moment = require('moment');
+
     export default {
         components: {
             WxcMinibar,
@@ -17,134 +19,161 @@
         },
         mixins: [mixins],
         data: () => ({
-            topicList: [{
-                topicId: '0',
-                topicMediaList: [{
-                    filePath: ''
-                }, {
-                    filePath: ''
-                }, {
-                    filePath: ''
-                }, {
-                    filePath: ''
-                }, {
-                    filePath: ''
-                }, {
-                    filePath: ''
-                }, {
-                    filePath: ''
-                }, {
-                    filePath: ''
-                }, {
-                    filePath: ''
-                }]
-            }, {
-                topicId: '0',
-                topicMediaList: [{
-                    filePath: ''
-                }, {
-                    filePath: ''
-                }, {
-                    filePath: ''
-                }, {
-                    filePath: ''
-                }, {
-                    filePath: ''
-                }, {
-                    filePath: ''
-                }, {
-                    filePath: ''
-                }, {
-                    filePath: ''
-                }]
-            }, {
-                topicId: '0',
-                topicMediaList: [{
-                    filePath: ''
-                }, {
-                    filePath: ''
-                }, {
-                    filePath: ''
-                }, {
-                    filePath: ''
-                }, {
-                    filePath: ''
-                }, {
-                    filePath: ''
-                }, {
-                    filePath: ''
-                }]
-            }, {
-                topicId: '0',
-                topicMediaList: [{
-                    filePath: ''
-                }, {
-                    filePath: ''
-                }, {
-                    filePath: ''
-                }, {
-                    filePath: ''
-                }, {
-                    filePath: ''
-                }, {
-                    filePath: ''
-                }]
-            }, {
-                topicId: '0',
-                topicMediaList: [{
-                    filePath: ''
-                }, {
-                    filePath: ''
-                }, {
-                    filePath: ''
-                }, {
-                    filePath: ''
-                }, {
-                    filePath: ''
-                }]
-            }, {
-                topicId: '0',
-                topicMediaList: [{
-                    filePath: ''
-                }, {
-                    filePath: ''
-                }, {
-                    filePath: ''
-                }, {
-                    filePath: ''
-                }]
-            }, {
-                topicId: '0',
-                topicMediaList: [{
-                    filePath: ''
-                }, {
-                    filePath: ''
-                }, {
-                    filePath: ''
-                }]
-            }, {
-                topicId: '0',
-                topicMediaList: [{
-                    filePath: ''
-                }, {
-                    filePath: ''
-                }]
-            }, {
-                topicId: '0',
-                topicMediaList: [{
-                    filePath: ''
-                }]
-            }]
+            topicPageIndex: 1,
+            topicPageSize: 80,
+
+            topicTotal: 0,
+            topicList: [],
+
+            // topicList: [{
+            //     topicId: '0',
+            //     topicMediaList: [{
+            //         filePath: ''
+            //     }, {
+            //         filePath: ''
+            //     }, {
+            //         filePath: ''
+            //     }, {
+            //         filePath: ''
+            //     }, {
+            //         filePath: ''
+            //     }, {
+            //         filePath: ''
+            //     }, {
+            //         filePath: ''
+            //     }, {
+            //         filePath: ''
+            //     }, {
+            //         filePath: ''
+            //     }]
+            // }, {
+            //     topicId: '0',
+            //     topicMediaList: [{
+            //         filePath: ''
+            //     }, {
+            //         filePath: ''
+            //     }, {
+            //         filePath: ''
+            //     }, {
+            //         filePath: ''
+            //     }, {
+            //         filePath: ''
+            //     }, {
+            //         filePath: ''
+            //     }, {
+            //         filePath: ''
+            //     }, {
+            //         filePath: ''
+            //     }]
+            // }, {
+            //     topicId: '0',
+            //     topicMediaList: [{
+            //         filePath: ''
+            //     }, {
+            //         filePath: ''
+            //     }, {
+            //         filePath: ''
+            //     }, {
+            //         filePath: ''
+            //     }, {
+            //         filePath: ''
+            //     }, {
+            //         filePath: ''
+            //     }, {
+            //         filePath: ''
+            //     }]
+            // }, {
+            //     topicId: '0',
+            //     topicMediaList: [{
+            //         filePath: ''
+            //     }, {
+            //         filePath: ''
+            //     }, {
+            //         filePath: ''
+            //     }, {
+            //         filePath: ''
+            //     }, {
+            //         filePath: ''
+            //     }, {
+            //         filePath: ''
+            //     }]
+            // }, {
+            //     topicId: '0',
+            //     topicMediaList: [{
+            //         filePath: ''
+            //     }, {
+            //         filePath: ''
+            //     }, {
+            //         filePath: ''
+            //     }, {
+            //         filePath: ''
+            //     }, {
+            //         filePath: ''
+            //     }]
+            // }, {
+            //     topicId: '0',
+            //     topicMediaList: [{
+            //         filePath: ''
+            //     }, {
+            //         filePath: ''
+            //     }, {
+            //         filePath: ''
+            //     }, {
+            //         filePath: ''
+            //     }]
+            // }, {
+            //     topicId: '0',
+            //     topicMediaList: [{
+            //         filePath: ''
+            //     }, {
+            //         filePath: ''
+            //     }, {
+            //         filePath: ''
+            //     }]
+            // }, {
+            //     topicId: '0',
+            //     topicMediaList: [{
+            //         filePath: ''
+            //     }, {
+            //         filePath: ''
+            //     }]
+            // }, {
+            //     topicId: '0',
+            //     topicMediaList: [{
+            //         filePath: ''
+            //     }]
+            // }]
         }),
         created() {
-
+            this.handleLoad();
         },
         mounted() {
 
         },
         methods: {
             handleLoad() {
-                console.log(1);
+                console.log('开始载入话题首页数据');
+
+                this.request({
+                    url: '/topic/mobile/v1/home/list',
+                    data: {
+                        pageIndex: this.topicPageIndex,
+                        pageSize: this.topicPageSize,
+                        systemCreateTime: moment().format('YYYY-MM-DD HH:mm:ss'),
+                        excludeTopicIdList: []
+                    },
+                    success: (data) => {
+                        if (data.total > 0) {
+                            this.topicTotal = data.total,
+                            this.topicList = data.list
+                        }
+                        console.log( '载入话题首页数据 - systemTime : ' + moment().format('YYYY-MM-DD HH:mm:ss'))
+                    },
+                    error: () => {
+                    }
+                });
+
+
             },
             handleForum() {
                 event.$emit('sns-click', {
@@ -159,7 +188,8 @@
             },
             handleAdd() {
                 this.push('/view/topic/add.html');
-            }
+            },
+
         }
     }
 </script>
