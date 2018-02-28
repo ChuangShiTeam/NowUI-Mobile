@@ -17,7 +17,20 @@
         },
         mixins: [mixins],
         data: () => ({
-            imageList: []
+            imageList: [],
+            topicSummary: '',
+
+            longtitude: '',
+            latitude: '',
+            topicLocation : '',
+            topicIsLocation : false,
+
+            topicForumList: [],
+            topicTipUserList: [],
+            topicMediaList: [],
+            theSendInfo: {},
+            userNickName: '',
+            userAvatar: '',
         }),
         created() {
 
@@ -40,28 +53,51 @@
             handleTag() {
                 this.push('/view/topic/tag.html');
             },
+            handleTopicSummaryInput(event) {
+                this.topicSummary = event.value;
+            },
             handleAddTopic() {
+                console.log(this.imageList);
+                    this.topicMediaList = this.imageList.map((topicMedia, index) => {
+                        return {
+                            topicMedia: topicMedia.filePath,
+                            topicMediaType: 'IMAGE',
+                            topicMediaSort: index + 1
+                        }
+                    });
 
+                this.request({
+                    url: '/topic/mobile/v1/save',
+                    data: {
+                        longtitude: this.longtitude,
+                        latitude: this.latitude,
+                        topicLocation : this.topicLocation,
+                        topicIsLocation : this.topicIsLocation,
 
+                        topicSummary: this.topicSummary,
 
-
+                        topicForumList: this.topicForumList,
+                        topicTipUserList: this.topicTipUserList,
+                        topicMediaList: this.topicMediaList,
+                        theSendInfo: {
+                            userNickName: '谁用了我的头像(新)',
+                            userAvatar: '/upload/df2078d6c9eb46babb0df957127273ab/3bdfcbb00f90415989fb53e6677c25df/ae74752bc95c4ed6a9ebbd020d3b4105.jpg',
+                            memberSignature: '喵咪太可爱了!(新签名)'
+                        },
+                        userNickName: '谁用了我的头像(新)',
+                        userAvatar: '/upload/df2078d6c9eb46babb0df957127273ab/3bdfcbb00f90415989fb53e6677c25df/ae74752bc95c4ed6a9ebbd020d3b4105.jpg',
+                        memberSignature: '喵咪太可爱了!(新签名)'
+                    },
+                    success: (data) => {
+                        this.toast('发布成功', () => {
+                            this.pop();
+                        });
+                    },
+                    error: () => {
+                    }
+                });
 
                 // this.props.form.validateFields((errors, values) => {
-                //     if (!!errors) {
-                //         var message = '';
-                //         for (var error in errors) {
-                //             message += '<p>';
-                //             message += errors[error].errors[0].message;
-                //             message += '</p>';
-                //         }
-                //
-                //         notification.notice({
-                //             content: <div dangerouslySetInnerHTML={{__html: message}}></div>
-                //     });
-                //
-                //         return;
-                //     }
-                //
                 //     values.longtitude = '';
                 //     values.latitude = '';
                 //     values.topicLocation = '';
