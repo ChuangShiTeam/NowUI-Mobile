@@ -51,8 +51,17 @@ const getEntryFile = (dir) => {
             if (extname === '.vue') {
                 const entryFile = path.join(vueWebTemp, dir, path.basename(file, extname) + '.js');
                 fs.outputFileSync(path.join(entryFile), getEntryFileContent(entryFile, fullpath));
-                webEntry[name] = path.join(entryFile) + '?entry=true';
+                if (constant.active == 'dev') {
+                    for (var i = 0; i < constant.webEntry.length; i++) {
+                        if (constant.webEntry[i] == name) {
+                            webEntry[name] = path.join(entryFile) + '?entry=true';
+                        }
+                    }
+                } else {
+                    webEntry[name] = path.join(entryFile) + '?entry=true';
+                }
             }
+
             weexEntry[name] = fullpath + '?entry=true';
         }
         else if (stat.isDirectory() && file !== 'build' && file !== 'include') {
@@ -64,11 +73,7 @@ const getEntryFile = (dir) => {
 
 // Generate an entry file array before writing a webpack configuration
 getEntryFile();
-if (constant.active == 'dev') {
-    webEntry = constant.webEntry
-}
 console.log(webEntry);
-console.log(weexEntry);
 /**
  * Plugins for webpack configuration.
  */
