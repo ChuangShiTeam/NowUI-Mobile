@@ -53,7 +53,7 @@ const getEntryFile = (dir) => {
                 fs.outputFileSync(path.join(entryFile), getEntryFileContent(entryFile, fullpath));
                 if (constant.active == 'dev') {
                     for (var i = 0; i < constant.webEntry.length; i++) {
-                        if (constant.webEntry[i] == name) {
+                        if (constant.webEntry[i] == name.replace(/\\/g, '/')) {
                             webEntry[name] = path.join(entryFile) + '?entry=true';
                         }
                     }
