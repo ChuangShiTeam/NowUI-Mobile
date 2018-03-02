@@ -1,7 +1,7 @@
 <style src="./password.css" scoped></style>
 <template src="./password.html"></template>
 
-<script>
+<script type="text/ecmascript-6">
     import mixins from '../../mixins/index';
     import event from "../../common/event";
 

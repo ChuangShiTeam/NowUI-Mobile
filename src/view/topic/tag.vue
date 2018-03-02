@@ -1,7 +1,7 @@
 <style src="./tag.css" scoped></style>
 <template src="./tag.html"></template>
 
-<script>
+<script type="text/ecmascript-6">
     import {WxcSearchbar} from 'weex-ui';
 
     import mixins from '../../mixins/index';

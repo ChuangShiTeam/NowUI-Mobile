@@ -1,7 +1,7 @@
 <style src="./index.css" scoped></style>
 <template src="./index.html"></template>
 
-<script>
+<script type="text/ecmascript-6">
     import {WxcTabBar, WxcPopup} from 'weex-ui';
 
     import mixins from '../mixins/index';

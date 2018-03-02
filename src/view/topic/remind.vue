@@ -1,7 +1,7 @@
 <style src="./remind.css" scoped></style>
 <template src="./remind.html"></template>
 
-<script>
+<script type="text/ecmascript-6">
     import {WxcSearchbar} from 'weex-ui';
 
     import mixins from '../../mixins/index';

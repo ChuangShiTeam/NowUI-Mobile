@@ -1,7 +1,7 @@
 <style src="./detail.css" scoped></style>
 <template src="./detail.html"></template>
 
-<script>
+<script type="text/ecmascript-6">
     import {WxcCell, WxcLightbox} from 'weex-ui';
 
     import mixins from '../../mixins/index';

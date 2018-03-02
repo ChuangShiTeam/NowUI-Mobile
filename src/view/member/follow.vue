@@ -1,7 +1,7 @@
 <style src="./follow.css" scoped></style>
 <template src="./follow.html"></template>
 
-<script>
+<script type="text/ecmascript-6">
     import {WxcMinibar, WxcCell} from 'weex-ui';
 
     import mixins from '../../mixins/index';

@@ -18,11 +18,11 @@
         <div class="captcha-main">
             <div class="captcha-main-left">
                 <input type="text"
-                       value="123456"
+                       value=""
                        placeholder="请输入验证码"
                        class="captcha-main-input"/>
             </div>
-            <text class="captcha-main-right"></text>
+            <text class="captcha-main-right" @click="handleSendRegisterCaptcha">发送验证码</text>
         </div>
     </div>
     <div class="submit"

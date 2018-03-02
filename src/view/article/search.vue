@@ -1,7 +1,7 @@
 <style src="./search.css" scoped></style>
 <template src="./search.html"></template>
 
-<script>
+<script type="text/ecmascript-6">
     import {WxcSearchbar} from 'weex-ui'
 
     export default {
