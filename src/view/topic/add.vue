@@ -25,14 +25,13 @@
             topicLocation : '',
             topicIsLocation : false,
 
-            selectedForumList: [],
+            forumList: [],
             topicTipUserList: [],
             topicMediaList: [],
             theSendInfo: {},
             userNickName: '',
             userAvatar: '',
 
-            initForumList: []
         }),
         created() {
             this.hanldeLoadForum();
@@ -79,7 +78,12 @@
 
                         topicSummary: this.topicSummary,
 
-                        topicForumList: this.selectedForumList,
+                        topicForumList: this.forumList.filter(forum => forum.selected).map(forum => {
+                            return {
+                                forumId: forum.forumId,
+                                forumName: forum.forumName
+                            }
+                        }),
                         topicTipUserList: this.topicTipUserList,
                         topicMediaList: this.topicMediaList,
                         theSendInfo: {
@@ -169,7 +173,7 @@
                     success: (data) => {
                         let forumList = data;
                         if (forumList && forumList.length > 0) {
-                            this.initForumList = forumList
+                            this.forumList = forumList
                         }
                         // this.toast('发布成功', () => {
                         //     this.pop();
@@ -178,7 +182,27 @@
                     error: () => {
                     }
                 });
+            },
+            handleSelectForum(index) {
+                let forumList = this.forumList;
+                let forum = forumList[index];
+                forum.selected = !forum.selected;
 
+
+                // forumList[index] = forum;
+                //TODO 不会检测到根据索引直接赋值,和数字长度变化然后重新渲染页面,可按照下面两个方法达到效果
+                // Vue.set(forumList, index, forum);
+                forumList.splice(index, 1, forum)
+
+                this.forumList = forumList;
+
+                let theSelectForumList = this.forumList.filter(forum => forum.selected).map(forum => {
+                    return {
+                        forumId: forum.forumId,
+                        forumName: forum.forumName
+                    }
+                });
+                console.log(theSelectForumList)
             }
         }
     }

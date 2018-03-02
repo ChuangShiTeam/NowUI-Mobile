@@ -182,6 +182,9 @@
             },
             handleCloseImage() {
                 this.isShow = false;
+            },
+            handleForumHomePage(forumId) {
+                this.push('/view/forum/homepage.html?forumId=' + forumId);
             }
         },
         filters: {

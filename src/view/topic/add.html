@@ -67,11 +67,13 @@
             </div>
         </wxc-cell>
         <div class="public">
-            <text class="cell-text">同步到我的圈子</text>
+            <text class="cell-text">同步到圈子</text>
             <div class="topic">
-                <text class="topic-tag" v-for="intiForum in initForumList">{{intiForum.forumName}}</text>
-                <text class="topic-tag-active">猫狗双全</text>
-
+                <!-- TODO 选择效果搞不定-->
+                <div  v-for="(forum, index) in forumList" :key="forum.forumId">
+                    <text class="topic-tag-active" @click="handleSelectForum(index)" v-if="forum.selected"  >{{forum.forumName}}</text>
+                    <text class="topic-tag"  @click="handleSelectForum(index)" v-else>{{forum.forumName}}</text>
+                </div>
             </div>
             <div class="button" >
                 <div class="button-submit" @click="handleAddTopic">
