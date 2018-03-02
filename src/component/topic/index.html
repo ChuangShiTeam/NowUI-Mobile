@@ -5,7 +5,7 @@
               :auto-accessible="false"
               :cell-style="{width: 750, height: 90}">
         <image class="avatar"
-               @click="handleHomepage"
+               @click="handleMemberHomepage(topic.memberId)"
                resize="cover"
                slot="label"
                :src="imageHost + topic.theSendInfo.userAvatar"></image>

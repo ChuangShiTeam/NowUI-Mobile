@@ -204,7 +204,39 @@
                         }
                     });
                 }
+            },
+            handleJoinForum(forumId) {
+                if (forumId) {
+                    this.request({
+                        url: '/forum/user/follow/mobile/v1/save',
+                        data: {
+                            forumId: forumId,
+                            forumModerator: this.forum.forumModerator,
+
+                            userInfo : this.forum.forumModeratorInfo,
+                            userNickName: this.forum.userNickName + '',
+                            userAvatar: this.forum.userAvatar + '',
+                            memberSignature: this.forum.memberSignature + '',
+
+
+                        },
+                        success: (data) => {
+                            if (data) {
+                                this.toast('加入成功', () => {
+                                });
+                                this.handleLoadForumInfo(this.forumId);
+                            }else {
+                                this.toast('加入失败', () => {
+                                });
+                            }
+                        },
+                        error: () => {
+                        }
+                    });
+                }
             }
+
+
         }
     }
 </script>

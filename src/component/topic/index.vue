@@ -91,8 +91,8 @@
                     }
                 });
             },
-            handleHomepage() {
-                this.push('/view/member/homepage.html');
+            handleMemberHomepage(memberId) {
+                this.push('/view/member/homepage.html?memberId=' + memberId);
             },
             handleTopic(topicId) {
                 this.push('/view/topic/detail.html?topicId=' + topicId);
