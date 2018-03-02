@@ -9,9 +9,9 @@ export default {
     data() {
         return {
             pageHeight: 0,
-            host: 'http://localhost:80',
+            host: 'http://localhost:8080',
             // imageHost: 'http://118.31.229.16:8080',
-            imageHost: 'http://localhost:80',
+            imageHost: 'http://localhost:8080',
             appId: 'df2078d6c9eb46babb0df957127273ab',
             version: '1.0.0',
             platform: weex.config.env.platform.toLowerCase()

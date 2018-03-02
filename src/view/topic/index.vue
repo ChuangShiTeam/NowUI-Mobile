@@ -10,6 +10,7 @@
     import Topic from '../../component/topic/index.vue';
 
     var moment = require('moment');
+    moment.locale('zh-cn');
 
     export default {
         components: {

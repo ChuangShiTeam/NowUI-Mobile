@@ -20,7 +20,8 @@
         <image class="content-image"
                @click="handleOpenImage"
                resize="cover"
-               src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+               v-for="image in imageList"
+               :src="image.src"></image>
         <text class="content-text">{{topic.topicSummary}}</text>
         <div class="info">
             <image class="location-icon"
@@ -37,16 +38,16 @@
             <div class="like">
                 <image class="like-image"
                        resize="cover"
-                       src="http://h5.chuangshi.nowui.com/wawipet/image/like.png"></image>
+                       src="http://h5.chuangshi.nowui.com/wawipet/image/like.png" @click="handleClickLikeTopic"></image>
                 <text class="like-text">{{topic.topicCountLike}}</text>
                 <image class="like-avatar"
                        resize="cover"
-                       src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/68/h/68"></image>
-
+                       v-for="topicUserLike in topic.topicUserLikeList"
+                       :src="imageHost + topicUserLike.userAvatar" @click="handleTopicUserLikeList(topic.topicId)"></image>
             </div>
             <image class="bookmark-image"
                    resize="cover"
-                   src="http://h5.chuangshi.nowui.com/wawipet/image/bookmark.png"></image>
+                   src="http://h5.chuangshi.nowui.com/wawipet/image/bookmark.png" @click="handleBookmarkTopic"></image>
             <text class="bookmark-text">{{topic.topicCountBookmark}}</text>
             <image class="comment-image"
                    resize="cover"
@@ -56,27 +57,27 @@
     </div>
     <div class="feedback">
         <div class="feedback-item"
-             v-for="(feedback, index) in feedbackList"
+             v-for="(topicComment, index) in topicCommentList"
              :key="index">
             <div class="feedback-item-left">
                 <image class="feedback-item-left-avatar"
                        resize="cover"
-                       src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/68/h/68"></image>
+                       :src="imageHost + topicComment.userAvatar"></image>
             </div>
             <div class="feedback-item-right">
                 <div class="feedback-item-right-header">
                     <div class="feedback-item-right-header-left">
-                        <text class="feedback-item-right-header-left-name">Ronaldo</text>
-                        <text class="feedback-item-right-header-left-time">10分钟</text>
+                        <text class="feedback-item-right-header-left-name">{{topicComment.userNickName}}</text>
+                        <text class="feedback-item-right-header-left-time">{{topicComment.systemCreateTime | formNow}}</text>
                     </div>
                     <div class="feedback-item-right-header-right">
                         <image class="feedback-item-right-header-right-like-image"
                                resize="cover"
-                               src="http://h5.chuangshi.nowui.com/wawipet/image/like.png"></image>
-                        <text class="feedback-item-right-header-right-text"> </text>
+                               src="http://h5.chuangshi.nowui.com/wawipet/image/like.png" @click="handleClickLikeComment(index)"></image>
+                        <text class="feedback-item-right-header-right-text">{{topicComment.topicCommentLikeCount}}</text>
                     </div>
                 </div>
-                <text class="feedback-item-right-text">我也超级喜欢的</text>
+                <text class="feedback-item-right-text">{{topicComment.topicCommentContent}}</text>
             </div>
         </div>
     </div>
