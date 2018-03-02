@@ -2,13 +2,14 @@
 <template src="./remind.html"></template>
 
 <script type="text/ecmascript-6">
-    import {WxcSearchbar} from 'weex-ui';
+    import {WxcSearchbar, WxcCell} from 'weex-ui';
 
     import mixins from '../../mixins/index';
 
     export default {
         components: {
-            WxcSearchbar
+            WxcSearchbar,
+            WxcCell
         },
         mixins: [mixins],
         data() {

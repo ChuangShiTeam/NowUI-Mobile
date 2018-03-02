@@ -50,6 +50,7 @@ const getEntryFile = (dir) => {
             const name = path.join(dir, path.basename(file, extname));
             if (extname === '.vue') {
                 const entryFile = path.join(vueWebTemp, dir, path.basename(file, extname) + '.js');
+                console.log(name);
                 fs.outputFileSync(path.join(entryFile), getEntryFileContent(entryFile, fullpath));
                 if (constant.active == 'dev') {
                     for (var i = 0; i < constant.webEntry.length; i++) {
@@ -73,7 +74,7 @@ const getEntryFile = (dir) => {
 
 // Generate an entry file array before writing a webpack configuration
 getEntryFile();
-console.log(webEntry);
+// console.log(webEntry);
 /**
  * Plugins for webpack configuration.
  */

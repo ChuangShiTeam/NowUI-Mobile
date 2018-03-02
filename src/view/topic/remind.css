@@ -16,3 +16,62 @@
 .content {
     width: 750px;
 }
+
+.cell-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+}
+
+.cell-text {
+    margin-left: 20px;
+    font-family: PingFangSC-Light;
+    font-size: 26px;
+    color: #000000;
+}
+
+.cell-select {
+    width: 40px;
+    height: 40px;
+}
+
+.button {
+    width: 750px;
+    margin-top: 20px;
+    margin-left: 24px;
+    margin-right: 24px;
+}
+
+.submit {
+    width: 702px;
+    height: 88px;
+    background-color: #63DBDB;
+    border-radius: 100px;
+    align-items: center;
+    justify-content: center;
+}
+
+.submit-text {
+    font-family: PingFangSC-Semibold;
+    font-size: 32px;
+    color: #FFFFFF;
+}
+
+.cancel {
+    width: 702px;
+    height: 88px;
+    background-color: #ffffff;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #EBEBEB;
+    border-radius: 100px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.cancel-text {
+    font-family: PingFangSC-Semibold;
+    font-size: 32px;
+    color: #666666;
+}
