@@ -25,14 +25,17 @@
             topicLocation : '',
             topicIsLocation : false,
 
-            topicForumList: [],
+            selectedForumList: [],
             topicTipUserList: [],
             topicMediaList: [],
             theSendInfo: {},
             userNickName: '',
             userAvatar: '',
+
+            initForumList: []
         }),
         created() {
+            this.hanldeLoadForum();
 
         },
         mounted() {
@@ -76,7 +79,7 @@
 
                         topicSummary: this.topicSummary,
 
-                        topicForumList: this.topicForumList,
+                        topicForumList: this.selectedForumList,
                         topicTipUserList: this.topicTipUserList,
                         topicMediaList: this.topicMediaList,
                         theSendInfo: {
@@ -158,8 +161,23 @@
                 //     });
                 // });
 
-
-
+            },
+            hanldeLoadForum() {
+                this.request({
+                    url: '/forum/user/follow/mobile/v1/name/list',
+                    data: {},
+                    success: (data) => {
+                        let forumList = data;
+                        if (forumList && forumList.length > 0) {
+                            this.initForumList = forumList
+                        }
+                        // this.toast('发布成功', () => {
+                        //     this.pop();
+                        // });
+                    },
+                    error: () => {
+                    }
+                });
 
             }
         }

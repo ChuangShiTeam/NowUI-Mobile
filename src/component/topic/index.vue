@@ -96,6 +96,9 @@
             },
             handleTopic(topicId) {
                 this.push('/view/topic/detail.html?topicId=' + topicId);
+            },
+            handleForumHomePage(forumId) {
+                this.push('/view/forum/homepage.html?forumId=' + forumId);
             }
         },
         filters: {

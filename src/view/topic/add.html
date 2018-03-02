@@ -69,42 +69,9 @@
         <div class="public">
             <text class="cell-text">同步到我的圈子</text>
             <div class="topic">
-                <text class="topic-tag">猫狗双全</text>
+                <text class="topic-tag" v-for="intiForum in initForumList">{{intiForum.forumName}}</text>
                 <text class="topic-tag-active">猫狗双全</text>
-                <text class="topic-tag-active">猫狗双全</text>
-                <text class="topic-tag">猫狗双全</text>
-                <text class="topic-tag-active">猫狗双全</text>
-                <text class="topic-tag-active">猫狗双全</text>
-                <text class="topic-tag">猫狗双全</text>
-                <text class="topic-tag-active">猫狗双全</text>
-                <text class="topic-tag-active">猫狗双全</text>
-                <text class="topic-tag">猫狗双全</text>
-                <text class="topic-tag-active">猫狗双全</text>
-                <text class="topic-tag-active">猫狗双全</text>
-                <text class="topic-tag">猫狗双全</text>
-                <text class="topic-tag-active">猫狗双全</text>
-                <text class="topic-tag-active">猫狗双全</text>
-                <text class="topic-tag">猫狗双全</text>
-                <text class="topic-tag-active">猫狗双全</text>
-                <text class="topic-tag-active">猫狗双全</text>
-                <text class="topic-tag">猫狗双全</text>
-                <text class="topic-tag-active">猫狗双全</text>
-                <text class="topic-tag-active">猫狗双全</text>
-                <text class="topic-tag">猫狗双全</text>
-                <text class="topic-tag-active">猫狗双全</text>
-                <text class="topic-tag-active">猫狗双全</text>
-                <text class="topic-tag">猫狗双全</text>
-                <text class="topic-tag-active">猫狗双全</text>
-                <text class="topic-tag-active">猫狗双全</text>
-                <text class="topic-tag">猫狗双全</text>
-                <text class="topic-tag-active">猫狗双全</text>
-                <text class="topic-tag-active">猫狗双全</text>
-                <text class="topic-tag">猫狗双全</text>
-                <text class="topic-tag-active">猫狗双全</text>
-                <text class="topic-tag-active">猫狗双全</text>
-                <text class="topic-tag">猫狗双全</text>
-                <text class="topic-tag-active">猫狗双全</text>
-                <text class="topic-tag-active">猫狗双全</text>
+
             </div>
             <div class="button" >
                 <div class="button-submit" @click="handleAddTopic">

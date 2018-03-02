@@ -175,16 +175,22 @@
     <div class="info">
         <div class="info-topic">
             <text class="info-topic-from">同步到</text>
-            <text class="info-topic-tag" v-for="(topicForum, index) in topic.topicForumList">{{topicForum.forumName}}</text>
+            <text class="info-topic-tag" v-for="(topicForum, index) in topic.topicForumList"  @click="handleForumHomePage(topicForum.forumId)">{{topicForum.forumName}}</text>
         </div>
+
         <image class="info-like-icon"
                resize="cover"
-               src="http://h5.chuangshi.nowui.com/wawipet/image/like.png" @click="handleClickLikeTopic"></image>
+               src="http://h5.chuangshi.nowui.com/wawipet/image/like-active.png" @click="handleClickLikeTopic" v-if="topic.topicUserIsLike"></image>
+        <image class="info-like-icon"
+               resize="cover"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/like.png" @click="handleClickLikeTopic" v-else></image>
         <text class="info-like-number">{{topic.topicCountLike}}</text>
+
         <image class="info-bookmark-icon"
                resize="cover"
                src="http://h5.chuangshi.nowui.com/wawipet/image/bookmark.png" @click="handleBookmarkTopic"></image>
         <text class="info-bookmark-number">{{topic.topicCountBookmark}}</text>
+
         <image class="info-comment-icon"
                resize="cover"
                src="http://h5.chuangshi.nowui.com/wawipet/image/comment.png"></image>
