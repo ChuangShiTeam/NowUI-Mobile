@@ -33,7 +33,7 @@ module.exports = {
         // 'view/topic/index',
         // 'view/topic/like',
         //' view/topic/location',
-        // 'view/topic/remind',
+        'view/topic/remind',
         // 'view/topic/search',
         'view/topic/tag'
     ]

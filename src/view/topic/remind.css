@@ -36,10 +36,13 @@
 }
 
 .button {
+    position: fixed;
+    bottom: 0px;
     width: 750px;
-    margin-top: 30px;
-    margin-left: 24px;
-    margin-right: 24px;
+    height: 100px;
+    background-color: #ffffff;
+    align-items: center;
+    justify-content: center;
 }
 
 .submit {

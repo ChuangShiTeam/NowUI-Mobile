@@ -20,6 +20,26 @@
                     isSelect: false
                 }, {
                     isSelect: false
+                }, {
+                    isSelect: false
+                }, {
+                    isSelect: false
+                }, {
+                    isSelect: false
+                }, {
+                    isSelect: false
+                }, {
+                    isSelect: false
+                }, {
+                    isSelect: false
+                }, {
+                    isSelect: false
+                }, {
+                    isSelect: false
+                }, {
+                    isSelect: false
+                }, {
+                    isSelect: false
                 }]
             }
         },
@@ -63,7 +83,7 @@
                     }
                 });
 
-                this.storage.setItem('topic-member-remind-list', JSON.stringify(memberSelectList), event => {
+                this.storage.setItem('topic-member-tag-list', JSON.stringify(memberSelectList), event => {
                     this.pop();
                 })
             },
