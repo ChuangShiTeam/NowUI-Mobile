@@ -31,10 +31,10 @@ module.exports = {
         // 'view/topic/add',
         // 'view/topic/detail',
         // 'view/topic/index',
-        'view/topic/like',
+        // 'view/topic/like',
         //' view/topic/location',
-        'view/topic/remind',
+        // 'view/topic/remind',
         // 'view/topic/search',
-        // 'view/topic/tag'
+        'view/topic/tag'
     ]
 };
