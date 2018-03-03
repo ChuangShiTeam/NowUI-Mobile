@@ -1,6 +1,7 @@
 const dom = weex.requireModule('dom');
 const modal = weex.requireModule('modal');
 const stream = weex.requireModule('stream');
+const storage = weex.requireModule('storage');
 const navigator = weex.requireModule('navigator');
 
 import store from '../store/index';
@@ -29,6 +30,8 @@ export default {
         this.store = store;
 
         this.dom = dom;
+
+        this.storage = storage;
     },
     mounted() {
 

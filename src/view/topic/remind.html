@@ -11,65 +11,35 @@
     <scroller class="content"
               :style="{height: pageHeight}">
         <wxc-cell :has-arrow="false"
+                  @wxcCellClicked="handleMember(index)"
                   :has-top-border="false"
                   :has-bottom-border="true"
                   :auto-accessible="false"
-                  :cell-style="{width: 750}">
+                  :cell-style="{width: 750}"
+                  v-for="(member, index) in memberList"
+                  :key="index">
             <image class="cell-icon"
                    resize="cover"
                    slot="label"
-                   src="http://h5.chuangshi.nowui.com/wawipet/image/1.png"></image>
+                   src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
             <div slot="title">
                 <text class="cell-text">Ronaldo</text>
             </div>
 
             <image class="cell-select"
-                   resize="cover"
-                   slot="value"
-                   src="http://h5.chuangshi.nowui.com/wawipet/image/select-active.png"></image>
-        </wxc-cell>
-        <wxc-cell :has-arrow="false"
-                  :has-top-border="false"
-                  :has-bottom-border="true"
-                  :auto-accessible="false"
-                  :cell-style="{width: 750}">
-            <image class="cell-icon"
-                   resize="cover"
-                   slot="label"
-                   src="http://h5.chuangshi.nowui.com/wawipet/image/1.png"></image>
-            <div slot="title">
-                <text class="cell-text">Ronaldo</text>
-            </div>
-
-            <image class="cell-select"
-                   resize="cover"
-                   slot="value"
-                   src="http://h5.chuangshi.nowui.com/wawipet/image/select-active.png"></image>
-        </wxc-cell>
-        <wxc-cell :has-arrow="false"
-                  :has-top-border="false"
-                  :has-bottom-border="true"
-                  :auto-accessible="false"
-                  :cell-style="{width: 750}">
-            <image class="cell-icon"
-                   resize="cover"
-                   slot="label"
-                   src="http://h5.chuangshi.nowui.com/wawipet/image/1.png"></image>
-            <div slot="title">
-                <text class="cell-text">Ronaldo</text>
-            </div>
-
-            <image class="cell-select"
+                   v-if="member.isSelect"
                    resize="cover"
                    slot="value"
                    src="http://h5.chuangshi.nowui.com/wawipet/image/select-active.png"></image>
         </wxc-cell>
 
         <div class="button">
-            <div class="submit">
+            <div class="submit"
+                 @click="handleSubmit">
                 <text class="submit-text">确定</text>
             </div>
-            <div class="cancel">
+            <div class="cancel"
+                 @click="handleCancel">
                 <text class="cancel-text">取消</text>
             </div>
         </div>
