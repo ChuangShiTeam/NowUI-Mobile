@@ -2,16 +2,19 @@
 <template src="./index.html"></template>
 
 <script type="text/ecmascript-6">
-    import {WxcCell} from 'weex-ui';
+    import {WxcDialog, WxcCell, WxcPopup} from 'weex-ui';
 
     import mixins from '../../mixins/index';
 
     var moment = require('moment');
     moment.locale('zh-cn');
 
+
     export default {
         components: {
-            WxcCell
+            WxcDialog,
+            WxcCell,
+            WxcPopup
         },
         props: {
             topic: {
@@ -25,7 +28,10 @@
         },
         mixins: [mixins],
         data() {
-            return {}
+            return {
+                isShowDeleteDialog: false,
+                isShowClosePopup: false
+            }
         },
         created() {
             console.log(this.index + ' : ' + this.topic.topicId)
@@ -99,6 +105,24 @@
             },
             handleForumHomePage(forumId) {
                 this.push('/view/forum/homepage.html?forumId=' + forumId);
+            },
+            handleFollow() {
+
+            },
+            handleDelete() {
+              this.isShowDeleteDialog = true;
+            },
+            handleDeleteConfirm() {
+                this.isShowDeleteDialog = false;
+            },
+            handleDeleteCancel() {
+                this.isShowDeleteDialog = false;
+            },
+            handleClose() {
+                this.isShowClosePopup = true
+            },
+            handleCloseClick() {
+                this.isShowClosePopup = false
             }
         },
         filters: {

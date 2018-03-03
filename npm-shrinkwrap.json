@@ -12793,6 +12793,14 @@
             "integrity": "sha512-nqHUnMXmBzT0w570r2JpJxfiSD1IzoI+HGVdd3aZ0yNi3ngvQ4jv1dtHt5VGxfI2yj5yqImPhOK4vmIh2xMbGg==",
             "dev": true
         },
+        "weex-droplet-ui": {
+            "version": "1.0.0-alpha.72",
+            "resolved": "https://registry.npmjs.org/weex-droplet-ui/-/weex-droplet-ui-1.0.0-alpha.72.tgz",
+            "integrity": "sha512-9nslkSNWKPJg9QJNVI5KVKqDRdgcjYF95g3ioqev92BOXP5N59yils+oD5/fkpd7Hg0iMoqHCcOJcsgpwJQN+Q==",
+            "requires": {
+                "url-parse": "1.2.0"
+            }
+        },
         "weex-html5": {
             "version": "0.4.1",
             "resolved": "http://registry.npm.taobao.org/weex-html5/download/weex-html5-0.4.1.tgz",

@@ -25,6 +25,64 @@
     color: #000000;
 }
 
+.button {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.follow {
+    width: 92px;
+    height: 48px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #C18108;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+}
+
+.follow-active {
+    width: 92px;
+    height: 48px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #9B9B9B;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+}
+
+.follow-text {
+    font-family: PingFangSC-Regular;
+    font-size: 20px;
+    color: #000000;
+}
+
+.delete {
+    width: 92px;
+    height: 48px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #9B9B9B;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-text {
+    font-family: PingFangSC-Regular;
+    font-size: 20px;
+    color: #000000;
+}
+
+.close {
+    width: 48px;
+    height: 48px;
+    transform: rotate(-45deg);
+    align-items: center;
+    justify-content: center;
+}
+
 .media-1 {
     width: 750px;
     height: 750px;

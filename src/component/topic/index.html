@@ -10,10 +10,23 @@
                slot="label"
                :src="imageHost + topic.theSendInfo.userAvatar"></image>
         <div slot="title">
-            <text class="name" @click="handleHomepage">{{topic.theSendInfo.userNickName}}</text>
-            <text class="time" @click="handleHomepage">{{topic.systemCreateTime | formNow}}</text>
+            <text class="name">{{topic.theSendInfo.userNickName}}</text>
+            <text class="time">{{topic.systemCreateTime | formNow}}</text>
         </div>
-        <div slot="value"></div>
+        <div class="button"
+             slot="value">
+            <div :class="false ? 'follow' : 'follow-active'"
+                 @click="handleFollow">
+                <text class="follow-text">+ 关注</text>
+            </div>
+            <div class="delete"
+                 @click="handleDelete">
+                <text class="delete-text">删除</text>
+            </div>
+            <text class="close"
+                  @click="handleClose"
+                  @wxcPopupOverlayClicked="handleCloseClick">+</text>
+        </div>
     </wxc-cell>
     <div class="media-1" v-if="topic.topicMediaList.length == 1" @click="handleTopic(topic.topicId)">
         <image class="media-image-1-0"
@@ -196,4 +209,52 @@
                src="http://h5.chuangshi.nowui.com/wawipet/image/comment.png"></image>
         <text class="info-comment-number">{{topic.topicCountComment}}</text>
     </div>
+    <wxc-dialog content="确定删除吗？"
+                :show="isShowDeleteDialog"
+                @wxcDialogCancelBtnClicked="handleDeleteCancel"
+                @wxcDialogConfirmBtnClicked="handleDeleteConfirm">
+    </wxc-dialog>
+    <wxc-popup :show="isShowClosePopup"
+               @wxcPopupOverlayClicked="handleCloseClick"
+               pos="bottom"
+               height="400">
+        <div>
+            <wxc-cell :has-arrow="false"
+                      :has-top-border="true"
+                      :has-bottom-border="false"
+                      :auto-accessible="false"
+                      :cell-style="{width: 750}">
+                <text slot="title">
+                    我对这条内容不感兴趣
+                </text>
+            </wxc-cell>
+            <wxc-cell :has-arrow="false"
+                      :has-top-border="true"
+                      :has-bottom-border="false"
+                      :auto-accessible="false"
+                      :cell-style="{width: 750}">
+                <text slot="title">
+                    举报这条动态
+                </text>
+            </wxc-cell>
+            <wxc-cell :has-arrow="false"
+                      :has-top-border="true"
+                      :has-bottom-border="false"
+                      :auto-accessible="false"
+                      :cell-style="{width: 750}">
+                <text slot="title">
+                    举报该用户
+                </text>
+            </wxc-cell>
+            <wxc-cell :has-arrow="false"
+                      :has-top-border="true"
+                      :has-bottom-border="false"
+                      :auto-accessible="false"
+                      :cell-style="{width: 750}">
+                <text slot="title">
+                    取消
+                </text>
+            </wxc-cell>
+        </div>
+    </wxc-popup>
 </div>

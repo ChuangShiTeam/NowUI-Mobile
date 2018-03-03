@@ -5,6 +5,11 @@
       "type": "pod",
       "name": "WeexImagePicker",
       "version": "0.0.4"
+    },
+    {
+      "type": "pod",
+      "name": "WeexActionSheet",
+      "version": "1.3.5"
     }
   ],
   "web": [],

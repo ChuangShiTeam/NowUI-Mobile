@@ -7,7 +7,7 @@ module.exports = {
         // 'view/forum/add',
         // 'view/forum/follow',
         //  'view/forum/homepage',
-        // 'view/forum/index',
+        'view/forum/index',
         // 'view/forum/search',
         // 'view/home/index',
         // 'view/home/search',
@@ -28,13 +28,13 @@ module.exports = {
         // 'view/service/index',
         // 'view/shop/index',
         // 'view/sns/index',
-        // 'view/topic/add',
+        'view/topic/add',
         // 'view/topic/detail',
-        // 'view/topic/index',
+        'view/topic/index',
         // 'view/topic/like',
-        'view/topic/location',
-        'view/topic/remind',
+        // 'view/topic/location',
+        // 'view/topic/remind',
         // 'view/topic/search',
-        'view/topic/tag'
+        // 'view/topic/tag'
     ]
 };
