@@ -2,7 +2,7 @@
 <template src="./index.html"></template>
 
 <script type="text/ecmascript-6">
-    import {WxcDialog, WxcCell, WxcPopup} from 'weex-ui';
+    import {WxcDialog, WxcCell, WxcPopup, WxcLoading} from 'weex-ui';
 
     import mixins from '../../mixins/index';
 
@@ -14,7 +14,8 @@
         components: {
             WxcDialog,
             WxcCell,
-            WxcPopup
+            WxcPopup,
+            WxcLoading
         },
         props: {
             topic: {
@@ -30,7 +31,8 @@
         data() {
             return {
                 isShowDeleteDialog: false,
-                isShowClosePopup: false
+                isShowClosePopup: false,
+                isShowLoaing: false
             }
         },
         created() {
@@ -45,6 +47,8 @@
                 console.log(1);
             },
             handleClickLikeTopic() {
+                this.isShowLoaing = true;
+
                 this.request({
                     url: this.topic.topicUserIsLike ? '/topic/user/unlike/mobile/v1/save' : '/topic/user/like/mobile/v1/save',
                     data: {
@@ -64,14 +68,18 @@
 
                             this.topic = topic;
                         }
-                        console.log(this.topic)
+
+                        this.isShowLoaing = false;
                     },
                     error: () => {
+                        this.isShowLoaing = false;
                     }
                 });
 
             },
             handleBookmarkTopic() {
+                this.isShowLoaing = true;
+
                 this.request({
                     url: this.topic.topicUserIsBookmark ? '/topic/user/unbookmark/mobile/v1/save' : '/topic/user/bookmark/mobile/v1/save',
                     data: {
@@ -91,9 +99,11 @@
 
                             this.topic = topic;
                         }
-                        console.log(this.topic)
+
+                        this.isShowLoaing = false;
                     },
                     error: () => {
+                        this.isShowLoaing = false;
                     }
                 });
             },
