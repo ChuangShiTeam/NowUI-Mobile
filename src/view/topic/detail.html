@@ -102,7 +102,12 @@
                         <text class="feedback-item-right-header-right-text">{{topicComment.topicCommentLikeCount}}</text>
                     </div>
                 </div>
-                <text class="feedback-item-right-text" @click="handleChooseReply(topicComment.memberId, topicComment.userNickName, topicComment.userAvatar, topicComment.topicCommentId)">{{topicComment.topicCommentContent}}</text>
+                <text class="feedback-item-right-text"
+                      @click="handleChooseReply(topicComment.memberId, topicComment.userNickName, topicComment.userAvatar, topicComment.topicCommentId)"
+                      v-if="topicComment.topicReplayUserNickName === ''">{{topicComment.topicCommentContent}}</text>
+                <text class="feedback-item-right-text"
+                      @click="handleChooseReply(topicComment.memberId, topicComment.userNickName, topicComment.userAvatar, topicComment.topicCommentId)"
+                      v-else>{{topic.theSendInfo.userNickName + ' 回复 ' + topicComment.topicReplayUserNickName + ': ' + topicComment.topicCommentContent}}</text>
             </div>
         </div>
     </div>
@@ -114,10 +119,10 @@
         <div class="footer-center">
             <input class="footer-center-input"
                    type="text"
-                   :placeholder="placeholder"/>
+                   :placeholder="placeholder" v-model="topicCommentContent"/>
         </div>
         <div class="footer-submit">
-            <text class="footer-submit-text">发送</text>
+            <text class="footer-submit-text" @click="handleSubmit">发送</text>
         </div>
     </div>
     <wxc-lightbox

@@ -38,8 +38,8 @@
                 topicReplayMemberId: '',
                 topicReplyCommentId: '',
                 topicReplayUserAvatar: '',
-                topicReplayUserNickName: ''
-
+                topicReplayUserNickName: '',
+                topicCommentContent: ''
 
                 // feedbackList: [{}, {}, {}, {}, {}, {}]
             }
@@ -213,19 +213,57 @@
             handleChooseReply(topicReplayMemberId, topicReplayUserNickName, topicReplayUserAvatar, topicReplyCommentId) {
                 // if (topicReplayMemberId === this.topic.memberId) {
                 //     this.topicReplayMemberId = '',
-                //     this.placeholder = '我也要说点什么…',
+                //     this.placeholder = '我也要说点什么',
                 //     this.topicReplyCommentId = '',
                 //     this.topicReplayUserNickName = '',
-                //     this.topicReplayUserAvatar = ''
-
+                //     this.topicReplayUserAvatar = '',
+                // this.topicCommentContent = ''
                 // } else {
-
                     this.topicReplayMemberId = topicReplayMemberId,
-                    this.placeholder = '回复 ' + topicReplayUserNickName + ' ：',
+                    this.placeholder = '回复: ' + topicReplayUserNickName + ' ：',
                     this.topicReplyCommentId = topicReplyCommentId,
                     this.topicReplayUserNickName = topicReplayUserNickName,
                     this.topicReplayUserAvatar = topicReplayUserAvatar
                 // }
+
+            },
+            handleCancelReply() {
+                this.topicReplayMemberId = '',
+                this.placeholder = '我也要说点什么',
+                this.topicReplyCommentId = '',
+                this.topicReplayUserNickName = '',
+                this.topicReplayUserAvatar = '',
+                this.topicCommentContent = ''
+            },
+            handleSubmit() {
+                let topicId = this.topic.topicId;
+                if (!topicId){
+                    return;
+                }
+                this.request({
+                    url: '/topic/comment/mobile/v1/save',
+                    data: {
+                        topicId: topicId,
+                        topicReplayMemberId: this.topicReplayMemberId,
+                        topicReplyCommentId: this.topicReplyCommentId,
+
+                        topicReplayUserAvatar: this.topicReplayUserAvatar,
+                        topicReplayUserNickName: this.topicReplayUserNickName,
+
+                        userNickName: this.topic.theSendInfo.userNickName,
+                        userAvatar: this.topic.theSendInfo.userAvatar,
+
+                        topicCommentContent: this.topicCommentContent
+                    },
+                    success: (data) => {
+                        if (data) {
+                            this.handleLoadComment();
+                            this.handleCancelReply();
+                        }
+                    },
+                    error: () => {
+                    }
+                });
 
             }
         },
