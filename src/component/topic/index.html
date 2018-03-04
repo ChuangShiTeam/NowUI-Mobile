@@ -15,12 +15,15 @@
         </div>
         <div class="button"
              slot="value">
-            <div :class="false ? 'follow' : 'follow-active'"
-                 @click="handleFollow">
-                <text class="follow-text">+ 关注</text>
+            <div v-if="topic.topicIsSelf">
             </div>
+            <div :class="topic.memberIsFollow ? 'follow-active' : 'follow'"
+                 @click="handleFollow(topic.memberId)" v-else>
+                <text class="follow-text">{{topic.memberIsFollow ? '已关注' : '+ 关注'}}</text>
+            </div>
+
             <div class="delete"
-                 @click="handleDelete">
+                 @click="handleDelete" v-if="topic.topicIsSelf">
                 <text class="delete-text">删除</text>
             </div>
             <text class="close"
@@ -202,7 +205,8 @@
 
         <image class="info-bookmark-icon"
                resize="cover"
-               :src="topic.topicUserIsLike ? 'http://h5.chuangshi.nowui.com/wawipet/image/bookmark-acitve.png' : 'http://h5.chuangshi.nowui.com/wawipet/image/bookmark.png'" @click="handleBookmarkTopic"></image>
+               :src="topic.topicUserIsBookmark ? 'http://h5.chuangshi.nowui.com/wawipet/image/bookmark-acitve.png' : 'http://h5.chuangshi.nowui.com/wawipet/image/bookmark.png'"
+               @click="handleBookmarkTopic"></image>
         <text class="info-bookmark-number">{{topic.topicCountBookmark}}</text>
 
         <image class="info-comment-icon"

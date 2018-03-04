@@ -185,6 +185,24 @@
             },
             handleForumHomePage(forumId) {
                 this.push('/view/forum/homepage.html?forumId=' + forumId);
+            },
+            handleFollow(memberId) {
+                if (memberId) {
+                    this.request({
+                        url: this.topic.memberIsFollow ? '/member/follow/mobile/v1/delete' : '/member/follow/mobile/v1/save',
+                        data: {
+                            followMemberId: memberId
+                        },
+                        success: (data) => {
+                            if (data){
+                                this.topic.memberIsFollow = !this.topic.memberIsFollow;
+                            }
+                            console.log(data)
+                        },
+                        error: () => {
+                        }
+                    });
+                }
             }
         },
         filters: {

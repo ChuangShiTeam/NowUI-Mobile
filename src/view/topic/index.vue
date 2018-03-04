@@ -21,7 +21,7 @@
         mixins: [mixins],
         data: () => ({
             topicPageIndex: 1,
-            topicPageSize: 5,
+            topicPageSize: 80,
             topicTotal: 0,
             topicList: []
         }),

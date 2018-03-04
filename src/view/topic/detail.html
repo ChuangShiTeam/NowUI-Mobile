@@ -14,13 +14,22 @@
             <text class="name" @click="handleHomepage">{{topic.theSendInfo.userNickName}}</text>
             <text class="time" @click="handleHomepage">{{topic.systemCreateTime | formNow}}</text>
         </div>
+
         <div class="button"
-             slot="value">
-            <div :class="false ? 'follow' : 'follow-active'"
-                 @click="handleFollow">
+             slot="value" v-if="topic.topicIsSelf">
+        </div>
+        <div class="button"
+             slot="value" v-else>
+            <div class="follow-active"
+                 @click="handleFollow(topic.memberId)" v-if="topic.memberIsFollow">
+                <text class="follow-text">已关注</text>
+            </div>
+            <div class="follow"
+                 @click="handleFollow(topic.memberId)" v-else>
                 <text class="follow-text">+ 关注</text>
             </div>
         </div>
+
     </wxc-cell>
     <div class="content">
         <image class="content-image"
@@ -55,9 +64,14 @@
                        v-for="topicUserLike in topic.topicUserLikeList"
                        :src="imageHost + topicUserLike.userAvatar" @click="handleTopicUserLikeList(topic.topicId)"></image>
             </div>
+
             <image class="bookmark-image"
-                   resize="cover"
+                   resize="cover" v-if="topic.topicUserIsBookmark"
+                   src="http://h5.chuangshi.nowui.com/wawipet/image/bookmark-acitve.png" @click="handleBookmarkTopic"></image>
+            <image class="bookmark-image"
+                   resize="cover" v-else
                    src="http://h5.chuangshi.nowui.com/wawipet/image/bookmark.png" @click="handleBookmarkTopic"></image>
+
             <text class="bookmark-text">{{topic.topicCountBookmark}}</text>
             <image class="comment-image"
                    resize="cover"
