@@ -25,7 +25,8 @@
             </div>
             <text class="close"
                   @click="handleClose"
-                  @wxcPopupOverlayClicked="handleCloseClick">+</text>
+                  @wxcPopupOverlayClicked="handleCloseClick">+
+            </text>
         </div>
     </wxc-cell>
     <div class="media-1" v-if="topic.topicMediaList.length == 1" @click="handleTopic(topic.topicId)">
@@ -188,12 +189,15 @@
     <div class="info">
         <div class="info-topic">
             <text class="info-topic-from">同步到</text>
-            <text class="info-topic-tag" v-for="(topicForum, index) in topic.topicForumList"  @click="handleForumHomePage(topicForum.forumId)">{{topicForum.forumName}}</text>
+            <text class="info-topic-tag" v-for="(topicForum, index) in topic.topicForumList"
+                  @click="handleForumHomePage(topicForum.forumId)">{{topicForum.forumName}}
+            </text>
         </div>
 
         <image class="info-like-icon"
                resize="cover"
-               src="http://h5.chuangshi.nowui.com/wawipet/image/like-active.png" @click="handleClickLikeTopic" v-if="topic.topicUserIsLike"></image>
+               src="http://h5.chuangshi.nowui.com/wawipet/image/like-active.png" @click="handleClickLikeTopic"
+               v-if="topic.topicUserIsLike"></image>
         <image class="info-like-icon"
                resize="cover"
                src="http://h5.chuangshi.nowui.com/wawipet/image/like.png" @click="handleClickLikeTopic" v-else></image>
@@ -218,43 +222,17 @@
                @wxcPopupOverlayClicked="handleCloseClick"
                pos="bottom"
                height="400">
-        <div>
-            <wxc-cell :has-arrow="false"
-                      :has-top-border="true"
-                      :has-bottom-border="false"
-                      :auto-accessible="false"
-                      :cell-style="{width: 750}">
-                <text slot="title">
-                    我对这条内容不感兴趣
-                </text>
-            </wxc-cell>
-            <wxc-cell :has-arrow="false"
-                      :has-top-border="true"
-                      :has-bottom-border="false"
-                      :auto-accessible="false"
-                      :cell-style="{width: 750}">
-                <text slot="title">
-                    举报这条动态
-                </text>
-            </wxc-cell>
-            <wxc-cell :has-arrow="false"
-                      :has-top-border="true"
-                      :has-bottom-border="false"
-                      :auto-accessible="false"
-                      :cell-style="{width: 750}">
-                <text slot="title">
-                    举报该用户
-                </text>
-            </wxc-cell>
-            <wxc-cell :has-arrow="false"
-                      :has-top-border="true"
-                      :has-bottom-border="false"
-                      :auto-accessible="false"
-                      :cell-style="{width: 750}">
-                <text slot="title">
-                    取消
-                </text>
-            </wxc-cell>
+        <div class="popu-item">
+            <text>我对这条内容不感兴趣</text>
+        </div>
+        <div class="popu-item">
+            <text>举报这条动态</text>
+        </div>
+        <div class="popu-item">
+            <text>举报该用户</text>
+        </div>
+        <div class="popu-item">
+            <text>取消</text>
         </div>
     </wxc-popup>
 </div>
