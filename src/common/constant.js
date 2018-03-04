@@ -30,7 +30,7 @@ module.exports = {
         // 'view/sns/index',
         // 'view/topic/add',
         'view/topic/detail',
-        'view/topic/index',
+        // 'view/topic/index',
         // 'view/topic/like',
         // 'view/topic/location',
         // 'view/topic/remind',

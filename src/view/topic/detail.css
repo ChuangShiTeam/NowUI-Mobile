@@ -288,3 +288,16 @@
     color: #313131;
     margin-top: 5px;
 }
+
+.footer {
+    position: fixed;
+    bottom: 0px;
+    width: 750px;
+    height: 100px;
+    background-color: #ffffff;
+    align-items: center;
+    justify-content: center;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: #f0f0f0;
+}

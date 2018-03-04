@@ -1,5 +1,5 @@
 <scroller class="container"
-          :style="{height: pageHeight}">
+          :style="{height: pageHeight - 100}">
     <wxc-cell :has-arrow="false"
               :has-top-border="true"
               :has-bottom-border="true"
@@ -90,6 +90,9 @@
                 <text class="feedback-item-right-text">{{topicComment.topicCommentContent}}</text>
             </div>
         </div>
+    </div>
+    <div class="footer">
+
     </div>
     <wxc-lightbox
             ref="wxc-lightbox"
