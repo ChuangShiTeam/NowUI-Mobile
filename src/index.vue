@@ -1,7 +1,7 @@
 <style src="./index.css" scoped></style>
 <template src="./index.html"></template>
 
-<script>
+<script type="text/ecmascript-6">
     import {WxcButton} from 'weex-ui';
 
     import mixins from './mixins/index';
@@ -29,7 +29,7 @@
                 //     duration: 10.3
                 // })
 
-                this.push('/view/shop/index.html');
+                this.push('/view/index.html');
             }
         }
     }

@@ -57,11 +57,11 @@
         <text class="pet-header-title" slot="title">- 热门话题 -</text>
     </wxc-cell>
     <div class="article" @click="handleCategory">
-        <div class="article-top">
+        <div class="article-top" v-if="articleList && articleList.length > 0">
             <image class="article-top-image"
                    resize="cover"
-                   src="http://h5.chuangshi.nowui.com/wawipet/image/1.png"></image>
-            <text class="article-top-title">#盘点十大最适合狗狗吃的零食#</text>
+                   :src="imageHost + articleList[0].articleMediaPath"></image>
+            <text class="article-top-title">{{articleList[0].articleTitle}}</text>
         </div>
     </div>
     <scroller class="content"
@@ -71,16 +71,16 @@
                   :has-bottom-border="true"
                   :auto-accessible="false"
                   :cell-style="{width: 702}"
-                  v-for="(article, index) in articleList"
+                  v-for="(article, index) in filterArticleList"
                   :key="index"
                   @wxcCellClicked="handleCategory">
-            <image class="article-list-image"
-                   resize="cover"
-                   slot="label"
-                   src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
-            <text class="article-list-title"
-                  slot="title">{{article.title}}
-            </text>
+                <image class="article-list-image"
+                       resize="cover"
+                       slot="label"
+                       :src="imageHost + article.articleMediaPath"></image>
+                <text class="article-list-title"
+                      slot="title">{{article.articleTitle}}
+                </text>
         </wxc-cell>
     </scroller>
     <!--宠物-->

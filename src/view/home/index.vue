@@ -25,25 +25,7 @@
         data: () => ({
             headerBackgroundOpacity: 0.0,
             bannerList: [],
-            articleList: [{
-                title: '谁说猫狗在一起一定打得不可开交？'
-            }, {
-                title: '谁说猫狗在一起一定打得不可开交？'
-            }, {
-                title: '谁说猫狗在一起一定打得不可开交？'
-            }, {
-                title: '谁说猫狗在一起一定打得不可开交？'
-            }, {
-                title: '谁说猫狗在一起一定打得不可开交？'
-            }, {
-                title: '谁说猫狗在一起一定打得不可开交？'
-            }, {
-                title: '谁说猫狗在一起一定打得不可开交？'
-            }, {
-                title: '谁说猫狗在一起一定打得不可开交？'
-            }, {
-                title: '谁说猫狗在一起一定打得不可开交？'
-            }],
+            articleList: [],
             categoryList: [{
                 name: '保健卡',
                 image: 'http://h5.chuangshi.nowui.com/wawipet/image/category-0.png'
@@ -232,6 +214,14 @@
         },
         created() {
             this.handleLoadIndexBanner();
+            this.handleLoadHotArticle();
+        },
+        computed: {
+            filterArticleList: function () {
+                return this.articleList.filter(function (item, index) {
+                    return index > 0;
+                });
+            }
         },
         methods: {
             handerScroll(e) {
@@ -252,6 +242,22 @@
                     }
                 });
             },
+            handleLoadHotArticle() {
+                this.request({
+                    url: '/article/mobile/v1/hot/list',
+                    data: {
+                        pageIndex: 1,
+                        pageSize: 10
+                    },
+                    success: (data) => {
+                        if (data && data.length > 0) {
+                            this.articleList = data;
+                        }
+                    },
+                    error: () => {
+                    }
+                });
+            },
             handleMyHomepage() {
                 event.$emit('login-show', {
 
@@ -261,7 +267,7 @@
                 this.push('/view/home/search.html');
             },
             handleCategory() {
-                this.push('/view/article/index.html?test=123');
+                this.push('/view/article/index.html');
             },
             handleMemberHomepage() {
                 this.push('/view/member/homepage.html');
