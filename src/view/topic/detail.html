@@ -97,11 +97,12 @@
                     <div class="feedback-item-right-header-right">
                         <image class="feedback-item-right-header-right-like-image"
                                resize="cover"
-                               src="http://h5.chuangshi.nowui.com/wawipet/image/like.png" @click="handleClickLikeComment(index)"></image>
+                               :src=" topicComment.topicCommentIsLike ? 'http://h5.chuangshi.nowui.com/wawipet/image/like-active.png' : 'http://h5.chuangshi.nowui.com/wawipet/image/like.png'"
+                               @click="handleClickLikeComment(index)"></image>
                         <text class="feedback-item-right-header-right-text">{{topicComment.topicCommentLikeCount}}</text>
                     </div>
                 </div>
-                <text class="feedback-item-right-text">{{topicComment.topicCommentContent}}</text>
+                <text class="feedback-item-right-text" @click="handleChooseReply(topicComment.memberId, topicComment.userNickName, topicComment.userAvatar, topicComment.topicCommentId)">{{topicComment.topicCommentContent}}</text>
             </div>
         </div>
     </div>
@@ -113,7 +114,7 @@
         <div class="footer-center">
             <input class="footer-center-input"
                    type="text"
-                   placeholder="我也要说点什么"/>
+                   :placeholder="placeholder"/>
         </div>
         <div class="footer-submit">
             <text class="footer-submit-text">发送</text>

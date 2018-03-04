@@ -34,6 +34,12 @@
                 //     {src: 'https://gd3.alicdn.com/bao/uploaded/i3/TB1x6hYLXXXXXazXVXXXXXXXXXX_!!0-item_pic.jpg'}
                 // ],
 
+                placeholder: '我也要说点什么',
+                topicReplayMemberId: '',
+                topicReplyCommentId: '',
+                topicReplayUserAvatar: '',
+                topicReplayUserNickName: ''
+
 
                 // feedbackList: [{}, {}, {}, {}, {}, {}]
             }
@@ -203,6 +209,24 @@
                         }
                     });
                 }
+            },
+            handleChooseReply(topicReplayMemberId, topicReplayUserNickName, topicReplayUserAvatar, topicReplyCommentId) {
+                // if (topicReplayMemberId === this.topic.memberId) {
+                //     this.topicReplayMemberId = '',
+                //     this.placeholder = '我也要说点什么…',
+                //     this.topicReplyCommentId = '',
+                //     this.topicReplayUserNickName = '',
+                //     this.topicReplayUserAvatar = ''
+
+                // } else {
+
+                    this.topicReplayMemberId = topicReplayMemberId,
+                    this.placeholder = '回复 ' + topicReplayUserNickName + ' ：',
+                    this.topicReplyCommentId = topicReplyCommentId,
+                    this.topicReplayUserNickName = topicReplayUserNickName,
+                    this.topicReplayUserAvatar = topicReplayUserAvatar
+                // }
+
             }
         },
         filters: {
