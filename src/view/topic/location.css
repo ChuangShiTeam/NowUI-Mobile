@@ -41,7 +41,7 @@
     height: 40px;
 }
 
-.button {
+.footer {
     position: fixed;
     bottom: 0px;
     width: 750px;
@@ -49,9 +49,12 @@
     background-color: #ffffff;
     align-items: center;
     justify-content: center;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: #f0f0f0;
 }
 
-.submit {
+.footer-submit {
     width: 702px;
     height: 88px;
     background-color: #63DBDB;
@@ -60,7 +63,7 @@
     justify-content: center;
 }
 
-.submit-text {
+.footer-submit-text {
     font-family: PingFangSC-Semibold;
     font-size: 32px;
     color: #FFFFFF;

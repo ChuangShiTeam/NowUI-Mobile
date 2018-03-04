@@ -25,6 +25,39 @@
     color: #000000;
 }
 
+.button {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.follow {
+    width: 92px;
+    height: 48px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #C18108;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+}
+
+.follow-active {
+    width: 92px;
+    height: 48px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #9B9B9B;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+}
+
+.follow-text {
+    font-family: PingFangSC-Regular;
+    font-size: 20px;
+    color: #000000;
+}
+
 .content {
     width: 750px;
     margin-top: 20px;
@@ -180,9 +213,6 @@
     border-top-style: solid;
     border-top-width: 1px;
     border-top-color: rgb(226, 226, 226);
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
-    border-bottom-color: rgb(226, 226, 226);
 }
 
 .feedback-item {
@@ -254,4 +284,54 @@
     font-size: 24px;
     color: #313131;
     margin-top: 5px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0px;
+    width: 750px;
+    height: 100px;
+    background-color: #ffffff;
+    align-items: center;
+    justify-content: center;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: #f0f0f0;
+    flex-direction: row;
+}
+
+.footer-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 100px;
+    margin-right: 12px;
+}
+
+.footer-center {
+    flex: 1;
+}
+
+.footer-center-input {
+    background-color: transparent;
+    font-family: PingFangSC-Light;
+    font-size: 24px;
+    color: #000000;
+}
+
+.footer-submit {
+    width: 92px;
+    height: 68px;
+    border-radius: 8px;
+    background-color: #DEFAFD;
+    border-radius: 4px;
+    margin-right: 12px;
+    margin-left: 12px;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-submit-text {
+    font-family: PingFangSC-Light;
+    font-size: 24px;
+    color: #000000;
 }

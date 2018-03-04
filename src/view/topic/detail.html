@@ -1,5 +1,5 @@
 <scroller class="container"
-          :style="{height: pageHeight}">
+          :style="{height: pageHeight - 100}">
     <wxc-cell :has-arrow="false"
               :has-top-border="true"
               :has-bottom-border="true"
@@ -14,7 +14,13 @@
             <text class="name" @click="handleHomepage">{{topic.theSendInfo.userNickName}}</text>
             <text class="time" @click="handleHomepage">{{topic.systemCreateTime | formNow}}</text>
         </div>
-        <div slot="value"></div>
+        <div class="button"
+             slot="value">
+            <div :class="false ? 'follow' : 'follow-active'"
+                 @click="handleFollow">
+                <text class="follow-text">+ 关注</text>
+            </div>
+        </div>
     </wxc-cell>
     <div class="content">
         <image class="content-image"
@@ -83,6 +89,20 @@
                 </div>
                 <text class="feedback-item-right-text">{{topicComment.topicCommentContent}}</text>
             </div>
+        </div>
+    </div>
+    <div class="footer">
+        <image class="footer-avatar"
+               @click="handleHomepage"
+               resize="cover"
+               :src="imageHost + topic.theSendInfo.userAvatar"></image>
+        <div class="footer-center">
+            <input class="footer-center-input"
+                   type="text"
+                   placeholder="我也要说点什么"/>
+        </div>
+        <div class="footer-submit">
+            <text class="footer-submit-text">发送</text>
         </div>
     </div>
     <wxc-lightbox
