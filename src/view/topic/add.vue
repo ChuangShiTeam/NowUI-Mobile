@@ -1,7 +1,7 @@
 <style src="./add.css" scoped></style>
 <template src="./add.html"></template>
 
-<script>
+<script type="text/ecmascript-6">
     import {WxcMinibar, WxcCell} from 'weex-ui';
 
     import mixins from '../../mixins/index';
@@ -25,14 +25,16 @@
             topicLocation : '',
             topicIsLocation : false,
 
-            topicForumList: [],
+            forumList: [],
             topicTipUserList: [],
             topicMediaList: [],
             theSendInfo: {},
             userNickName: '',
             userAvatar: '',
+
         }),
         created() {
+            this.hanldeLoadForum();
 
         },
         mounted() {
@@ -76,7 +78,12 @@
 
                         topicSummary: this.topicSummary,
 
-                        topicForumList: this.topicForumList,
+                        topicForumList: this.forumList.filter(forum => forum.selected).map(forum => {
+                            return {
+                                forumId: forum.forumId,
+                                forumName: forum.forumName
+                            }
+                        }),
                         topicTipUserList: this.topicTipUserList,
                         topicMediaList: this.topicMediaList,
                         theSendInfo: {
@@ -158,9 +165,44 @@
                 //     });
                 // });
 
+            },
+            hanldeLoadForum() {
+                this.request({
+                    url: '/forum/user/follow/mobile/v1/name/list',
+                    data: {},
+                    success: (data) => {
+                        let forumList = data;
+                        if (forumList && forumList.length > 0) {
+                            this.forumList = forumList
+                        }
+                        // this.toast('发布成功', () => {
+                        //     this.pop();
+                        // });
+                    },
+                    error: () => {
+                    }
+                });
+            },
+            handleSelectForum(index) {
+                let forumList = this.forumList;
+                let forum = forumList[index];
+                forum.selected = !forum.selected;
 
 
+                // forumList[index] = forum;
+                //TODO 不会检测到根据索引直接赋值,和数字长度变化然后重新渲染页面,可按照下面两个方法达到效果
+                // Vue.set(forumList, index, forum);
+                forumList.splice(index, 1, forum)
 
+                this.forumList = forumList;
+
+                let theSelectForumList = this.forumList.filter(forum => forum.selected).map(forum => {
+                    return {
+                        forumId: forum.forumId,
+                        forumName: forum.forumName
+                    }
+                });
+                console.log(theSelectForumList)
             }
         }
     }

@@ -16,3 +16,49 @@
 .content {
     width: 750px;
 }
+
+.cell-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+}
+
+.cell-text {
+    margin-left: 20px;
+    font-family: PingFangSC-Light;
+    font-size: 26px;
+    color: #000000;
+}
+
+.cell-select {
+    width: 40px;
+    height: 40px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0px;
+    width: 750px;
+    height: 100px;
+    background-color: #ffffff;
+    align-items: center;
+    justify-content: center;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: #f0f0f0;
+}
+
+.footer-submit {
+    width: 702px;
+    height: 88px;
+    background-color: #63DBDB;
+    border-radius: 100px;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-submit-text {
+    font-family: PingFangSC-Semibold;
+    font-size: 32px;
+    color: #FFFFFF;
+}

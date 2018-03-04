@@ -9,7 +9,36 @@
                        @wxcSearchbarInputOnBlur="wxcSearchbarInputOnBlur"></wxc-searchbar>
     </div>
     <scroller class="content"
-              :style="{height: pageHeight}">
+              :style="{height: pageHeight - 200}">
+        <wxc-cell :has-arrow="false"
+                  @wxcCellClicked="handleMember(index)"
+                  :has-top-border="false"
+                  :has-bottom-border="true"
+                  :auto-accessible="false"
+                  :cell-style="{width: 750, height: 140}"
+                  v-for="(member, index) in memberList"
+                  :key="index">
+            <image class="cell-icon"
+                   resize="cover"
+                   slot="label"
+                   src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+            <div slot="title">
+                <text class="cell-text">#超好用的项圈# </text>
+                <text class="cell-text">1982个动态</text>
+            </div>
 
+            <image class="cell-select"
+                   v-if="member.isSelect"
+                   resize="cover"
+                   slot="value"
+                   src="http://h5.chuangshi.nowui.com/wawipet/image/select-active.png"></image>
+        </wxc-cell>
+
+        <div class="footer">
+            <div class="footer-submit"
+                 @click="handleSubmit">
+                <text class="footer-submit-text">确定</text>
+            </div>
+        </div>
     </scroller>
 </div>

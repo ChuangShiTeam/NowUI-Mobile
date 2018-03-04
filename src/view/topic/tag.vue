@@ -1,18 +1,47 @@
 <style src="./tag.css" scoped></style>
 <template src="./tag.html"></template>
 
-<script>
-    import {WxcSearchbar} from 'weex-ui';
+<script type="text/ecmascript-6">
+    import {WxcSearchbar, WxcCell} from 'weex-ui';
 
     import mixins from '../../mixins/index';
 
     export default {
         components: {
-            WxcSearchbar
+            WxcSearchbar,
+            WxcCell
         },
         mixins: [mixins],
         data() {
-            return {}
+            return {
+                memberList: [{
+                    isSelect: false
+                }, {
+                    isSelect: false
+                }, {
+                    isSelect: false
+                }, {
+                    isSelect: false
+                }, {
+                    isSelect: false
+                }, {
+                    isSelect: false
+                }, {
+                    isSelect: false
+                }, {
+                    isSelect: false
+                }, {
+                    isSelect: false
+                }, {
+                    isSelect: false
+                }, {
+                    isSelect: false
+                }, {
+                    isSelect: false
+                }, {
+                    isSelect: false
+                }]
+            }
         },
         created() {
 
@@ -41,6 +70,25 @@
             },
             wxcSearchbarDepChooseClicked() {
 
+            },
+            handleMember(index) {
+                this.memberList[index].isSelect = !this.memberList[index].isSelect;
+            },
+            handleSubmit() {
+                var memberSelectList = [];
+
+                this.memberList.forEach((item, index) => {
+                    if (item.isSelect) {
+                        memberSelectList.push(item);
+                    }
+                });
+
+                this.storage.setItem('topic-member-tag-list', JSON.stringify(memberSelectList), event => {
+                    this.pop();
+                })
+            },
+            handleCancel() {
+                this.pop();
             }
         }
     }

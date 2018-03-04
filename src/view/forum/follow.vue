@@ -139,7 +139,10 @@
             },
             handleLoad(){
 
-            }
+            },
+            handleForumHomepage(forumId) {
+                this.push('/view/forum/homepage.html?forumId=' + forumId);
+            },
         }
     }
 </script>
