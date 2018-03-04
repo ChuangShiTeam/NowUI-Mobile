@@ -92,7 +92,18 @@
         </div>
     </div>
     <div class="footer">
-
+        <image class="footer-avatar"
+               @click="handleHomepage"
+               resize="cover"
+               :src="imageHost + topic.theSendInfo.userAvatar"></image>
+        <div class="footer-center">
+            <input class="footer-center-input"
+                   type="text"
+                   placeholder="我也要说点什么"/>
+        </div>
+        <div class="footer-submit">
+            <text class="footer-submit-text">发送</text>
+        </div>
     </div>
     <wxc-lightbox
             ref="wxc-lightbox"
