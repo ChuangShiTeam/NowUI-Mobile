@@ -9,37 +9,7 @@
                        @wxcSearchbarInputOnBlur="wxcSearchbarInputOnBlur"></wxc-searchbar>
     </div>
     <scroller class="content"
-              :style="{height: pageHeight - 200}">
-        <wxc-cell :has-arrow="false"
-                  @wxcCellClicked="handleMember(index)"
-                  :has-top-border="false"
-                  :has-bottom-border="true"
-                  :auto-accessible="false"
-                  :cell-style="{width: 750, height: 220}"
-                  v-for="(shop, index) in shopList"
-                  :key="index">
-            <image class="cell-icon"
-                   resize="cover"
-                   slot="label"
-                   src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
-            <div slot="title">
-                <text class="cell-title">宠物乐园咖啡</text>
-                <text class="cell-text">¥1699/人</text>
-                <text class="cell-text">咖啡厅 金杨</text>
-            </div>
+              :style="{height: pageHeight}">
 
-            <image class="cell-select"
-                   v-if="shop.isSelect"
-                   resize="cover"
-                   slot="value"
-                   src="http://h5.chuangshi.nowui.com/wawipet/image/select-active.png"></image>
-        </wxc-cell>
-
-        <div class="footer">
-            <div class="footer-submit"
-                 @click="handleSubmit">
-                <text class="footer-submit-text">确定</text>
-            </div>
-        </div>
     </scroller>
 </div>

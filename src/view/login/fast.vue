@@ -1,7 +1,7 @@
 <style src="./fast.css" scoped></style>
 <template src="./fast.html"></template>
 
-<script type="text/ecmascript-6">
+<script>
     import mixins from '../../mixins/index';
     import event from "../../common/event";
 

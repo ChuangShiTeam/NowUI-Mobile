@@ -11,11 +11,9 @@
         <text class="info-name">{{forum.forumName}}</text>
         <text class="info-description">{{forum.forumDescription}}</text>
 
-        <div  v-if = "forum.memberIsFollowForum">
-            <text class="join-text" >已经加入圈子</text>
-        </div>
-        <div class="join" v-else>
-            <text class="join-text" @click="handleJoinForum(forum.forumId)">加入圈子</text>
+        <div  v-if = "forum.memberIsFollowForum"></div>
+        <div class="join" v-else = "forum.memberIsFollowForum">
+            <text class="join-text" >加入圈子</text>
         </div>
 
         <div class="line"></div>

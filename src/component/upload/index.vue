@@ -1,7 +1,7 @@
 <style src="./index.css" scoped></style>
 <template src="./index.html"></template>
 
-<script type="text/ecmascript-6">
+<script>
     import {WxcCell, WxcIcon} from 'weex-ui';
     import VueUploadComponent from 'vue-upload-component';
 

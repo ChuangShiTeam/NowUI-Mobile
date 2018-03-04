@@ -1,7 +1,7 @@
 <style src="./qrcode.css" scoped></style>
 <template src="./qrcode.html"></template>
 
-<script type="text/ecmascript-6">
+<script>
     import {WxcMinibar, WxcCell} from 'weex-ui';
 
     import mixins from '../../mixins/index';

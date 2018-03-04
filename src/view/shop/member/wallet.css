@@ -1,0 +1,59 @@
+.container {
+    width: 750px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: #f6f6f6;
+}
+
+.header {
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+}
+
+.header-content {
+    background-color: #fafafa;
+    z-index: 1;
+}
+
+.top {
+    width: 750px;
+    height: 260px;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+}
+.top-amount {
+    font-family: PingFangSC-Regular;
+    font-size: 48px;
+    color: orangered;
+}
+
+.top-freeze-amount {
+    font-family: PingFangSC-Light;
+    font-size: 24px;
+    color:#888888;
+    margin-top: 6px;
+}
+
+.cell-text {
+    margin-left: 20px;
+    font-family: PingFangSC-Light;
+    font-size: 28px;
+    color: #000000;
+    letter-spacing: -0.35px;
+}
+
+.cell-icon {
+    width: 32px;
+    height: 32px;
+}
+
+.cell-funddetail {
+    margin-left:20px;
+    margin-top: 40px;
+    font-family: PingFangSC-Light;
+    font-size: 28px;
+    color: #000000;
+    letter-spacing: -0.35px;
+}

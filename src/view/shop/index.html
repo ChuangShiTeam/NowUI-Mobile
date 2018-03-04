@@ -1,3 +1,40 @@
 <div class="container">
+    <div class="tab-item" :style="{left: activeIndex * -750 + 'px'}">
+        <!--首页-->
+        <HomeIndex :tabHeight="pageHeight - 80"></HomeIndex>
 
+        <!--商城-->
+        <MallIndex :tabHeight="pageHeight - 80"></MallIndex>
+
+        <!--我的-->
+        <MemberIndex :tabHeight="pageHeight - 80"></MemberIndex>
+    </div>
+    <div class="bar">
+        <div class="bar-item" @click="handleBar(0)">
+            <image :src="activeIndex == 0 ? 'http://h5.chuangshi.nowui.com/wawipet/image/index-active.png' : 'http://h5.chuangshi.nowui.com/wawipet/image/index.png'"
+                   resize="cover"
+                   class="bar-item-icon"></image>
+            <text :class="[activeIndex == 0 ? 'bar-item-text-active' : 'bar-item-text']">首页</text>
+        </div>
+        <div class="bar-item" @click="handleBar(1)">
+            <image :src="activeIndex == 1 ? 'http://h5.chuangshi.nowui.com/wawipet/image/forum-active.png' : 'http://h5.chuangshi.nowui.com/wawipet/image/forum.png'"
+                   resize="cover"
+                   class="bar-item-icon"></image>
+            <text :class="[activeIndex == 1 ? 'bar-item-text-active' : 'bar-item-text']">商城</text>
+        </div>
+        <div class="bar-item" @click="handleBar(2)">
+            <image :src="activeIndex == 2 ? 'http://h5.chuangshi.nowui.com/wawipet/image/member-active.png' : 'http://h5.chuangshi.nowui.com/wawipet/image/member.png'"
+                   resize="cover"
+                   class="bar-item-icon"></image>
+            <text :class="[activeIndex == 2 ? 'bar-item-text-active' : 'bar-item-text']">我的</text>
+        </div>
+    </div>
+    <wxc-popup ref="login"
+               v-if="isLoginShow"
+               :show="isLoginShow"
+               :height="pageHeight"
+               @wxcPopupOverlayClicked="handleLogin"
+               pos="bottom">
+        <LoginIndex></LoginIndex>
+    </wxc-popup>
 </div>

@@ -1,0 +1,86 @@
+<scroller class="container"
+          :style="{height: pageHeight}">
+    <!--头部-->
+    <div class="header">
+        <div class="header-content">
+            <wxc-minibar background-color="fafafa"
+                         :use-default-return="false">
+                <text slot="left"></text>
+                <text class="header-title"
+                      slot="middle">个人中心</text>
+            </wxc-minibar>
+        </div>
+    </div>
+    <wxc-cell :has-arrow="false"
+              @wxcCellClicked="handleSetting"
+              :has-top-border="false"
+              :has-bottom-border="false"
+              :auto-accessible="false"
+              :cell-style="{width: 750}" class="cell-item-userinfo">
+        <image class="cell-item-userinfo-avatar"
+               resize="cover"
+               slot="label"
+               src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/110/h/110"></image>
+        <div slot="title">
+            <text class="cell-userinfo-username">默默彭默默</text>
+        </div>
+        <div class="cell-item-userinfo-right">
+            <text class="cell-right-setting">设置</text>
+            <wxc-icon name="more" class="arrowfontIcon"></wxc-icon>
+        </div>
+    </wxc-cell>
+    <!--分类-->
+    <div class="category">
+        <div class="category-item" v-for="(category, index) in categoryList" :key="index" @click="handleCategory">
+            <image class="category-item-image"
+                   resize="cover"
+                   :src="category.image"></image>
+            <text class="category-item-text">{{category.name}}</text>
+        </div>
+    </div>
+    <wxc-cell :has-arrow="true"
+              @wxcCellClicked="handleWallet"
+              :has-top-border="false"
+              :has-bottom-border="false"
+              :auto-accessible="false"
+              :cell-style="{width: 750, marginTop: 20}">
+        <image class="cell-icon"
+               resize="cover"
+               slot="label"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/my-user.png"></image>
+        <div slot="title">
+            <text class="cell-text">我的钱包</text>
+        </div>
+        <text class="cell-right-text">0.00</text>
+    </wxc-cell>
+    <wxc-cell :has-arrow="true"
+              @wxcCellClicked="handlePet"
+              :has-top-border="false"
+              :has-bottom-border="false"
+              :auto-accessible="false"
+              :cell-style="{width: 750}">
+        <image class="cell-icon"
+               resize="cover"
+               slot="label"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/my-pet.png"></image>
+        <div slot="title">
+            <text class="cell-text">参拍拍品</text>
+        </div>
+        <text class="cell-right-text">3件</text>
+    </wxc-cell>
+    <wxc-cell :has-arrow="true"
+              @wxcCellClicked="handleFollow"
+              :has-top-border="false"
+              :has-bottom-border="false"
+              :auto-accessible="false"
+              :cell-style="{width: 750}">
+        <image class="cell-icon"
+               resize="cover"
+               slot="label"
+               src="http://h5.chuangshi.nowui.com/wawipet/image/my-follow.png"></image>
+        <div slot="title">
+            <text class="cell-text">围观拍品</text>
+        </div>
+        <text class="cell-right-text">3件</text>
+    </wxc-cell>
+</scroller>

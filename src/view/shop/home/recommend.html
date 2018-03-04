@@ -1,0 +1,68 @@
+<scroller class="container"
+          :style="{height: pageHeight}"
+          offset-x-accuracy="0.1"
+          @loadmore="handleLoad"
+          loadmoreoffset="100">
+    <!--头部-->
+    <div class="header">
+        <div class="header-content">
+            <wxc-minibar background-color="#fafafa" @wxcMinibarLeftButtonClicked="minibarLeftButtonClick"
+                         :use-default-return="false">
+                <text slot="left">返回</text>
+                <text class="header-title"
+                      slot="middle">推荐专题</text>
+            </wxc-minibar>
+        </div>
+    </div>
+    <div class="cell-item">
+        <div class="cell12"
+             v-for="(goods, index) in articleList"
+             :key="index">
+            <wxc-cell :has-arrow="false"
+                      :has-top-border="false"
+                      :has-bottom-border="true"
+                      :auto-accessible="false"
+                      :has-margin="false"
+                      :cell-style="{width: 750,height:244,top:1}"
+                      @wxcCellClicked="handleRecommendItem">
+                <image class="cell-item-image"
+                       resize="cover"
+                       slot="label"
+                       src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+                <div slot="title" class="cell-right">
+                    <div class="cell-item-right-top">
+                        <text class="cell-item-desc">{{goods.title}}</text>
+                        <div class="cell-item-right-middle">
+                            <text class="cell-item-info-tag">{{goods.tag}}</text>
+                            <text class="cell-item-end-tip">距结束</text>
+                            <wxc-countdown
+                                    :interval="1000"
+                                    tpl="{d}天{h}时{m}分{s}秒"
+                                    :timeTextStyle="{fontSize: '28px',color: '#C3413D'}"
+                                    :timeBoxStyle="{background:'none'}"
+                                    :dotTextStyle="{ fontSize: '28px',color: '#C3413D'}"
+                                    :dotBoxStyle="{width: '30px'}"
+                                    :style="{justifyContent: 'center'}"
+                                    :time="TIME">
+                            </wxc-countdown>
+                        </div>
+                    </div>
+
+                    <div class="cell-item-right-bottom">
+                        <div class="cell-item-right-bottom-left">
+                            <text class="cell-item-right-bottom-price">{{goods.price}}</text>
+                            <text class="cell-item-right-bottom-num">{{goods.num}}次出价</text>
+                        </div>
+                        <div class="cell-item-right-bottom-right">
+                            <image class="cell-item-right-bottom-likeicon"
+                                   resize="cover"
+                                   src="http://h5.chuangshi.nowui.com/wawipet/image/like.png"></image>
+                            <text class="cell-item-right-bottom-likenum">{{goods.like}}</text>
+                        </div>
+                    </div>
+                </div>
+            </wxc-cell>
+        </div>
+    </div>
+
+</scroller>

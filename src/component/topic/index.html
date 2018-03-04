@@ -5,29 +5,15 @@
               :auto-accessible="false"
               :cell-style="{width: 750, height: 90}">
         <image class="avatar"
-               @click="handleMemberHomepage(topic.memberId)"
+               @click="handleHomepage"
                resize="cover"
                slot="label"
                :src="imageHost + topic.theSendInfo.userAvatar"></image>
         <div slot="title">
-            <text class="name">{{topic.theSendInfo.userNickName}}</text>
-            <text class="time">{{topic.systemCreateTime | formNow}}</text>
+            <text class="name" @click="handleHomepage">{{topic.theSendInfo.userNickName}}</text>
+            <text class="time" @click="handleHomepage">{{topic.systemCreateTime | formNow}}</text>
         </div>
-        <div class="button"
-             slot="value">
-            <div :class="false ? 'follow' : 'follow-active'"
-                 @click="handleFollow">
-                <text class="follow-text">+ 关注</text>
-            </div>
-            <div class="delete"
-                 @click="handleDelete">
-                <text class="delete-text">删除</text>
-            </div>
-            <text class="close"
-                  @click="handleClose"
-                  @wxcPopupOverlayClicked="handleCloseClick">+
-            </text>
-        </div>
+        <div slot="value"></div>
     </wxc-cell>
     <div class="media-1" v-if="topic.topicMediaList.length == 1" @click="handleTopic(topic.topicId)">
         <image class="media-image-1-0"
@@ -189,48 +175,19 @@
     <div class="info">
         <div class="info-topic">
             <text class="info-topic-from">同步到</text>
-            <text class="info-topic-tag" v-for="(topicForum, index) in topic.topicForumList"
-                  @click="handleForumHomePage(topicForum.forumId)">{{topicForum.forumName}}
-            </text>
+            <text class="info-topic-tag" v-for="(topicForum, index) in topic.topicForumList">{{topicForum.forumName}}</text>
         </div>
-
         <image class="info-like-icon"
                resize="cover"
-               :src="topic.topicUserIsLike ? 'http://h5.chuangshi.nowui.com/wawipet/image/like-active.png' : 'http://h5.chuangshi.nowui.com/wawipet/image/like.png'"
-               @click="handleClickLikeTopic"></image>
+               src="http://h5.chuangshi.nowui.com/wawipet/image/like.png"></image>
         <text class="info-like-number">{{topic.topicCountLike}}</text>
-
         <image class="info-bookmark-icon"
                resize="cover"
-               :src="topic.topicUserIsLike ? 'http://h5.chuangshi.nowui.com/wawipet/image/bookmark-acitve.png' : 'http://h5.chuangshi.nowui.com/wawipet/image/bookmark.png'" @click="handleBookmarkTopic"></image>
+               src="http://h5.chuangshi.nowui.com/wawipet/image/bookmark.png"></image>
         <text class="info-bookmark-number">{{topic.topicCountBookmark}}</text>
-
         <image class="info-comment-icon"
                resize="cover"
                src="http://h5.chuangshi.nowui.com/wawipet/image/comment.png"></image>
         <text class="info-comment-number">{{topic.topicCountComment}}</text>
     </div>
-    <wxc-dialog content="确定删除吗？"
-                :show="isShowDeleteDialog"
-                @wxcDialogCancelBtnClicked="handleDeleteCancel"
-                @wxcDialogConfirmBtnClicked="handleDeleteConfirm">
-    </wxc-dialog>
-    <wxc-popup :show="isShowClosePopup"
-               @wxcPopupOverlayClicked="handleCloseClick"
-               pos="bottom"
-               height="400">
-        <div class="popu-item">
-            <text>我对这条内容不感兴趣</text>
-        </div>
-        <div class="popu-item">
-            <text>举报这条动态</text>
-        </div>
-        <div class="popu-item">
-            <text>举报该用户</text>
-        </div>
-        <div class="popu-item">
-            <text>取消</text>
-        </div>
-    </wxc-popup>
-    <wxc-loading :show="isShowLoaing"></wxc-loading>
 </div>

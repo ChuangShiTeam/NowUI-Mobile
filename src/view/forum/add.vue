@@ -1,7 +1,7 @@
 <style src="./add.css" scoped></style>
 <template src="./add.html"></template>
 
-<script type="text/ecmascript-6">
+<script>
     import {WxcMinibar, WxcCell, WxcLoading} from 'weex-ui';
 
     import mixins from '../../mixins/index';

@@ -1,5 +1,5 @@
 <scroller class="container"
-          :style="{height: pageHeight - 100}">
+          :style="{height: pageHeight}">
     <wxc-cell :has-arrow="false"
               :has-top-border="true"
               :has-bottom-border="true"
@@ -14,20 +14,13 @@
             <text class="name" @click="handleHomepage">{{topic.theSendInfo.userNickName}}</text>
             <text class="time" @click="handleHomepage">{{topic.systemCreateTime | formNow}}</text>
         </div>
-        <div class="button"
-             slot="value">
-            <div :class="false ? 'follow' : 'follow-active'"
-                 @click="handleFollow">
-                <text class="follow-text">+ 关注</text>
-            </div>
-        </div>
+        <div slot="value"></div>
     </wxc-cell>
     <div class="content">
         <image class="content-image"
                @click="handleOpenImage"
                resize="cover"
-               v-for="image in imageList"
-               :src="image.src"></image>
+               src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
         <text class="content-text">{{topic.topicSummary}}</text>
         <div class="info">
             <image class="location-icon"
@@ -37,27 +30,23 @@
             <text class="location-text">{{topic.topicLocation}}</text>
             <div class="from">
                 <text class="from-title">来自</text>
-                <text class="from-tag" v-for="(topicForum, index) in topic.topicForumList" @click="handleForumHomePage(topicForum.forumId)">{{topicForum.forumName}}</text>
+                <text class="from-tag" v-for="(topicForum, index) in topic.topicForumList">{{topicForum.forumName}}</text>
             </div>
         </div>
         <div class="info">
             <div class="like">
                 <image class="like-image"
                        resize="cover"
-                       src="http://h5.chuangshi.nowui.com/wawipet/image/like-active.png" @click="handleClickLikeTopic" v-if="topic.topicUserIsLike"></image>
-                <image class="like-image"
-                       resize="cover"
-                       src="http://h5.chuangshi.nowui.com/wawipet/image/like.png" @click="handleClickLikeTopic" v-else></image>
+                       src="http://h5.chuangshi.nowui.com/wawipet/image/like.png"></image>
                 <text class="like-text">{{topic.topicCountLike}}</text>
-
                 <image class="like-avatar"
                        resize="cover"
-                       v-for="topicUserLike in topic.topicUserLikeList"
-                       :src="imageHost + topicUserLike.userAvatar" @click="handleTopicUserLikeList(topic.topicId)"></image>
+                       src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/68/h/68"></image>
+
             </div>
             <image class="bookmark-image"
                    resize="cover"
-                   src="http://h5.chuangshi.nowui.com/wawipet/image/bookmark.png" @click="handleBookmarkTopic"></image>
+                   src="http://h5.chuangshi.nowui.com/wawipet/image/bookmark.png"></image>
             <text class="bookmark-text">{{topic.topicCountBookmark}}</text>
             <image class="comment-image"
                    resize="cover"
@@ -67,42 +56,28 @@
     </div>
     <div class="feedback">
         <div class="feedback-item"
-             v-for="(topicComment, index) in topicCommentList"
+             v-for="(feedback, index) in feedbackList"
              :key="index">
             <div class="feedback-item-left">
                 <image class="feedback-item-left-avatar"
                        resize="cover"
-                       :src="imageHost + topicComment.userAvatar"></image>
+                       src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/68/h/68"></image>
             </div>
             <div class="feedback-item-right">
                 <div class="feedback-item-right-header">
                     <div class="feedback-item-right-header-left">
-                        <text class="feedback-item-right-header-left-name">{{topicComment.userNickName}}</text>
-                        <text class="feedback-item-right-header-left-time">{{topicComment.systemCreateTime | formNow}}</text>
+                        <text class="feedback-item-right-header-left-name">Ronaldo</text>
+                        <text class="feedback-item-right-header-left-time">10分钟</text>
                     </div>
                     <div class="feedback-item-right-header-right">
                         <image class="feedback-item-right-header-right-like-image"
                                resize="cover"
-                               src="http://h5.chuangshi.nowui.com/wawipet/image/like.png" @click="handleClickLikeComment(index)"></image>
-                        <text class="feedback-item-right-header-right-text">{{topicComment.topicCommentLikeCount}}</text>
+                               src="http://h5.chuangshi.nowui.com/wawipet/image/like.png"></image>
+                        <text class="feedback-item-right-header-right-text"> </text>
                     </div>
                 </div>
-                <text class="feedback-item-right-text">{{topicComment.topicCommentContent}}</text>
+                <text class="feedback-item-right-text">我也超级喜欢的</text>
             </div>
-        </div>
-    </div>
-    <div class="footer">
-        <image class="footer-avatar"
-               @click="handleHomepage"
-               resize="cover"
-               :src="imageHost + topic.theSendInfo.userAvatar"></image>
-        <div class="footer-center">
-            <input class="footer-center-input"
-                   type="text"
-                   placeholder="我也要说点什么"/>
-        </div>
-        <div class="footer-submit">
-            <text class="footer-submit-text">发送</text>
         </div>
     </div>
     <wxc-lightbox

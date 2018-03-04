@@ -1,7 +1,7 @@
 <style src="./index.css" scoped></style>
 <template src="./index.html"></template>
 
-<script type="text/ecmascript-6">
+<script>
     import {WxcMinibar, WxcCell, WxcEpSlider, WxcPanItem} from 'weex-ui';
 
     import mixins from '../../mixins/index';
@@ -48,124 +48,124 @@
             //     memberName: '小可爱',
             //     number: 21
             // }],
-            // topicList: [{
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }]
-            // }, {
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }]
-            // }, {
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }]
-            // }, {
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }]
-            // }, {
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }]
-            // }, {
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }]
-            // }, {
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }]
-            // }, {
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }]
-            // }, {
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }]
-            // }]
+            topicList: [{
+                topicId: '0',
+                topicMediaList: [{
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }]
+            }, {
+                topicId: '0',
+                topicMediaList: [{
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }]
+            }, {
+                topicId: '0',
+                topicMediaList: [{
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }]
+            }, {
+                topicId: '0',
+                topicMediaList: [{
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }]
+            }, {
+                topicId: '0',
+                topicMediaList: [{
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }]
+            }, {
+                topicId: '0',
+                topicMediaList: [{
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }]
+            }, {
+                topicId: '0',
+                topicMediaList: [{
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }]
+            }, {
+                topicId: '0',
+                topicMediaList: [{
+                    filePath: ''
+                }, {
+                    filePath: ''
+                }]
+            }, {
+                topicId: '0',
+                topicMediaList: [{
+                    filePath: ''
+                }]
+            }]
         }),
         created() {
             this.handleLoadJoinForumList();
@@ -209,7 +209,7 @@
                     success: (data) => {
                         if (data.total > 0) {
                             this.hotTopicTotal = data.total,
-                            this.hotTopicList = this.hotTopicList.concat(data.list)
+                            this.hotTopicList = data.list
                         }
                         console.log( 'systemTime : ' + moment().format('YYYY-MM-DD HH:mm:ss'))
                     },

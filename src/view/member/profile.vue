@@ -1,7 +1,7 @@
 <style src="./profile.css" scoped></style>
 <template src="./profile.html"></template>
 
-<script type="text/ecmascript-6">
+<script>
     import {WxcMinibar, WxcCell} from 'weex-ui';
 
     import mixins from '../../mixins/index';

@@ -1,47 +1,18 @@
 <style src="./location.css" scoped></style>
 <template src="./location.html"></template>
 
-<script type="text/ecmascript-6">
-    import {WxcSearchbar, WxcCell} from 'weex-ui';
+<script>
+    import {WxcSearchbar} from 'weex-ui';
 
     import mixins from '../../mixins/index';
 
     export default {
         components: {
-            WxcSearchbar,
-            WxcCell
+            WxcSearchbar
         },
         mixins: [mixins],
         data() {
-            return {
-                shopList: [{
-                    isSelect: false
-                }, {
-                    isSelect: false
-                }, {
-                    isSelect: false
-                }, {
-                    isSelect: false
-                }, {
-                    isSelect: false
-                }, {
-                    isSelect: false
-                }, {
-                    isSelect: false
-                }, {
-                    isSelect: false
-                }, {
-                    isSelect: false
-                }, {
-                    isSelect: false
-                }, {
-                    isSelect: false
-                }, {
-                    isSelect: false
-                }, {
-                    isSelect: false
-                }]
-            }
+            return {}
         },
         created() {
 
@@ -70,25 +41,6 @@
             },
             wxcSearchbarDepChooseClicked() {
 
-            },
-            handleMember(index) {
-                this.shopList[index].isSelect = !this.shopList[index].isSelect;
-            },
-            handleSubmit() {
-                var memberSelectList = [];
-
-                this.shopList.forEach((item, index) => {
-                    if (item.isSelect) {
-                        memberSelectList.push(item);
-                    }
-                });
-
-                this.storage.setItem('topic-member-location-list', JSON.stringify(memberSelectList), event => {
-                    this.pop();
-                })
-            },
-            handleCancel() {
-                this.pop();
             }
         }
     }

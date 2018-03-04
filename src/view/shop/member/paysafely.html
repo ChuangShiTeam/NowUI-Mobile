@@ -1,0 +1,29 @@
+<scroller class="container"
+          :style="{height: pageHeight}">
+    <!--头部-->
+    <div class="header">
+        <div class="header-content">
+            <wxc-minibar background-color="#fafafa"
+                         @wxcMinibarLeftButtonClicked="minibarLeftButtonClick"
+                         @wxcMinibarRightButtonClicked="minibarRightButtonClick"
+                         :use-default-return="false">
+                <text slot="left">取消</text>
+                <text class="header-title"
+                      slot="middle">支付密码</text>
+                <text slot="right">保存</text>
+            </wxc-minibar>
+        </div>
+    </div>
+    <div class="cell-password">
+        <input  type="password"  maxlength="6" class="inputItem" placeholder="请输入6位数字支付密码" value=""  @change="onchange" @return = "onreturn" @input="oninput"/>
+        <image class="cell-selected-icon"
+               resize="cover"
+               src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/110/h/110"></image>
+    </div>
+    <div class="cell-password-again">
+        <input  type="password"  maxlength="6" class="inputItem" placeholder="请确认密码" value=""  @change="onchange" @return = "onreturn" @input="oninput"/>
+        <image class="cell-selected-icon"
+               resize="cover"
+               src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/110/h/110"></image>
+    </div>
+</scroller>

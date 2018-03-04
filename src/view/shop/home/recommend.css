@@ -1,0 +1,132 @@
+.container {
+    width: 750px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: #f6f6f6;
+}
+.header {
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+}
+
+.header-content {
+    background-color: #fafafa;
+    z-index: 1;
+}
+
+.header-info {
+    font-family: PingFangSC-Light;
+    font-size: 28px;
+    color: #000000;
+    align-items: center;
+}
+
+.header-title {
+    font-family: PingFangSC-Light;
+    font-size: 34px;
+    color: #222222;
+}
+
+.banner-item {
+    width: 750px;
+    height: 324px;
+}
+
+.cell-item {
+
+}
+
+.cell-item-image {
+    width: 242px;
+    height: 184px;
+    margin-right: 20px;
+}
+
+.cell-right {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 184px;
+}
+
+.cell-item-right-top {
+
+}
+.cell-item-desc {
+    font-family: PingFangSC-Regular;
+    font-size: 30px;
+    color: #222222;
+    lines:2;
+}
+
+.cell-item-right-middle {
+    flex-direction: row;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.cell-item-info-tag {
+    font-family: PingFangSC-Regular;
+    font-size: 24px;
+    color: #ffffff;
+    background-color: #C3413D;
+    letter-spacing: -0.41px;
+    line-height: 20px;
+    padding-left:12px;
+    padding-right:12px;
+    padding-top:4px;
+    padding-bottom:4px;
+}
+
+.cell-item-end-tip {
+    font-family: PingFangSC-Regular;
+    font-size: 28px;
+    color: #222222;
+    letter-spacing: -0.48px;
+    margin-left: 16px;
+}
+
+.cell-item-right-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.cell-item-right-bottom-left {
+    flex-direction: row;
+}
+
+.cell-item-right-bottom-price {
+    font-family: PingFangSC-Semibold;
+    font-size: 30px;
+    color: #C64238;
+    line-height: 34px;
+    margin-right: 16px;
+}
+
+.cell-item-right-bottom-num {
+    font-family: PingFangSC-Regular;
+    font-size: 24px;
+    color: #888888;
+}
+
+.cell-item-right-bottom-right {
+    flex-direction: row;
+    padding-left: 10px;
+    line-height: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.cell-item-right-bottom-likeicon {
+    width: 22px;
+    height: 22px;
+    margin-right: 10px;
+}
+
+.cell-item-right-bottom-likenum {
+    font-family: PingFangSC-Regular;
+    font-size: 24px;
+    color: #888888;
+}

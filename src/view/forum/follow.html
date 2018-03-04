@@ -21,10 +21,10 @@
             <image class="follow-forum-image"
                    resize="cover"
                    slot="label"
-                   :src="imageHost + forum.forumMedia" @click="handleForumHomepage(forum.forumId)"></image>
+                   :src="imageHost + forum.forumMedia"></image>
             <div slot="title">
-                <text class="follow-forum-name" @click="handleForumHomepage(forum.forumId)">{{forum.forumName}}</text>
-                <text class="follow-forum-description" @click="handleForumHomepage(forum.forumId)">{{forum.forumDescription}}</text>
+                <text class="follow-forum-name">{{forum.forumName}}</text>
+                <text class="follow-forum-description">{{forum.forumDescription}}</text>
                 <div class="follow-forum-info">
                     <image class="follow-forum-info-crown"
                            resize="cover"
@@ -41,7 +41,7 @@
                     <text class="follow-forum-info-name" >{{forum.userNickName}}</text>
                     <!--<text class="follow-forum-info-name" v-else="forum.forumModeratorInfo">哎呀,名字没了</text>-->
 
-                    <text class="follow-forum-info-number" @click="handleForumHomepage(forum.forumId)">今日最新话题数: {{forum.forumTodayTopicCount}}</text>
+                    <text class="follow-forum-info-number">今日最新话题数: {{forum.forumTodayTopicCount}}</text>
                 </div>
             </div>
         </wxc-cell>

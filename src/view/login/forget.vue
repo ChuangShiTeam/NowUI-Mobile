@@ -1,7 +1,7 @@
 <style src="./forget.css" scoped></style>
 <template src="./forget.html"></template>
 
-<script type="text/ecmascript-6">
+<script>
     import mixins from '../../mixins/index';
 
     export default {
