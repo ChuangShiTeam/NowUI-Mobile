@@ -24,6 +24,7 @@
             }
         },
         created() {
+            this.handleLoadFollowMember();
 
         },
         methods: {
@@ -52,7 +53,9 @@
 
             },
             handleMember(index) {
+                console.log(index)
                 this.memberList[index].isSelect = !this.memberList[index].isSelect;
+                console.log(this.memberList)
             },
             handleSubmit() {
                 var memberSelectList = [];
@@ -69,6 +72,29 @@
             },
             handleCancel() {
                 this.pop();
+            },
+            handleLoadFollowMember() {
+                this.request({
+                    url: '/member/follow/mobile/v1/my/follow/list',
+                    data: {},
+                    success: (data) => {
+                        let memberList = data;
+
+                        if (memberList && memberList.length > 0) {
+                            memberList = memberList.map(member => {
+                                return {
+                                    value: member.followUserId,
+                                    label: member.userNickName,
+                                    spell: toPinyin(member.userNickName)
+                                }
+                            });
+                            this.memberList= memberList;
+                        }
+                        console.log(this.memberList)
+                    },
+                    error: () => {
+                    }
+                });
             }
         }
     }
