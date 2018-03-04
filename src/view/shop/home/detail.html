@@ -1,0 +1,44 @@
+<scroller class="container"
+          :style="{height: pageHeight}">
+    <!--头部-->
+    <div class="header">
+        <div class="header-content">
+            <wxc-minibar  background-color="fafafa" @wxcMinibarLeftButtonClicked="minibarLeftButtonClick"
+                         :use-default-return="false">
+                <text slot="left">返回</text>
+                <text class="header-title"
+                      slot="middle">商品详情</text>
+            </wxc-minibar>
+        </div>
+    </div>
+    <!--广告-->
+    <slider class="goods-item" ref="banner">
+        <div v-for="goods in GoodsImageList">
+            <image class="goods-item"
+                   resize="cover"
+                   :src="goods.image"></image>
+        </div>
+        <indicator class="banner-indicator"></indicator>
+    </slider>
+    <!--<div class="content">-->
+        <!--<div v-for="image in bannerList">-->
+            <!--<image class="content-image"-->
+                   <!--resize="cover"-->
+                   <!--:src="image.image"></image>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="bottom">-->
+        <!--<div class="footer-like">-->
+            <!--<text class="footer-buy-text"-->
+                  <!--slot="middle">立即购买</text>-->
+        <!--</div>-->
+        <!--<div class="footer-share">-->
+            <!--<text class="footer-buy-text"-->
+                  <!--slot="middle">立即购买</text>-->
+        <!--</div>-->
+        <!--<div class="footer-buy">-->
+            <!--<text class="footer-buy-text"-->
+                  <!--slot="middle">立即购买</text>-->
+        <!--</div>-->
+    <!--</div>-->
+</scroller>

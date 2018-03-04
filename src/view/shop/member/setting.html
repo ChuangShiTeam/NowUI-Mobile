@@ -1,0 +1,69 @@
+<scroller class="container"
+          :style="{height: pageHeight}">
+    <!--头部-->
+    <div class="header">
+        <div class="header-content">
+            <wxc-minibar background-color="#fafafa" @wxcMinibarLeftButtonClicked="minibarLeftButtonClick"
+                         :use-default-return="false">
+                <text slot="left">返回</text>
+                <text class="header-title"
+                      slot="middle">个人设置</text>
+            </wxc-minibar>
+        </div>
+    </div>
+    <wxc-cell :has-arrow="true"
+              @wxcCellClicked="handleProfile"
+              :has-top-border="true"
+              :has-bottom-border="false"
+              :auto-accessible="false"
+              :cell-style="{width: 750}" class="cell-item-userinfo">
+        <image class="cell-item-userinfo-avatar"
+               resize="cover"
+               slot="label"
+               src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/110/h/110"></image>
+        <div slot="title">
+            <text class="cell-userinfo-username">默默彭默默</text>
+            <text class="cell-userinfo-tip">(头像昵称即将同步微信)</text>
+        </div>
+    </wxc-cell>
+    <wxc-cell  title="个性签名":has-arrow="true"
+              @wxcCellClicked="handleProfile"
+              :has-top-border="true"
+              :has-bottom-border="false"
+              :auto-accessible="false"
+              :cell-style="{width: 750}">
+        <text class="cell-right-text">哈哈</text>
+    </wxc-cell>
+    <wxc-cell title="联系人" :has-arrow="true"
+              @wxcCellClicked="handleProfile"
+              :has-top-border="true"
+              :has-bottom-border="false"
+              :auto-accessible="false"
+              :cell-style="{width: 750}">
+        <text class="cell-right-text">丁海峰</text>
+    </wxc-cell>
+    <wxc-cell title="微信号" :has-arrow="true"
+              @wxcCellClicked="handleProfile"
+              :has-top-border="true"
+              :has-bottom-border="false"
+              :auto-accessible="false"
+              :cell-style="{width: 750}">
+        <text class="cell-right-text">15222870977</text>
+    </wxc-cell>
+    <wxc-cell title="手机号码" :has-arrow="true"
+              @wxcCellClicked="handleProfile"
+              :has-top-border="true"
+              :has-bottom-border="false"
+              :auto-accessible="false"
+              :cell-style="{width: 750}">
+        <text class="cell-right-text">15222870966</text>
+    </wxc-cell>
+    <wxc-cell title="收货地址" :has-arrow="true"
+              @wxcCellClicked="handleProfile"
+              :has-top-border="true"
+              :has-bottom-border="false"
+              :auto-accessible="false"
+              :cell-style="{width: 750}">
+        <text slot="value" class="cell-right-address-text">上海市徐汇区桂平路333号</text>
+    </wxc-cell>
+</scroller>

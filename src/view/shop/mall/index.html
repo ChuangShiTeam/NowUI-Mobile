@@ -1,0 +1,48 @@
+<scroller class="container"
+          :style="{height: pageHeight}">
+    <!--头部-->
+    <div class="header">
+        <div class="header-content">
+            <wxc-searchbar ref="wxc-searchbar"
+                           placeholder="搜索商品名称"
+                           @wxcSearchbarCancelClicked="wxcSearchbarCancelClicked"
+                           @wxcSearchbarInputReturned="wxcSearchbarInputReturned"
+                           @wxcSearchbarInputOnInput="wxcSearchbarInputOnInput"
+                           @wxcSearchbarCloseClicked="wxcSearchbarCloseClicked"
+                           @wxcSearchbarInputOnFocus="wxcSearchbarInputOnFocus"
+                           @wxcSearchbarInputOnBlur="wxcSearchbarInputOnBlur"></wxc-searchbar>
+        </div>
+    </div>
+    <!--筛选条件-->
+    <div class="category">
+        <div class="category-item" v-for="(category, index) in categoryList" :key="index">
+            <text class="category-item-text">{{category.name}}</text>
+            <wxc-icon name="more_unfold" type="xs" class="category-arrow"></wxc-icon>
+        </div>
+    </div>
+    <div class="waterfall">
+        <waterfall class="page" ref="waterfall"
+                   v-bind:style="{paddingLeft:'20',paddingRight:'20'}"
+                   :column-width= "'auto'"
+                   :column-count="2"
+                   :column-gap="20">
+            <cell v-for="(item, index) in items" :key="" class="waterfall-cell" ref="index">
+                <div class="item" @click="onItemclick(item.desc, index)" @appear="itemAppear(item.src)" @disappear="itemDisappear(item.src)">
+                    <image class="itemPhoto" :src="item.src"></image>
+                    <text v-if="item.desc" class="itemDesc">{{item.desc}}</text>
+                    <div class="cell-item-bottom">
+                        <div class="cell-item-bottom-left">
+                            <text class="cell-item-bottom-price">{{item.price}}</text>
+                        </div>
+                        <div class="cell-item-bottom-right">
+                            <image class="cell-item-bottom-likeicon"
+                                   resize="cover"
+                                   src="http://h5.chuangshi.nowui.com/wawipet/image/like.png"></image>
+                            <text class="cell-item-bottom-likenum">{{item.like}}</text>
+                        </div>
+                    </div>
+                </div>
+            </cell>
+        </waterfall>
+    </div>
+</scroller>

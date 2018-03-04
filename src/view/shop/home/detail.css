@@ -1,0 +1,46 @@
+.container {
+    width: 750px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: #f6f6f6;
+    /*overflow: hidden;*/
+}
+
+.header {
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+}
+
+.header-content {
+    background-color: #fafafa;
+    z-index: 1;
+}
+
+.backIcon {
+    font-size: 50px;
+}
+.goods-item {
+    width: 750px;
+    height: 600px;
+}
+
+.banner-indicator {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 10px;
+    width: 750px;
+    height: 60px;
+    item-color: #dddddd;
+    item-selectedColor: #ffffff;
+    z-index: 1;
+}
+
+.bottom {
+    position: relative;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #00B4FF;
+}

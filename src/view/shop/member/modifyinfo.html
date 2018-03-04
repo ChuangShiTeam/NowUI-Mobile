@@ -1,0 +1,24 @@
+<scroller class="container"
+          :style="{height: pageHeight}">
+    <!--头部-->
+    <div class="header">
+        <div class="header-content">
+            <wxc-minibar background-color="#fafafa"
+                         @wxcMinibarLeftButtonClicked="minibarLeftButtonClick"
+                         @wxcMinibarRightButtonClicked="minibarRightButtonClick"
+                         :use-default-return="false">
+                <text slot="left">取消</text>
+                <text class="header-title"
+                      slot="middle">个性签名</text>
+                <text slot="right">保存</text>
+            </wxc-minibar>
+        </div>
+    </div>
+    <wxc-cell :has-arrow="false"
+              :has-top-border="false"
+              :has-bottom-border="false"
+              :auto-accessible="false"
+              :cell-style="{width: 750}" class="cell-input">
+        <input slot="title" type="text"  class="inputItem" placeholder="请输入个性签名" value=""  @change="onchange" @return = "onreturn" @input="oninput"/>
+    </wxc-cell>
+</scroller>

@@ -1,0 +1,125 @@
+<scroller class="container"
+          :style="{height: pageHeight}"
+          offset-x-accuracy="0.1"
+          @loadmore="handleLoad"
+          loadmoreoffset="100">
+    <!--头部-->
+    <div class="header">
+        <div class="header-content">
+            <wxc-minibar background-color="#fafafa"
+                         :use-default-return="false">
+                <text slot="left"></text>
+                <text class="header-title"
+                      slot="middle">首页</text>
+            </wxc-minibar>
+        </div>
+    </div>
+    <!--广告-->
+    <slider class="banner banner-item" ref="banner">
+        <div v-for="banner in bannerList">
+            <image class="banner-item"
+                   resize="cover"
+                   :src="banner.image"></image>
+        </div>
+        <!--<indicator class="banner-indicator"></indicator>-->
+    </slider>
+    <!--推荐专场-->
+    <wxc-cell :has-arrow="false"
+              :has-top-border="false"
+              :has-bottom-border="false"
+              :auto-accessible="false"
+              :cell-style="{width: 750,height:70,backgroundColor:'#f6f6f6'}">
+        <text class="header-info" slot="title">- 推荐专场 -</text>
+    </wxc-cell>
+    <div class="waterfall">
+        <waterfall class="page" ref="waterfall"
+                   v-bind:style="{paddingLeft:'20',paddingRight:'20'}"
+                   :column-width= "'auto'"
+                   :column-count="2"
+                   :column-gap="20">
+            <cell v-for="(item, index) in items" :key="" class="waterfall-cell" ref="index">
+                <div class="item" @click="handleRecommendItem(item.desc, index)" @appear="itemAppear(item.src)" @disappear="itemDisappear(item.src)">
+                    <image class="itemPhoto" :src="item.src"></image>
+                    <div class="image-info">
+                        <text class="image-info-status">{{item.status}}</text>
+                        <text  class="image-info-num">{{item.auctionNum}}次出价</text>
+                    </div>
+                    <text v-if="item.desc" class="itemDesc">{{item.desc}}</text>
+                    <div class="itemTime">
+                        <text class="itemTimeTip">结拍时间：</text>
+                        <text  class="itemTimeText">{{item.time}}</text>
+                    </div>
+                </div>
+            </cell>
+        </waterfall>
+    </div>
+
+    <wxc-cell :has-arrow="false"
+              :has-top-border="false"
+              :has-bottom-border="false"
+              :auto-accessible="false"
+              :cell-style="{width: 750,height:70,backgroundColor:'#f6f6f6'}">
+        <text class="header-info" slot="title">- 优选单品 -</text>
+    </wxc-cell>
+    <div class="cell-item">
+        <!--<list class="list" @loadmore="fetch" loadmoreoffset="10">-->
+            <!--<header>-->
+                <!--<text class="text12" style="background-color: #00B4FF">测试ding'hai'feng</text>-->
+            <!--</header>-->
+            <!--<cell class="cell" v-for="num in lists">-->
+                <!--<div class="panel">-->
+                    <!--<text class="text">3</text>-->
+                <!--</div>-->
+            <!--</cell>-->
+        <!--</list>-->
+        <div class="cell12"
+             v-for="(goods, index) in articleList"
+             :key="index">
+            <wxc-cell :has-arrow="false"
+                      :has-top-border="false"
+                      :has-bottom-border="true"
+                      :auto-accessible="false"
+                      :has-margin="false"
+                      :cell-style="{width: 750,height:244,top:1}"
+                      @wxcCellClicked="handleGoodsItem">
+                <image class="cell-item-image"
+                       resize="cover"
+                       slot="label"
+                       src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+                <div slot="title" class="cell-right">
+                    <div class="cell-item-right-top">
+                        <text class="cell-item-desc">{{goods.title}}</text>
+                        <div class="cell-item-right-middle">
+                            <text class="cell-item-info-tag">{{goods.tag}}</text>
+                            <text class="cell-item-end-tip">距结束</text>
+                            <wxc-countdown
+                                    :interval="1000"
+                                    tpl="{d}天{h}时{m}分{s}秒"
+                                    :timeTextStyle="{fontSize: '28px',color: '#C3413D'}"
+                                    :timeBoxStyle="{background:'none'}"
+                                    :dotTextStyle="{ fontSize: '28px',color: '#C3413D'}"
+                                    :dotBoxStyle="{width: '30px'}"
+                                    :style="{justifyContent: 'center'}"
+                                    :time="TIME">
+                            </wxc-countdown>
+                        </div>
+                    </div>
+
+                    <div class="cell-item-right-bottom">
+                        <div class="cell-item-right-bottom-left">
+                            <text class="cell-item-right-bottom-price">{{goods.price}}</text>
+                            <text class="cell-item-right-bottom-num">{{goods.num}}次出价</text>
+                        </div>
+                        <div class="cell-item-right-bottom-right">
+                            <image class="cell-item-right-bottom-likeicon"
+                                   resize="cover"
+                                   src="http://h5.chuangshi.nowui.com/wawipet/image/like.png"></image>
+                            <text class="cell-item-right-bottom-likenum">{{goods.like}}</text>
+                        </div>
+                    </div>
+                </div>
+            </wxc-cell>
+        </div>
+    </div>
+
+</scroller>

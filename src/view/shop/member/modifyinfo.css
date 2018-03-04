@@ -1,0 +1,28 @@
+.container {
+    width: 750px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: #f6f6f6;
+}
+
+.header {
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+}
+
+.header-content {
+    background-color: #fafafa;
+    z-index: 1;
+}
+
+.cell-input {
+    width: 750px;
+    margin-top:30px;
+    background-color:#ffffff;
+}
+
+.inputItem {
+    height:60px;
+    font-size: 30px;
+}
