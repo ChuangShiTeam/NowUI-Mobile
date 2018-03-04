@@ -14,7 +14,13 @@
             <text class="name" @click="handleHomepage">{{topic.theSendInfo.userNickName}}</text>
             <text class="time" @click="handleHomepage">{{topic.systemCreateTime | formNow}}</text>
         </div>
-        <div slot="value"></div>
+        <div class="button"
+             slot="value">
+            <div :class="false ? 'follow' : 'follow-active'"
+                 @click="handleFollow">
+                <text class="follow-text">+ 关注</text>
+            </div>
+        </div>
     </wxc-cell>
     <div class="content">
         <image class="content-image"
