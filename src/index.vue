@@ -29,7 +29,7 @@
                 //     duration: 10.3
                 // })
 
-                this.push('/view/index.html');
+                this.push('/view/shop/index.html');
             }
         }
     }
