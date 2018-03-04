@@ -209,7 +209,7 @@
                     success: (data) => {
                         if (data.total > 0) {
                             this.hotTopicTotal = data.total,
-                            this.hotTopicList = data.list
+                            this.hotTopicList = this.hotTopicList.concat(data.list)
                         }
                         console.log( 'systemTime : ' + moment().format('YYYY-MM-DD HH:mm:ss'))
                     },

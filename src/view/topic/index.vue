@@ -22,128 +22,8 @@
         data: () => ({
             topicPageIndex: 1,
             topicPageSize: 80,
-
             topicTotal: 0,
-            topicList: [],
-
-            // topicList: [{
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }]
-            // }, {
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }]
-            // }, {
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }]
-            // }, {
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }]
-            // }, {
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }]
-            // }, {
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }]
-            // }, {
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }]
-            // }, {
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }]
-            // }, {
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }]
-            // }]
+            topicList: []
         }),
         created() {
             this.handleLoad();
@@ -166,7 +46,7 @@
                     success: (data) => {
                         if (data.total > 0) {
                             this.topicTotal = data.total,
-                            this.topicList = data.list
+                            this.topicList = this.topicList.concat(data.list)
                         }
                         console.log( '载入话题首页数据 - systemTime : ' + moment().format('YYYY-MM-DD HH:mm:ss'))
                     },

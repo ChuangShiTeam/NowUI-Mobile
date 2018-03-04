@@ -29,6 +29,8 @@
         </wxc-minibar>
     </div>
     <scroller :style="{width: 750, height: pageHeight, marginBottom: 60}"
+              offset-x-accuracy="0.1"
+              @loadmore="handleLoadHotTopicList"
               loadmoreoffset="100">
         <!--我加入的圈子-->
         <wxc-cell :has-arrow="false"
