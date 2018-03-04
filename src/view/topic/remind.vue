@@ -80,16 +80,17 @@
                     success: (data) => {
                         let memberList = data;
 
-                        if (memberList && memberList.length > 0) {
-                            memberList = memberList.map(member => {
-                                return {
-                                    value: member.followUserId,
-                                    label: member.userNickName,
-                                    spell: toPinyin(member.userNickName)
-                                }
-                            });
-                            this.memberList= memberList;
-                        }
+                        // if (memberList && memberList.length > 0) {
+                        //     memberList = memberList.map(member => {
+                        //         return {
+                        //             value: member.followUserId,
+                        //             label: member.userNickName,
+                        //             spell: toPinyin(member.userNickName)
+                        //         }
+                        //     });
+                        //     this.memberList= memberList;
+                        // }
+                        this.memberList= memberList;
                         console.log(this.memberList)
                     },
                     error: () => {
