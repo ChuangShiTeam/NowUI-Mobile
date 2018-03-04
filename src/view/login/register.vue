@@ -3,6 +3,7 @@
 
 <script type="text/ecmascript-6">
     import mixins from '../../mixins/index';
+    import event from "../../common/event";
 
     export default {
         components: {
@@ -11,7 +12,9 @@
         mixins: [mixins],
         data() {
             return {
-                mobile: ''
+                mobile: '',
+                password: '',
+                captcha: ''
             }
         },
         created() {
@@ -22,10 +25,14 @@
         },
         methods: {
             handlePassword() {
-                //this.push('/view/login/password.html');
+                event.$emit('login-click', {
+                    name: 'password'
+                });
             },
-            handleMobileChange(event) {
-                this.mobile = event.value;
+            handleFast() {
+                event.$emit('login-click', {
+                    name: 'fast'
+                });
             },
             handleSendRegisterCaptcha() {
                 if (this.mobile == '') {
@@ -35,29 +42,15 @@
                 }
 
                 this.request({
-                    url: '/forum/mobile/v1/save',
+                    url: '/member/mobile/v1/register/sms/captcha/send',
                     data: {
-                        forumName: this.forumName,
-                        forumMediaType: 'IMAGE',
-                        forumMedia: this.imageList[0].filePath,
-                        forumDescription: this.forumDescription,
-                        forumModeratorInfo : {
-                            userNickName: '谁用了我的头像(新)',
-                            userAvatar: '/upload/df2078d6c9eb46babb0df957127273ab/3bdfcbb00f90415989fb53e6677c25df/ae74752bc95c4ed6a9ebbd020d3b4105.jpg',
-                            memberSignature: '喵咪太可爱了!(新签名)'
-                        },
-                        userNickName: '谁用了我的头像(新)',
-                        userAvatar: '/upload/df2078d6c9eb46babb0df957127273ab/3bdfcbb00f90415989fb53e6677c25df/ae74752bc95c4ed6a9ebbd020d3b4105.jpg',
-                        memberSignature: '喵咪太可爱了!(新签名)'
+                        userAccount: this.mobile
                     },
                     success: (data) => {
-                        this.isLoad = false;
-                        this.toast('创建成功', () => {
-                            this.pop();
-                        });
+                        this.toast('发送成功');
                     },
                     error: () => {
-                        this.isLoad = false;
+
                     }
                 });
             },
@@ -67,28 +60,33 @@
 
                     return;
                 }
+                if (this.password == '') {
+                    this.toast('密码不能为空');
+
+                    return;
+                }
+                if (this.captcha == '') {
+                    this.toast('验证码不能为空');
+
+                    return;
+                }
+
                 this.isLoad = true;
 
                 this.request({
-                    url: '/forum/mobile/v1/save',
+                    url: '/member/mobile/v1/mobile/register',
                     data: {
-                        forumName: this.forumName,
-                        forumMediaType: 'IMAGE',
-                        forumMedia: this.imageList[0].filePath,
-                        forumDescription: this.forumDescription,
-                        forumModeratorInfo : {
-                            userNickName: '谁用了我的头像(新)',
-                            userAvatar: '/upload/df2078d6c9eb46babb0df957127273ab/3bdfcbb00f90415989fb53e6677c25df/ae74752bc95c4ed6a9ebbd020d3b4105.jpg',
-                            memberSignature: '喵咪太可爱了!(新签名)'
-                        },
-                        userNickName: '谁用了我的头像(新)',
-                        userAvatar: '/upload/df2078d6c9eb46babb0df957127273ab/3bdfcbb00f90415989fb53e6677c25df/ae74752bc95c4ed6a9ebbd020d3b4105.jpg',
-                        memberSignature: '喵咪太可爱了!(新签名)'
+                        userAccount: this.mobile,
+                        userPassword: this.password,
+                        smsCaptchaCode: this.captcha
                     },
                     success: (data) => {
                         this.isLoad = false;
-                        this.toast('创建成功', () => {
-                            this.pop();
+                        this.toast('注册成功', () => {
+                            this.mobile = '';
+                            this.password = '';
+                            this.captcha = '';
+                            this.handleFast();
                         });
                     },
                     error: () => {

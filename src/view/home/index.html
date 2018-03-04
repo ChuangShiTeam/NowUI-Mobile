@@ -35,7 +35,7 @@
         <div v-for="banner in bannerList">
             <image class="banner-item"
                    resize="cover"
-                   :src="banner.image"></image>
+                   :src="imageHost + banner.advertisementImageFilePath"></image>
         </div>
         <indicator class="banner-indicator"></indicator>
     </slider>

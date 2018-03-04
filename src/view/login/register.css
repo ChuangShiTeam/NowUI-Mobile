@@ -37,6 +37,32 @@
     color: #000000;
 }
 
+.password {
+    width: 504px;
+    margin-top: 60px;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.password-icon {
+    width: 24px;
+    height: 30px;
+}
+
+.password-main {
+    width: 450px;
+    height: 40px;
+    border-bottom-width: 1px;
+    border-bottom-color: #d9d9d9;
+}
+
+.password-main-input {
+    background-color: transparent;
+    font-family: PingFangSC-Light;
+    font-size: 24px;
+    color: #000000;
+}
+
 .captcha {
     width: 504px;
     margin-top: 60px;

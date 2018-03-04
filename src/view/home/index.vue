@@ -24,13 +24,7 @@
         mixins: [mixins],
         data: () => ({
             headerBackgroundOpacity: 0.0,
-            bannerList: [{
-                image: 'http://h5.chuangshi.nowui.com/wawipet/image/0.png'
-            }, {
-                image: 'http://h5.chuangshi.nowui.com/wawipet/image/0.png'
-            }, {
-                image: 'http://h5.chuangshi.nowui.com/wawipet/image/0.png'
-            }],
+            bannerList: [],
             articleList: [{
                 title: '谁说猫狗在一起一定打得不可开交？'
             }, {
@@ -236,14 +230,27 @@
                 });
             }
         },
+        created() {
+            this.handleLoadIndexBanner();
+        },
         methods: {
             handerScroll(e) {
                 if (-e.contentOffset.y / 300 < 1 || this.headerBackgroundOpacity < 1) {
                     this.headerBackgroundOpacity = -e.contentOffset.y / 300;
                 }
             },
-            handleLoad() {
-                console.log(1);
+            handleLoadIndexBanner() {
+                this.request({
+                    url: '/advertisement/mobile/v1/index/banner/list',
+                    data: {},
+                    success: (data) => {
+                        if (data && data.length > 0) {
+                            this.bannerList = data;
+                        }
+                    },
+                    error: () => {
+                    }
+                });
             },
             handleMyHomepage() {
                 event.$emit('login-show', {

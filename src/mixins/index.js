@@ -11,8 +11,8 @@ export default {
         return {
             pageHeight: 0,
             host: 'http://localhost:8080',
-            // imageHost: 'http://118.31.229.16:8080',
-            imageHost: 'http://localhost:8080',
+            imageHost: 'http://118.31.229.16:80',
+            // imageHost: 'http://localhost:8080',
             appId: 'df2078d6c9eb46babb0df957127273ab',
             version: '1.0.0',
             platform: weex.config.env.platform.toLowerCase()
@@ -88,7 +88,7 @@ export default {
         },
         request(config) {
             config.data.appId = this.appId;
-            config.data.token = 'vjYUoyEmyZo2r7FW+iZ3sbtNCkYrKKLSzQJU7JLG2hH97BeP2+Gk72Hdd9e+qRgA4hePuuGPiTsn9q435nWD5D8+7e0Yosk/FE/M3r+W6GA=';
+            config.data.token = this.getToken();
             config.data.platform = this.platform;
             config.data.version = this.version;
             config.data.timestamp = Math.round(new Date().getTime() / 1000);
@@ -115,6 +115,26 @@ export default {
             }, function (response) {
 
             });
+        },
+        setToken(token) {
+            this.storage.setItem('token_' + this.version, token, res => {
+                if(res.result === 'success'){
+                    // 数据缓存成功
+                }
+            });
+        },
+        getToken() {
+            let token = '';
+            this.storage.getItem('token_' + this.version, res => {
+                if(res.result === 'success'){
+                    token = res.data;
+                }
+            });
+            if (token === null || token === '' || typeof (token) === 'undefined') {
+                return 'vjYUoyEmyZo2r7FW+iZ3sbtNCkYrKKLSzQJU7JLG2hH97BeP2+Gk72Hdd9e+qRgA4hePuuGPiTsn9q435nWD5D8+7e0Yosk/FE/M3r+W6GA=';
+            }
+
+            return token;
         }
     }
 }

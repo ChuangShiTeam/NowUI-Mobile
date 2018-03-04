@@ -11,7 +11,8 @@
         mixins: [mixins],
         data() {
             return {
-                mobile: ''
+                mobile: '',
+                captcha: ''
             }
         },
         created() {
@@ -24,10 +25,7 @@
             handlePassword() {
                 //this.push('/view/login/password.html');
             },
-            handleMobileChange(event) {
-                this.mobile = event.value;
-            },
-            handleSubmit() {
+            handleNext() {
                 if (this.mobile == '') {
                     this.toast('手机号码不能为空');
 

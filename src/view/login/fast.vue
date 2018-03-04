@@ -12,7 +12,8 @@
         mixins: [mixins],
         data() {
             return {
-                mobile: ''
+                mobile: '',
+                captcha: ''
             }
         },
         created() {
@@ -32,24 +33,50 @@
                     name: 'register'
                 });
             },
-            handleMobileInput(event) {
-                this.mobile = event.value;
+            handleSendLoginCaptcha() {
+                 if (this.mobile == '') {
+                     this.toast('手机号码不能为空');
+
+                     return;
+                 }
+                this.request({
+                    url: '/member/mobile/v1/login/sms/captcha/send',
+                    data: {
+                        userAccount: this.mobile,
+                        smsCaptchaCode: this.captcha
+                    },
+                    success: (data) => {
+                        this.toast('发送成功');
+                    }
+                });
             },
             handleSubmit() {
-                // if (this.mobile == '') {
-                //     this.toast('手机号码不能为空');
-                //
-                //     return;
-                // }
+                if (this.mobile == '') {
+                     this.toast('手机号码不能为空');
 
+                     return;
+                }
+                if (this.captcha == '') {
+                    this.toast('验证码不能为空');
+
+                    return;
+                }
+                this.isLoad = true;
                 this.request({
                     url: '/member/mobile/v1/sms/captcha/login',
                     data: {
-                        userAccount: '123',
-                        smsCaptchaCode: ''
+                        userAccount: this.mobile,
+                        smsCaptchaCode: this.captcha
                     },
                     success: (data) => {
-                        console.log(data);
+                        this.isLoad = false;
+                        this.setToken(data.token);
+                        this.toast('登录成功', () => {
+                            this.push('/view/index.html');
+                        });
+                    },
+                    error: () => {
+                        this.isLoad = false;
                     }
                 });
             }

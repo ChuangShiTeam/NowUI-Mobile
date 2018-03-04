@@ -6,7 +6,7 @@
                class="mobile-icon"></image>
         <div class="mobile-main">
             <input type="text"
-                   @change="handleMobileChange"
+                   v-model="mobile"
                    placeholder="请输入手机号"
                    class="mobile-main-input"/>
         </div>
@@ -18,7 +18,7 @@
         <div class="captcha-main">
             <div class="captcha-main-left">
                 <input type="text"
-                       value="123456"
+                       v-model="captcha"
                        placeholder="请输入验证码"
                        class="captcha-main-input"/>
             </div>
@@ -26,7 +26,7 @@
         </div>
     </div>
     <div class="submit"
-         @click="handleSubmit">
+         @click="handleNext">
         <text class="submit-text">下一步</text>
     </div>
 </div>

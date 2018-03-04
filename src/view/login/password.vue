@@ -12,7 +12,8 @@
         mixins: [mixins],
         data() {
             return {
-                mobile: ''
+                mobile: '',
+                password: ''
             }
         },
         created() {
@@ -37,15 +38,35 @@
                     name: 'register'
                 });
             },
-            handleMobileChange(event) {
-                this.mobile = event.value;
-            },
             handleSubmit() {
                 if (this.mobile == '') {
                     this.toast('手机号码不能为空');
 
                     return;
                 }
+                if (this.password == '') {
+                    this.toast('密码不能为空');
+
+                    return;
+                }
+                this.isLoad = true;
+                this.request({
+                    url: '/member/mobile/v1/password/login',
+                    data: {
+                        userAccount: this.mobile,
+                        userPassword: this.password
+                    },
+                    success: (data) => {
+                        this.isLoad = false;
+                        this.setToken(data.token);
+                        this.toast('登录成功', () => {
+                            this.push('/view/index.html');
+                        });
+                    },
+                    error: () => {
+                        this.isLoad = false;
+                    }
+                });
             }
         }
     }

@@ -6,9 +6,20 @@
                class="mobile-icon"></image>
         <div class="mobile-main">
             <input type="text"
-                   @change="handleMobileChange"
+                   v-model="mobile"
                    placeholder="请输入手机号"
                    class="mobile-main-input"/>
+        </div>
+    </div>
+    <div class="password">
+        <image src="http://h5.chuangshi.nowui.com/wawipet/image/password.png"
+               resize="cover"
+               class="password-icon"></image>
+        <div class="password-main">
+            <input type="password"
+                   v-model="password"
+                   placeholder="请输入密码"
+                   class="password-main-input"/>
         </div>
     </div>
     <div class="captcha">
@@ -18,8 +29,8 @@
         <div class="captcha-main">
             <div class="captcha-main-left">
                 <input type="text"
-                       value=""
                        placeholder="请输入验证码"
+                       v-model="captcha"
                        class="captcha-main-input"/>
             </div>
             <text class="captcha-main-right" @click="handleSendRegisterCaptcha">发送验证码</text>
@@ -27,6 +38,6 @@
     </div>
     <div class="submit"
          @click="handleSubmit">
-        <text class="submit-text">下一步</text>
+        <text class="submit-text">注册</text>
     </div>
 </div>
