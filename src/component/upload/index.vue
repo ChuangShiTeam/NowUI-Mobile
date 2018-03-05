@@ -86,8 +86,8 @@
                     newFile.error = 'compressor'
                     new ImageCompressor(newFile.file, {
                         quality: 0.8,
-                        maxWidth: 1024,
-                        maxHeight: 1024,
+                        maxWidth: 1440,
+                        maxHeight: 1440,
                         success: (result) => {
                             const reader = new FileReader();
                             let base64Data;
