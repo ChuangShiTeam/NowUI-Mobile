@@ -1,19 +1,21 @@
 <style src="./fast.css" scoped></style>
 <template src="./fast.html"></template>
 
-<script>
+<script type="text/ecmascript-6">
+    import { WxcCountdown } from 'weex-ui'
     import mixins from '../../mixins/index';
     import event from "../../common/event";
 
     export default {
         components: {
-
+            WxcCountdown
         },
         mixins: [mixins],
         data() {
             return {
                 mobile: '',
-                captcha: ''
+                captcha: '',
+                time: 0
             }
         },
         created() {
@@ -33,6 +35,9 @@
                     name: 'register'
                 });
             },
+            handleCompleteCountDown() {
+                this.time = 1;
+            },
             handleSendLoginCaptcha() {
                  if (this.mobile == '') {
                      this.toast('手机号码不能为空');
@@ -47,6 +52,7 @@
                     },
                     success: (data) => {
                         this.toast('发送成功');
+                        this.time = new Date().getTime() + 60000;
                     }
                 });
             },

@@ -33,7 +33,22 @@
                        v-model="captcha"
                        class="captcha-main-input"/>
             </div>
-            <text class="captcha-main-right" @click="handleSendRegisterCaptcha">发送验证码</text>
+            <text class="captcha-main-right" v-if="time == 0" @click="handleSendRegisterCaptcha">发送验证码</text>
+            <text class="captcha-main-right" v-else-if="time == 1" @click="handleSendRegisterCaptcha">重新发送</text>
+            <text class="captcha-main-right" v-else-if="time > 1">
+                <wxc-countdown
+                        tpl="{s} 秒"
+                        :time="time"
+                        :timeBoxStyle="{backgroundColor: 'transparent', fontSize: '24px', width: '30px'}"
+                        :timeTextStyle="{color: '#000000'}"
+                        :dotTextStyle="{fontSize: '26px'}"
+                        :dotBoxStyle="{width: '30px'}"
+                        :style="{justifyContent: 'center'}"
+                        :interval="1000"
+                        @wxcOnComplete="handleCompleteCountDown"
+                >
+                </wxc-countdown>
+            </text>
         </div>
     </div>
     <div class="submit"
