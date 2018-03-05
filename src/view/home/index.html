@@ -44,8 +44,8 @@
         <div class="category-item" v-for="(category, index) in categoryList" :key="index" @click="handleCategory">
             <image class="category-item-image"
                    resize="cover"
-                   :src="category.image"></image>
-            <text class="category-item-text">{{category.name}}</text>
+                   :src="imageHost + category.navigationImageFilePath"></image>
+            <text class="category-item-text">{{category.navigationName}}</text>
         </div>
     </scroller>
     <!--文章-->

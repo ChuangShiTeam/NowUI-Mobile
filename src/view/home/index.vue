@@ -26,6 +26,7 @@
             headerBackgroundOpacity: 0.0,
             bannerList: [],
             articleList: [],
+            // categoryList: [],
             categoryList: [{
                 name: '保健卡',
                 image: 'http://h5.chuangshi.nowui.com/wawipet/image/category-0.png'
@@ -215,6 +216,7 @@
         created() {
             this.handleLoadIndexBanner();
             this.handleLoadHotArticle();
+            this.handleLoadCategory();
         },
         computed: {
             filterArticleList: function () {
@@ -271,6 +273,19 @@
             },
             handleMemberHomepage() {
                 this.push('/view/member/homepage.html');
+            },
+            handleLoadCategory() {
+                this.request({
+                    url: '/navigation/mobile/v1/index/list',
+                    data: {},
+                    success: (data) => {
+                        if (data && data.length > 0) {
+                            this.categoryList = data;
+                        }
+                    },
+                    error: () => {
+                    }
+                });
             }
         }
     }
