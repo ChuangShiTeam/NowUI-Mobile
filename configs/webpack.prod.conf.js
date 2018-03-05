@@ -24,6 +24,7 @@ const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const generateMultipleEntrys = (entry) => {
   const entrys = Object.keys(entry);
   const htmlPlugin = entrys.map(name => {
+    name = name.replace('view/', '');
     return new HtmlWebpackPlugin({
       filename: name + '.html',
       template: helper.rootNode(`web/index.html`),

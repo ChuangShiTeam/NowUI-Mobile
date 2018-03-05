@@ -29,10 +29,10 @@
                 console.log(1);
             },
             minibarLeftButtonClick() {
-                this.push('/view/shop/member/index.html');
+                this.push('/shop/member/index.html');
             },
             handlePaySafety() {
-                this.push('/view/shop/member/paysafely.html');
+                this.push('/shop/member/paysafely.html');
             }
         }
     }

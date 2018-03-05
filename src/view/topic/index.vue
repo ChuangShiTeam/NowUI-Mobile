@@ -62,13 +62,13 @@
                 });
             },
             handleHomepage() {
-                this.push('/view/member/homepage.html');
+                this.push('/member/homepage.html');
             },
             handleSearch() {
-                this.push('/view/topic/search.html');
+                this.push('/topic/search.html');
             },
             handleAdd() {
-                this.push('/view/topic/add.html');
+                this.push('/topic/add.html');
             },
 
         }

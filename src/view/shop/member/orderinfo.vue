@@ -73,7 +73,7 @@
                 console.log(1);
             },
             minibarLeftButtonClick() {
-                this.push('/view/shop/member/index.html');
+                this.push('/shop/member/index.html');
             },
             wxcTabPageCurrentTabSelected (e) {
                 const self = this;

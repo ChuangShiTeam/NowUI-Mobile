@@ -26,25 +26,25 @@
                 console.log(1);
             },
             handleHomepage() {
-                this.push('/view/member/homepage.html');
+                this.push('/member/homepage.html');
             },
             handleMessage() {
-                this.push('/view/member/message.html');
+                this.push('/member/message.html');
             },
             handleBookmark() {
-                this.push('/view/member/bookmark.html');
+                this.push('/member/bookmark.html');
             },
             handleProfile() {
-                this.push('/view/member/profile.html');
+                this.push('/member/profile.html');
             },
             handlePet() {
-                this.push('/view/member/pet.html');
+                this.push('/member/pet.html');
             },
             handleFollow() {
-                this.push('/view/member/follow.html');
+                this.push('/member/follow.html');
             },
             handleQrcode() {
-                this.push('/view/member/qrcode.html');
+                this.push('/member/qrcode.html');
             }
         }
     }

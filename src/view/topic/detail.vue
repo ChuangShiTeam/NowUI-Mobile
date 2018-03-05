@@ -178,10 +178,10 @@
                 });
             },
             handleTopicUserLikeList(topicId) {
-                this.push('/view/topic/like.html?topicId=' + topicId);
+                this.push('/topic/like.html?topicId=' + topicId);
             },
             handleHomepage() {
-                this.push('/view/member/homepage.html');
+                this.push('/member/homepage.html');
             },
             handleOpenImage() {
                 this.isShow = true;
@@ -190,7 +190,7 @@
                 this.isShow = false;
             },
             handleForumHomePage(forumId) {
-                this.push('/view/forum/homepage.html?forumId=' + forumId);
+                this.push('/forum/homepage.html?forumId=' + forumId);
             },
             handleFollow(memberId) {
                 if (memberId) {

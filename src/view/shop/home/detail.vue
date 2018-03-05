@@ -51,10 +51,10 @@
                 });
             },
             handleGoodsItem(){
-                this.push('/view/member/index.html');
+                this.push('/member/index.html');
             },
             minibarLeftButtonClick(){
-                this.pop('/view/shop/index.html');
+                this.pop('/shop/index.html');
             }
         }
     }

@@ -218,7 +218,7 @@
                 });
             },
             handleHomepage(forumId) {
-                this.push('/view/forum/homepage.html?forumId=' + forumId);
+                this.push('/forum/homepage.html?forumId=' + forumId);
             },
             handleTopic() {
                 event.$emit('sns-click', {
@@ -226,13 +226,13 @@
                 });
             },
             handleFollow(e) {
-                this.push('/view/forum/follow.html');
+                this.push('/forum/follow.html');
             },
             handleAdd() {
-                this.push('/view/forum/add.html');
+                this.push('/forum/add.html');
             },
             handleSearch() {
-                this.push('/view/forum/search.html');
+                this.push('/forum/search.html');
             }
         }
     }

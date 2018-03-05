@@ -141,7 +141,7 @@
 
             },
             handleForumHomepage(forumId) {
-                this.push('/view/forum/homepage.html?forumId=' + forumId);
+                this.push('/forum/homepage.html?forumId=' + forumId);
             },
         }
     }

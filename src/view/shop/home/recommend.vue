@@ -143,11 +143,11 @@
                 });
             },
             minibarLeftButtonClick(){
-                this.push('/view/shop/index.html');
+                this.push('/shop/index.html');
             },
 
             handleRecommendItem(){
-                this.push('/view/shop/home/detail.html');
+                this.push('/shop/home/detail.html');
             },
             onItemclick: function (behaviour, index) {
                 console.log(`click...${behaviour} at index ${index}`)

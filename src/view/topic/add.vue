@@ -47,13 +47,13 @@
                 console.log(1);
             },
             handleLocation() {
-                this.push('/view/topic/location.html');
+                this.push('/topic/location.html');
             },
             handleRemind() {
-                this.push('/view/topic/remind.html');
+                this.push('/topic/remind.html');
             },
             handleTag() {
-                this.push('/view/topic/tag.html');
+                this.push('/topic/tag.html');
             },
             handleTopicSummaryInput(event) {
                 this.topicSummary = event.value;

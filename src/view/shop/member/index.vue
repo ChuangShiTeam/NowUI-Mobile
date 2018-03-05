@@ -49,28 +49,28 @@
                 console.log(1);
             },
             handleSetting() {
-                this.push('/view/shop/member/setting.html');
+                this.push('/shop/member/setting.html');
             },
             handleWallet() {
-                this.push('/view/shop/member/wallet.html');
+                this.push('/shop/member/wallet.html');
             },
             handleBookmark() {
-                this.push('/view/member/bookmark.html');
+                this.push('/member/bookmark.html');
             },
             handleProfile() {
-                this.push('/view/member/profile.html');
+                this.push('/member/profile.html');
             },
             handlePet() {
-                this.push('/view/member/pet.html');
+                this.push('/member/pet.html');
             },
             handleFollow() {
-                this.push('/view/member/follow.html');
+                this.push('/member/follow.html');
             },
             handleQrcode() {
-                this.push('/view/member/qrcode.html');
+                this.push('/member/qrcode.html');
             },
             handleCategory() {
-                this.push('/view/article/index.html');
+                this.push('/article/index.html');
             },
         }
     }

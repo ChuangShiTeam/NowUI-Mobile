@@ -108,13 +108,13 @@
                 });
             },
             handleMemberHomepage(memberId) {
-                this.push('/view/member/homepage.html?memberId=' + memberId);
+                this.push('/member/homepage.html?memberId=' + memberId);
             },
             handleTopic(topicId) {
-                this.push('/view/topic/detail.html?topicId=' + topicId);
+                this.push('/topic/detail.html?topicId=' + topicId);
             },
             handleForumHomePage(forumId) {
-                this.push('/view/forum/homepage.html?forumId=' + forumId);
+                this.push('/forum/homepage.html?forumId=' + forumId);
             },
             handleFollow(memberId) {
                 if (memberId) {

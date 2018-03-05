@@ -47,7 +47,8 @@ const getEntryFile = (dir) => {
         const stat = fs.statSync(fullpath);
         const extname = path.extname(fullpath);
         if (stat.isFile() && extname === '.vue') {
-            const name = path.join(dir, path.basename(file, extname));
+            let name = path.join(dir, path.basename(file, extname));
+            name = name.replace('view/', '');
             if (extname === '.vue') {
                 const entryFile = path.join(vueWebTemp, dir, path.basename(file, extname) + '.js');
                 fs.outputFileSync(path.join(entryFile), getEntryFileContent(entryFile, fullpath));

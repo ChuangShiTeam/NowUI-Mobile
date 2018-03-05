@@ -266,13 +266,13 @@
                 });
             },
             handleSearch() {
-                this.push('/view/home/search.html');
+                this.push('/home/search.html');
             },
             handleCategory() {
-                this.push('/view/article/index.html');
+                this.push('/article/index.html');
             },
             handleMemberHomepage() {
-                this.push('/view/member/homepage.html');
+                this.push('/member/homepage.html');
             },
             handleLoadCategory() {
                 this.request({

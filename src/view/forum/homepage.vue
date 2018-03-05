@@ -156,7 +156,7 @@
         methods: {
 
             handleMember() {
-                this.push('/view/member/homepage.html')
+                this.push('/member/homepage.html')
             },
             handleLoadForumInfo(forumId)  {
                 if (forumId) {
