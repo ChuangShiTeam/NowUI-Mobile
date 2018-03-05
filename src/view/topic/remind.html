@@ -21,9 +21,9 @@
             <image class="cell-icon"
                    resize="cover"
                    slot="label"
-                   src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+                   :src="imageHost + member.userAvatarFilePath"></image>
             <div slot="title">
-                <text class="cell-text">Ronaldo</text>
+                <text class="cell-text">{{member.userNickName}}</text>
             </div>
 
             <image class="cell-select"

@@ -25,7 +25,6 @@
         },
         created() {
             this.handleLoadFollowMember();
-
         },
         methods: {
             wxcSearchbarInputOnFocus() {
@@ -78,20 +77,9 @@
                     url: '/member/follow/mobile/v1/my/follow/list',
                     data: {},
                     success: (data) => {
-                        let memberList = data;
-
-                        // if (memberList && memberList.length > 0) {
-                        //     memberList = memberList.map(member => {
-                        //         return {
-                        //             value: member.followUserId,
-                        //             label: member.userNickName,
-                        //             spell: toPinyin(member.userNickName)
-                        //         }
-                        //     });
-                        //     this.memberList= memberList;
-                        // }
-                        this.memberList= memberList;
-                        console.log(this.memberList)
+                        if (data && data.length > 0) {
+                            this.memberList = data;
+                        }
                     },
                     error: () => {
                     }
