@@ -1,7 +1,7 @@
 module.exports = {
     active: 'dev',
     webEntry: [
-        'index',
+        // 'index',
         // 'article/index',
         // 'article/search',
         // 'forum/add',
