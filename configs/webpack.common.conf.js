@@ -48,14 +48,14 @@ const getEntryFile = (dir) => {
         const extname = path.extname(fullpath);
         if (stat.isFile() && extname === '.vue') {
             let name = path.join(dir, path.basename(file, extname));
-            name = name.replace('view/', '');
+            name = name.replace('view/', '').replace('view\\', '');
             if (extname === '.vue') {
                 const entryFile = path.join(vueWebTemp, dir, path.basename(file, extname) + '.js');
                 fs.outputFileSync(path.join(entryFile), getEntryFileContent(entryFile, fullpath));
                 if (constant.active == 'dev') {
                     for (var i = 0; i < constant.webEntry.length; i++) {
                         if (constant.webEntry[i] == name.replace(/\\/g, '/')) {
-                            webEntry[name] = path.join(entryFile) + '?entry=true';
+                            webEntry[name] = path.join(entryFile).replace(/\\/g, '/') + '?entry=true';
                         }
                     }
                 } else {
