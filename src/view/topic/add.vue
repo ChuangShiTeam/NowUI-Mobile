@@ -62,7 +62,8 @@
                 console.log(this.imageList);
                     this.topicMediaList = this.imageList.map((topicMedia, index) => {
                         return {
-                            topicMedia: topicMedia.filePath,
+                            topicMediaFileId: topicMedia.fileId,
+                            topicMediaFilePath: topicMedia.filePath,
                             topicMediaType: 'IMAGE',
                             topicMediaSort: index + 1
                         }

@@ -2,7 +2,7 @@
     <div class="header">
         <image class="header-background"
                resize="cover"
-               :src="imageHost + forum.forumBackgroundMedia"></image>
+               :src="imageHost + forum.forumBackgroundMediaFilePath"></image>
         <image class="header-avatar"
                resize="cover"
                :src="imageHost + forum.forumMediaFilePath"></image>
@@ -28,6 +28,7 @@
             <image class="member-avatar"
                    resize="cover"
                    slot="label"
+                   @click="handleMemberHomepage(forum.forumModeratorMemberId)"
                    :src="imageHost + forum.userAvatarFilePath"></image>
             <div slot="title">
                 <text class="member-name">{{forum.userNickName}}</text>

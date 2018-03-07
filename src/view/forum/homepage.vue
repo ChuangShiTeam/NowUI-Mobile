@@ -234,7 +234,10 @@
                         }
                     });
                 }
-            }
+            },
+            handleMemberHomepage(memberId) {
+                this.push('/member/homepage.html?memberId=' + memberId);
+            },
 
 
         }

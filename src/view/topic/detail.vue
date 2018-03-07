@@ -2,7 +2,7 @@
 <template src="./detail.html"></template>
 
 <script type="text/ecmascript-6">
-    import {WxcCell, WxcLightbox} from 'weex-ui';
+    import {WxcCell, WxcLightbox, WxcLoading} from 'weex-ui';
 
     import mixins from '../../mixins/index';
 
@@ -12,7 +12,8 @@
     export default {
         components: {
             WxcCell,
-            WxcLightbox
+            WxcLightbox,
+            WxcLoading
         },
         mixins: [mixins],
         data() {
@@ -20,12 +21,14 @@
                 topicId: '',
                 topic: {},
 
+                selfMemberId: '',
+
                 commentPageIndex: 1,
                 commentPageSize: 50,
                 topicCommentList: [],
                 topicCommentTotal: 0,
 
-
+                isShowLoaing: false,
                 isShow: false,
                 imageList:[],
                 // imageList: [
@@ -35,16 +38,18 @@
                 // ],
 
                 placeholder: '我也要说点什么',
-                topicReplayMemberId: '',
+                topicReplyMemberId: '',
                 topicReplyCommentId: '',
-                topicReplayUserAvatar: '',
-                topicReplayUserNickName: '',
+                topicReplyuserAvatarFilePath: '',
+                topicReplyUserNickName: '',
                 topicCommentContent: ''
 
                 // feedbackList: [{}, {}, {}, {}, {}, {}]
             }
         },
         created() {
+            this.selfMemberId = this.getMemberId();
+
             console.log('开始加载话题 : ' + weex.config.parameter.topicId + ' 的数据');
             this.topicId = weex.config.parameter.topicId;
 
@@ -61,11 +66,10 @@
                         },
                         success: (data) => {
                             this.topic = data;
-
                             this.imageList = data.topicMediaList.map((topicMedia, index) => {
-                                console.log(this.imageHost + topicMedia.topicMedia)
+                                console.log(this.imageHost + topicMedia.topicMediaFilePath)
                                 return {
-                                    src: this.imageHost + topicMedia.topicMedia,
+                                    src: this.imageHost + topicMedia.topicMediaFilePath,
                                 }
                             });
                         },
@@ -98,12 +102,14 @@
                 }
             },
             handleClickLikeTopic() {
+                this.isShowLoaing = true;
                 this.request({
                     url: this.topic.topicUserIsLike ? '/topic/user/unlike/mobile/v1/save' : '/topic/user/like/mobile/v1/save',
                     data: {
                         topicId: this.topicId,
-                        userNickName: '谁用了我的头像(测试)',
-                        userAvatar: '/upload/df2078d6c9eb46babb0df957127273ab/3bdfcbb00f90415989fb53e6677c25df/ae74752bc95c4ed6a9ebbd020d3b4105.jpg'
+                        memberId: this.getMemberId(),
+                        userNickName: this.getUserNickName(),
+                        userAvatarFilePath: this.getUserAvatarFilePath()
                     },
                     success: (data) => {
                         if (data) {
@@ -118,19 +124,31 @@
                             this.topic = topic;
                         }
                         console.log(this.topic)
+
+                        this.isShowLoaing = false;
                     },
                     error: () => {
+                        this.isShowLoaing = false;
                     }
                 });
 
             },
             handleBookmarkTopic() {
+                this.isShowLoaing = true;
                 this.request({
                     url: this.topic.topicUserIsBookmark ? '/topic/user/unbookmark/mobile/v1/save' : '/topic/user/bookmark/mobile/v1/save',
                     data: {
                         topicId: this.topicId,
-                        userNickName: '谁用了我的头像(测试)',
-                        userAvatar: '/upload/df2078d6c9eb46babb0df957127273ab/3bdfcbb00f90415989fb53e6677c25df/ae74752bc95c4ed6a9ebbd020d3b4105.jpg'
+                        memberId: this.getMemberId(),
+                        userNickName: this.getUserNickName(),
+                        userAvatarFilePath: this.getUserAvatarFilePath(),
+
+                        topicFirstMediaFilePath: this.topic.topicMediaList[0].topicMediaFilePath,
+                        topicUserNickName: this.topic.userNickName,
+                        topicSummary: this.topic.topicSummary,
+                        topicUserAvatarFilePath: this.topic.userAvatarFilePath,
+                        topicMemberId: this.topic.memberId
+
                     },
                     success: (data) => {
                         if (data) {
@@ -145,12 +163,15 @@
                             this.topic = topic;
                         }
                         console.log(this.topic)
+                        this.isShowLoaing = false;
                     },
                     error: () => {
+                        this.isShowLoaing = false;
                     }
                 });
             },
             handleClickLikeComment(index) {
+                this.isShowLoaing = true;
                 this.request({
                     url: this.topicCommentList[index].topicCommentIsLike ? '/topic/comment/user/unlike/mobile/v1/save' : '/topic/comment/user/like/mubile/v1/save',
                     data: {
@@ -172,8 +193,11 @@
 
                         }
                         console.log(this.topicCommentList)
+
+                        this.isShowLoaing = false;
                     },
                     error: () => {
+                        this.isShowLoaing = false;
                     }
                 });
             },
@@ -192,7 +216,16 @@
             handleForumHomePage(forumId) {
                 this.push('/forum/homepage.html?forumId=' + forumId);
             },
+            handleMemberHomepage(memberId) {
+                if (memberId){
+                    this.push('/member/homepage.html?memberId=' + memberId);
+                }else {
+                    this.push('/member/homepage.html');
+                }
+
+            },
             handleFollow(memberId) {
+                this.isShowLoaing = true;
                 if (memberId) {
                     this.request({
                         url: this.topic.memberIsFollow ? '/member/follow/mobile/v1/delete' : '/member/follow/mobile/v1/save',
@@ -204,35 +237,37 @@
                                 this.topic.memberIsFollow = !this.topic.memberIsFollow;
                             }
                             console.log(data)
+                            this.isShowLoaing = false;
                         },
                         error: () => {
+                            this.isShowLoaing = false;
                         }
                     });
                 }
             },
-            handleChooseReply(topicReplayMemberId, topicReplayUserNickName, topicReplayUserAvatar, topicReplyCommentId) {
-                // if (topicReplayMemberId === this.topic.memberId) {
-                //     this.topicReplayMemberId = '',
-                //     this.placeholder = '我也要说点什么',
-                //     this.topicReplyCommentId = '',
-                //     this.topicReplayUserNickName = '',
-                //     this.topicReplayUserAvatar = '',
-                // this.topicCommentContent = ''
-                // } else {
-                    this.topicReplayMemberId = topicReplayMemberId,
-                    this.placeholder = '回复: ' + topicReplayUserNickName + ' ：',
+            handleChooseReply(topicReplyMemberId, topicReplyUserNickName, topicReplyUserAvatarFilePath, topicReplyCommentId) {
+                if (topicReplyMemberId === this.getMemberId()) {
+                    this.topicReplyMemberId = '',
+                    this.placeholder = '我也要说点什么',
+                    this.topicReplyCommentId = '',
+                    this.topicReplyUserNickName = '',
+                    this.topicReplyuserAvatarFilePath = '',
+                    this.topicCommentContent = ''
+                } else {
+                    this.topicReplyMemberId = topicReplyMemberId,
+                    this.placeholder = '回复: ' + topicReplyUserNickName + ' ：',
                     this.topicReplyCommentId = topicReplyCommentId,
-                    this.topicReplayUserNickName = topicReplayUserNickName,
-                    this.topicReplayUserAvatar = topicReplayUserAvatar
-                // }
+                    this.topicReplyUserNickName = topicReplyUserNickName,
+                    this.topicReplyuserAvatarFilePath = topicReplyuserAvatarFilePath
+                }
 
             },
             handleCancelReply() {
-                this.topicReplayMemberId = '',
+                this.topicReplyMemberId = '',
                 this.placeholder = '我也要说点什么',
                 this.topicReplyCommentId = '',
-                this.topicReplayUserNickName = '',
-                this.topicReplayUserAvatar = '',
+                this.topicReplyUserNickName = '',
+                this.topicReplyuserAvatarFilePath = '',
                 this.topicCommentContent = ''
             },
             handleSubmit() {
@@ -240,18 +275,41 @@
                 if (!topicId){
                     return;
                 }
+                if (this.topicCommentContent === '') {
+                    this.toast('评论不能为空', () => {
+                    });
+                    return;
+                }
+                // 判断整个字符串是否为空
+                if (this.topicCommentContent.charAt(0) === ' ') {
+                    let arr = this.topicCommentContent.split('');
+                    let isNone = true;
+                    for(var j = 0,len = arr.length; j < len; j++){
+                        if(arr[j] !== ' '){
+                            isNone = false;
+                        }
+                    }
+                    if (isNone){
+                        this.toast('不说点什么?', () => {
+                        });
+                        return;
+                    }
+                }
+
+                this.isShowLoaing = true;
                 this.request({
                     url: '/topic/comment/mobile/v1/save',
                     data: {
                         topicId: topicId,
-                        topicReplayMemberId: this.topicReplayMemberId,
+
+                        topicReplyMemberId: this.topicReplyMemberId,
                         topicReplyCommentId: this.topicReplyCommentId,
+                        topicReplyUserAvatarFilePath: this.topicReplyuserAvatarFilePath,
+                        topicReplyUserNickName: this.topicReplyUserNickName,
 
-                        topicReplayUserAvatar: this.topicReplayUserAvatar,
-                        topicReplayUserNickName: this.topicReplayUserNickName,
-
-                        userNickName: this.topic.theSendInfo.userNickName,
-                        userAvatar: this.topic.theSendInfo.userAvatar,
+                        memberId: this.getMemberId(),
+                        userNickName: this.getUserNickName(),
+                        userAvatarFilePath: this.getUserAvatarFilePath(),
 
                         topicCommentContent: this.topicCommentContent
                     },
@@ -260,8 +318,10 @@
                             this.handleLoadComment();
                             this.handleCancelReply();
                         }
+                        this.isShowLoaing = false;
                     },
                     error: () => {
+                        this.isShowLoaing = false;
                     }
                 });
 

@@ -30,134 +30,24 @@
             commentPageIndex: 1,
             commentPageSize: 3,
 
-            // topicList: [{
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }]
-            // }, {
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }]
-            // }, {
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }]
-            // }, {
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }]
-            // }, {
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }]
-            // }, {
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }]
-            // }, {
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }]
-            // }, {
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }]
-            // }, {
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }]
-            // }]
+            selfHomePage: false
         }),
         created() {
-            console.log('开始加载用户: ' + weex.config.parameter.memberId + ' 的个人主页');
             this.memberId = weex.config.parameter.memberId;
             if (this.memberId){
-                this.handleLoadTopicList(this.memberId);
+                if (this.memberId === this.getMemberId()){
+                    this.handleLoadSelfMemberInfo();
+                    this.handleLoadSelfTopicList();
+                    this.selfHomePage = true;
+                }else {
+                    this.handleLoadOtherMemberInfo(this.memberId);
+                    this.handleLoadOtherTopicList(this.memberId);
+                }
             } else {
+                this.handleLoadSelfMemberInfo();
                 this.handleLoadSelfTopicList();
+                this.selfHomePage = true;
             }
-            this.handleLoadMemberInfo();
         },
         mounted() {
 
@@ -172,7 +62,8 @@
                 // });
             },
 
-            handleLoadTopicList(memberId) {
+            handleLoadOtherTopicList(memberId) {
+                console.log('开始加载别人的个人主页动态列表')
                 if (memberId) {
                     this.request({
                         url: '/topic/mobile/v1/home/topic',
@@ -202,6 +93,7 @@
                 }
             },
             handleLoadSelfTopicList() {
+                console.log('开始加载自己的个人主页动态列表')
                 this.request({
                     url: '/topic/mobile/v1/self/home/topic',
                     data: {
@@ -227,7 +119,8 @@
                     }
                 });
             },
-            handleLoadMemberInfo() {
+            handleLoadSelfMemberInfo() {
+                console.log('开始加载自己的个人主页信息')
                 this.request({
                     url: '/topic/mobile/v1/home/self/info',
                     data: {},
@@ -237,8 +130,24 @@
                     error: () => {
                     }
                 });
-
+            },
+            handleLoadOtherMemberInfo(memberId) {
+                if (memberId) {
+                    console.log('开始加载别人的个人主页信息')
+                    this.request({
+                        url: '/topic/mobile/v1/home/user/info',
+                        data: {
+                            memberId: memberId
+                        },
+                        success: (data) => {
+                            this.member = data
+                        },
+                        error: () => {
+                        }
+                    });
+                }
             }
+
         }
     }
 </script>
