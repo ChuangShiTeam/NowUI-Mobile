@@ -26,6 +26,8 @@
             followForumTotal : 0,
             followForumList: [],
 
+            forumRecommendList: [],
+
             hotTopicPageIndex: 1,
             hotTopicPageSize: 3,
             hotTopicTotal: 0,
@@ -169,6 +171,7 @@
         }),
         created() {
             this.handleLoadJoinForumList();
+            this.handleLoadRecommendForumList();
             this.handleLoadHotTopicList();
 
         },
@@ -191,6 +194,23 @@
                         }
                         console.log(this.followForumTotal)
                         console.log(this.followForumList)
+                    },
+                    error: () => {
+                    }
+                });
+            },
+            handleLoadRecommendForumList() {
+                console.log('开始载入你或许感兴趣的圈子列表');
+                this.request({
+                    url: '/forum/mobile/v1/recommend/list',
+                    data: {
+                        pageSize: 8
+                    },
+                    success: (data) => {
+                        if (data.length > 0) {
+                            this.forumRecommendList = data
+                        }
+                        console.log( this.forumRecommendList)
                     },
                     error: () => {
                     }

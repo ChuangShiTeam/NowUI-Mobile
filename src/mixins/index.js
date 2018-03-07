@@ -10,8 +10,8 @@ export default {
     data() {
         return {
             pageHeight: 0,
-            // host: 'http://localhost:8080',
-            host: 'http://118.31.229.16:80',
+            host: 'http://192.168.2.125:8080',
+            // host: 'http://118.31.229.16:80',
             imageHost: 'http://118.31.229.16:80',
             // imageHost: 'http://localhost:8080',
             appId: 'df2078d6c9eb46babb0df957127273ab',
@@ -94,28 +94,54 @@ export default {
             config.data.version = this.version;
             config.data.timestamp = Math.round(new Date().getTime() / 1000);
 
-            stream.fetch({
-                method: 'POST',
-                url: this.host + config.url,
-                type: 'json',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(config.data),
-            }, (response) => {
-                if (response.ok) {
-                    if (response.data.code == 200) {
-                        config.success(response.data.data);
-                    } else {
-                        this.toast(response.data.message);
+            if (config.url.startsWith('http')) {
+                stream.fetch({
+                    method: 'POST',
+                    url: config.url,
+                    type: 'json',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(config.data),
+                }, (response) => {
+                    if (response.ok) {
+                        if (response.data.code == 200) {
+                            config.success(response.data.data);
+                        } else {
+                            this.toast(response.data.message);
 
-                        config.error();
+                            config.error();
+                        }
                     }
-                }
-            }, function (response) {
+                }, function (response) {
 
-            });
+                });
+            }else {
+                stream.fetch({
+                    method: 'POST',
+                    url: this.host + config.url,
+                    type: 'json',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(config.data),
+                }, (response) => {
+                    if (response.ok) {
+                        if (response.data.code == 200) {
+                            config.success(response.data.data);
+                        } else {
+                            this.toast(response.data.message);
+
+                            config.error();
+                        }
+                    }
+                }, function (response) {
+
+                });
+            }
+
         },
         setToken(token) {
             this.storage.setItem('token_' + this.version, token, res => {
@@ -136,6 +162,58 @@ export default {
             }
 
             return token;
+        },
+        setUserAvatarFilePath(userAvatarFilePath) {
+            this.storage.setItem('userAvatarFilePath', userAvatarFilePath, res => {
+                if(res.result === 'success'){
+                    // 数据缓存成功
+                }
+            });
+        },
+        getUserAvatarFilePath() {
+            let userAvatarFilePath = '';
+            this.storage.getItem('userAvatarFilePath', res => {
+                if(res.result === 'success'){
+                    userAvatarFilePath = res.data;
+                }
+            });
+
+            return userAvatarFilePath;
+        },
+        setUserNickName(userNickName) {
+            this.storage.setItem('userNickName', userNickName, res => {
+                if(res.result === 'success'){
+                    // 数据缓存成功
+                }
+            });
+        },
+        getUserNickName() {
+            let userNickName = '';
+            this.storage.getItem('userNickName', res => {
+                if(res.result === 'success'){
+                    userNickName = res.data;
+                }
+            });
+
+            return userNickName;
+        },
+        setMemberId(memberId) {
+            this.storage.setItem('memberId', memberId, res => {
+                if(res.result === 'success'){
+                    // 数据缓存成功
+                }
+            });
+        },
+        getMemberId() {
+            let memberId = '';
+            this.storage.getItem('memberId', res => {
+                if(res.result === 'success'){
+                    memberId = res.data;
+                }
+            });
+
+            return memberId;
         }
+
     }
 }

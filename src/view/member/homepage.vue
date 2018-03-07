@@ -20,6 +20,7 @@
         mixins: [mixins],
         data: () => ({
             memberId: '',
+            member: {},
             topicPageIndex: 1,
             topicPageSize: 20,
 
@@ -156,6 +157,7 @@
             } else {
                 this.handleLoadSelfTopicList();
             }
+            this.handleLoadMemberInfo();
         },
         mounted() {
 
@@ -224,6 +226,18 @@
                     error: () => {
                     }
                 });
+            },
+            handleLoadMemberInfo() {
+                this.request({
+                    url: '/topic/mobile/v1/home/self/info',
+                    data: {},
+                    success: (data) => {
+                        this.member = data
+                    },
+                    error: () => {
+                    }
+                });
+
             }
         }
     }

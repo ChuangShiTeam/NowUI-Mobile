@@ -37,7 +37,7 @@
 
         },
         mounted() {
-            this.url = this.host + '/file/mobile/v1/image/upload';
+            this.url = this.imageHost + '/file/mobile/v1/image/upload';
         },
         methods: {
             handleClose(index) {
@@ -96,12 +96,16 @@
                                 base64Data = e.target.result;
 
                                 this.request({
-                                    url: '/file/mobile/v1/base64/upload',
+                                    url: this.imageHost + '/file/mobile/v1/base64/upload',
                                     data: {
                                         base64Data: base64Data
                                     },
                                     success: (data) => {
                                         this.imageList.push(data);
+
+                                        event.$emit(this.eventName, {
+                                            imageList: this.imageList
+                                        });
                                     }
                                 });
                             };

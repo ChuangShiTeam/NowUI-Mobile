@@ -5,7 +5,7 @@
                :src="imageHost + forum.forumBackgroundMedia"></image>
         <image class="header-avatar"
                resize="cover"
-               :src="imageHost + forum.forumMedia"></image>
+               :src="imageHost + forum.forumMediaFilePath"></image>
     </div>
     <div class="info">
         <text class="info-name">{{forum.forumName}}</text>
@@ -28,7 +28,7 @@
             <image class="member-avatar"
                    resize="cover"
                    slot="label"
-                   :src="imageHost + forum.userAvatar"></image>
+                   :src="imageHost + forum.userAvatarFilePath"></image>
             <div slot="title">
                 <text class="member-name">{{forum.userNickName}}</text>
                 <text class="member-description">{{forum.memberSignature}}</text>

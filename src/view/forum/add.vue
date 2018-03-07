@@ -55,22 +55,20 @@
                 }
 
                 this.isLoad = true;
-
+                let nickname = this.getUserNickName();
+                console.log(nickname)
                 this.request({
                     url: '/forum/mobile/v1/save',
                     data: {
                         forumName: this.forumName,
                         forumMediaType: 'IMAGE',
-                        forumMedia: this.imageList[0].filePath,
+                        forumMediaId: this.imageList[0].fileId,
+                        forumMediaFilePath: this.imageList[0].filePath,
                         forumDescription: this.forumDescription,
-                        forumModeratorInfo : {
-                            userNickName: '谁用了我的头像(新)',
-                            userAvatar: '/upload/df2078d6c9eb46babb0df957127273ab/3bdfcbb00f90415989fb53e6677c25df/ae74752bc95c4ed6a9ebbd020d3b4105.jpg',
-                            memberSignature: '喵咪太可爱了!(新签名)'
-                        },
-                        userNickName: '谁用了我的头像(新)',
-                        userAvatar: '/upload/df2078d6c9eb46babb0df957127273ab/3bdfcbb00f90415989fb53e6677c25df/ae74752bc95c4ed6a9ebbd020d3b4105.jpg',
-                        memberSignature: '喵咪太可爱了!(新签名)'
+                        userNickName: this.getUserNickName(),
+                        userAvatarFilePath: this.getUserAvatarFilePath(),
+                        forumModeratorMemberId: this.getMemberId(),
+                        // memberSignature: '喵咪太可爱了!(新签名)'
                     },
                     success: (data) => {
                         this.isLoad = false;

@@ -59,6 +59,11 @@
                     success: (data) => {
                         this.isLoad = false;
                         this.setToken(data.token);
+
+                        this.setUserAvatarFilePath(data.userAvatarFilePath);
+                        this.setUserNickName(data.userNickName);
+                        this.setMemberId(data.memberId)
+
                         this.toast('登录成功', () => {
                             this.push('/index.html');
                         });
