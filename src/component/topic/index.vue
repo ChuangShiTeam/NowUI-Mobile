@@ -124,7 +124,7 @@
             handleFollow(memberId) {
                 if (memberId) {
                     this.request({
-                        url: this.topic.memberIsFollow ? '/member/follow/mobile/v1/delete' : '/member/follow/mobile/v1/save',
+                        url: this.topic.memberIsFollow ? '/sns/member/follow/mobile/v1/delete' : '/sns/member/follow/mobile/v1/save',
                         data: {
                             followMemberId: memberId
                         },
@@ -132,7 +132,7 @@
                             if (data){
                                 this.topic.memberIsFollow = !this.topic.memberIsFollow;
                             }
-                            console.log(data)
+
                         },
                         error: () => {
                         }

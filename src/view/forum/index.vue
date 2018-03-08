@@ -50,7 +50,8 @@
                     url: '/forum/user/follow/mobile/v1/list',
                     data: {
                         pageIndex: this.forumJoinPageIndex,
-                        pageSize: this.forumJoinPageSize
+                        pageSize: this.forumJoinPageSize,
+                        memberId: this.getMemberId()
                     },
                     success: (data) => {
                         if (data.total > 0) {
@@ -69,7 +70,8 @@
                 this.request({
                     url: '/forum/mobile/v1/recommend/list',
                     data: {
-                        pageSize: 8
+                        pageSize: 8,
+                        requestMemberId: this.getMemberId()
                     },
                     success: (data) => {
                         if (data.length > 0) {

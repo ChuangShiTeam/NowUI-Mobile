@@ -27,124 +27,6 @@
                 topicTotal: 0,
                 topicList: [],
 
-                // topicList: [{
-                //     topicId: '0',
-                //     topicMediaList: [{
-                //         filePath: ''
-                //     }, {
-                //         filePath: ''
-                //     }, {
-                //         filePath: ''
-                //     }, {
-                //         filePath: ''
-                //     }, {
-                //         filePath: ''
-                //     }, {
-                //         filePath: ''
-                //     }, {
-                //         filePath: ''
-                //     }, {
-                //         filePath: ''
-                //     }, {
-                //         filePath: ''
-                //     }]
-                // }, {
-                //     topicId: '0',
-                //     topicMediaList: [{
-                //         filePath: ''
-                //     }, {
-                //         filePath: ''
-                //     }, {
-                //         filePath: ''
-                //     }, {
-                //         filePath: ''
-                //     }, {
-                //         filePath: ''
-                //     }, {
-                //         filePath: ''
-                //     }, {
-                //         filePath: ''
-                //     }, {
-                //         filePath: ''
-                //     }]
-                // }, {
-                //     topicId: '0',
-                //     topicMediaList: [{
-                //         filePath: ''
-                //     }, {
-                //         filePath: ''
-                //     }, {
-                //         filePath: ''
-                //     }, {
-                //         filePath: ''
-                //     }, {
-                //         filePath: ''
-                //     }, {
-                //         filePath: ''
-                //     }, {
-                //         filePath: ''
-                //     }]
-                // }, {
-                //     topicId: '0',
-                //     topicMediaList: [{
-                //         filePath: ''
-                //     }, {
-                //         filePath: ''
-                //     }, {
-                //         filePath: ''
-                //     }, {
-                //         filePath: ''
-                //     }, {
-                //         filePath: ''
-                //     }, {
-                //         filePath: ''
-                //     }]
-                // }, {
-                //     topicId: '0',
-                //     topicMediaList: [{
-                //         filePath: ''
-                //     }, {
-                //         filePath: ''
-                //     }, {
-                //         filePath: ''
-                //     }, {
-                //         filePath: ''
-                //     }, {
-                //         filePath: ''
-                //     }]
-                // }, {
-                //     topicId: '0',
-                //     topicMediaList: [{
-                //         filePath: ''
-                //     }, {
-                //         filePath: ''
-                //     }, {
-                //         filePath: ''
-                //     }, {
-                //         filePath: ''
-                //     }]
-                // }, {
-                //     topicId: '0',
-                //     topicMediaList: [{
-                //         filePath: ''
-                //     }, {
-                //         filePath: ''
-                //     }, {
-                //         filePath: ''
-                //     }]
-                // }, {
-                //     topicId: '0',
-                //     topicMediaList: [{
-                //         filePath: ''
-                //     }, {
-                //         filePath: ''
-                //     }]
-                // }, {
-                //     topicId: '0',
-                //     topicMediaList: [{
-                //         filePath: ''
-                //     }]
-                // }]
             }
         },
         created() {
@@ -163,7 +45,8 @@
                     this.request({
                         url: '/forum/mobile/v1/home',
                         data: {
-                            forumId: forumId
+                            forumId: forumId,
+                            requestMemberId: this.getMemberId()
                         },
                         success: (data) => {
                             if (data) {
@@ -183,6 +66,7 @@
                         url: '/forum/mobile/v1/home/topic/list',
                         data: {
                             forumId: forumId,
+                            requestMemberId: this.getMemberId(),
                             pageIndex: this.topicPageIndex,
                             pageSize: this.topicPageSize,
                             systemCreateTime: moment().format('YYYY-MM-DD HH:mm:ss'),
@@ -211,13 +95,15 @@
                         url: '/forum/user/follow/mobile/v1/save',
                         data: {
                             forumId: forumId,
-                            forumModerator: this.forum.forumModerator,
+                            forumModeratorMemberId: this.forum.forumModeratorMemberId,
+                            forumModeratorUserAvatarFilePath: this.forum.userAvatarFilePath,
+                            forumModeratorUserNickName: this.forum.userNickName,
+                            forumModeratorMemberSignature: '',
 
-                            userInfo : this.forum.forumModeratorInfo,
-                            userNickName: this.forum.userNickName + '',
-                            userAvatar: this.forum.userAvatar + '',
-                            memberSignature: this.forum.memberSignature + '',
-
+                            memberId: this.getMemberId(),
+                            userAvatarFilePath: this.getUserAvatarFilePath(),
+                            userNickName: this.getUserNickName(),
+                            memberSignature: ''
 
                         },
                         success: (data) => {

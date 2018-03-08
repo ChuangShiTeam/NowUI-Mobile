@@ -62,7 +62,8 @@
                     this.request({
                         url: '/topic/mobile/v1/find',
                         data: {
-                            topicId: this.topicId
+                            topicId: this.topicId,
+                            memberId: this.getMemberId()
                         },
                         success: (data) => {
                             this.topic = data;
@@ -225,10 +226,10 @@
 
             },
             handleFollow(memberId) {
-                this.isShowLoaing = true;
                 if (memberId) {
+                    this.isShowLoaing = true;
                     this.request({
-                        url: this.topic.memberIsFollow ? '/member/follow/mobile/v1/delete' : '/member/follow/mobile/v1/save',
+                        url: this.topic.memberIsFollow ? '/sns/member/follow/mobile/v1/delete' : '/sns/member/follow/mobile/v1/save',
                         data: {
                             followMemberId: memberId
                         },
@@ -258,7 +259,7 @@
                     this.placeholder = '回复: ' + topicReplyUserNickName + ' ：',
                     this.topicReplyCommentId = topicReplyCommentId,
                     this.topicReplyUserNickName = topicReplyUserNickName,
-                    this.topicReplyuserAvatarFilePath = topicReplyuserAvatarFilePath
+                    this.topicReplyuserAvatarFilePath = topicReplyUserAvatarFilePath
                 }
 
             },

@@ -123,7 +123,8 @@
                     url: '/forum/user/follow/mobile/v1/list',
                     data: {
                         pageIndex: this.forumJoinPageIndex,
-                        pageSize: this.forumJoinPageSize
+                        pageSize: this.forumJoinPageSize,
+                        memberId: this.getMemberId()
                     },
                     success: (data) => {
                         if (data.total > 0) {

@@ -72,6 +72,7 @@
                         url: '/topic/mobile/v1/home/topic',
                         data: {
                             memberId: memberId,
+                            requestMemberId: this.getMemberId(),
                             pageIndex: this.topicPageIndex,
                             pageSize: this.topicPageSize,
                             systemCreateTime: moment().format('YYYY-MM-DD HH:mm:ss'),
@@ -102,6 +103,7 @@
                     data: {
                         pageIndex: this.topicPageIndex,
                         pageSize: this.topicPageSize,
+                        memberId: this.getMemberId(),
                         systemCreateTime: moment().format('YYYY-MM-DD HH:mm:ss'),
                         excludeTopicIdList: [],
                         commentPageIndex: this.commentPageIndex,
@@ -126,7 +128,9 @@
                 console.log('开始加载自己的个人主页信息')
                 this.request({
                     url: '/topic/mobile/v1/home/self/info',
-                    data: {},
+                    data: {
+                        memberId: this.getMemberId()
+                    },
                     success: (data) => {
                         this.member = data
                     },
@@ -151,8 +155,9 @@
                 }
             },
             handleFollow(memberId) {
-                this.isShowLoaing = true;
+
                 if (memberId) {
+                    this.isShowLoaing = true;
                     this.request({
                         url: this.member.memberIsFollow ? '/sns/member/follow/mobile/v1/delete' : '/sns/member/follow/mobile/v1/save',
                         data: {
@@ -163,9 +168,18 @@
                                 this.member.memberIsFollow = !this.member.memberIsFollow;
                                 if (this.member.memberIsFollow){
                                     this.member.memberBeFollowCount = this.member.memberBeFollowCount + 1;
+                                    // 他的话题列表的关注按钮也要变
+                                    for(var j = 0,len = this.topicList.length; j < len; j++){
+                                        this.topicList[j].memberIsFollow = !this.topicList[j].memberIsFollow
+                                    }
+
                                 }else{
                                     if(this.member.memberBeFollowCount > 0){
                                         this.member.memberBeFollowCount = this.member.memberBeFollowCount - 1;
+                                        // 他的话题列表的关注按钮也要变
+                                        for(var j = 0,len = this.topicList.length; j < len; j++){
+                                            this.topicList[j].memberIsFollow = !this.topicList[j].memberIsFollow
+                                        }
                                     }
                                 }
                             }
