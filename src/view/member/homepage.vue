@@ -2,7 +2,7 @@
 <template src="./homepage.html"></template>
 
 <script type="text/ecmascript-6">
-    import {WxcMinibar, WxcCell} from 'weex-ui';
+    import {WxcMinibar, WxcCell, WxcLoading} from 'weex-ui';
 
     import mixins from '../../mixins/index';
 
@@ -15,7 +15,8 @@
         components: {
             WxcMinibar,
             WxcCell,
-            Topic
+            Topic,
+            WxcLoading
         },
         mixins: [mixins],
         data: () => ({
@@ -30,7 +31,9 @@
             commentPageIndex: 1,
             commentPageSize: 3,
 
-            selfHomePage: false
+            selfHomePage: false,
+
+            isShowLoaing: false
         }),
         created() {
             this.memberId = weex.config.parameter.memberId;
@@ -143,6 +146,33 @@
                             this.member = data
                         },
                         error: () => {
+                        }
+                    });
+                }
+            },
+            handleFollow(memberId) {
+                this.isShowLoaing = true;
+                if (memberId) {
+                    this.request({
+                        url: this.member.memberIsFollow ? '/sns/member/follow/mobile/v1/delete' : '/sns/member/follow/mobile/v1/save',
+                        data: {
+                            followMemberId: memberId
+                        },
+                        success: (data) => {
+                            if (data){
+                                this.member.memberIsFollow = !this.member.memberIsFollow;
+                                if (this.member.memberIsFollow){
+                                    this.member.memberBeFollowCount = this.member.memberBeFollowCount + 1;
+                                }else{
+                                    if(this.member.memberBeFollowCount > 0){
+                                        this.member.memberBeFollowCount = this.member.memberBeFollowCount - 1;
+                                    }
+                                }
+                            }
+                            this.isShowLoaing = false;
+                        },
+                        error: () => {
+                            this.isShowLoaing = false;
                         }
                     });
                 }

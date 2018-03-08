@@ -50,7 +50,7 @@
             handleFollow(memberId, index) {
                 if (memberId) {
                     this.request({
-                        url: this.userLikeList[index].memberIsFollow ? '/member/follow/mobile/v1/delete' : '/member/follow/mobile/v1/save',
+                        url: this.userLikeList[index].memberIsFollow ? '/sns/member/follow/mobile/v1/delete' : '/sns/member/follow/mobile/v1/save',
                         data: {
                             followMemberId: memberId
                         },

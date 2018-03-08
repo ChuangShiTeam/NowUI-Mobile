@@ -34,7 +34,11 @@
                     <text class="info-footer-right-message-text">私信</text>
                 </div>
                 <div class="info-footer-right-follow">
-                    <text class="info-footer-right-follow-text">关注 TA</text>
+                    <text class="info-footer-right-follow-text"
+                          v-if="member.memberIsFollow" @click="handleFollow(member.memberId)">已关注</text>
+                    <text class="info-footer-right-follow-text"
+                          @click="handleFollow(member.memberId)"
+                          v-else >关注 TA</text>
                 </div>
             </div>
         </div>
@@ -47,4 +51,6 @@
            :containerStyle="{marginBottom: 20}"
            v-for="(topic, index) in topicList"
            :key="index"></Topic>
+
+    <wxc-loading :show="isShowLoaing"></wxc-loading>
 </scroller>
