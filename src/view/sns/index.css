@@ -6,7 +6,7 @@
 }
 
 .tab-item {
-    position: relative;
+    /*position: relative;*/
     width: 1500px;
     flex: 1;
     flex-direction: row;

@@ -92,7 +92,7 @@
 }
 
 .category-item-text {
-    font-size: 20px;
+    font-size: 24px;
     text-align: center;
     color: #000000;
 }
@@ -131,7 +131,7 @@
 
 .article-top-title {
     font-family: PingFangSC-Light;
-    font-size: 24px;
+    font-size: 30px;
     color: #ffffff;
 }
 
@@ -144,14 +144,14 @@
 }
 
 .article-list-image {
-    width: 68px;
-    height: 68px;
+    width: 100px;
+    height: 100px;
     margin-right: 24px;
 }
 
 .article-list-title {
     font-family: PingFangSC-Regular;
-    font-size: 22px;
+    font-size: 24px;
     color: #000000;
 }
 
@@ -192,14 +192,14 @@
 
 .pet-list-item-name {
     font-family: PingFangSC-Regular;
-    font-size: 22px;
+    font-size: 24px;
     color: #ffffff;
     text-align: center;
 }
 
 .pet-list-item-description {
     font-family: PingFangSC-Regular;
-    font-size: 22px;
+    font-size: 24px;
     color: #FFFFFF;
     text-align: center;
 }
@@ -250,13 +250,13 @@
 
 .member-recommend {
     font-family: PingFangSC-Regular;
-    font-size: 18px;
+    font-size: 24px;
     color: #4a4a4a;
 }
 
 .member-follow {
     font-family: PingFangSC-Regular;
-    font-size: 18px;
+    font-size: 24px;
     color: #000000;
     background-color: #defafd;
     border-radius: 31px;

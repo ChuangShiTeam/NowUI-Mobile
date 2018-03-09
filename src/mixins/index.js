@@ -10,8 +10,8 @@ export default {
     data() {
         return {
             pageHeight: 0,
-            host: 'http://192.168.2.125:8080',
-            // host: 'http://118.31.229.16:80',
+            // host: 'http://192.168.2.125:8080',
+            host: 'http://118.31.229.16:80',
             imageHost: 'http://118.31.229.16:80',
             // imageHost: 'http://localhost:8080',
             appId: 'df2078d6c9eb46babb0df957127273ab',
