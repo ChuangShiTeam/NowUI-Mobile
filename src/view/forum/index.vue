@@ -86,7 +86,7 @@
             handleLoadHotTopicList() {
                 console.log('开始载入热门动态列表');
                 this.request({
-                    url: '/topic/mobile/v1/home/list',
+                    url: '/topic/mobile/v1/hot/list',
                     data: {
                         pageIndex: this.hotTopicPageIndex,
                         pageSize: this.hotTopicPageSize,
