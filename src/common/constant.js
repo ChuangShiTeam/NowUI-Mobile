@@ -4,7 +4,7 @@ module.exports = {
         'index',
         // 'article/index',
         // 'article/search',
-        // 'forum/add',
+        'forum/add',
         // 'forum/follow',
         // 'forum/homepage',
         // 'forum/index',

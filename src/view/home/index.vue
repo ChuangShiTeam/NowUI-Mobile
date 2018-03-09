@@ -15,18 +15,11 @@
             WxcCell,
             Topic
         },
-        props: {
-            tabHeight: {
-                type: Number,
-                required: true
-            }
-        },
         mixins: [mixins],
         data: () => ({
             headerBackgroundOpacity: 0.0,
             bannerList: [],
             articleList: [],
-            // categoryList: [],
             categoryList: [{
                 name: '保健卡',
                 image: 'http://h5.chuangshi.nowui.com/wawipet/image/category-0.png'
