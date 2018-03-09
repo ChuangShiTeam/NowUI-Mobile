@@ -88,10 +88,7 @@
                         topicMediaList: this.topicMediaList,
                         userNickName: this.getUserNickName(),
                         userAvatarFilePath: this.getUserAvatarFilePath(),
-                        memberId: this.getMemberId(),
-                        // userNickName: '谁用了我的头像(新)',
-                        // userAvatar: '/upload/df2078d6c9eb46babb0df957127273ab/3bdfcbb00f90415989fb53e6677c25df/ae74752bc95c4ed6a9ebbd020d3b4105.jpg',
-                        // memberSignature: '喵咪太可爱了!(新签名)'
+                        memberId: this.getMemberId()
                     },
                     success: (data) => {
                         this.toast('发布成功', () => {
@@ -129,7 +126,7 @@
 
 
                 // forumList[index] = forum;
-                //TODO 不会检测到根据索引直接赋值,和数字长度变化然后重新渲染页面,可按照下面两个方法达到效果
+                //TODO vue不会检测到根据索引直接赋值,和数字长度变化然后重新渲染页面,可按照下面两个方法达到效果
                 // Vue.set(forumList, index, forum);
                 forumList.splice(index, 1, forum)
 

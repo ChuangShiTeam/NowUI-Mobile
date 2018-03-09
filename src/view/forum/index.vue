@@ -91,7 +91,8 @@
                         pageIndex: this.hotTopicPageIndex,
                         pageSize: this.hotTopicPageSize,
                         systemCreateTime: moment().format('YYYY-MM-DD HH:mm:ss'),
-                        excludeTopicIdList: []
+                        excludeTopicIdList: [],
+                        memberId: this.getMemberId()
                     },
                     success: (data) => {
                         if (data.total > 0) {

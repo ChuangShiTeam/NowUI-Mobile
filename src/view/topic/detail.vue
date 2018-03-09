@@ -88,7 +88,8 @@
                             pageIndex: this.commentPageIndex,
                             pageSize: this.commentPageSize,
                             systemCreateTime: moment().format('YYYY-MM-DD HH:mm:ss'),
-                            excludeCommentIdList: []
+                            excludeCommentIdList: [],
+                            memberId: this.getMemberId()
                         },
                         success: (data) => {
                             if (data && data.list && data.list.length > 0) {
@@ -176,7 +177,8 @@
                 this.request({
                     url: this.topicCommentList[index].topicCommentIsLike ? '/topic/comment/user/unlike/mobile/v1/save' : '/topic/comment/user/like/mubile/v1/save',
                     data: {
-                        commentId: this.topicCommentList[index].topicCommentId
+                        commentId: this.topicCommentList[index].topicCommentId,
+                        memberId: this.getMemberId()
                     },
                     success: (data) => {
                         if (data) {

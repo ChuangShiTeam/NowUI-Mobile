@@ -41,7 +41,8 @@
                         pageIndex: this.topicPageIndex,
                         pageSize: this.topicPageSize,
                         systemCreateTime: moment().format('YYYY-MM-DD HH:mm:ss'),
-                        excludeTopicIdList: []
+                        excludeTopicIdList: [],
+                        memberId: this.getMemberId()
                     },
                     success: (data) => {
                         if (data.total > 0) {
