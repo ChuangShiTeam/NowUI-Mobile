@@ -25,6 +25,7 @@
             forumName: '',
             forumMedia: '',
             forumDescription: '',
+            forumBackgroundMediaList: ''
         }),
         created() {
 
@@ -32,6 +33,10 @@
         mounted() {
             event.$on('forum-add-upload', (data) => {
                 this.imageList = data.imageList;
+            });
+
+            event.$on('forum-add-background-upload', (data) => {
+                this.forumBackgroundMediaList = data.imageList;
             });
         },
         methods: {
@@ -54,9 +59,22 @@
                     return;
                 }
 
+                if (this.forumBackgroundMediaList.length == 0) {
+                    this.toast('请上传圈子背景照片');
+
+                    return;
+                }
+
+                this.forumBackgroundMediaList = this.forumBackgroundMediaList.map((forumBackgroundMedia, index) => {
+                    return {
+                        forumBackgroundMediaFileId: forumBackgroundMedia.fileId,
+                        forumBackgroundMediaFilePath: forumBackgroundMedia.filePath,
+                        forumBackgroundMediaType: 'IMAGE',
+                        forumBackgroundMediaSort: index + 1
+                    }
+                });
+
                 this.isLoad = true;
-                let nickname = this.getUserNickName();
-                console.log(nickname)
                 this.request({
                     url: '/forum/mobile/v1/save',
                     data: {
@@ -68,6 +86,8 @@
                         userNickName: this.getUserNickName(),
                         userAvatarFilePath: this.getUserAvatarFilePath(),
                         forumModeratorMemberId: this.getMemberId(),
+
+                        forumBackgroundMediaList:  this.forumBackgroundMediaList
                         // memberSignature: '喵咪太可爱了!(新签名)'
                     },
                     success: (data) => {
