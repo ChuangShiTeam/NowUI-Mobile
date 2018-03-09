@@ -261,9 +261,10 @@
                 });
             },
             handleMyHomepage() {
-                event.$emit('login-show', {
-
-                });
+                // event.$emit('login-show', {
+				//
+                // });
+				this.toast('123');
             },
             handleSearch() {
                 this.push('/home/search.html');

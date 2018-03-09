@@ -62,13 +62,13 @@
             <text class="article-top-title">{{articleList[0].articleTitle}}</text>
         </div>
     </div>
-    <scroller class="content"
-              :style="{top: -90, width: 750, height: 300, alignItems: 'center', marginTop: 24, marginBottom: 20}">
+    <div class="content"
+              :style="{top: -90, width: 750, alignItems: 'center', marginTop: 24, marginBottom: 20}">
         <wxc-cell :has-arrow="false"
                   :has-top-border="false"
                   :has-bottom-border="true"
                   :auto-accessible="false"
-                  :cell-style="{width: 702}"
+                  :cell-style="{width: 702, height: 150}"
                   v-for="(article, index) in filterArticleList"
                   :key="index"
                   @wxcCellClicked="handleCategory">
@@ -76,11 +76,11 @@
                        resize="cover"
                        slot="label"
                        :src="imageHost + article.articleMediaPath"></image>
-                <text class="article-list-title"
-                      slot="title">{{article.articleTitle}}
-                </text>
+                <div slot="title">
+                    <text class="article-list-title">{{article.articleTitle}}</text>
+                </div>
         </wxc-cell>
-    </scroller>
+    </div>
     <!--宠物-->
     <wxc-cell :has-arrow="false"
               :has-top-border="true"
@@ -117,7 +117,7 @@
                    resize="cover"
                    src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/104/h/104"></image>
             <text class="member-name">萌宠秀</text>
-            <text class="member-recommend">编辑推荐</text>
+            <!--<text class="member-recommend">编辑推荐</text>-->
             <text class="member-follow">去看看</text>
         </div>
     </scroller>
@@ -133,11 +133,4 @@
            :containerStyle="{top: -90, marginBottom: index + 1 == topicList.length ? 0 : 20}"
            v-for="(topic, index) in topicList"
            :key="index"></Topic>
-    <!--尾部-->
-    <div class="footer">
-        <text class="footer-copyright">copyright wawipet.com 2017-2019</text>
-        <text class="footer-record">沪ICP备 12345678</text>
-        <text class="footer-email">email:market@wawipet.com</text>
-        <div class="footer-background"></div>
-    </div>
 </scroller>

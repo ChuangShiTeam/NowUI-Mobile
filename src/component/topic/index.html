@@ -26,10 +26,11 @@
                  @click="handleDelete" v-if="topic.topicIsSelf">
                 <text class="delete-text">删除</text>
             </div>
-            <text class="close"
+            <div class="close"
                   @click="handleClose"
-                  @wxcPopupOverlayClicked="handleCloseClick">+
-            </text>
+                  @wxcPopupOverlayClicked="handleCloseClick">
+                <text>+</text>
+            </div>
         </div>
     </wxc-cell>
     <div class="media-1" v-if="topic.topicMediaList.length == 1" @click="handleTopic(topic.topicId)">

@@ -48,7 +48,7 @@
     background-color: #defafd;
     border-radius: 30px;
     font-family: PingFangSC-Regular;
-    font-size: 22px;
+    font-size: 24px;
     color: #000000;
 }
 
@@ -78,7 +78,7 @@
 .info-message-text {
     margin-left: 10px;
     font-family: PingFangSC-Regular;
-    font-size: 22px;
+    font-size: 28px;
     color: #000000;
 }
 
@@ -106,7 +106,7 @@
 .info-collect-text {
     margin-left: 10px;
     font-family: PingFangSC-Regular;
-    font-size: 22px;
+    font-size: 28px;
     color: #000000;
 }
 
@@ -118,7 +118,7 @@
 .cell-text {
     margin-left: 20px;
     font-family: PingFangSC-Light;
-    font-size: 26px;
+    font-size: 28px;
     color: #000000;
 }
 
@@ -136,6 +136,6 @@
 
 .logout-text {
     font-family: PingFangSC-Light;
-    font-size: 32px;
+    font-size: 28px;
     color: #000000;
 }
