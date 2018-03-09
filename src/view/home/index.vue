@@ -254,10 +254,10 @@
                 });
             },
             handleMyHomepage() {
-                // event.$emit('login-show', {
-				//
-                // });
-				this.toast('123');
+                event.$emit('login-show', {
+
+                });
+				// this.toast('123');
             },
             handleSearch() {
                 this.push('/home/search.html');
