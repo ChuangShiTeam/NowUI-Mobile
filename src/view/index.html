@@ -1,16 +1,16 @@
 <div class="container">
     <div class="tab-item" :style="{left: activeIndex * -750 + 'px'}">
         <!--首页-->
-        <HomeIndex :tabHeight="pageHeight - 98"></HomeIndex>
+        <HomeIndex></HomeIndex>
 
         <!--社区-->
-        <SnsIndex :tabHeight="pageHeight - 98"></SnsIndex>
+        <SnsIndex></SnsIndex>
 
         <!--服务-->
-        <ServiceIndex :tabHeight="pageHeight - 98"></ServiceIndex>
+        <ServiceIndex></ServiceIndex>
 
         <!--我的-->
-        <MemberIndex :tabHeight="pageHeight - 98"></MemberIndex>
+        <MemberIndex></MemberIndex>
     </div>
     <div class="bar">
         <div class="bar-item" @click="handleBar(0)">

@@ -28,7 +28,7 @@
             </div>
         </wxc-minibar>
     </div>
-    <scroller :style="{width: 750, height: pageHeight}"
+    <scroller :style="{width: 750, height: pageHeight - 190}"
               offset-x-accuracy="0.1"
               @loadmore="handleLoad"
               loadmoreoffset="100">
@@ -39,7 +39,6 @@
     </scroller>
     <image class="add"
            @click="handleAdd"
-           :style="{top: pageHeight - 200}"
            resize="cover"
            src="http://h5.chuangshi.nowui.com/wawipet/image/topic-add.png"></image>
 </div>
