@@ -29,7 +29,8 @@
         </wxc-minibar>
     </div>
     <scroller :style="{width: 750, height: pageHeight - 190, marginBottom: 60}"
-              loadmoreoffset="100">
+              @loadmore="handleLoadHotTopicList"
+              loadmoreoffset="1000">
         <!--我加入的圈子-->
         <wxc-cell :has-arrow="false"
                   :has-top-border="false"
@@ -100,7 +101,7 @@
                        :container-s="{width: 750, height: 510, overflow: 'hidden', backgroundColor: '#fbfcfc'}"
                        :card-s="{width: 480, height: 480, spacing: 0, scale: 0.8}"
                        :auto-play="false"
-                       :select-index="2">
+                       :select-index="1">
             <wxc-pan-item v-for="(forumRecommend,index) in forumRecommendList"
                           :key="index"
                           :ext-id="index"

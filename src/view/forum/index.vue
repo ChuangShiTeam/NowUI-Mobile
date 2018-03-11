@@ -32,6 +32,7 @@
             hotTopicPageSize: 3,
             hotTopicTotal: 0,
             hotTopicList: [],
+            hasMore: true
 
         }),
         created() {
@@ -85,6 +86,10 @@
             },
             handleLoadHotTopicList() {
                 console.log('开始载入热门动态列表');
+                if (!this.hasMore){
+                    console.log('已经到底了')
+                    return;
+                }
                 this.request({
                     url: '/topic/mobile/v1/hot/list',
                     data: {
@@ -97,7 +102,11 @@
                     success: (data) => {
                         if (data.total > 0) {
                             this.hotTopicTotal = data.total,
-                            this.hotTopicList = data.list
+                            this.hotTopicList = this.hotTopicList.concat(data.list),
+                            this.hotTopicPageIndex = this.hotTopicPageIndex + 1
+                        }
+                        if (data.list < data.total){
+                            this.hasMore = false;
                         }
                         console.log( 'systemTime : ' + moment().format('YYYY-MM-DD HH:mm:ss'))
                     },
