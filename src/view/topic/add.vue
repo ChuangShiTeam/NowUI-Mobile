@@ -68,6 +68,14 @@
                         }
                     });
 
+                let topicTipUserList = '';
+                this.storage.getItem('topic-member-remind-list' + this.version, res => {
+                    if(res.result === 'success'){
+                        topicTipUserList = res.data;
+                    }
+                });
+                console.log(topicTipUserList)
+                alert(topicTipUserList)
                 this.request({
                     url: '/topic/mobile/v1/save',
                     data: {
@@ -84,7 +92,7 @@
                                 forumName: forum.forumName
                             }
                         }),
-                        topicTipUserList: this.topicTipUserList,
+                        topicTipUserList: topicTipUserList,
                         topicMediaList: this.topicMediaList,
                         userNickName: this.getUserNickName(),
                         userAvatarFilePath: this.getUserAvatarFilePath(),
