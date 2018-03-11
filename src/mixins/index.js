@@ -16,7 +16,9 @@ export default {
             // imageHost: 'http://localhost:8080',
             appId: 'df2078d6c9eb46babb0df957127273ab',
             version: '1.0.0',
-            platform: weex.config.env.platform.toLowerCase()
+            platform: weex.config.env.platform.toLowerCase(),
+            loginValidateSuccessAction: '',
+            loginValidateSuccessData: ''
         }
     },
     created() {
@@ -35,7 +37,21 @@ export default {
         this.storage = storage;
     },
     mounted() {
+        event.$on('login-validate-start-event', (data) => {
+            if (this.loginVlidate()) {
+                
+            } else {
+                this.isLoginShow = true;
+            }
+        });
 
+        event.$on('login-validate-end-event', (data) => {
+            //
+            if (data.success) {
+                //login-validate-success-event
+            }
+            this.$refs.login.hide();
+        });
     },
     methods: {
         toast(text, callback) {
@@ -153,13 +169,13 @@ export default {
         getToken() {
             let token = '';
             this.storage.getItem('token_' + this.version, res => {
-                if(res.result === 'success'){
+                if(res.result === 'success') {
                     token = res.data;
                 }
             });
-            if (token === null || token === '' || typeof (token) === 'undefined') {
-                return 'vjYUoyEmyZo2r7FW+iZ3sbtNCkYrKKLSzQJU7JLG2hH97BeP2+Gk72Hdd9e+qRgA4hePuuGPiTsn9q435nWD5D8+7e0Yosk/FE/M3r+W6GA=';
-            }
+            // if (token === null || token === '' || typeof (token) === 'undefined') {
+            //     return 'vjYUoyEmyZo2r7FW+iZ3sbtNCkYrKKLSzQJU7JLG2hH97BeP2+Gk72Hdd9e+qRgA4hePuuGPiTsn9q435nWD5D8+7e0Yosk/FE/M3r+W6GA=';
+            // }
 
             return token;
         },
@@ -213,6 +229,13 @@ export default {
             });
 
             return memberId;
+        },
+        loginValidate() {
+            let token = getToken();
+
+            if(token === null || token === '' || typeof (token) === 'undefined') {
+                
+            }
         }
 
     }
