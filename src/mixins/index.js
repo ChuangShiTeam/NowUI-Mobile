@@ -10,7 +10,7 @@ export default {
     data() {
         return {
             pageHeight: 0,
-            host: 'http://192.168.2.125:8080',
+            host: 'http://localhost:8080',
             // host: 'http://118.31.229.16:80',
             imageHost: 'http://118.31.229.16:80',
             // imageHost: 'http://localhost:8080',
@@ -173,9 +173,9 @@ export default {
                     token = res.data;
                 }
             });
-            // if (token === null || token === '' || typeof (token) === 'undefined') {
-            //     return 'vjYUoyEmyZo2r7FW+iZ3sbtNCkYrKKLSzQJU7JLG2hH97BeP2+Gk72Hdd9e+qRgA4hePuuGPiTsn9q435nWD5D8+7e0Yosk/FE/M3r+W6GA=';
-            // }
+            if (token === null || token === '' || typeof (token) === 'undefined') {
+                return 'vjYUoyEmyZo2r7FW+iZ3sbtNCkYrKKLSzQJU7JLG2hH97BeP2+Gk72Hdd9e+qRgA4hePuuGPiTsn9q435nWD5D8+7e0Yosk/FE/M3r+W6GA=';
+            }
 
             return token;
         },

@@ -55,11 +55,11 @@
         <text class="pet-header-title" slot="title">- 热门话题 -</text>
     </wxc-cell>
     <div class="article" @click="handleCategory">
-        <div class="article-top" v-if="articleList && articleList.length > 0">
+        <div class="article-top" v-if="hotTopicBanner && hotTopicBanner.advertisementImageFilePath">
             <image class="article-top-image"
                    resize="cover"
-                   :src="imageHost + articleList[0].articleMediaPath"></image>
-            <text class="article-top-title">{{articleList[0].articleTitle}}</text>
+                   :src="imageHost + hotTopicBanner.advertisementImageFilePath"></image>
+            <text class="article-top-title">{{hotTopicBanner.advertisementTitle}}</text>
         </div>
     </div>
     <div class="content"

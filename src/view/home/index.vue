@@ -19,6 +19,7 @@
         data: () => ({
             headerBackgroundOpacity: 0.0,
             bannerList: [],
+            hotTopicBanner: {},
             articleList: [],
             categoryList: [{
                 name: '保健卡',
@@ -208,6 +209,7 @@
         },
         created() {
             this.handleLoadIndexBanner();
+            this.handleLoadIndexHotTopicBanner();
             this.handleLoadHotArticle();
             this.handleLoadCategory();
         },
@@ -237,12 +239,25 @@
                     }
                 });
             },
+            handleLoadIndexHotTopicBanner() {
+                this.request({
+                    url: '/advertisement/mobile/v1/index/hot/topic/banner/list',
+                    data: {},
+                    success: (data) => {
+                        if (data && data.length > 0) {
+                            this.hotTopicBanner = data[0];
+                        }
+                    },
+                    error: () => {
+                    }
+                });
+            },
             handleLoadHotArticle() {
                 this.request({
                     url: '/article/mobile/v1/hot/list',
                     data: {
                         pageIndex: 1,
-                        pageSize: 10
+                        pageSize: 4
                     },
                     success: (data) => {
                         if (data && data.length > 0) {
