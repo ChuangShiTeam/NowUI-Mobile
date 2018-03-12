@@ -1,0 +1,120 @@
+.container {
+    width: 750px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: #f6f6f6;
+}
+
+.header {
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+}
+
+.header-content {
+    background-color: #fafafa;
+    z-index: 1;
+}
+
+.cell{
+    background-color: #ffffff;
+    margin-top: 20px;
+}
+
+.cell-userinfo{
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.cell-name{
+    font-family: PingFangSC-Regular;
+    font-size: 30px;
+    color: #888888;
+}
+
+.cell-phone{
+    font-family: PingFangSC-Regular;
+    font-size: 30px;
+    color: #888888;
+}
+
+.cell-address{
+    font-family: PingFangSC-Regular;
+    font-size: 30px;
+    color: #888888;
+    margin-left: 40px;
+    margin-right: 20px;
+}
+
+.cell-line{
+    background-color: #f6f6f6;
+    height: 2px;
+    width: 750px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.cell-bottom{
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.cell-bottom-default{
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.cell-bottom-icon{
+    width: 36px;
+    height: 36px;
+}
+
+.cell-bottom-default-text{
+    font-family: PingFangSC-Regular;
+    font-size: 30px;
+    color: #888888;
+    margin-left: 10px;
+}
+
+.cell-bottom-info{
+    flex-direction: row;
+}
+
+.cell-bottom-edit{
+    flex-direction: row;
+    margin-right: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+.cell-bottom-delete{
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer{
+    position: fixed;
+    bottom: 0px;
+    width: 750px;
+    height: 70px;
+    margin-bottom: 40px;
+}
+
+.footer-button{
+    background-color: #d93b35;
+    height:70px;
+    margin-left:80px;
+    margin-right:80px;
+    align-items: center;
+    justify-content: center;
+    border-radius:10px;
+    font-family: PingFangSC-Regular;
+    font-size: 30px;
+    color:#ffffff;
+}

@@ -1,0 +1,42 @@
+<scroller class="container"
+          :style="{height: pageHeight}">
+    <!--头部-->
+    <div class="header">
+        <div class="header-content">
+            <wxc-minibar background-color="#fafafa"
+                         @wxcMinibarLeftButtonClicked="handleBack"
+                         :use-default-return="false">
+                <text class="header-title"
+                      slot="middle">提现</text>
+            </wxc-minibar>
+        </div>
+    </div>
+    <div class="content">
+        <wxc-cell :has-arrow="false"
+                  :has-top-border="false"
+                  :has-bottom-border="false"
+                  :auto-accessible="false"
+                  :cell-style="{width: 750,height:40}" class="cell-allprice">
+            <div slot="title">
+                <text class="cell-allprice-tips">我的金额</text>
+            </div>
+            <div slot="value">
+                <text class="cell-allprice-text">0.00元</text>
+            </div>
+        </wxc-cell>
+        <wxc-cell :has-arrow="false"
+                  :has-top-border="false"
+                  :has-bottom-border="false"
+                  :auto-accessible="false"
+                  :cell-style="{height:80}" class="cell-input">
+            <input slot="title" type="text"  class="inputItem" placeholder="请输入提现金额" value=""  @change="onchange" @return = "onreturn" @input="oninput"/>
+        </wxc-cell>
+        <div class="cell-submit">
+            <text class="cell-submit-button">申请提现</text>
+        </div>
+        <text class="cell-drawcash-info">提现说明</text>
+        <text class="cell-drawcash-desc">提现通常需要3个工作日进行处理，请您耐心等待。</text>
+        <text class="cell-drawcash-record">提现记录</text>
+    </div>
+
+</scroller>

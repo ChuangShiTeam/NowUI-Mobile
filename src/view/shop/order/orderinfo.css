@@ -1,0 +1,241 @@
+.container {
+    width: 750px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: #f6f6f6;
+}
+
+.header {
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+}
+
+.header-content {
+    background-color: #fafafa;
+    z-index: 1;
+}
+
+.cell-items {
+    flex-direction: row;
+    align-items: center;
+}
+
+.cell-address-icon{
+    width: 50px;
+    height: 50px;
+}
+
+.cell-address-text {
+    font-family: PingFangSC-Light;
+    font-size: 30px;
+    color: #222222;
+    margin-left:20px;
+}
+
+.cell-goods-info{
+    width:750px;
+    margin-top:20px;
+    padding-bottom: 20px;
+    background-color: #ffffff;
+}
+
+.cell-goods-detailinfo{
+    flex-direction:row;
+}
+
+.cell-goodsinfo-image{
+    margin-left: 20px;
+}
+
+.cell-goods-image{
+    width:160px;
+    height:160px;
+}
+
+.cell-goodsinfo-text{
+    font-family: PingFangSC-Light;
+    font-size: 30px;
+    color: #222222;
+    margin:20px;
+}
+
+.cell-goods-content{
+    display:flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left:20px;
+    margin-right:20px;
+    height:160px;
+}
+
+.cell-goods-content-date{
+    font-family: PingFangSC-Light;
+    font-size: 26px;
+    color: #888888;
+}
+
+.cell-goods-content-title{
+    font-family: PingFangSC-Light;
+    font-size: 30px;
+    color: #222222;
+    lines:1;
+}
+
+.cell-goods-content-bottom{
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.cell-goods-content-price{
+    font-family: PingFangSC-Light;
+    font-size: 26px;
+    color: #888888;
+}
+
+.cell-goods-content-number{
+    font-family: PingFangSC-Light;
+    font-size: 26px;
+    color: #888888;
+}
+
+.cell-line{
+    height: 2px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: #f6f6f6;
+    margin-top: 20px;
+}
+
+.cell-items-bg{
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.cell-input-bg{
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-right: 20px;
+    background-color: red;
+}
+
+.cell-input-tips{
+    background-color: #f6f6f6;
+    height:140px;
+    padding: 20px;
+    font-family: PingFangSC-Regular;
+    font-size: 28px;
+    color: #888888;
+    align-items: center;
+    justify-content: center;
+    lines:2;
+}
+
+.cell-items-address{
+    flex-direction:row;
+    align-items: center;
+}
+
+.cell-items{
+    flex-direction:row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cell-items-account{
+    flex-direction:row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.cell-items-title{
+    font-family: PingFangSC-Light;
+    font-size: 30px;
+    color: #222222;
+}
+
+.cell-items-content{
+    font-family: PingFangSC-Light;
+    font-size: 30px;
+    color: green;
+}
+
+.cell-items-content-price{
+    font-family: PingFangSC-Light;
+    font-size: 30px;
+    color: red;
+}
+
+.cell-items-price-tips{
+    font-family: PingFangSC-Regular;
+    font-size: 30px;
+    color: #222222;
+    margin-left: 20px;
+}
+
+.cell-items-price-text{
+    font-family: PingFangSC-Regular;
+    font-size: 30px;
+    color: red;
+    margin-left: 10px;
+}
+.input{
+    margin-left:20px;
+    border-width: 2px;
+    border-radius: 6px;
+    border-color: #f6f6f6;
+    width:160px;
+    height:70px;
+    text-align:right;
+    padding-right:20px;
+    color: #888888;
+}
+.footer {
+    position: fixed;
+    bottom: 0px;
+    width: 750px;
+    height: 100px;
+    background-color: #ffffff;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: #f0f0f0;
+}
+
+.footer-price{
+    flex-direction: row;
+    flex: 1;
+}
+
+.footer-price-tips{
+    font-family: PingFangSC-Light;
+    font-size: 30px;
+    color: #888888;
+    margin-left: 20px;
+}
+
+.footer-price-text{
+    font-family: PingFangSC-Light;
+    font-size: 34px;
+    color: #222222;
+    margin-left: 20px;
+}
+
+.footer-submit {
+    background-color: #b3413c;
+    align-items: center;
+    justify-content: center;
+    height:100px;
+    width:260px;
+}
+
+.footer-submit-text {
+    color: #ffffff;
+}

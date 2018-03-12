@@ -1,0 +1,86 @@
+.container {
+    width: 750px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: #f6f6f6;
+}
+
+.header {
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+}
+
+.header-content {
+    background-color: #fafafa;
+    z-index: 1;
+}
+
+.content {
+    background-color: #ffffff;
+}
+
+.cell-allprice {
+    margin-top:20px;
+}
+
+.cell-allprice-tips{
+    font-family: PingFangSC-Light;
+    font-size: 30px;
+    color:#222222;
+}
+
+.cell-allprice-text {
+    font-family: PingFangSC-Light;
+    font-size: 26px;
+    color:#222222;
+}
+.cell-input {
+    margin:20px;
+    border-width:2px;
+    border-color:#f6f6f6;
+    border-radius:6px;
+    background-color:#ffffff;
+}
+
+.inputItem {
+    height:60px;
+    font-size: 30px;
+}
+
+.cell-submit{
+    height: 70px;
+    margin: 40px;
+    border-radius:6px;
+    background-color: #C3413D;
+    align-items: center;
+    justify-content: center;
+}
+
+.cell-submit-button{
+    font-family: PingFangSC-Light;
+    font-size: 30px;
+    color:#ffffff;
+}
+
+.cell-drawcash-info {
+    font-family: PingFangSC-Light;
+    font-size: 30px;
+    color:#222222;
+    margin-top: 40px;
+    margin-left: 20px;
+}
+
+.cell-drawcash-desc{
+    font-family: PingFangSC-Light;
+    font-size: 30px;
+    color:#888888;
+    padding: 20px;
+}
+
+.cell-drawcash-record {
+    font-family: PingFangSC-Light;
+    font-size: 30px;
+    color:#222222;
+    padding: 20px;
+}

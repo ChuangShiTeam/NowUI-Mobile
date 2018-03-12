@@ -1,0 +1,73 @@
+.container {
+    width: 750px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: #f6f6f6;
+}
+
+.header {
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+}
+
+.header-content {
+    background-color: #fafafa;
+    z-index: 1;
+}
+
+.cell-items {
+    flex-direction: row;
+    align-items: center;
+}
+
+.header-right-button{
+    color:#d93b35;
+}
+
+.cell-text {
+    font-family: PingFangSC-Light;
+    font-size: 30px;
+    color: #222222;
+}
+
+.input {
+    font-family: PingFangSC-Light;
+    font-size: 28px;
+    color: #f6f6f6;
+    margin-left: 20px;
+}
+
+.cell-submit{
+    margin-top:60px;
+    margin-left:20px;
+    margin-right:20px;
+    height: 70px;
+    background-color: #d93b35;
+    align-items: center;
+    justify-content: center;
+    border-radius:10px;
+}
+
+.cell-submit-text{
+    font-family: PingFangSC-Regular;
+    font-size: 30px;
+    color:#ffffff;
+}
+
+.cell-tips{
+    font-family: PingFangSC-Regular;
+    font-size: 32px;
+    color:orangered;
+    margin-top: 40px;
+    margin-left:20px;
+}
+
+.cell-tips-text{
+    font-family: PingFangSC-Light;
+    font-size: 28px;
+    color:#888888;
+    margin-top: 10px;
+    margin-left:20px;
+    margin-right:20px;
+}

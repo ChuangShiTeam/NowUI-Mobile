@@ -1,0 +1,31 @@
+<scroller class="container"
+          :style="{height: pageHeight}">
+    <!--头部-->
+    <div class="header">
+        <div class="header-content">
+            <wxc-minibar background-color="#fafafa"
+                         @wxcMinibarLeftButtonClicked="handleBack"
+                         @wxcMinibarRightButtonClicked="minibarRightButtonClick"
+                         :use-default-return="false">
+                <text class="header-title"
+                      slot="middle">账单明细</text>
+            </wxc-minibar>
+        </div>
+    </div>
+    <wxc-cell :has-arrow="false"
+              :has-top-border="false"
+              :has-bottom-border="true"
+              :auto-accessible="false"
+              :has-margin="false"
+              :cell-style="{width: 750, height: 140, marginTop: 20}"
+              v-for="(items, index) in items"
+              :key="index">
+        <div slot="title">
+            <text class="cell-title">{{items.name}}</text>
+            <text class="cell-date">{{items.date}}</text>
+        </div>
+        <div slot="value">
+            <text class="cell-price">{{items.price}}</text>
+        </div>
+    </wxc-cell>
+</scroller>

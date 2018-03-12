@@ -2,14 +2,15 @@
 <template src="./setting.html"></template>
 
 <script>
-    import {WxcMinibar, WxcCell} from 'weex-ui';
+    import {WxcMinibar, WxcCell,WxcIcon} from 'weex-ui';
 
     import mixins from '../../../mixins/index';
 
     export default {
         components: {
             WxcMinibar,
-            WxcCell
+            WxcCell,
+            WxcIcon
         },
         props: {
 
@@ -27,6 +28,15 @@
         methods: {
             handleLoad() {
                 console.log(1);
+            },
+            handleBack() {
+                this.pop();
+            },
+            handleProfile() {
+                this.push('/view/shop/member/modifyinfo.html');
+            },
+            handleAddress() {
+                this.push('/view/shop/member/address.html');
             }
         }
     }

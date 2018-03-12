@@ -1,0 +1,87 @@
+<scroller class="container"
+          :style="{height: pageHeight}">
+    <!--头部-->
+    <div class="header">
+        <div class="header-content">
+            <wxc-minibar background-color="#fafafa"
+                         @wxcMinibarLeftButtonClicked="handleBack"
+                         :use-default-return="false">
+                <text class="header-title"
+                      slot="middle">添加银行卡</text>
+            </wxc-minibar>
+        </div>
+    </div>
+    <wxc-cell :has-arrow="false"
+              :has-top-border="false"
+              :has-bottom-border="true"
+              :auto-accessible="false"
+              :has-margin="false"
+              :cell-style="{width: 750, height: 120,marginTop:20}">
+        <div slot="title" class="cell-items">
+            <text class="cell-text">姓名：</text>
+            <input type="text" placeholder="收款人姓名" class="input" @change="onchange" @input="oninput"/>
+        </div>
+    </wxc-cell>
+    <wxc-cell :has-arrow="false"
+              :has-top-border="false"
+              :has-bottom-border="true"
+              :auto-accessible="false"
+              :has-margin="false"
+              :cell-style="{width: 750, height: 120}">
+        <div slot="title" class="cell-items">
+            <text class="cell-text">银行：</text>
+            <input type="text" placeholder="请填写银行名称" class="input" @change="onchange" @input="oninput"/>
+        </div>
+    </wxc-cell>
+    <wxc-cell :has-arrow="false"
+              :has-top-border="false"
+              :has-bottom-border="true"
+              :auto-accessible="false"
+              :has-margin="false"
+              :cell-style="{width: 750, height: 120}">
+        <div slot="title" class="cell-items">
+            <text class="cell-text">卡号：</text>
+            <input type="number" placeholder="收款人银行卡号" class="input" @change="onchange" @input="oninput"/>
+        </div>
+    </wxc-cell>
+    <wxc-cell :has-arrow="false"
+              :has-top-border="false"
+              :has-bottom-border="true"
+              :auto-accessible="false"
+              :has-margin="false"
+              :cell-style="{width: 750, height: 120,marginTop:20}">
+        <div slot="title" class="cell-items">
+            <text class="cell-text">开户省/市：</text>
+            <input type="text" placeholder="输入开户银行所在的省/市" class="input" @change="onchange" @input="oninput"/>
+        </div>
+    </wxc-cell>
+    <wxc-cell :has-arrow="false"
+              :has-top-border="false"
+              :has-bottom-border="true"
+              :auto-accessible="false"
+              :has-margin="false"
+              :cell-style="{width: 750, height: 120}">
+        <div slot="title" class="cell-items">
+            <text class="cell-text">开户区/县：</text>
+            <input type="text" placeholder="输入开户银行所在的区/县" class="input" @change="onchange" @input="oninput"/>
+        </div>
+    </wxc-cell>
+    <wxc-cell :has-arrow="false"
+              :has-top-border="false"
+              :has-bottom-border="true"
+              :auto-accessible="false"
+              :has-margin="false"
+              :cell-style="{width: 750, height: 120}">
+        <div slot="title" class="cell-items">
+            <text class="cell-text">开户支行：</text>
+            <input type="text" placeholder="输入开户行名称(如：XX支行)" class="input" @change="onchange" @input="oninput"/>
+        </div>
+    </wxc-cell>
+    <div class="cell-submit" @click="handleSubmit">
+        <text class="cell-submit-text">提交</text>
+    </div>
+    <text class="cell-tips">温馨提示：</text>
+    <text class="cell-tips-text">1、请正确填写银行卡信息，如输入有误将不能...</text>
+    <text class="cell-tips-text">2、如不清楚开户行，请咨询银行客服</text>
+    <text class="cell-tips-text">3、提现只支持储蓄卡，不支持信用卡</text>
+</scroller>

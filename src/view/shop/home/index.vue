@@ -124,7 +124,7 @@
             }]
         }),
         created() {
-
+            this.handleLoadIndexBanner();
         },
         mounted() {
             if (weex.config.env.platform === 'android') {
@@ -142,12 +142,31 @@
 
                 });
             },
+            handleLoadIndexBanner() {
+                this.request({
+                    url: '',
+                    data: {
+                        servicekey:'Art.Service.Product.Dto.Api.DealersAllProductRequest',
+                        jsonobjparam:{
+                            CurrentPage:'1',
+                            PageSize:'10',
+                        },
+                    },
+                    success: (data) => {
+                        if (data && data.length > 0) {
+                            this.bannerList = data;
+                        }
+                    },
+                    error: () => {
+                    }
+                });
+            },
             //推荐专场详情
             handleRecommendItem(){
                 this.push('/view/shop/home/recommend.html');
             },
             handleGoodsItem(){
-                this.push('/view/shop/home/detail.html');
+                this.push('/view/shop/home/auctionitems.html');
             },
             onItemclick: function (behaviour, index) {
                 console.log(`click...${behaviour} at index ${index}`)

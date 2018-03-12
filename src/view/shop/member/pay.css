@@ -1,0 +1,126 @@
+.container {
+    width: 750px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: #f6f6f6;
+}
+
+.header {
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+}
+
+.header-content {
+    background-color: #fafafa;
+    z-index: 1;
+}
+
+.cell-content-header {
+    margin-top: 20px;
+    background-color: #ffffff;
+}
+
+.cell-content-header-tips {
+    font-family: PingFangSC-Regular;
+    font-size: 28px;
+    color: #222222;
+    margin-left: 40px;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.cell-content-header-line{
+    background-color: #f6f6f6;
+    height: 2px;
+    margin-left: 40px;
+}
+
+.cell-content-header-bottom{
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-right:40px;
+    padding-bottom:20px;
+}
+
+.cell-content-header-icon {
+    width: 150px;
+    height: 150px;
+    margin-top: 20px;
+    margin-left: 40px;
+    border-radius:6px;
+}
+.cell-content-header-price{
+    font-family: PingFangSC-Regular;
+    font-size: 40px;
+    color: red;
+}
+
+.cell-content-middle{
+    flex-direction: row;
+    align-items: center;
+}
+
+.cell-content-middle-amount{
+    font-family: PingFangSC-Regular;
+    font-size: 28px;
+    color: red;
+    margin-left:20px;
+}
+
+.cell-content-middle-bottom{
+    flex-direction: row;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.cell-content-middle-select{
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    margin-left: 40px;
+    padding-bottom: 20px;
+}
+
+.cell-weixin{
+    flex-direction: row;
+    margin-left: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.cell-weixin-icon {
+    width:80px;
+    height:80px;
+    border-radius:8px;
+}
+
+.cell-content-middle-text{
+    font-family: PingFangSC-Regular;
+    font-size: 24px;
+    color: #222222;
+}
+
+.cell-middle-desc{
+    margin-left:20px;
+}
+
+.cell-middle-desc-title{
+    font-family: PingFangSC-Regular;
+    font-size: 30px;
+    color: #222222;
+}
+
+.cell-middle-desc-text{
+    font-family: PingFangSC-Regular;
+    font-size: 26px;
+    color: #888888;
+}
+
+.footer{
+    margin-left:20px;
+    margin-top:60px;
+    background-color: #C64238;
+}

@@ -37,10 +37,127 @@
     z-index: 1;
 }
 
-.bottom {
-    position: relative;
+.content {
+    background-color: #ffffff;
+}
+
+.cell-goods-title {
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+.cell-goods-title-line {
+    background-color: #f6f6f6;
+    madding-left: 20px;
+    padding-right: 20px;
+    height: 2px;
+}
+
+.cell-goods-price {
     flex-direction: row;
-    justify-content: space-around;
     align-items: center;
-    background-color: #00B4FF;
+    margin-top:20px;
+    margin-left:20px;
+    margin-bottom:20px;
+}
+
+.cell-goods-price-original {
+    font-family: PingFangSC-Regular;
+    font-size: 30px;
+    color: #C64238;
+}
+
+.cell-goods-price-market {
+    font-family: PingFangSC-Regular;
+    font-size: 24px;
+    color: #888888;
+    margin-left:20px;
+}
+
+.cell-goods-desc {
+    flex-direction: row;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.cell-goods-desc-line {
+    background-color: #C64238;
+    width: 8px;
+
+}
+
+.cell-goods-desc-title {
+    margin-left: 20px;
+    font-family: PingFangSC-Regular;
+    font-size: 28px;
+    color: #888888;
+}
+
+.cell-goods-desc-text {
+    margin: 20px;
+    font-family: PingFangSC-Regular;
+    font-size: 28px;
+    color: #888888;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0px;
+    width: 750px;
+    height: 100px;
+    background-color: #f2f2f2;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: #f0f0f0;
+}
+
+.footer-index {
+    display:flex;
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height:100px;
+}
+
+.footer-index-backindex {
+    flex: 1;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.footer-index-backIndex-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.footer-index-text {
+    font-family: PingFangSC-Regular;
+    font-size: 26px;
+    color: #888888;
+}
+
+.footer-index-like {
+    align-items: center;
+    flex: 1;
+}
+.footer-index-like-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.footer-submit {
+    flex: 1;
+    background-color: #b3413c;
+    align-items: center;
+    justify-content: center;
+    height:100px;
+}
+
+.footer-submit-text {
+    color: #ffffff;
 }

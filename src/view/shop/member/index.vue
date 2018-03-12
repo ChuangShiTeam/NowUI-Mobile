@@ -54,24 +54,15 @@
             handleWallet() {
                 this.push('/view/shop/member/wallet.html');
             },
-            handleBookmark() {
-                this.push('/view/member/bookmark.html');
-            },
-            handleProfile() {
-                this.push('/view/member/profile.html');
-            },
-            handlePet() {
-                this.push('/view/member/pet.html');
-            },
-            handleFollow() {
-                this.push('/view/member/follow.html');
-            },
-            handleQrcode() {
-                this.push('/view/member/qrcode.html');
-            },
             handleCategory() {
-                this.push('/view/article/index.html');
+                this.push('/view/shop/order/orderlist.html');
             },
+            handleParticipate(){
+                this.push('/view/shop/member/participate.html');
+            },
+            handleCollect() {
+                this.push('/view/shop/member/collect.html');
+            }
         }
     }
 </script>

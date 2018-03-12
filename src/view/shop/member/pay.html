@@ -1,0 +1,51 @@
+<scroller class="container"
+          :style="{height: pageHeight}">
+    <!--头部-->
+    <div class="header">
+        <div class="header-content">
+            <wxc-minibar background-color="fafafa"
+                         @wxcMinibarLeftButtonClicked="handleBack"
+                         :use-default-return="false">
+                <text class="header-title"
+                      slot="middle">支付</text>
+            </wxc-minibar>
+        </div>
+    </div>
+    <div class="cell-content-header">
+        <text class="cell-content-header-tips">余额充值</text>
+        <div class="cell-content-header-line"></div>
+        <div class="cell-content-header-bottom">
+            <image class="cell-content-header-icon"
+                   resize="cover"
+                   src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/110/h/110"></image>
+            <text class="cell-content-header-price">￥ 32元</text>
+        </div>
+    </div>
+
+    <div class="cell-content-header">
+        <div class="cell-content-middle">
+            <text class="cell-content-header-tips">要支付: </text>
+            <text class="cell-content-middle-amount">￥32元</text>
+        </div>
+        <div class="cell-content-header-line"></div>
+        <div class="cell-content-middle-bottom">
+            <div class="">
+                <image class="cell-content-middle-select"
+                       resize="cover"
+                       src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/110/h/110"></image>
+            </div>
+            <div class="cell-weixin">
+                <image class="cell-weixin-icon"
+                       resize="cover"
+                       src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/110/h/110"></image>
+                <div class="cell-middle-desc">
+                    <text class="cell-middle-desc-title">微信支付</text>
+                    <text class="cell-middle-desc-text">单笔最高5000-50000元</text>
+                </div>
+            </div>
+        </div>
+    </div>
+    <wxc-button text="确认"
+                type="red"
+                @wxcButtonClicked="handleSubmit" class="footer"></wxc-button>
+</scroller>

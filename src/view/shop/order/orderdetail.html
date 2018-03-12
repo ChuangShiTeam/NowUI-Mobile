@@ -1,0 +1,94 @@
+<scroller class="container"
+          :style="{height: pageHeight - 90}">
+    <!--头部-->
+    <div class="header">
+        <div class="header-content">
+            <wxc-minibar background-color="#fafafa"
+                         @wxcMinibarLeftButtonClicked="handleBack"
+                         :use-default-return="false">
+                <text class="header-title"
+                      slot="middle">订单详情</text>
+            </wxc-minibar>
+        </div>
+    </div>
+    <div class="cell-userinfo">
+        <text class="cell-userinfo-name">收件人：彭海涛</text>
+        <text class="cell-userinfo-phone">15222870966</text>
+    </div>
+    <div class="cell-userinfo-address">
+        <text class="cell-userinfo-address-tips">收件地址：</text>
+        <text class="cell-userinfo-address-text">上海市闵行区浦江镇联航路1188弄上海市闵行区浦江镇联航路1188弄</text>
+    </div>
+    <div class="cell-goods-info">
+        <text class="cell-goodsinfo-text">商品信息</text>
+        <div class="cell-goods-detailinfo">
+            <div class="cell-goodsinfo-image">
+                <image class="cell-goods-image"
+                       resize="cover"
+                       src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/110/h/110"></image>
+            </div>
+            <div class="cell-goods-content">
+                <text class="cell-goods-content-date">拍下时间：2018-03-10 22:04:22</text>
+                <text class="cell-goods-content-title">新疆和田玉洒金皮羊脂白玉自哈市将是的合法接收到回复是发</text>
+                <div class="cell-goods-content-bottom">
+                    <text class="cell-goods-content-price">市场价:16000</text>
+                    <text class="cell-goods-content-number">数量：1</text>
+                </div>
+            </div>
+        </div>
+        <div class="cell-line"></div>
+        <div class="cell-items-bg">
+            <text class="cell-items-title">待付款：</text>
+            <text class="cell-items-content-price">￥6000.00</text>
+        </div>
+        <div class="cell-line"></div>
+        <div class="cell-items-bg">
+            <text class="cell-items-title">优惠金额：</text>
+            <text class="cell-items-content-price">￥0.00</text>
+        </div>
+        <div class="cell-line"></div>
+        <div class="cell-items-bg">
+            <text class="cell-items-title">已支付金额：</text>
+            <text class="cell-items-content-price">￥0.00</text>
+        </div>
+    </div>
+    <div class="cell-items-message">
+        <text class="cell-items-message-tips">购买留言：</text>
+        <text class="cell-items-message-text">工作日、双休日都可送货(默认)工作日、双休日都可送货(默认)</text>
+    </div>
+    <wxc-cell :has-arrow="false"
+              :has-top-border="true"
+              :has-bottom-border="false"
+              :auto-accessible="false"
+              :has-margin="false"
+              :cell-style="{width: 750, height: 100}">
+        <div slot="title" class="cell-items">
+            <text class="cell-items-title">订单编号</text>
+            <text class="cell-items-content">818031040647</text>
+        </div>
+    </wxc-cell>
+    <wxc-cell :has-arrow="false"
+              :has-top-border="true"
+              :has-bottom-border="false"
+              :auto-accessible="false"
+              :has-margin="false"
+              :cell-style="{width: 750, height: 100}">
+        <div slot="title" class="cell-items">
+            <text class="cell-items-title">支付方式</text>
+            <text class="cell-items-content">微信支付</text>
+        </div>
+    </wxc-cell>
+    <text class="cell-items-order-status">您的订单还未付款</text>
+    <text class="cell-items-customerservice">客服电话：400-600-1110</text>
+    <!--底部-->
+    <div class="footer">
+        <div class="footer-date">
+            <text class="footer-date-tips">截止支付时间:</text>
+            <text class="footer-date-text">2018-03-13 22:04:22</text>
+        </div>
+        <div class="footer-submit"
+             @click="handleSubmit">
+            <text class="footer-submit-text">去付款</text>
+        </div>
+    </div>
+</scroller>

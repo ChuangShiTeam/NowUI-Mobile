@@ -1,0 +1,52 @@
+<scroller class="container"
+          :style="{height: pageHeight}">
+    <!--头部-->
+    <div class="header">
+        <div class="header-content">
+            <wxc-minibar background-color="#fafafa"
+                         @wxcMinibarLeftButtonClicked="handleBack"
+                         @wxcMinibarRightButtonClicked="minibarRightButtonClick"
+                         :use-default-return="false">
+                <text class="header-title"
+                      slot="middle">收货地址</text>
+            </wxc-minibar>
+        </div>
+    </div>
+    <div class="cell"
+         v-for="(item, index) in addressList"
+         :key="index">
+        <div class="cell-userinfo">
+            <text class="cell-name">{{item.name}}</text>
+            <text class="cell-phone">{{item.phone}}</text>
+        </div>
+        <text class="cell-address">{{item.address}}</text>
+        <div class="cell-line"></div>
+        <div class="cell-bottom">
+            <div class="cell-bottom-default">
+                <image @click="handleSelected" class="cell-bottom-icon"
+                       resize="cover"
+                       src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/110/h/110"></image>
+                <text class="cell-bottom-default-text">默认地址</text>
+            </div>
+            <div class="cell-bottom-info">
+                <div class="cell-bottom-edit" @click="handleEdit">
+                    <image class="cell-bottom-icon"
+                           resize="cover"
+                           src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/110/h/110"></image>
+                    <text class="cell-bottom-default-text">编辑</text>
+                </div>
+                <div class="cell-bottom-delete" @click="handleDelete">
+                    <image class="cell-bottom-icon"
+                           resize="cover"
+                           src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/110/h/110"></image>
+                    <text class="cell-bottom-default-text">删除</text>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-button" @click="handleAddNewAddress">
+            <text class="footer-button">添加新地址</text>
+        </div>
+    </div>
+</scroller>

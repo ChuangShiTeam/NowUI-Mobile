@@ -1,0 +1,53 @@
+.container {
+    width: 750px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: #f6f6f6;
+}
+
+.header {
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+}
+
+.header-content {
+    background-color: #fafafa;
+    z-index: 1;
+}
+
+.header-title {
+
+}
+
+.cell{
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.cell-bg {
+    flex-direction: row;
+    background-color: #ffffff;
+}
+
+.cell-text{
+
+}
+
+.cell-phone{
+    font-family: PingFangSC-Regular;
+    font-size: 26px;
+    color: #888888;
+}
+
+.cell-price{
+    font-family: PingFangSC-Regular;
+    font-size: 32px;
+    color: #C64238;
+}
+
+.cell-date{
+    font-family: PingFangSC-Regular;
+    font-size: 24px;
+    color: #888888;
+}

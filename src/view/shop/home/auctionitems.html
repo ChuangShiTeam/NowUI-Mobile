@@ -1,0 +1,114 @@
+<scroller class="container"
+          :style="{height: pageHeight - 90}">
+    <!--头部-->
+    <div class="header">
+        <div class="header-content">
+            <wxc-minibar  background-color="fafafa" @wxcMinibarLeftButtonClicked="handleBack"
+                         :use-default-return="false">
+                <text class="header-title"
+                      slot="middle">拍品详情</text>
+            </wxc-minibar>
+        </div>
+    </div>
+    <!--商品详情-image-->
+    <slider class="goods-item" ref="banner">
+        <div v-for="goods in GoodsImageList">
+            <image class="goods-item"
+                   resize="cover"
+                   :src="goods.image"></image>
+        </div>
+        <indicator class="banner-indicator"></indicator>
+    </slider>
+    <div class="content">
+        <text class="cell-goods-title">新疆和田玉一级白玉子玉挂件 瑞兽呈祥  3.6克</text>
+        <div class="cell-goods-price">
+            <text class="cell-goods-price-text">当前价</text>
+            <text class="cell-goods-price-market">￥1.00万</text>
+        </div>
+    </div>
+    <div class="cell-startPrice">
+        <div class="cell-startPrice-content">
+            <text class="cell-startprice-tip">起拍价格</text>
+            <text class="cell-startprice-text">￥8000</text>
+        </div>
+        <div class="cell-endPrice-content">
+            <text class="cell-startprice-tip">加价幅度</text>
+            <text class="cell-startprice-text">￥500</text>
+        </div>
+    </div>
+    <div class="cell-starttime">
+        <text class="cell-time-tip">开拍时间</text>
+        <text class="cell-time-text">2018年03月02日 20:00</text>
+    </div>
+    <div class="cell-endtime">
+        <text class="cell-time-tip">结拍时间</text>
+        <text class="cell-time-text">2018年03月06日 20:00</text>
+    </div>
+
+    <div class="cell-goods-title-line"></div>
+    <div class="cell-bidrecord">
+        <div class="cell-bidrecord-text">
+            <text class="auctionitems-introduce-line"></text>
+            <text class="auctionitems-introduce-title">出价记录(5)</text>
+        </div>
+        <div class="cell-bidrecord-allrecord">
+            <text class="cell-bidrecord-allrecord-text" @click="handleAllAuctionItems">查看全部出价</text>
+            <wxc-icon name="more" class="cell-bidrecord-allrecord-arrow"></wxc-icon>
+        </div>
+    </div>
+    <scroller class="member-list" scroll-direction="horizontal">
+        <div class="member-item" v-for="(member, index) in auctionitemsList" :key="index" @click="handleMemberHomepage">
+            <image class="member-avatar"
+                   resize="cover"
+                   src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/104/h/104"></image>
+            <text class="member-name">{{member.name}}</text>
+            <div class="member-line"></div>
+            <text class="member-price">{{member.price}}</text>
+            <image class="member-leading"
+                   resize="cover"
+                   src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/104/h/104"></image>
+        </div>
+    </scroller>
+
+    <div class="auctionitems-info">
+        <div class="auctionitems-introduce">
+            <text class="auctionitems-introduce-line"></text>
+            <text class="auctionitems-introduce-title">拍品介绍</text>
+        </div>
+        <text class="auctionitems-introduce-content">在玩玉的圈子里永远不缺尔虞我诈的事情发生，总结两个字：水深。
+            近年来，越来越多的不良商家涌入和田玉市场。“不敢买”和“值不值”成了玉友最大的困惑，所谓“一玉难求”,更是充分体现了玉友们的无奈，和田玉行业的水到底有多深、存在多少套路和骗局？今天我就给大家聊一聊。
+            大家好，我是老李，一个为和田玉所痴狂的从业者，在丝绸之路和华凌经营5家实体店铺，【祥缘玉都】品牌创始人，从2001年在新疆开店，至今已满16年，服务帮助过近10万名玉友。</text>
+    </div>
+    <div class="footer-hotauction">
+        <text class="footer-hotauction-tips">热拍中：</text>
+        <wxc-countdown
+                :interval="1000"
+                tpl="{d}天{h}时{m}分{s}秒"
+                :timeTextStyle="{fontSize: '24px',backgroundColor: '#C3413D',color: '#ffffff',height: '40px', width: '40px',alignItems: 'center',justifyContent: 'center'}"
+                :timeBoxStyle="{background:'none'}"
+                :dotTextStyle="{ fontSize: '24px',color: '#ffffff'}"
+                :dotBoxStyle="{width: '60px'}"
+                :style="{justifyContent: 'center'}"
+                :time="TIME">
+        </wxc-countdown>
+    </div>
+    <!--底部-->
+    <div class="footer">
+        <div class="footer-collect" @click="handleCollect">
+            <image class="footer-index-backIndex-icon"
+                   resize="cover"
+                   src="http://h5.chuangshi.nowui.com/wawipet/image/like.png"></image>
+            <text class="footer-index-text">收藏</text>
+        </div>
+        <div class="footer-stepper">
+            <wxc-stepper default-value="0.00"
+                         step="100"
+                         max="10000000"
+                         min="0.00"
+                         @stepperValueChange="stepperValueChange" class="cell-stepper"></wxc-stepper>
+        </div>
+        <div class="footer-submit" @click="handleSubmit">
+            <text class="footer-submit-text">我要出价</text>
+        </div>
+    </div>
+</scroller>

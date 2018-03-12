@@ -1,5 +1,5 @@
 <scroller class="container"
-          :style="{height: pageHeight}">
+          :style="{height: pageHeight - 90}">
     <!--头部-->
     <div class="header">
         <div class="header-content">
@@ -27,7 +27,7 @@
                    :column-count="2"
                    :column-gap="20">
             <cell v-for="(item, index) in items" :key="" class="waterfall-cell" ref="index">
-                <div class="item" @click="onItemclick(item.desc, index)" @appear="itemAppear(item.src)" @disappear="itemDisappear(item.src)">
+                <div class="item" @click="handleGoodsItem(item.desc, index)" @appear="itemAppear(item.src)" @disappear="itemDisappear(item.src)">
                     <image class="itemPhoto" :src="item.src"></image>
                     <text v-if="item.desc" class="itemDesc">{{item.desc}}</text>
                     <div class="cell-item-bottom">

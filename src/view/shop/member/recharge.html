@@ -4,7 +4,7 @@
     <div class="header">
         <div class="header-content">
             <wxc-minibar background-color="#fafafa"
-                         @wxcMinibarLeftButtonClicked="minibarLeftButtonClick"
+                         @wxcMinibarLeftButtonClicked="handleBack"
                          @wxcMinibarRightButtonClicked="minibarRightButtonClick"
                          :use-default-return="false">
                 <text slot="left">取消</text>
@@ -17,7 +17,10 @@
         <text class="cell-input-tips">金额</text>
         <input  type="number"  class="inputItem" placeholder="请输入充值金额" value=""  @change="onchange" @return = "onreturn" @input="oninput"/>
     </div>
-    <div class="nextstep">
-        <text class="cell-next-tips">下一步</text>
-    </div>
+    <wxc-button text="下一步"
+                type="normal"
+                @wxcButtonClicked="handleNextSteps" class="nextstep"></wxc-button>
+    <!--<div class="nextstep" @onClick="handleNextSteps">-->
+        <!--&lt;!&ndash;<text class="cell-next-tips" >下一步</text>&ndash;&gt;-->
+    <!--</div>-->
 </scroller>

@@ -1,0 +1,289 @@
+.container {
+    width: 750px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: #f6f6f6;
+}
+
+.header {
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+}
+
+.header-content {
+    background-color: #fafafa;
+    z-index: 1;
+}
+
+.cell-items {
+    flex-direction: row;
+    align-items: center;
+}
+
+.cell-userinfo{
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    margin-left:20px;
+    margin-right:20px;
+}
+
+.cell-userinfo-name{
+    font-family: PingFangSC-Light;
+    font-size: 30px;
+    color: #222222;
+}
+
+.cell-userinfo-phone{
+    font-family: PingFangSC-Light;
+    font-size: 30px;
+    color: #222222;
+}
+
+.cell-userinfo-address{
+    margin: 20px;
+}
+
+.cell-userinfo-address-tips{
+    font-family: PingFangSC-Light;
+    font-size: 30px;
+    color: #222222;
+}
+
+.cell-userinfo-address-text{
+    font-family: PingFangSC-Light;
+    font-size: 30px;
+    color: #222222;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    lines:2;
+}
+
+.cell-address-text {
+    font-family: PingFangSC-Light;
+    font-size: 30px;
+    color: #222222;
+    margin-left:20px;
+}
+
+.cell-goods-info{
+    width:750px;
+    padding-bottom: 20px;
+    background-color: #ffffff;
+}
+
+.cell-goods-detailinfo{
+    flex-direction:row;
+}
+
+.cell-goodsinfo-image{
+    margin-left: 20px;
+}
+
+.cell-goods-image{
+    width:160px;
+    height:160px;
+}
+
+.cell-goodsinfo-text{
+    font-family: PingFangSC-Light;
+    font-size: 30px;
+    color: #222222;
+    margin:20px;
+}
+
+.cell-goods-content{
+    display:flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left:20px;
+    margin-right:20px;
+    height:160px;
+}
+
+.cell-goods-content-date{
+    font-family: PingFangSC-Light;
+    font-size: 26px;
+    color: #888888;
+}
+
+.cell-goods-content-title{
+    font-family: PingFangSC-Light;
+    font-size: 30px;
+    color: #222222;
+    lines:1;
+}
+
+.cell-goods-content-bottom{
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.cell-goods-content-price{
+    font-family: PingFangSC-Light;
+    font-size: 26px;
+    color: #888888;
+}
+
+.cell-goods-content-number{
+    font-family: PingFangSC-Light;
+    font-size: 26px;
+    color: #888888;
+}
+
+.cell-line{
+    height: 2px;
+    margin-left: 20px;
+    background-color: #f6f6f6;
+    margin-top: 20px;
+}
+
+.cell-items-bg{
+    flex-direction: row;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.cell-items-address{
+    flex-direction:row;
+    align-items: center;
+}
+
+.cell-items{
+    flex-direction:row;
+    align-items: center;
+    /*justify-content: space-between;*/
+}
+
+.cell-items-content{
+    margin-left:20px;
+    font-family: PingFangSC-Light;
+    font-size: 30px;
+    color: #888888;
+}
+
+.cell-items-message{
+    margin-top:20px;
+    background-color: #ffffff;
+}
+
+.cell-items-message-tips{
+    margin-left:20px;
+    font-family: PingFangSC-Light;
+    font-size: 30px;
+    color: #222222;
+    margin: 20px;
+}
+
+.cell-items-message-text{
+    margin-left:20px;
+    font-family: PingFangSC-Light;
+    font-size: 30px;
+    color: #888888;
+    margin-bottom:20px;
+}
+
+.cell-items-account{
+    flex-direction:row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.cell-items-title{
+    font-family: PingFangSC-Light;
+    font-size: 30px;
+    color: #222222;
+}
+
+.cell-items-content-price{
+    font-family: PingFangSC-Light;
+    font-size: 30px;
+    color: red;
+}
+
+.cell-items-price-tips{
+    font-family: PingFangSC-Light;
+    font-size: 30px;
+    color: #222222;
+    margin-left: 20px;
+}
+
+.cell-items-price-text{
+    font-family: PingFangSC-Light;
+    font-size: 30px;
+    color: red;
+    margin-left: 10px;
+}
+
+.cell-items-order-status{
+    font-family: PingFangSC-Light;
+    font-size: 30px;
+    color: #222222;
+    align-items: center;
+    justify-content: center;
+    margin-top:40px;
+    margin-bottom:40px;
+}
+
+.cell-items-customerservice{
+    font-family: PingFangSC-Light;
+    font-size: 32px;
+    color: #222222;
+    align-items: center;
+    justify-content: center;
+    margin-bottom:60px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0px;
+    width: 750px;
+    height: 100px;
+    background-color: #ffffff;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: #f0f0f0;
+}
+
+.footer-date{
+    flex: 1;
+}
+
+.footer-date-tips{
+    font-family: PingFangSC-Light;
+    font-size: 30px;
+    color: #888888;
+    margin-left: 20px;
+}
+
+.footer-date-text{
+    font-family: PingFangSC-Light;
+    font-size: 28px;
+    color: #d93a35;
+    margin-left: 20px;
+}
+
+.footer-submit {
+    background-color: #d93a35;
+    align-items: center;
+    justify-content: center;
+    height:60px;
+    width:200px;
+    margin-right:20px;
+    border-radius: 10px;
+}
+
+.footer-submit-text {
+    font-family: PingFangSC-Light;
+    font-size: 28px;
+    color: #ffffff;
+}

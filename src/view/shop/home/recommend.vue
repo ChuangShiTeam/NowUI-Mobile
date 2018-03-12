@@ -142,12 +142,12 @@
 
                 });
             },
-            minibarLeftButtonClick(){
-                this.push('/view/shop/index.html');
+            handleBack(){
+                this.pop();
             },
 
             handleRecommendItem(){
-                this.push('/view/shop/home/detail.html');
+                this.push('/view/shop/home/auctionitems.html');
             },
             onItemclick: function (behaviour, index) {
                 console.log(`click...${behaviour} at index ${index}`)

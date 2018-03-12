@@ -4,9 +4,8 @@
     <div class="header">
         <div class="header-content">
             <wxc-minibar background-color="#fafafa"
-                         @wxcMinibarLeftButtonClicked="minibarLeftButtonClick"
+                         @wxcMinibarLeftButtonClicked="handleBack"
                          :use-default-return="false">
-                <text slot="left">返回</text>
                 <text class="header-title"
                       slot="middle">买家订单信息</text>
             </wxc-minibar>
@@ -33,7 +32,7 @@
                               url="https://h5.m.taobao.com/trip/ticket/detail/index.html?scenicId=2675"
                               @wxcPanItemPan="wxcPanItemPan">
                     <div class="content">
-                        <text>{{key}}</text>
+                        <text class="cell-text">你是谁</text>
                     </div>
                 </wxc-pan-item>
             </cell>

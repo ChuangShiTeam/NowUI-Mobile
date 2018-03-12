@@ -18,13 +18,13 @@
 
 .item-container {
     width: 750px;
-    background-color: #f2f3f4;
+    background-color: greenyellow;
 }
 
 .border-cell {
-    background-color: #f2f3f4;
+    /*background-color: green;*/
     width: 750px;
-    height: 24px;
+    height: 200px;
     align-items: center;
     justify-content: center;
     border-bottom-width: 1px;
@@ -38,9 +38,13 @@
 
 .content{
     width:750px;
-    height:300px;
+    /*height:300px;*/
     border-bottom-width:1px;
     align-items: center;
     justify-content: center;
-    background-color: #000000;
+    background-color: orangered;
+}
+
+.cell-text{
+    background-color: red;
 }

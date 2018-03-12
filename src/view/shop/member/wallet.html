@@ -3,12 +3,10 @@
     <!--头部-->
     <div class="header">
         <div class="header-content">
-            <wxc-minibar background-color="fafafa" @wxcMinibarLeftButtonClicked="minibarLeftButtonClick"
+            <wxc-minibar background-color="fafafa" @wxcMinibarLeftButtonClicked="handleBack"
                          :use-default-return="false">
-                <text slot="left"></text>
                 <text class="header-title"
                       slot="middle">我的钱包</text>
-                <text slot="left">返回</text>
             </wxc-minibar>
         </div>
     </div>
@@ -17,7 +15,7 @@
         <text class="top-freeze-amount">冻结款项：0.00</text>
     </div>
     <wxc-cell :has-arrow="true"
-              @wxcCellClicked="handleProfile"
+              @wxcCellClicked="handlerecharge"
               :has-top-border="false"
               :has-bottom-border="true"
               :auto-accessible="false"
@@ -31,6 +29,7 @@
         </div>
     </wxc-cell>
     <wxc-cell :has-arrow="true"
+              @wxcCellClicked="handledraw"
               :has-top-border="false"
               :has-bottom-border="false"
               :auto-accessible="false"
@@ -44,7 +43,7 @@
         </div>
     </wxc-cell>
     <wxc-cell :has-arrow="true"
-              @wxcCellClicked="handleProfile"
+              @wxcCellClicked="handleBankcart"
               :has-top-border="false"
               :has-bottom-border="true"
               :auto-accessible="false"
@@ -58,7 +57,7 @@
         </div>
     </wxc-cell>
     <wxc-cell :has-arrow="true"
-              @wxcCellClicked="handlePaySafety"
+              @wxcCellClicked="handleFundDetail"
               :has-top-border="false"
               :has-bottom-border="false"
               :auto-accessible="false"
@@ -68,8 +67,7 @@
                slot="label"
                src="http://h5.chuangshi.nowui.com/wawipet/image/my-user.png"></image>
         <div slot="title">
-            <text class="cell-text">支付安全</text>
+            <text class="cell-text">资金明细</text>
         </div>
     </wxc-cell>
-    <text class="cell-funddetail">资金明细</text>
 </scroller>

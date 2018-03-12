@@ -45,16 +45,22 @@
             handleLoad() {
                 console.log(1);
             },
+            handleBack(){
+                this.pop();
+            },
             handleMyHomepage() {
                 event.$emit('login-show', {
 
                 });
             },
-            handleGoodsItem(){
-                this.push('/view/member/index.html');
+            handleHome() {
+                this.push('/view/shop/index.html');
             },
-            minibarLeftButtonClick(){
-                this.pop('/view/shop/index.html');
+            handleCollect() {
+                this.pop();
+            },
+            handleSubmit() {
+                this.push('/view/shop/order/orderinfo.html');
             }
         }
     }

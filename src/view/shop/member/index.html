@@ -1,5 +1,5 @@
 <scroller class="container"
-          :style="{height: pageHeight}">
+          :style="{height: pageHeight - 90}">
     <!--头部-->
     <div class="header">
         <div class="header-content">
@@ -54,7 +54,7 @@
         <text class="cell-right-text">0.00</text>
     </wxc-cell>
     <wxc-cell :has-arrow="true"
-              @wxcCellClicked="handlePet"
+              @wxcCellClicked="handleParticipate"
               :has-top-border="false"
               :has-bottom-border="false"
               :auto-accessible="false"
@@ -69,7 +69,7 @@
         <text class="cell-right-text">3件</text>
     </wxc-cell>
     <wxc-cell :has-arrow="true"
-              @wxcCellClicked="handleFollow"
+              @wxcCellClicked="handleCollect"
               :has-top-border="false"
               :has-bottom-border="false"
               :auto-accessible="false"
@@ -79,7 +79,7 @@
                slot="label"
                src="http://h5.chuangshi.nowui.com/wawipet/image/my-follow.png"></image>
         <div slot="title">
-            <text class="cell-text">围观拍品</text>
+            <text class="cell-text">收藏拍品</text>
         </div>
         <text class="cell-right-text">3件</text>
     </wxc-cell>

@@ -1,17 +1,16 @@
 <scroller class="container"
-          :style="{height: pageHeight}">
+          :style="{height: pageHeight - 90}">
     <!--头部-->
     <div class="header">
         <div class="header-content">
-            <wxc-minibar  background-color="fafafa" @wxcMinibarLeftButtonClicked="minibarLeftButtonClick"
+            <wxc-minibar  background-color="fafafa" @wxcMinibarLeftButtonClicked="handleBack"
                          :use-default-return="false">
-                <text slot="left">返回</text>
                 <text class="header-title"
                       slot="middle">商品详情</text>
             </wxc-minibar>
         </div>
     </div>
-    <!--广告-->
+    <!--商品详情-image-->
     <slider class="goods-item" ref="banner">
         <div v-for="goods in GoodsImageList">
             <image class="goods-item"
@@ -20,25 +19,41 @@
         </div>
         <indicator class="banner-indicator"></indicator>
     </slider>
-    <!--<div class="content">-->
-        <!--<div v-for="image in bannerList">-->
-            <!--<image class="content-image"-->
-                   <!--resize="cover"-->
-                   <!--:src="image.image"></image>-->
-        <!--</div>-->
-    <!--</div>-->
-    <!--<div class="bottom">-->
-        <!--<div class="footer-like">-->
-            <!--<text class="footer-buy-text"-->
-                  <!--slot="middle">立即购买</text>-->
-        <!--</div>-->
-        <!--<div class="footer-share">-->
-            <!--<text class="footer-buy-text"-->
-                  <!--slot="middle">立即购买</text>-->
-        <!--</div>-->
-        <!--<div class="footer-buy">-->
-            <!--<text class="footer-buy-text"-->
-                  <!--slot="middle">立即购买</text>-->
-        <!--</div>-->
-    <!--</div>-->
+    <div class="content">
+        <text class="cell-goods-title">新疆和田玉一级白玉子玉挂件 瑞兽呈祥  3.6克</text>
+        <div class="cell-goods-title-line"></div>
+        <div class="cell-goods-price">
+            <text class="cell-goods-price-original">￥3000</text>
+            <text class="cell-goods-price-market">市场价：￥8000</text>
+        </div>
+        <div class="cell-goods-title-line"></div>
+        <div class="cell-goods-desc">
+            <text class="cell-goods-desc-line"></text>
+            <text class="cell-goods-desc-title">商品详情</text>
+        </div>
+        <text class="cell-goods-desc-text">在玩玉的圈子里永远不缺尔虞我诈的事情发生，总结两个字：水深。
+            近年来，越来越多的不良商家涌入和田玉市场。“不敢买”和“值不值”成了玉友最大的困惑，所谓“一玉难求”,更是充分体现了玉友们的无奈，和田玉行业的水到底有多深、存在多少套路和骗局？今天我就给大家聊一聊。
+            大家好，我是老李，一个为和田玉所痴狂的从业者，在丝绸之路和华凌经营5家实体店铺，【祥缘玉都】品牌创始人，从2001年在新疆开店，至今已满16年，服务帮助过近10万名玉友。</text>
+    </div>
+    <!--底部-->
+    <div class="footer">
+        <div class="footer-index">
+            <div class="footer-index-backindex" @click="handleHome">
+                <image class="footer-index-backIndex-icon"
+                       resize="cover"
+                       src="http://h5.chuangshi.nowui.com/wawipet/image/like.png"></image>
+                <text class="footer-index-text">首页</text>
+            </div>
+            <div class="footer-index-like" @click="handleCollect">
+                <image class="footer-index-like-icon"
+                       resize="cover"
+                       src="http://h5.chuangshi.nowui.com/wawipet/image/like.png"></image>
+                <text class="footer-index-text">收藏</text>
+            </div>
+        </div>
+        <div class="footer-submit"
+             @click="handleSubmit">
+            <text class="footer-submit-text">立即购买</text>
+        </div>
+    </div>
 </scroller>

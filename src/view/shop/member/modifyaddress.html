@@ -1,0 +1,61 @@
+<scroller class="container"
+          :style="{height: pageHeight}">
+    <!--头部-->
+    <div class="header">
+        <div class="header-content">
+            <wxc-minibar background-color="#fafafa"
+                         @wxcMinibarLeftButtonClicked="handleBack"
+                         @wxcMinibarRightButtonClicked="handleOK"
+                         :use-default-return="false">
+                <text class="header-title"
+                      slot="middle">修改个人地址</text>
+                <text slot="right" class="header-right-button">确定</text>
+            </wxc-minibar>
+        </div>
+    </div>
+    <wxc-cell :has-arrow="false"
+              :has-top-border="false"
+              :has-bottom-border="true"
+              :auto-accessible="false"
+              :has-margin="false"
+              :cell-style="{width: 750, height: 120}">
+        <div slot="title" class="cell-items">
+            <text class="cell-text">收货人：</text>
+            <input type="text" placeholder="输入姓名" value="彭海涛" class="cell-content" @change="onchange" @input="oninput"/>
+        </div>
+    </wxc-cell>
+    <wxc-cell :has-arrow="false"
+              :has-top-border="false"
+              :has-bottom-border="true"
+              :auto-accessible="false"
+              :has-margin="false"
+              :cell-style="{width: 750, height: 120}">
+        <div slot="title" class="cell-items">
+            <text class="cell-text">手机号码：</text>
+            <input type="tel" placeholder="输入姓名" value="15222870966" class="cell-content" @change="onchange" @input="oninput"/>
+        </div>
+    </wxc-cell>
+    <wxc-cell :has-arrow="true"
+              :has-top-border="false"
+              :has-bottom-border="true"
+              :auto-accessible="false"
+              :has-margin="false"
+              @wxcCellClicked="handleCellArea"
+              :cell-style="{width: 750, height: 120}">
+        <div slot="title" class="cell-items">
+            <text class="cell-text">所在地区：</text>
+            <text class="cell-content">上海市闵行区</text>
+        </div>
+    </wxc-cell>
+    <wxc-cell :has-arrow="false"
+              :has-top-border="false"
+              :has-bottom-border="true"
+              :auto-accessible="false"
+              :has-margin="false"
+              :cell-style="{width: 750, height: 180}">
+        <div slot="title">
+            <text class="cell-address-text">详细地址：</text>
+            <input type="text" placeholder="输入姓名" value="浦江镇联航路1188号" class="cell-address" @change="onchange" @input="oninput"/>
+        </div>
+    </wxc-cell>
+</scroller>

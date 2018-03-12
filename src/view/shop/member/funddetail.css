@@ -1,0 +1,49 @@
+.container {
+    width: 750px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: #f6f6f6;
+}
+
+.header {
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+}
+
+.header-content {
+    background-color: #fafafa;
+    z-index: 1;
+}
+
+.header-title {
+
+}
+
+.cell-item {
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.cell-left {
+    background-color: #00B4FF;
+}
+
+.cell-title {
+    font-family: PingFangSC-Medium;
+    font-size: 30px;
+    color: #222222;
+
+}
+.cell-date {
+    font-family: PingFangSC-Light;
+    font-size: 26px;
+    color: #888888;
+    padding-top:6px;
+}
+
+.cell-price {
+    font-family: PingFangSC-Light;
+    font-size: 38px;
+    color:#00B4FF ;
+}

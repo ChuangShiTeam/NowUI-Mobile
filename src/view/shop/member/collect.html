@@ -1,0 +1,36 @@
+<scroller class="container"
+          :style="{height: pageHeight}">
+    <!--头部-->
+    <div class="header">
+        <div class="header-content">
+            <wxc-minibar background-color="#fafafa"
+                         @wxcMinibarLeftButtonClicked="handleBack"
+                         :use-default-return="false">
+                <text class="header-title"
+                      slot="middle">我的收藏</text>
+            </wxc-minibar>
+        </div>
+    </div>
+    <div class="waterfall">
+        <waterfall class="page" ref="waterfall"
+                   v-bind:style="{paddingLeft:'20',paddingRight:'20'}"
+                   :column-width= "'auto'"
+                   :column-count="2"
+                   :column-gap="20">
+            <cell v-for="(item, index) in items" :key="" class="waterfall-cell" ref="index">
+                <div class="item" @click="handleGoodsItem(item.desc, index)" @appear="itemAppear(item.src)" @disappear="itemDisappear(item.src)">
+                    <image class="itemPhoto" :src="item.src"></image>
+                    <text v-if="item.desc" class="itemDesc">{{item.desc}}</text>
+                    <div class="cell-item-bottom">
+                        <div class="cell-item-bottom-left">
+                            <text class="cell-item-bottom-price">{{item.price}}</text>
+                        </div>
+                        <div class="cell-item-bottom-right">
+                            <text class="cell-item-bottom-num">{{item.num}}</text>
+                        </div>
+                    </div>
+                </div>
+            </cell>
+        </waterfall>
+    </div>
+</scroller>

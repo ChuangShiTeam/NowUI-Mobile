@@ -1,0 +1,45 @@
+<scroller class="container"
+          :style="{height: pageHeight}">
+    <!--头部-->
+    <div class="header">
+        <div class="header-content">
+            <wxc-minibar background-color="#fafafa"
+                         @wxcMinibarLeftButtonClicked="handleBack"
+                         :use-default-return="false">
+                <text class="header-title"
+                      slot="middle">参与的拍品</text>
+            </wxc-minibar>
+        </div>
+    </div>
+    <div class="cell"
+         v-for="(item, index) in itemsList"
+         :key="index">
+        <div class="cell-item-bg">
+            <div class="cell-item-image-bg">
+                <image class="cell-item-image"
+                       resize="cover"
+                       src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/110/h/110"></image>
+            </div>
+            <div class="cell-item-content">
+                <text class="cell-item-title">{{item.title}}</text>
+                <div class="cell-item-tips01">
+                    <text class="cell-item-tips-name">当前价：</text>
+                    <text class="cell-item-tips-price">{{item.price}}</text>
+                </div>
+                <div class="cell-item-tips02">
+                    <text class="cell-item-tips-name">开拍时间：</text>
+                    <text class="cell-item-tips-text">{{item.starttime}}</text>
+                </div>
+                <div class="cell-item-tips01">
+                    <text class="cell-item-tips-name">参拍价：</text>
+                    <text class="cell-item-tips-text">{{item.joinprice}}</text>
+                </div>
+                <div class="cell-item-tips02">
+                    <text class="cell-item-tips-name">参拍时间：</text>
+                    <text class="cell-item-tips-text">{{item.jointime}}</text>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</scroller>

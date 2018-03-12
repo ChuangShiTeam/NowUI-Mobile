@@ -28,11 +28,20 @@
             handleLoad() {
                 console.log(1);
             },
-            minibarLeftButtonClick() {
-                this.push('/view/shop/member/index.html');
+            handleBack() {
+                this.pop();
             },
-            handlePaySafety() {
-                this.push('/view/shop/member/paysafely.html');
+            handlerecharge() {
+                this.push('/view/shop/member/recharge.html');
+            },
+            handledraw() {
+                this.push('/view/shop/member/drawcash.html');
+            },
+            handleBankcart() {
+                this.push('/view/shop/member/bankcart.html');
+            },
+            handleFundDetail() {
+                this.push('/view/shop/member/funddetail.html');
             }
         }
     }

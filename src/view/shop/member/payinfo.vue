@@ -31,8 +31,8 @@
             handleLoad() {
                 console.log(1);
             },
-            minibarLeftButtonClick() {
-                this.push('/view/shop/member/index.html');
+            handleBack() {
+                this.pop();
             },
             onchange: function (event) {
                 this.txtChange = event.value;

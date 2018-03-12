@@ -1,0 +1,29 @@
+<scroller class="container"
+          :style="{height: pageHeight}">
+    <!--头部-->
+    <div class="header">
+        <div class="header-content">
+            <wxc-minibar background-color="fafafa"
+                         right-text="添加"
+                         @wxcMinibarLeftButtonClicked="handleBack"
+                         @wxcMinibarRightButtonClicked="handleAdd"
+                         :use-default-return="false">
+                <text class="header-title"
+                      slot="middle">选择银行卡</text>
+            </wxc-minibar>
+        </div>
+    </div>
+    <wxc-cell :has-arrow="false"
+              :has-top-border="false"
+              :has-bottom-border="true"
+              :auto-accessible="false"
+              :has-margin="false"
+              :cell-style="{width: 750, height: 140}"
+              v-for="(item,index) in bankCartList"
+              :key="index">
+        <div slot="title">
+            <text class="cell-bank-name">{{item.name}}</text>
+            <text class="cell-bank-number">{{item.cartNumber}}</text>
+        </div>
+    </wxc-cell>
+</scroller>

@@ -1,0 +1,108 @@
+<scroller class="container"
+          :style="{height: pageHeight}">
+    <!--头部-->
+    <div class="header">
+        <div class="header-content">
+            <wxc-minibar background-color="#fafafa"
+                         right-text="取消订单"
+                         @wxcMinibarLeftButtonClicked="handleBack"
+                         @wxcMinibarRightButtonClicked="handleCancelOrder"
+                         :use-default-return="false">
+                <text class="header-title"
+                      slot="middle">确认订单</text>
+            </wxc-minibar>
+        </div>
+    </div>
+    <wxc-cell :has-arrow="false"
+              :has-top-border="false"
+              :has-bottom-border="true"
+              @wxcCellClicked="handleSelectAddress"
+              :auto-accessible="false"
+              :has-margin="false"
+              :cell-style="{width: 750, height: 120,marginTop:20}">
+        <div slot="title" class="cell-items-address">
+            <image class="cell-address-icon"
+                   resize="cover"
+                   src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/110/h/110"></image>
+            <text class="cell-address-text">选择收货地址</text>
+        </div>
+    </wxc-cell>
+    <div class="cell">
+        <div class="cell-01"></div>
+        <div class="cell-02"></div>
+    </div>
+    <div class="cell-goods-info">
+        <text class="cell-goodsinfo-text">商品信息</text>
+        <div class="cell-goods-detailinfo">
+            <div class="cell-goodsinfo-image">
+                <image class="cell-goods-image"
+                       resize="cover"
+                       src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/110/h/110"></image>
+            </div>
+            <div class="cell-goods-content">
+                <text class="cell-goods-content-date">2018-03-10 22:04:22</text>
+                <text class="cell-goods-content-title">新疆和田玉洒金皮羊脂白玉自哈市将是的合法接收到回复是发</text>
+                <div class="cell-goods-content-bottom">
+                    <text class="cell-goods-content-price">市场价:16000</text>
+                    <text class="cell-goods-content-number">数量：1</text>
+                </div>
+            </div>
+        </div>
+        <div class="cell-line"></div>
+        <div class="cell-items-bg">
+            <text class="cell-items-title">购买价（含运费）：</text>
+            <text class="cell-items-content-price">￥6000.00</text>
+        </div>
+        <div class="cell-line"></div>
+        <div class="cell-input-bg" @click="handleInput">
+            <!--<text class="cell-input-tips">亲，如果有其他要求，请再次留言哦，客服会视情况处理。如，配送时间：工作日、双休日均可送货</text>-->
+            <input type="text" display="hidden" placeholder="请填写备注信息，如：工作日、双休日均可送货" value="" class="cell-input-tips" @change="onchange" @input="oninput"/>
+        </div>
+    </div>
+    <wxc-cell :has-arrow="false"
+              :has-top-border="false"
+              :has-bottom-border="true"
+              :auto-accessible="false"
+              :has-margin="false"
+              :cell-style="{width: 750, height: 100,marginTop:20}">
+        <div slot="title" class="cell-items">
+            <text class="cell-items-title">配送时间</text>
+            <text class="cell-items-content">工作日、双休日都可送货</text>
+        </div>
+    </wxc-cell>
+    <wxc-cell :has-arrow="false"
+              :has-top-border="false"
+              :has-bottom-border="true"
+              :auto-accessible="false"
+              :has-margin="false"
+              :cell-style="{width: 750, height: 100}">
+        <div slot="title" class="cell-items">
+            <text class="cell-items-title">支付方式</text>
+            <text class="cell-items-content">微信支付</text>
+        </div>
+    </wxc-cell>
+    <wxc-cell :has-arrow="false"
+              :has-top-border="false"
+              :has-bottom-border="true"
+              :auto-accessible="false"
+              :has-margin="false"
+              :cell-style="{width: 750, height: 100}">
+        <div slot="title" class="cell-items-account">
+            <text class="cell-items-title">账户余额</text>
+            <input type="number" placeholder="" value="0.06" class="input" @change="onchange" @input="oninput"/>
+            <text class="cell-items-price-tips">抵</text>
+            <text class="cell-items-price-text">￥0.00</text>
+        </div>
+    </wxc-cell>
+    <!--底部-->
+    <div class="footer">
+        <div class="footer-price">
+            <text class="footer-price-tips">实付款:</text>
+            <text class="footer-price-text">￥6000.00</text>
+        </div>
+        <div class="footer-submit"
+             @click="handleSubmit">
+            <text class="footer-submit-text">提交订单</text>
+        </div>
+    </div>
+</scroller>

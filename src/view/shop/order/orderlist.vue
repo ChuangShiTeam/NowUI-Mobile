@@ -1,5 +1,5 @@
-<style src="./orderinfo.css" scoped></style>
-<template src="./orderinfo.html"></template>
+<style src="./orderlist.css" scoped></style>
+<template src="./orderlist.html"></template>
 
 <script>
     import {WxcMinibar, WxcCell,WxcTabPage,WxcPanItem,Utils} from 'weex-ui';
@@ -72,8 +72,8 @@
             handleLoad() {
                 console.log(1);
             },
-            minibarLeftButtonClick() {
-                this.push('/view/shop/member/index.html');
+            handleBack() {
+                this.pop();
             },
             wxcTabPageCurrentTabSelected (e) {
                 const self = this;

@@ -1,0 +1,61 @@
+<scroller class="container"
+          :style="{height: pageHeight}">
+    <!--头部-->
+    <div class="header">
+        <div class="header-content">
+            <wxc-minibar background-color="#fafafa"
+                         right-text="保存"
+                         @wxcMinibarLeftButtonClicked="handleBack"
+                         @wxcMinibarRightButtonClicked="handleSave"
+                         :use-default-return="false">
+                <text class="header-title"
+                      slot="middle">增加个人地址</text>
+                <text slot="right" class="header-right-button">保存</text>
+            </wxc-minibar>
+        </div>
+    </div>
+    <wxc-cell :has-arrow="false"
+              :has-top-border="false"
+              :has-bottom-border="true"
+              :auto-accessible="false"
+              :has-margin="false"
+              :cell-style="{width: 750, height: 120}">
+        <div slot="title" class="cell-items">
+            <text class="cell-text">收货人：</text>
+            <input type="input" placeholder="输入姓名" class="input" @change="onchange" @input="oninput"/>
+        </div>
+    </wxc-cell>
+    <wxc-cell :has-arrow="false"
+              :has-top-border="false"
+              :has-bottom-border="true"
+              :auto-accessible="false"
+              :has-margin="false"
+              :cell-style="{width: 750, height: 120}">
+        <div slot="title" class="cell-items">
+            <text class="cell-text">手机号码：</text>
+            <input type="tel" placeholder="正确的手机号码" class="input" @change="onchange" @input="oninput"/>
+        </div>
+    </wxc-cell>
+    <wxc-cell :has-arrow="true"
+              :has-top-border="false"
+              :has-bottom-border="true"
+              :auto-accessible="false"
+              :has-margin="false"
+              :cell-style="{width: 750, height: 120}">
+        <div slot="title" class="cell-items">
+            <text class="cell-text">所在地区：</text>
+            <input type="input" placeholder="点击选择" class="input" @change="onchange" @input="oninput"/>
+        </div>
+    </wxc-cell>
+    <wxc-cell :has-arrow="false"
+              :has-top-border="false"
+              :has-bottom-border="true"
+              :auto-accessible="false"
+              :has-margin="false"
+              :cell-style="{width: 750, height: 180}">
+        <div slot="title">
+            <text class="cell-address-text">详细地址：</text>
+            <input type="input" placeholder="输入详细地址" class="input-address" @change="onchange" @input="oninput"/>
+        </div>
+    </wxc-cell>
+</scroller>

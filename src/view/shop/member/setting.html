@@ -3,15 +3,14 @@
     <!--头部-->
     <div class="header">
         <div class="header-content">
-            <wxc-minibar background-color="#fafafa" @wxcMinibarLeftButtonClicked="minibarLeftButtonClick"
+            <wxc-minibar background-color="#fafafa" @wxcMinibarLeftButtonClicked="handleBack"
                          :use-default-return="false">
-                <text slot="left">返回</text>
                 <text class="header-title"
                       slot="middle">个人设置</text>
             </wxc-minibar>
         </div>
     </div>
-    <wxc-cell :has-arrow="true"
+    <wxc-cell :has-arrow="false"
               @wxcCellClicked="handleProfile"
               :has-top-border="true"
               :has-bottom-border="false"
@@ -59,7 +58,7 @@
         <text class="cell-right-text">15222870966</text>
     </wxc-cell>
     <wxc-cell title="收货地址" :has-arrow="true"
-              @wxcCellClicked="handleProfile"
+              @wxcCellClicked="handleAddress"
               :has-top-border="true"
               :has-bottom-border="false"
               :auto-accessible="false"
