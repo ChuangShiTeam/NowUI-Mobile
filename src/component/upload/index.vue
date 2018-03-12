@@ -4,6 +4,7 @@
 <script type="text/ecmascript-6">
     import {WxcCell, WxcIcon} from 'weex-ui';
     import VueUploadComponent from 'vue-upload-component';
+    import ImageCompressor from 'image-compressor.js';
 
     import mixins from '../../mixins/index';
     import event from "../../common/event";
@@ -36,7 +37,7 @@
 
         },
         mounted() {
-            this.url = this.host + '/file/mobile/v1/image/upload';
+            this.url = this.imageHost + '/file/mobile/v1/image/upload';
         },
         methods: {
             handleClose(index) {
@@ -77,6 +78,44 @@
                     if (!/\.(jpeg|jpe|jpg|gif|png|webp)$/i.test(newFile.name)) {
                         return prevent()
                     }
+                }
+
+                // Automatic compression,
+                if (newFile && newFile.file && newFile.type.substr(0, 6) === 'image/' && !oldFile) {
+                    // Set an error to prevent being uploaded
+                    newFile.error = 'compressor'
+                    new ImageCompressor(newFile.file, {
+                        quality: 0.8,
+                        maxWidth: 1440,
+                        maxHeight: 1440,
+                        success: (result) => {
+                            const reader = new FileReader();
+                            let base64Data;
+
+                            reader.onload = (e) => {
+                                base64Data = e.target.result;
+
+                                this.request({
+                                    url: this.imageHost + '/file/mobile/v1/base64/upload',
+                                    data: {
+                                        base64Data: base64Data
+                                    },
+                                    success: (data) => {
+                                        this.imageList.push(data);
+
+                                        event.$emit(this.eventName, {
+                                            imageList: this.imageList
+                                        });
+                                    }
+                                });
+                            };
+
+                            reader.readAsDataURL(result)
+                        },
+                        error: (e) => {
+
+                        },
+                    });
                 }
 
                 // 创建 blob 字段 用于图片预览

@@ -21,7 +21,7 @@
             <image class="follow-forum-image"
                    resize="cover"
                    slot="label"
-                   :src="imageHost + forum.forumMedia" @click="handleForumHomepage(forum.forumId)"></image>
+                   :src="imageHost + forum.forumMediaFilePath" @click="handleForumHomepage(forum.forumId)"></image>
             <div slot="title">
                 <text class="follow-forum-name" @click="handleForumHomepage(forum.forumId)">{{forum.forumName}}</text>
                 <text class="follow-forum-description" @click="handleForumHomepage(forum.forumId)">{{forum.forumDescription}}</text>
@@ -32,7 +32,7 @@
 
                     <image class="follow-forum-info-avatar"
                            resize="cover"
-                           :src="imageHost + forum.userAvatar"></image>
+                           :src="imageHost + forum.userAvatarFilePath"></image>
                     <!--<image class="follow-forum-info-avatar"-->
                            <!--resize="cover"-->
                            <!--v-else="forum.forumModeratorInfo"-->

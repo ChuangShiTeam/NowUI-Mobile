@@ -21,9 +21,10 @@
         mixins: [mixins],
         data: () => ({
             topicPageIndex: 1,
-            topicPageSize: 80,
+            topicPageSize: 3,
             topicTotal: 0,
-            topicList: []
+            topicList: [],
+            hasMore: true
         }),
         created() {
             this.handleLoad();
@@ -33,20 +34,28 @@
         },
         methods: {
             handleLoad() {
-                console.log('开始载入话题首页数据');
-
+                console.log('开始载入话题首页数据: ');
+                if (!this.hasMore){
+                    console.log('已经到底了')
+                    return;
+                }
                 this.request({
                     url: '/topic/mobile/v1/home/list',
                     data: {
                         pageIndex: this.topicPageIndex,
                         pageSize: this.topicPageSize,
                         systemCreateTime: moment().format('YYYY-MM-DD HH:mm:ss'),
-                        excludeTopicIdList: []
+                        excludeTopicIdList: [],
+                        memberId: this.getMemberId()
                     },
                     success: (data) => {
                         if (data.total > 0) {
                             this.topicTotal = data.total,
                             this.topicList = this.topicList.concat(data.list)
+                            this.topicPageIndex = this.topicPageIndex + 1
+                        }
+                        if (data.list < data.total){
+                            this.hasMore = false;
                         }
                         console.log( '载入话题首页数据 - systemTime : ' + moment().format('YYYY-MM-DD HH:mm:ss'))
                     },
@@ -62,13 +71,13 @@
                 });
             },
             handleHomepage() {
-                this.push('/view/member/homepage.html');
+                this.push('/member/homepage.html');
             },
             handleSearch() {
-                this.push('/view/topic/search.html');
+                this.push('/topic/search.html');
             },
             handleAdd() {
-                this.push('/view/topic/add.html');
+                this.push('/topic/add.html');
             },
 
         }

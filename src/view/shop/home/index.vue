@@ -163,10 +163,10 @@
             },
             //推荐专场详情
             handleRecommendItem(){
-                this.push('/view/shop/home/recommend.html');
+                this.push('/shop/home/recommend.html');
             },
             handleGoodsItem(){
-                this.push('/view/shop/home/auctionitems.html');
+                this.push('/shop/home/detail.html');
             },
             onItemclick: function (behaviour, index) {
                 console.log(`click...${behaviour} at index ${index}`)

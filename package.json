@@ -26,6 +26,7 @@
   "author": "NowUI <nowui@163.com>",
   "license": "MIT",
   "dependencies": {
+    "image-compressor.js": "^1.1.1",
     "moment-timezone": "^0.5.14",
     "vue": "^2.5.13",
     "vue-moment": "^3.2.0",

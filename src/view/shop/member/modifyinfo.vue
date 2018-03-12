@@ -37,6 +37,7 @@
             minibarRightButtonClick() {
                 this.pop();
             },
+
             onchange: function (event) {
                 this.txtChange = event.value;
                 console.log('onchange', event.value);

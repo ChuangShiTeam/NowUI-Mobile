@@ -15,18 +15,12 @@
             WxcCell,
             Topic
         },
-        props: {
-            tabHeight: {
-                type: Number,
-                required: true
-            }
-        },
         mixins: [mixins],
         data: () => ({
             headerBackgroundOpacity: 0.0,
             bannerList: [],
+            hotTopicBanner: {},
             articleList: [],
-            // categoryList: [],
             categoryList: [{
                 name: '保健卡',
                 image: 'http://h5.chuangshi.nowui.com/wawipet/image/category-0.png'
@@ -215,6 +209,7 @@
         },
         created() {
             this.handleLoadIndexBanner();
+            this.handleLoadIndexHotTopicBanner();
             this.handleLoadHotArticle();
             this.handleLoadCategory();
         },
@@ -244,12 +239,25 @@
                     }
                 });
             },
+            handleLoadIndexHotTopicBanner() {
+                this.request({
+                    url: '/advertisement/mobile/v1/index/hot/topic/banner/list',
+                    data: {},
+                    success: (data) => {
+                        if (data && data.length > 0) {
+                            this.hotTopicBanner = data[0];
+                        }
+                    },
+                    error: () => {
+                    }
+                });
+            },
             handleLoadHotArticle() {
                 this.request({
                     url: '/article/mobile/v1/hot/list',
                     data: {
                         pageIndex: 1,
-                        pageSize: 10
+                        pageSize: 4
                     },
                     success: (data) => {
                         if (data && data.length > 0) {
@@ -264,15 +272,16 @@
                 event.$emit('login-show', {
 
                 });
+				// this.toast('123');
             },
             handleSearch() {
-                this.push('/view/home/search.html');
+                this.push('/home/search.html');
             },
             handleCategory() {
-                this.push('/view/article/index.html');
+                this.push('/article/index.html');
             },
             handleMemberHomepage() {
-                this.push('/view/member/homepage.html');
+                this.push('/member/homepage.html');
             },
             handleLoadCategory() {
                 this.request({

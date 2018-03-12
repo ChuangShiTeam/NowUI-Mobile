@@ -49,16 +49,35 @@
                 console.log(1);
             },
             handleSetting() {
-                this.push('/view/shop/member/setting.html');
+                this.push('/shop/member/setting.html');
             },
             handleWallet() {
-                this.push('/view/shop/member/wallet.html');
+                this.push('/shop/member/wallet.html');
             },
             handleCategory() {
                 this.push('/view/shop/order/orderlist.html');
             },
-            handleParticipate(){
+            handleParticipate() {
                 this.push('/view/shop/member/participate.html');
+            },
+            handleBookmark() {
+                this.push('/member/bookmark.html');
+            },
+            handleProfile() {
+                this.push('/member/profile.html');
+            },
+            handlePet() {
+                this.push('/member/pet.html');
+            },
+            handleFollow() {
+                this.push('/member/follow.html');
+            },
+            handleQrcode() {
+                this.push('/member/qrcode.html');
+            },
+            handleCategory() {
+                this.push('/article/index.html');
+>>>>>>> e78694e3eda6dfd1d42162ed219b1b274c3d16b1
             },
             handleCollect() {
                 this.push('/view/shop/member/collect.html');

@@ -146,8 +146,12 @@
                 this.pop();
             },
 
-            handleRecommendItem(){
+            handleRecommendItem() {
                 this.push('/view/shop/home/auctionitems.html');
+            },
+
+            handleRecommendItem(){
+                this.push('/shop/home/detail.html');
             },
             onItemclick: function (behaviour, index) {
                 console.log(`click...${behaviour} at index ${index}`)

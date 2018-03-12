@@ -28,8 +28,9 @@
             </div>
         </wxc-minibar>
     </div>
-    <scroller :style="{width: 750, height: pageHeight, marginBottom: 60}"
-              loadmoreoffset="100">
+    <scroller :style="{width: 750, height: pageHeight - 190, marginBottom: 60}"
+              @loadmore="handleLoadHotTopicList"
+              loadmoreoffset="1000">
         <!--我加入的圈子-->
         <wxc-cell :has-arrow="false"
                   :has-top-border="false"
@@ -57,7 +58,7 @@
                     class="follow-forum-image"
                     resize="cover"
                     slot="label"
-                    :src="imageHost + forum.forumMedia"></image>
+                    :src="imageHost + forum.forumMediaFilePath"></image>
                 <div slot="title">
                     <text @click="handleHomepage(forum.forumId)" class="follow-forum-name">{{forum.forumName}}</text>
                     <text @click="handleHomepage(forum.forumId)" class="follow-forum-description">{{forum.forumDescription}}</text>
@@ -67,7 +68,7 @@
                         src="http://h5.chuangshi.nowui.com/wawipet/image/crown.png"></image>
                         <image class="follow-forum-info-avatar"
                         resize="cover"
-                              :src="imageHost + forum.userAvatar"></image>
+                              :src="imageHost + forum.userAvatarFilePath"></image>
 
                         <text class="follow-forum-info-name">{{forum.userNickName}}</text>
                         <text @click="handleHomepage(forum.forumId)" class="follow-forum-info-number">今日最新话题数: {{forum.forumTodayTopicCount}}</text>
@@ -100,30 +101,30 @@
                        :container-s="{width: 750, height: 510, overflow: 'hidden', backgroundColor: '#fbfcfc'}"
                        :card-s="{width: 480, height: 480, spacing: 0, scale: 0.8}"
                        :auto-play="false"
-                       :select-index="2">
-            <wxc-pan-item v-for="(v,index) in [1,2,3,4,5]"
+                       :select-index="1">
+            <wxc-pan-item v-for="(forumRecommend,index) in forumRecommendList"
                           :key="index"
                           :ext-id="index"
                           :class="['slider',`slider${index}`]"
                           :slot="`card${index}_2`"
                           :accessible="true"
                           :aria-label="`这里是第${index + 1}个滑块`">
-                <div class="interest-item" @click="handleHomepage">
+                <div class="interest-item" @click="handleHomepage(forumRecommend.forumId)">
                     <image class="interest-item-avatar"
                            resize="cover"
-                           src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/80/h/80"></image>
-                    <text class="interest-item-name">大爱猫咪控</text>
-                    <text class="interest-item-description">猫咪超级萌的，温暖的大宝贝</text>
+                           :src="imageHost + forumRecommend.forumMediaFilePath"></image>
+                    <text class="interest-item-name">{{forumRecommend.forumName}}</text>
+                    <text class="interest-item-description">{{forumRecommend.forumDescription}}</text>
                     <div class="interest-item-image">
                         <image class="interest-item-image-item"
                                resize="cover"
-                               src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+                               :src="imageHost + forumRecommend.forumMediaFilePath"></image>
                         <image class="interest-item-image-item"
                                resize="cover"
-                               src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+                               :src="imageHost + forumRecommend.forumMediaFilePath"></image>
                         <image class="interest-item-image-item"
                                resize="cover"
-                               src="http://h5.chuangshi.nowui.com/wawipet/image/0.png"></image>
+                               :src="imageHost + forumRecommend.forumMediaFilePath"></image>
                     </div>
                     <text class="interest-item-join">加入</text>
                 </div>

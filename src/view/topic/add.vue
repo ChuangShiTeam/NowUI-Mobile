@@ -28,7 +28,6 @@
             forumList: [],
             topicTipUserList: [],
             topicMediaList: [],
-            theSendInfo: {},
             userNickName: '',
             userAvatar: '',
 
@@ -47,13 +46,13 @@
                 console.log(1);
             },
             handleLocation() {
-                this.push('/view/topic/location.html');
+                this.push('/topic/location.html');
             },
             handleRemind() {
-                this.push('/view/topic/remind.html');
+                this.push('/topic/remind.html');
             },
             handleTag() {
-                this.push('/view/topic/tag.html');
+                this.push('/topic/tag.html');
             },
             handleTopicSummaryInput(event) {
                 this.topicSummary = event.value;
@@ -62,12 +61,20 @@
                 console.log(this.imageList);
                     this.topicMediaList = this.imageList.map((topicMedia, index) => {
                         return {
-                            topicMedia: topicMedia.filePath,
+                            topicMediaFileId: topicMedia.fileId,
+                            topicMediaFilePath: topicMedia.filePath,
                             topicMediaType: 'IMAGE',
                             topicMediaSort: index + 1
                         }
                     });
 
+                    // TODO
+                let topicTipUserList = '';
+                this.storage.getItem('topic-member-remind-list' + this.version, res => {
+                    if(res.result === 'success'){
+                        topicTipUserList = res.data;
+                    }
+                });
                 this.request({
                     url: '/topic/mobile/v1/save',
                     data: {
@@ -84,16 +91,11 @@
                                 forumName: forum.forumName
                             }
                         }),
-                        topicTipUserList: this.topicTipUserList,
+                        topicTipUserList: topicTipUserList,
                         topicMediaList: this.topicMediaList,
-                        theSendInfo: {
-                            userNickName: '谁用了我的头像(新)',
-                            userAvatar: '/upload/df2078d6c9eb46babb0df957127273ab/3bdfcbb00f90415989fb53e6677c25df/ae74752bc95c4ed6a9ebbd020d3b4105.jpg',
-                            memberSignature: '喵咪太可爱了!(新签名)'
-                        },
-                        userNickName: '谁用了我的头像(新)',
-                        userAvatar: '/upload/df2078d6c9eb46babb0df957127273ab/3bdfcbb00f90415989fb53e6677c25df/ae74752bc95c4ed6a9ebbd020d3b4105.jpg',
-                        memberSignature: '喵咪太可爱了!(新签名)'
+                        userNickName: this.getUserNickName(),
+                        userAvatarFilePath: this.getUserAvatarFilePath(),
+                        memberId: this.getMemberId()
                     },
                     success: (data) => {
                         this.toast('发布成功', () => {
@@ -104,72 +106,13 @@
                     }
                 });
 
-                // this.props.form.validateFields((errors, values) => {
-                //     values.longtitude = '';
-                //     values.latitude = '';
-                //     values.topicLocation = '';
-                //     values.topicIsLocation = false;
-                //     let location = this.props.topicAdd.location;
-                //     if (location && location.module === 'locationPicker') {
-                //         values.longtitude = location.latlng.lng + "";
-                //         values.latitude = location.latlng.lat + "";
-                //         values.topicLocation = location.poiaddress;
-                //         values.topicIsLocation = true;
-                //     }
-                //
-                //     values.topicForumList = this.state.forumList.filter(forum => forum.selected).map(forum => {
-                //         return {
-                //             forumId: forum.forumId,
-                //             forumName: forum.forumName
-                //         }
-                //     });
-                //     values.topicTipUserList = this.props.topicAdd.topicTipUserList.map(topicTipUser => topicTipUser.value);
-                //
-                //     values.topicMediaList = values.topicMedia.map((topicMedia, index) => {
-                //         return {
-                //             topicMedia: topicMedia.filePath,
-                //             topicMediaType: 'IMAGE',
-                //             topicMediaSort: index + 1
-                //         }
-                //     });
-                //
-                //     values.theSendInfo = {
-                //         userNickName: '谁用了我的头像(测试)',
-                //         userAvatar: '/upload/df2078d6c9eb46babb0df957127273ab/3bdfcbb00f90415989fb53e6677c25df/ae74752bc95c4ed6a9ebbd020d3b4105.jpg',
-                //     }
-                //
-                //     delete values.topicMedia;
-                //     http.request({
-                //         url: '/topic/mobile/v1/save',
-                //         data: values,
-                //         success: function (data) {
-                //             notification.notice({
-                //                 content: '发布成功'
-                //             });
-                //             this.props.dispatch({
-                //                 type: 'topicAdd',
-                //                 data: {
-                //                     topicTipUserList: [],
-                //                     location: {},
-                //                     forumList: []
-                //                 }
-                //             });
-                //             this.props.history.push({
-                //                 pathname: '/topic/index',
-                //                 query: {}
-                //             });
-                //         }.bind(this),
-                //         complete: function () {
-                //
-                //         }
-                //     });
-                // });
-
             },
             hanldeLoadForum() {
                 this.request({
                     url: '/forum/user/follow/mobile/v1/name/list',
-                    data: {},
+                    data: {
+                        memberId: this.getMemberId()
+                    },
                     success: (data) => {
                         let forumList = data;
                         if (forumList && forumList.length > 0) {
@@ -190,7 +133,7 @@
 
 
                 // forumList[index] = forum;
-                //TODO 不会检测到根据索引直接赋值,和数字长度变化然后重新渲染页面,可按照下面两个方法达到效果
+                //TODO vue不会检测到根据索引直接赋值,和数字长度变化然后重新渲染页面,可按照下面两个方法达到效果
                 // Vue.set(forumList, index, forum);
                 forumList.splice(index, 1, forum)
 

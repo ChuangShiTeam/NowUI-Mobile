@@ -14,6 +14,10 @@
             <text class="cell-text upload-cell-title">上传圈子照片</text>
             <Upload :limit="1" eventName="forum-add-upload" :containerStyle="{width: 114}"></Upload>
         </div>
+        <div class="upload-background-cell">
+            <text class="cell-text upload-cell-background-title">上传圈子背景</text>
+            <Upload :limit="5" eventName="forum-add-background-upload" :containerStyle="{width: 750}"></Upload>
+        </div>
         <wxc-cell :has-arrow="false"
                   :has-top-border="true"
                   :has-bottom-border="true"

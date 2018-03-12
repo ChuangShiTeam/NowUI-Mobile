@@ -10,7 +10,8 @@ const vueWebTemp = helper.rootNode(config.templateDir);
 const hasPluginInstalled = fs.existsSync(helper.rootNode(config.pluginFilePath));
 const isWin = /^win/.test(process.platform);
 
-let constant = require('../src/common/constant');
+const constant = require('../src/common/constant');
+const entry = require('../src/common/entry');
 
 // Wraping the entry file for web.
 const getEntryFileContent = (entryPath, vueFilePath) => {
@@ -47,14 +48,15 @@ const getEntryFile = (dir) => {
         const stat = fs.statSync(fullpath);
         const extname = path.extname(fullpath);
         if (stat.isFile() && extname === '.vue') {
-            const name = path.join(dir, path.basename(file, extname));
+            let name = path.join(dir, path.basename(file, extname));
+            name = name.replace('view/', '').replace('view\\', '');
             if (extname === '.vue') {
                 const entryFile = path.join(vueWebTemp, dir, path.basename(file, extname) + '.js');
                 fs.outputFileSync(path.join(entryFile), getEntryFileContent(entryFile, fullpath));
                 if (constant.active == 'dev') {
-                    for (var i = 0; i < constant.webEntry.length; i++) {
-                        if (constant.webEntry[i] == name.replace(/\\/g, '/')) {
-                            webEntry[name] = path.join(entryFile) + '?entry=true';
+                    for (var i = 0; i < entry.webEntry.length; i++) {
+                        if (entry.webEntry[i] == name.replace(/\\/g, '/')) {
+                            webEntry[name] = path.join(entryFile).replace(/\\/g, '/') + '?entry=true';
                         }
                     }
                 } else {
@@ -73,7 +75,7 @@ const getEntryFile = (dir) => {
 
 // Generate an entry file array before writing a webpack configuration
 getEntryFile();
-console.log(webEntry);
+// console.log(webEntry);
 /**
  * Plugins for webpack configuration.
  */

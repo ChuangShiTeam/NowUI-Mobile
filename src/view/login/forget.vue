@@ -23,7 +23,7 @@
         },
         methods: {
             handlePassword() {
-                //this.push('/view/login/password.html');
+                //this.push('/login/password.html');
             },
             handleNext() {
                 if (this.mobile == '') {

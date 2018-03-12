@@ -42,6 +42,9 @@
             },
             handleFundDetail() {
                 this.push('/view/shop/member/funddetail.html');
+            },
+            handlePaySafety() {
+                this.push('/shop/member/paysafely.html');
             }
         }
     }

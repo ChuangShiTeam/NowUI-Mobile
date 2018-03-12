@@ -26,149 +26,18 @@
             followForumTotal : 0,
             followForumList: [],
 
+            forumRecommendList: [],
+
             hotTopicPageIndex: 1,
             hotTopicPageSize: 3,
             hotTopicTotal: 0,
             hotTopicList: [],
+            hasMore: true
 
-
-            // followForumList: [{
-            //     name: '我加入的圈子',
-            //     description: '这里是魔都喵星人的聚集地，是爱猫人士的家园，欢迎加入',
-            //     memberName: '小可爱',
-            //     number: 21
-            // }, {
-            //     name: '我加入的圈子',
-            //     description: '这里是魔都喵星人的聚集地，是爱猫人士的家园，欢迎加入',
-            //     memberName: '小可爱',
-            //     number: 21
-            // }, {
-            //     name: '我加入的圈子',
-            //     description: '这里是魔都喵星人的聚集地，是爱猫人士的家园，欢迎加入',
-            //     memberName: '小可爱',
-            //     number: 21
-            // }],
-            // topicList: [{
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }]
-            // }, {
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }]
-            // }, {
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }]
-            // }, {
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }]
-            // }, {
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }]
-            // }, {
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }]
-            // }, {
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }]
-            // }, {
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }]
-            // }, {
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }]
-            // }]
         }),
         created() {
             this.handleLoadJoinForumList();
+            this.handleLoadRecommendForumList();
             this.handleLoadHotTopicList();
 
         },
@@ -182,7 +51,8 @@
                     url: '/forum/user/follow/mobile/v1/list',
                     data: {
                         pageIndex: this.forumJoinPageIndex,
-                        pageSize: this.forumJoinPageSize
+                        pageSize: this.forumJoinPageSize,
+                        memberId: this.getMemberId()
                     },
                     success: (data) => {
                         if (data.total > 0) {
@@ -196,20 +66,47 @@
                     }
                 });
             },
+            handleLoadRecommendForumList() {
+                console.log('开始载入你或许感兴趣的圈子列表');
+                this.request({
+                    url: '/forum/mobile/v1/recommend/list',
+                    data: {
+                        pageSize: 8,
+                        requestMemberId: this.getMemberId()
+                    },
+                    success: (data) => {
+                        if (data.length > 0) {
+                            this.forumRecommendList = data
+                        }
+                        console.log( this.forumRecommendList)
+                    },
+                    error: () => {
+                    }
+                });
+            },
             handleLoadHotTopicList() {
                 console.log('开始载入热门动态列表');
+                if (!this.hasMore){
+                    console.log('已经到底了')
+                    return;
+                }
                 this.request({
-                    url: '/topic/mobile/v1/home/list',
+                    url: '/topic/mobile/v1/hot/list',
                     data: {
                         pageIndex: this.hotTopicPageIndex,
                         pageSize: this.hotTopicPageSize,
                         systemCreateTime: moment().format('YYYY-MM-DD HH:mm:ss'),
-                        excludeTopicIdList: []
+                        excludeTopicIdList: [],
+                        memberId: this.getMemberId()
                     },
                     success: (data) => {
                         if (data.total > 0) {
                             this.hotTopicTotal = data.total,
-                            this.hotTopicList = data.list
+                            this.hotTopicList = this.hotTopicList.concat(data.list),
+                            this.hotTopicPageIndex = this.hotTopicPageIndex + 1
+                        }
+                        if (data.list < data.total){
+                            this.hasMore = false;
                         }
                         console.log( 'systemTime : ' + moment().format('YYYY-MM-DD HH:mm:ss'))
                     },
@@ -218,7 +115,7 @@
                 });
             },
             handleHomepage(forumId) {
-                this.push('/view/forum/homepage.html?forumId=' + forumId);
+                this.push('/forum/homepage.html?forumId=' + forumId);
             },
             handleTopic() {
                 event.$emit('sns-click', {
@@ -226,13 +123,13 @@
                 });
             },
             handleFollow(e) {
-                this.push('/view/forum/follow.html');
+                this.push('/forum/follow.html');
             },
             handleAdd() {
-                this.push('/view/forum/add.html');
+                this.push('/forum/add.html');
             },
             handleSearch() {
-                this.push('/view/forum/search.html');
+                this.push('/forum/search.html');
             }
         }
     }

@@ -25,6 +25,7 @@
             forumName: '',
             forumMedia: '',
             forumDescription: '',
+            forumBackgroundMediaList: ''
         }),
         created() {
 
@@ -32,6 +33,10 @@
         mounted() {
             event.$on('forum-add-upload', (data) => {
                 this.imageList = data.imageList;
+            });
+
+            event.$on('forum-add-background-upload', (data) => {
+                this.forumBackgroundMediaList = data.imageList;
             });
         },
         methods: {
@@ -54,23 +59,36 @@
                     return;
                 }
 
-                this.isLoad = true;
+                if (this.forumBackgroundMediaList.length == 0) {
+                    this.toast('请上传圈子背景照片');
 
+                    return;
+                }
+
+                this.forumBackgroundMediaList = this.forumBackgroundMediaList.map((forumBackgroundMedia, index) => {
+                    return {
+                        forumBackgroundMediaFileId: forumBackgroundMedia.fileId,
+                        forumBackgroundMediaFilePath: forumBackgroundMedia.filePath,
+                        forumBackgroundMediaType: 'IMAGE',
+                        forumBackgroundMediaSort: index + 1
+                    }
+                });
+
+                this.isLoad = true;
                 this.request({
                     url: '/forum/mobile/v1/save',
                     data: {
                         forumName: this.forumName,
                         forumMediaType: 'IMAGE',
-                        forumMedia: this.imageList[0].filePath,
+                        forumMediaId: this.imageList[0].fileId,
+                        forumMediaFilePath: this.imageList[0].filePath,
                         forumDescription: this.forumDescription,
-                        forumModeratorInfo : {
-                            userNickName: '谁用了我的头像(新)',
-                            userAvatar: '/upload/df2078d6c9eb46babb0df957127273ab/3bdfcbb00f90415989fb53e6677c25df/ae74752bc95c4ed6a9ebbd020d3b4105.jpg',
-                            memberSignature: '喵咪太可爱了!(新签名)'
-                        },
-                        userNickName: '谁用了我的头像(新)',
-                        userAvatar: '/upload/df2078d6c9eb46babb0df957127273ab/3bdfcbb00f90415989fb53e6677c25df/ae74752bc95c4ed6a9ebbd020d3b4105.jpg',
-                        memberSignature: '喵咪太可爱了!(新签名)'
+                        userNickName: this.getUserNickName(),
+                        userAvatarFilePath: this.getUserAvatarFilePath(),
+                        forumModeratorMemberId: this.getMemberId(),
+
+                        forumBackgroundMediaList:  this.forumBackgroundMediaList
+                        // memberSignature: '喵咪太可爱了!(新签名)'
                     },
                     success: (data) => {
                         this.isLoad = false;

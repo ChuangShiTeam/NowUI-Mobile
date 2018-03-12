@@ -2,7 +2,7 @@
 <template src="./homepage.html"></template>
 
 <script type="text/ecmascript-6">
-    import {WxcMinibar, WxcCell} from 'weex-ui';
+    import {WxcMinibar, WxcCell, WxcLoading} from 'weex-ui';
 
     import mixins from '../../mixins/index';
 
@@ -15,11 +15,13 @@
         components: {
             WxcMinibar,
             WxcCell,
-            Topic
+            Topic,
+            WxcLoading
         },
         mixins: [mixins],
         data: () => ({
             memberId: '',
+            member: {},
             topicPageIndex: 1,
             topicPageSize: 20,
 
@@ -29,132 +31,25 @@
             commentPageIndex: 1,
             commentPageSize: 3,
 
-            // topicList: [{
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }]
-            // }, {
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }]
-            // }, {
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }]
-            // }, {
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }]
-            // }, {
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }]
-            // }, {
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }]
-            // }, {
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }]
-            // }, {
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }, {
-            //         filePath: ''
-            //     }]
-            // }, {
-            //     topicId: '0',
-            //     topicMediaList: [{
-            //         filePath: ''
-            //     }]
-            // }]
+            selfHomePage: false,
+
+            isShowLoaing: false
         }),
         created() {
-            console.log('开始加载用户: ' + weex.config.parameter.memberId + ' 的个人主页');
             this.memberId = weex.config.parameter.memberId;
             if (this.memberId){
-                this.handleLoadTopicList(this.memberId);
+                if (this.memberId === this.getMemberId()){
+                    this.handleLoadSelfMemberInfo();
+                    this.handleLoadSelfTopicList();
+                    this.selfHomePage = true;
+                }else {
+                    this.handleLoadOtherMemberInfo(this.memberId);
+                    this.handleLoadOtherTopicList(this.memberId);
+                }
             } else {
+                this.handleLoadSelfMemberInfo();
                 this.handleLoadSelfTopicList();
+                this.selfHomePage = true;
             }
         },
         mounted() {
@@ -170,12 +65,14 @@
                 // });
             },
 
-            handleLoadTopicList(memberId) {
+            handleLoadOtherTopicList(memberId) {
+                console.log('开始加载别人的个人主页动态列表')
                 if (memberId) {
                     this.request({
                         url: '/topic/mobile/v1/home/topic',
                         data: {
                             memberId: memberId,
+                            requestMemberId: this.getMemberId(),
                             pageIndex: this.topicPageIndex,
                             pageSize: this.topicPageSize,
                             systemCreateTime: moment().format('YYYY-MM-DD HH:mm:ss'),
@@ -200,11 +97,13 @@
                 }
             },
             handleLoadSelfTopicList() {
+                console.log('开始加载自己的个人主页动态列表')
                 this.request({
                     url: '/topic/mobile/v1/self/home/topic',
                     data: {
                         pageIndex: this.topicPageIndex,
                         pageSize: this.topicPageSize,
+                        memberId: this.getMemberId(),
                         systemCreateTime: moment().format('YYYY-MM-DD HH:mm:ss'),
                         excludeTopicIdList: [],
                         commentPageIndex: this.commentPageIndex,
@@ -224,7 +123,75 @@
                     error: () => {
                     }
                 });
+            },
+            handleLoadSelfMemberInfo() {
+                console.log('开始加载自己的个人主页信息')
+                this.request({
+                    url: '/topic/mobile/v1/home/self/info',
+                    data: {
+                        memberId: this.getMemberId()
+                    },
+                    success: (data) => {
+                        this.member = data
+                    },
+                    error: () => {
+                    }
+                });
+            },
+            handleLoadOtherMemberInfo(memberId) {
+                if (memberId) {
+                    console.log('开始加载别人的个人主页信息')
+                    this.request({
+                        url: '/topic/mobile/v1/home/user/info',
+                        data: {
+                            memberId: memberId
+                        },
+                        success: (data) => {
+                            this.member = data
+                        },
+                        error: () => {
+                        }
+                    });
+                }
+            },
+            handleFollow(memberId) {
+
+                if (memberId) {
+                    this.isShowLoaing = true;
+                    this.request({
+                        url: this.member.memberIsFollow ? '/sns/member/follow/mobile/v1/delete' : '/sns/member/follow/mobile/v1/save',
+                        data: {
+                            followMemberId: memberId
+                        },
+                        success: (data) => {
+                            if (data){
+                                this.member.memberIsFollow = !this.member.memberIsFollow;
+                                if (this.member.memberIsFollow){
+                                    this.member.memberBeFollowCount = this.member.memberBeFollowCount + 1;
+                                    // 他的话题列表的关注按钮也要变
+                                    for(var j = 0,len = this.topicList.length; j < len; j++){
+                                        this.topicList[j].memberIsFollow = !this.topicList[j].memberIsFollow
+                                    }
+
+                                }else{
+                                    if(this.member.memberBeFollowCount > 0){
+                                        this.member.memberBeFollowCount = this.member.memberBeFollowCount - 1;
+                                        // 他的话题列表的关注按钮也要变
+                                        for(var j = 0,len = this.topicList.length; j < len; j++){
+                                            this.topicList[j].memberIsFollow = !this.topicList[j].memberIsFollow
+                                        }
+                                    }
+                                }
+                            }
+                            this.isShowLoaing = false;
+                        },
+                        error: () => {
+                            this.isShowLoaing = false;
+                        }
+                    });
+                }
             }
+
         }
     }
 </script>

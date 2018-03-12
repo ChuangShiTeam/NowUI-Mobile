@@ -61,6 +61,9 @@
             },
             handleSubmit() {
                 this.push('/view/shop/order/orderinfo.html');
+            },
+            handleGoodsItem(){
+                this.push('/member/index.html');
             }
         }
     }

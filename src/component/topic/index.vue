@@ -22,7 +22,6 @@
                 type: Object,
                 required: true
             },
-            index: 0,
             containerStyle: {
                 type: Object
             }
@@ -36,8 +35,6 @@
             }
         },
         created() {
-            console.log(this.index, this.topic)
-            console.log(this.topic.topicMediaList[0].topicMedia)
         },
         mounted() {
 
@@ -53,8 +50,9 @@
                     url: this.topic.topicUserIsLike ? '/topic/user/unlike/mobile/v1/save' : '/topic/user/like/mobile/v1/save',
                     data: {
                         topicId: this.topic.topicId,
-                        userNickName: '谁用了我的头像(测试)',
-                        userAvatar: '/upload/df2078d6c9eb46babb0df957127273ab/3bdfcbb00f90415989fb53e6677c25df/ae74752bc95c4ed6a9ebbd020d3b4105.jpg'
+                        memberId: this.getMemberId(),
+                        userNickName: this.getUserNickName(),
+                        userAvatarFilePath: this.getUserAvatarFilePath()
                     },
                     success: (data) => {
                         if (data) {
@@ -84,8 +82,15 @@
                     url: this.topic.topicUserIsBookmark ? '/topic/user/unbookmark/mobile/v1/save' : '/topic/user/bookmark/mobile/v1/save',
                     data: {
                         topicId: this.topic.topicId,
-                        userNickName: '谁用了我的头像(测试)',
-                        userAvatar: '/upload/df2078d6c9eb46babb0df957127273ab/3bdfcbb00f90415989fb53e6677c25df/ae74752bc95c4ed6a9ebbd020d3b4105.jpg'
+                        memberId: this.getMemberId(),
+                        userNickName: this.getUserNickName(),
+                        userAvatarFilePath: this.getUserAvatarFilePath(),
+
+                        topicFirstMediaFilePath: this.topic.topicMediaList[0].topicMediaFilePath,
+                        topicUserNickName: this.topic.userNickName,
+                        topicSummary: this.topic.topicSummary,
+                        topicUserAvatarFilePath: this.topic.userAvatarFilePath,
+                        topicMemberId: this.topic.memberId
                     },
                     success: (data) => {
                         if (data) {
@@ -108,18 +113,18 @@
                 });
             },
             handleMemberHomepage(memberId) {
-                this.push('/view/member/homepage.html?memberId=' + memberId);
+                this.push('/member/homepage.html?memberId=' + memberId);
             },
             handleTopic(topicId) {
-                this.push('/view/topic/detail.html?topicId=' + topicId);
+                this.push('/topic/detail.html?topicId=' + topicId);
             },
             handleForumHomePage(forumId) {
-                this.push('/view/forum/homepage.html?forumId=' + forumId);
+                this.push('/forum/homepage.html?forumId=' + forumId);
             },
             handleFollow(memberId) {
                 if (memberId) {
                     this.request({
-                        url: this.topic.memberIsFollow ? '/member/follow/mobile/v1/delete' : '/member/follow/mobile/v1/save',
+                        url: this.topic.memberIsFollow ? '/sns/member/follow/mobile/v1/delete' : '/sns/member/follow/mobile/v1/save',
                         data: {
                             followMemberId: memberId
                         },
@@ -127,7 +132,7 @@
                             if (data){
                                 this.topic.memberIsFollow = !this.topic.memberIsFollow;
                             }
-                            console.log(data)
+
                         },
                         error: () => {
                         }

@@ -1,23 +1,23 @@
 <div class="container">
     <div class="tab-item" :style="{left: activeIndex * -750 + 'px'}">
         <!--首页-->
-        <HomeIndex :tabHeight="pageHeight - 80"></HomeIndex>
+        <HomeIndex></HomeIndex>
 
         <!--社区-->
-        <SnsIndex :tabHeight="pageHeight - 80"></SnsIndex>
+        <SnsIndex></SnsIndex>
 
         <!--服务-->
-        <ServiceIndex :tabHeight="pageHeight - 80"></ServiceIndex>
+        <ServiceIndex></ServiceIndex>
 
         <!--我的-->
-        <MemberIndex :tabHeight="pageHeight - 80"></MemberIndex>
+        <MemberIndex></MemberIndex>
     </div>
     <div class="bar">
         <div class="bar-item" @click="handleBar(0)">
             <image :src="activeIndex == 0 ? 'http://h5.chuangshi.nowui.com/wawipet/image/index-active.png' : 'http://h5.chuangshi.nowui.com/wawipet/image/index.png'"
                    resize="cover"
                    class="bar-item-icon"></image>
-            <text :class="[activeIndex == 0 ? 'bar-item-text-active' : 'bar-item-text']">首页</text>
+            <text :class="[activeIndex == 0 ? 'bar-item-text-active' : 'bar-item-text']">话题</text>
         </div>
         <div class="bar-item" @click="handleBar(1)">
             <image :src="activeIndex == 1 ? 'http://h5.chuangshi.nowui.com/wawipet/image/forum-active.png' : 'http://h5.chuangshi.nowui.com/wawipet/image/forum.png'"

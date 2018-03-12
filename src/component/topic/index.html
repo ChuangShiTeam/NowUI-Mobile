@@ -8,9 +8,9 @@
                @click="handleMemberHomepage(topic.memberId)"
                resize="cover"
                slot="label"
-               :src="imageHost + topic.theSendInfo.userAvatar"></image>
+               :src="imageHost + topic.userAvatarFilePath"></image>
         <div slot="title">
-            <text class="name">{{topic.theSendInfo.userNickName}}</text>
+            <text class="name">{{topic.userNickName}}</text>
             <text class="time">{{topic.systemCreateTime | formNow}}</text>
         </div>
         <div class="button"
@@ -26,164 +26,165 @@
                  @click="handleDelete" v-if="topic.topicIsSelf">
                 <text class="delete-text">删除</text>
             </div>
-            <text class="close"
+            <div class="close"
                   @click="handleClose"
-                  @wxcPopupOverlayClicked="handleCloseClick">+
-            </text>
+                  @wxcPopupOverlayClicked="handleCloseClick">
+                <text>+</text>
+            </div>
         </div>
     </wxc-cell>
     <div class="media-1" v-if="topic.topicMediaList.length == 1" @click="handleTopic(topic.topicId)">
         <image class="media-image-1-0"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[0].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[0].topicMediaFilePath"></image>
     </div>
     <div class="media-2" v-if="topic.topicMediaList.length == 2" @click="handleTopic(topic.topicId)">
         <image class="media-image-2-0"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[0].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[0].topicMediaFilePath"></image>
         <image class="media-image-2-1"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[1].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[1].topicMediaFilePath"></image>
     </div>
     <div class="media-3" v-if="topic.topicMediaList.length == 3" @click="handleTopic(topic.topicId)">
         <image class="media-image-3-0"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[0].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[0].topicMediaFilePath"></image>
         <image class="media-image-3-1"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[1].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[1].topicMediaFilePath"></image>
         <image class="media-image-3-2"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[2].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[2].topicMediaFilePath"></image>
     </div>
     <div class="media-4" v-if="topic.topicMediaList.length == 4" @click="handleTopic(topic.topicId)">
         <image class="media-image-4-0"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[0].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[0].topicMediaFilePath"></image>
         <image class="media-image-4-1"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[1].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[1].topicMediaFilePath"></image>
         <image class="media-image-4-2"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[2].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[2].topicMediaFilePath"></image>
         <image class="media-image-4-3"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[3].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[3].topicMediaFilePath"></image>
     </div>
     <div class="media-5" v-if="topic.topicMediaList.length == 5" @click="handleTopic(topic.topicId)">
         <image class="media-image-5-0"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[0].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[0].topicMediaFilePath"></image>
         <image class="media-image-5-1"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[1].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[1].topicMediaFilePath"></image>
         <image class="media-image-5-2"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[2].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[2].topicMediaFilePath"></image>
         <image class="media-image-5-3"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[3].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[3].topicMediaFilePath"></image>
         <image class="media-image-5-4"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[4].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[4].topicMediaFilePath"></image>
     </div>
     <div class="media-6" v-if="topic.topicMediaList.length == 6" @click="handleTopic(topic.topicId)">
         <image class="media-image-6-0"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[0].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[0].topicMediaFilePath"></image>
         <image class="media-image-6-1"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[1].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[1].topicMediaFilePath"></image>
         <image class="media-image-6-2"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[2].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[2].topicMediaFilePath"></image>
         <image class="media-image-6-3"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[3].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[3].topicMediaFilePath"></image>
         <image class="media-image-6-4"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[4].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[4].topicMediaFilePath"></image>
         <image class="media-image-6-5"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[5].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[5].topicMediaFilePath"></image>
     </div>
     <div class="media-7" v-if="topic.topicMediaList.length == 7" @click="handleTopic(topic.topicId)">
         <image class="media-image-7-0"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[0].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[0].topicMediaFilePath"></image>
         <image class="media-image-7-1"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[1].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[1].topicMediaFilePath"></image>
         <image class="media-image-7-2"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[2].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[2].topicMediaFilePath"></image>
         <image class="media-image-7-3"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[3].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[3].topicMediaFilePath"></image>
         <image class="media-image-7-4"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[4].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[4].topicMediaFilePath"></image>
         <image class="media-image-7-5"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[5].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[5].topicMediaFilePath"></image>
         <image class="media-image-7-6"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[6].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[6].topicMediaFilePath"></image>
     </div>
     <div class="media-8" v-if="topic.topicMediaList.length == 8" @click="handleTopic(topic.topicId)">
         <image class="media-image-8-0"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[0].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[0].topicMediaFilePath"></image>
         <image class="media-image-8-1"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[1].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[1].topicMediaFilePath"></image>
         <image class="media-image-8-2"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[2].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[2].topicMediaFilePath"></image>
         <image class="media-image-8-3"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[3].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[3].topicMediaFilePath"></image>
         <image class="media-image-8-4"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[4].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[4].topicMediaFilePath"></image>
         <image class="media-image-8-5"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[5].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[5].topicMediaFilePath"></image>
         <image class="media-image-8-6"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[6].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[6].topicMediaFilePath"></image>
         <image class="media-image-8-7"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[7].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[7].topicMediaFilePath"></image>
     </div>
     <div class="media-9" v-if="topic.topicMediaList.length == 9" @click="handleTopic(topic.topicId)">
         <image class="media-image-9-0"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[0].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[0].topicMediaFilePath"></image>
         <image class="media-image-9-1"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[1].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[1].topicMediaFilePath"></image>
         <image class="media-image-9-2"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[2].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[2].topicMediaFilePath"></image>
         <image class="media-image-9-3"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[3].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[3].topicMediaFilePath"></image>
         <image class="media-image-9-4"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[4].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[4].topicMediaFilePath"></image>
         <image class="media-image-9-5"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[5].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[5].topicMediaFilePath"></image>
         <image class="media-image-9-6"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[6].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[6].topicMediaFilePath"></image>
         <image class="media-image-9-7"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[7].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[7].topicMediaFilePath"></image>
         <image class="media-image-9-8"
                resize="cover"
-               :src="imageHost + topic.topicMediaList[8].topicMedia"></image>
+               :src="imageHost + topic.topicMediaList[8].topicMediaFilePath"></image>
     </div>
     <div class="content" @click="handleTopic(topic.topicId)">
         <text class="content-text">{{topic.topicSummary}}</text>

@@ -53,7 +53,13 @@
             },
             handleMember(index) {
                 console.log(index)
-                this.memberList[index].isSelect = !this.memberList[index].isSelect;
+                let memberList = this.memberList;
+                let member = memberList[index];
+                member.isSelect = !member.isSelect;
+                // this.memberList[index].isSelect = !this.memberList[index].isSelect;
+                memberList.splice(index, 1, member)
+                this.memberList = memberList;
+
                 console.log(this.memberList)
             },
             handleSubmit() {
@@ -74,7 +80,7 @@
             },
             handleLoadFollowMember() {
                 this.request({
-                    url: '/member/follow/mobile/v1/my/follow/list',
+                    url: '/sns/member/follow/mobile/v1/my/follow/list',
                     data: {},
                     success: (data) => {
                         if (data && data.length > 0) {

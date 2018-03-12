@@ -22,14 +22,14 @@
         },
         methods: {
             wxcButtonClicked(e) {
-                // util.push('/view/home/search.html');
+                // util.push('/home/search.html');
 
                 // modal.toast({
-                //     message: util.push('/view/index.html'),
+                //     message: util.push('/index.html'),
                 //     duration: 10.3
                 // })
 
-                this.push('/view/index.html');
+                this.push('/index.html');
             }
         }
     }

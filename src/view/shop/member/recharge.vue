@@ -35,7 +35,7 @@
             handleBack() {
                 this.pop();
             },
-            handleNextSteps(){
+            handleNextSteps() {
                 this.push('/view/shop/member/pay.html');
             },
             onchange: function (event) {

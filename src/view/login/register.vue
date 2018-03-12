@@ -88,11 +88,15 @@
                     },
                     success: (data) => {
                         this.isLoad = false;
+                        this.setToken(data.token);
+                        this.setUserAvatarFilePath(data.userAvatarFilePath);
+                        this.setUserNickName(data.userNickName);
+                        this.setMemberId(data.memberId);
                         this.toast('注册成功', () => {
                             this.mobile = '';
                             this.password = '';
                             this.captcha = '';
-                            this.handleFast();
+                            this.push('/index.html');
                         });
                     },
                     error: () => {

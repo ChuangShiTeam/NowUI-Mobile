@@ -6,13 +6,13 @@
               :auto-accessible="false"
               :cell-style="{width: 750, height: 90}">
         <image class="avatar"
-               @click="handleHomepage"
+               @click="handleMemberHomepage(topic.memberId)"
                resize="cover"
                slot="label"
-               :src="imageHost + topic.theSendInfo.userAvatar"></image>
+               :src="imageHost + topic.userAvatarFilePath"></image>
         <div slot="title">
-            <text class="name" @click="handleHomepage">{{topic.theSendInfo.userNickName}}</text>
-            <text class="time" @click="handleHomepage">{{topic.systemCreateTime | formNow}}</text>
+            <text class="name" @click="handleMemberHomepage(topic.memberId)">{{topic.userNickName}}</text>
+            <text class="time" @click="handleMemberHomepage(topic.memberId)">{{topic.systemCreateTime | formNow}}</text>
         </div>
 
         <div class="button"
@@ -62,7 +62,7 @@
                 <image class="like-avatar"
                        resize="cover"
                        v-for="topicUserLike in topic.topicUserLikeList"
-                       :src="imageHost + topicUserLike.userAvatar" @click="handleTopicUserLikeList(topic.topicId)"></image>
+                       :src="imageHost + topicUserLike.userAvatarFilePath" @click="handleTopicUserLikeList(topic.topicId)"></image>
             </div>
 
             <image class="bookmark-image"
@@ -86,7 +86,8 @@
             <div class="feedback-item-left">
                 <image class="feedback-item-left-avatar"
                        resize="cover"
-                       :src="imageHost + topicComment.userAvatar"></image>
+                       @click="handleMemberHomepage(topicComment.memberId)"
+                       :src="imageHost + topicComment.userAvatarFilePath"></image>
             </div>
             <div class="feedback-item-right">
                 <div class="feedback-item-right-header">
@@ -103,19 +104,19 @@
                     </div>
                 </div>
                 <text class="feedback-item-right-text"
-                      @click="handleChooseReply(topicComment.memberId, topicComment.userNickName, topicComment.userAvatar, topicComment.topicCommentId)"
-                      v-if="topicComment.topicReplayUserNickName === ''">{{topicComment.topicCommentContent}}</text>
+                      @click="handleChooseReply(topicComment.memberId, topicComment.userNickName, topicComment.userAvatarFilePath, topicComment.topicCommentId)"
+                      v-if="topicComment.topicReplyUserNickName === ''|| topicComment.topicReplyUserNickName == null || topicComment.topicReplyCommentId === '' || topicComment.topicReplyCommentId == null">{{topicComment.topicCommentContent}}</text>
                 <text class="feedback-item-right-text"
-                      @click="handleChooseReply(topicComment.memberId, topicComment.userNickName, topicComment.userAvatar, topicComment.topicCommentId)"
-                      v-else>{{topic.theSendInfo.userNickName + ' 回复 ' + topicComment.topicReplayUserNickName + ': ' + topicComment.topicCommentContent}}</text>
+                      @click="handleChooseReply(topicComment.memberId, topicComment.userNickName, topicComment.userAvatarFilePath, topicComment.topicCommentId)"
+                      v-else>{{topicComment.userNickName + ' 回复 ' + topicComment.topicReplyUserNickName + ': ' + topicComment.topicCommentContent}}</text>
             </div>
         </div>
     </div>
     <div class="footer">
         <image class="footer-avatar"
-               @click="handleHomepage"
+               @click="handleMemberHomepage()"
                resize="cover"
-               :src="imageHost + topic.theSendInfo.userAvatar"></image>
+               :src="imageHost + this.getUserAvatarFilePath()"></image>
         <div class="footer-center">
             <input class="footer-center-input"
                    type="text"
@@ -132,4 +133,5 @@
             :image-list="imageList"
             @wxcLightboxOverlayClicked="handleCloseImage">
     </wxc-lightbox>
+    <wxc-loading :show="isShowLoaing"></wxc-loading>
 </scroller>
