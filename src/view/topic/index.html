@@ -31,7 +31,7 @@
     <scroller :style="{width: 750, height: pageHeight - 190}"
               offset-x-accuracy="0.1"
               @loadmore="handleLoad"
-              loadmoreoffset="100">
+              loadmoreoffset="1000">
         <Topic :topic="topic"
                :containerStyle="{marginBottom: 20, marginTop: index == 0 ? 20 : 0}"
                v-for="(topic, index) in topicList"
